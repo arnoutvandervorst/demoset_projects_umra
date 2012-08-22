@@ -14,7 +14,89 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init-user-config</ProjectName>
+                    <ProjectName>global-init</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Folder_backup%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>C:\Program Files\Tools4ever\User Management Resource Administrator\Backup\20120724-100013-1640</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFsList">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>end</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <FilesFlag>TRUE</FilesFlag>
+                    <DirsFlag>FALSE</DirsFlag>
+                    <RecursivelyFlag>FALSE</RecursivelyFlag>
+                    <PrivilegesFlag>FALSE</PrivilegesFlag>
+                    <PathName>%Folder_backup%</PathName>
+                    <VariableName>%Table_files%</VariableName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>5</TableDataOperation>
+                    <TableDataVariable>%Table_files%</TableDataVariable>
+                    <ValueTextArgument1>%Count_rows_table_files%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>99</TableDataOperation>
+                    <TableDataVariable>%Table_files%</TableDataVariable>
+                    <ValueTextArgument1>-step1-</ValueTextArgument1>
+                    <ValueTextArgument2>%ResultTable%</ValueTextArgument2>
+                    <ValueTextArgument3>0,STRICT</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
@@ -28,7 +110,7 @@
                         </Base>
                     </Base>
                     <TableDataOperation>1</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <TableDataVariable>%Table_umra_script_report_projects%</TableDataVariable>
                     <ValueTextArgument1>2</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
@@ -38,6 +120,53 @@
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
+                <ArrayElement class="cActionItemScriptForEach">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableVariableName>%Table_files%</TableVariableName>
+                    <ProjectName>function-generate-table-umra-script-report-projects</ProjectName>
+                    <ColumnVariablesMap>
+                        <TextItem>%File_object%</TextItem>
+                        <TextItem></TextItem>
+                        <TextItem></TextItem>
+                        <TextItem></TextItem>
+                        <TextItem></TextItem>
+                        <TextItem></TextItem>
+                        <TextItem></TextItem>
+                        <TextItem></TextItem>
+                        <TextItem></TextItem>
+                        <TextItem></TextItem>
+                        <TextItem>%File_name%</TextItem>
+                    </ColumnVariablesMap>
+                    <ReturnVariableNames>
+                        <TextItem>%Status_operation%</TextItem>
+                        <TextItem>%Count_errors%</TextItem>
+                        <TextItem>%Table_umra_script_report_projects%</TextItem>
+                    </ReturnVariableNames>
+                    <StopLoopOnErrorFlag>TRUE</StopLoopOnErrorFlag>
+                    <TerminationCondition class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray/>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </TerminationCondition>
+                    <VariableFilter class="cUmVariableFilter">
+                        <VariableFilterMode>3</VariableFilterMode>
+                        <VariableSpecification>
+                            <TextItem>%Table_files%</TextItem>
+                        </VariableSpecification>
+                    </VariableFilter>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -49,9 +178,9 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>2</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
-                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <TableDataOperation>99</TableDataOperation>
+                    <TableDataVariable>%Table_umra_script_report_projects%</TableDataVariable>
+                    <ValueTextArgument1></ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
@@ -60,10 +189,10 @@
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
+                <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
-                            <Label></Label>
+                            <Label>end</Label>
                             <ErrorControl>0</ErrorControl>
                             <ErrorControlLabel></ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
@@ -71,170 +200,9 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>3</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
-                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
-                    <ValueTextArgument2>0</ValueTextArgument2>
-                    <ValueTextArgument3>telephoneNumber</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>3</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
-                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
-                    <ValueTextArgument2>1</ValueTextArgument2>
-                    <ValueTextArgument3>%input_telephoneNumber%</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>2</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
-                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
-                    <ValueTextArgument2></ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>3</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
-                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
-                    <ValueTextArgument2>0</ValueTextArgument2>
-                    <ValueTextArgument3>homePhone</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>3</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
-                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
-                    <ValueTextArgument2>1</ValueTextArgument2>
-                    <ValueTextArgument3>%input_homePhone%</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>2</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
-                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
-                    <ValueTextArgument2></ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>3</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
-                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
-                    <ValueTextArgument2>0</ValueTextArgument2>
-                    <ValueTextArgument3>mobile</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>3</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
-                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
-                    <ValueTextArgument2>1</ValueTextArgument2>
-                    <ValueTextArgument3>%input_mobile%</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
                 </ArrayElement>
             </ObjectArray>
         </Base>
@@ -256,45 +224,10 @@
             <Mask>6</Mask>
             <DACL class="cJvrSecAcl">
                 <ProtectedFlag>FALSE</ProtectedFlag>
-                <ResetChildPermissionsFlags>TRUE</ResetChildPermissionsFlags>
+                <ResetChildPermissionsFlags>FALSE</ResetChildPermissionsFlags>
                 <DaclDefaultedFlag>TRUE</DaclDefaultedFlag>
                 <Base class="cUmraObArray">
-                    <ObjectArray>
-                        <ArrayElement class="cJvrSecAce">
-                            <Base class="cJvrSecAceBase">
-                                <AceType>0</AceType>
-                                <AceFlags>0</AceFlags>
-                                <Mask>48</Mask>
-                                <Account class="cJvrSecAccount">
-                                    <Mask>5</Mask>
-                                    <AccountName>Administrators</AccountName>
-                                    <AccountNameVariable></AccountNameVariable>
-                                    <AccountClassName></AccountClassName>
-                                    <AccountSid class="cJvrSecSid">
-                                        <InitializedFlag>TRUE</InitializedFlag>
-                                        <SID>BIAAAAAAAUAIAAAAgIAAAAs</SID>
-                                    </AccountSid>
-                                </Account>
-                            </Base>
-                        </ArrayElement>
-                        <ArrayElement class="cJvrSecAce">
-                            <Base class="cJvrSecAceBase">
-                                <AceType>0</AceType>
-                                <AceFlags>0</AceFlags>
-                                <Mask>48</Mask>
-                                <Account class="cJvrSecAccount">
-                                    <Mask>5</Mask>
-                                    <AccountName>NT Authority\Network Service</AccountName>
-                                    <AccountNameVariable></AccountNameVariable>
-                                    <AccountClassName></AccountClassName>
-                                    <AccountSid class="cJvrSecSid">
-                                        <InitializedFlag>TRUE</InitializedFlag>
-                                        <SID>BEAAAAAAAUAFAAAA</SID>
-                                    </AccountSid>
-                                </Account>
-                            </Base>
-                        </ArrayElement>
-                    </ObjectArray>
+                    <ObjectArray/>
                 </Base>
             </DACL>
             <Group class="cJvrSecAccount">
@@ -325,18 +258,29 @@
         </Base>
     </AccessSettings>
     <HelpInfoUrl></HelpInfoUrl>
-    <ScriptTimeOutSec>1492536</ScriptTimeOutSec>
+    <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\b975c705-a584-429d-8b82-0476b4807066.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\054c1d26-bc37-47ef-809d-af032071f195.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
-        <Scheduler/>
+        <Scheduler class="cUmraSchedulerOnCommand">
+            <Base class="cUmraScheduler">
+                <DayIncludeFlags>0</DayIncludeFlags>
+                <SchedulerFlags>0</SchedulerFlags>
+                <Exceptions class="cUmraSchedulerExceptions">
+                    <ExceptionMode>0</ExceptionMode>
+                    <Base class="cUmraObArray">
+                        <ObjectArray/>
+                    </Base>
+                </Exceptions>
+            </Base>
+        </Scheduler>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-user-ad-preprocess-input-selfservice</ProjectName>
-        <DisplayName>function-user-ad-preprocess-input-form</DisplayName>
-        <UUID>Fccd5SYpdK0iCSgd0CIcmBs</UUID>
+        <ProjectName>auto-umra-script-report-create</ProjectName>
+        <DisplayName>auto-umra-script-report-create</DisplayName>
+        <UUID>m0BTFcDvvfEgd+6AgEX8VCs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
@@ -903,11 +847,6 @@
         <DataFileParam class="cDataFileParam">
             <Base class="cDataFileParseInfo">
                 <Separators>
-                    <TextItem>,</TextItem>
-                    <TextItem>,</TextItem>
-                    <TextItem>,</TextItem>
-                    <TextItem>,</TextItem>
-                    <TextItem>,</TextItem>
                     <TextItem>,</TextItem>
                 </Separators>
                 <TextQualifier>"</TextQualifier>
