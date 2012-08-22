@@ -18,7 +18,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%proxyAddress%</InputVariableName>
+                                    <InputVariableName>%Object_dn%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>100</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -27,7 +27,7 @@
                                     <InvertResultFlag>FALSE</InvertResultFlag>
                                 </ArrayElement>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%proxyAddress%</InputVariableName>
+                                    <InputVariableName>%Object_dn%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>208</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -65,7 +65,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Object_dn%</InputVariableName>
+                                    <InputVariableName>%proxyAddress%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>100</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -74,7 +74,7 @@
                                     <InvertResultFlag>FALSE</InvertResultFlag>
                                 </ArrayElement>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Object_dn%</InputVariableName>
+                                    <InputVariableName>%proxyAddress%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>208</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -109,57 +109,6 @@
                         </Base>
                     </Base>
                     <ProjectName>global-init-ad</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>global-get-userobject</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Count_errors%</InputVariableName>
-                                    <InputVariableType>2</InputVariableType>
-                                    <OperatorIndex>300</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>0</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>TRUE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>end</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGoTo">
                     <Base class="cActionItemScript">
@@ -213,7 +162,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <GoToLabel>end</GoToLabel>
+                    <GoToLabel>continue</GoToLabel>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
@@ -629,7 +578,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <GoToLabel>end</GoToLabel>
+                    <GoToLabel>continue</GoToLabel>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
@@ -770,7 +719,12 @@
                                                 <Description>Optional. The credential user name, use this parameter when you want to access the Exchange Server with an explicit account. The user name must be of an account inside the domain of the Exchange server and must have access to the Exchange server For example: 'tools4ever\JohnSmith'. If not specified, a default security context is tried for the specified authentication method, Generally this will be the security context of the Powershell Agent Service account.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
-                                                <Value/>
+                                                <Value class="cUmDataText">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <TextValue>%Exchange_connection_credential_username%</TextValue>
+                                                </Value>
                                             </Base>
                                             <TechName>UserName</TechName>
                                             <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
@@ -798,7 +752,12 @@
                                                 <Description>Optional. The encrypted password of the account you want to use to access the Exchange server with. The input should be the encrypted value of the password.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
-                                                <Value/>
+                                                <Value class="cUmDataText">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <TextValue>%Exchange_connection_credential_password%</TextValue>
+                                                </Value>
                                             </Base>
                                             <TechName>Password</TechName>
                                             <EncryptedTextVariableFlag>TRUE</EncryptedTextVariableFlag>
@@ -826,7 +785,12 @@
                                                 <Description>With the 'Skip certificate check' parameter you can choose to connect to the exchange server without checking the certificate of the exchange server.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
-                                                <Value/>
+                                                <Value class="cUmDataBool">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <BoolValue>TRUE</BoolValue>
+                                                </Value>
                                             </Base>
                                             <TechName>SkipCertificate</TechName>
                                             <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
@@ -1804,7 +1768,97 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <GoToLabel>end</GoToLabel>
+                    <GoToLabel>continue</GoToLabel>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>continue</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%log_umra_db_enabled%</InputVariableName>
+                                    <InputVariableType>3</InputVariableType>
+                                    <OperatorIndex>500</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataBool">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <BoolValue>TRUE</BoolValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>TRUE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGenericTable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDefinition class="cUmraTableDefDatabaseQuery">
+                        <Base class="cUmraTableDef">
+                            <VariableName>%Table_query_db%</VariableName>
+                            <TestVariableArray class="cUmVariableArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray/>
+                                </Base>
+                            </TestVariableArray>
+                        </Base>
+                        <UmraOleDb class="cUmraOleDbGeneral">
+                            <Base class="cUmraOleDb"/>
+                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
+                            <OleDbProviderType>11082184</OleDbProviderType>
+                        </UmraOleDb>
+                        <DatabaseQuery><![CDATA[EXEC spLog_add
+'Proxy adres verwijderd: %proxyAddress%',
+'add-proxyaddress',
+'%status_operation%',
+'%UmraProjectName%',
+'%log_umra_db_operator%',
+'%Object_dn%']]></DatabaseQuery>
+                        <QueryResultColumnNames>
+                            <TextItem>id_snapshot</TextItem>
+                        </QueryResultColumnNames>
+                    </TableDefinition>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
