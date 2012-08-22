@@ -1,0 +1,1027 @@
+<UmraProject class="cUmFormProject">
+    <InitialProject></InitialProject>
+    <Script class="cActionItemCollection">
+        <Base class="cUmraObArray">
+            <ObjectArray>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%global_init_db_queries_executed%</InputVariableName>
+                                    <InputVariableType>3</InputVariableType>
+                                    <OperatorIndex>500</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataBool">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <BoolValue>TRUE</BoolValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Table_user_attributes_hrm_enabled%</VariableName>
+                    <Data class="cUmDataBool">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <BoolValue>TRUE</BoolValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Conn_string_db_hrm%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=Beaufort;Data Source=WFMDC1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=WFMDC1;Use Encryption for Data=False;Tag with column collation when possible=False</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Conn_string_db_wfm%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=workflow;Data Source=WFMDC1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=WFMDC1;Use Encryption for Data=False;Tag with column collation when possible=False</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Conn_string_db_umra%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=UMRA;Data Source=WFMDC1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=WFMDC1;Use Encryption for Data=False;Tag with column collation when possible=False</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_employees_all%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[select CONVERT(varchar, dpib010.pers_nr) as 'pers_nr', 
+dpib010.naam_samen + ', ' + dpib010.e_roepnaam as 'vol_nm',
+e_vrlt, 
+dpib010.e_roepnaam, 
+dpib010.vrvg_samen, 
+dpib010.naam_samen, 
+func_kd,
+func_oms,
+oe_kort_nm, 
+oe_vol_nm, 
+indnst_dt, 
+uitdnst_dt
+From dpib010
+inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
+inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
+left join dpic351 on dpic351.func_kd = dpic300.primfunc_kd
+order by dpib010.pers_nr]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_employees_contract_start%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT convert(varchar, tpersoon.pers_nr) as 'pers_nr', 
+tpersoon.e_roepnaam + ' ' + tpersoon.naam_samen as 'vol_nm',
+tpersoon.e_vrlt, 
+tpersoon.e_roepnaam, 
+tpersoon.vrvg_samen, 
+tpersoon.naam_samen, 
+tfunctie.func_oms, 
+tafdeling.oe_vol_nm, 
+tcontract.indnst_dt, 
+tcontract.uitdnst_dt
+FROM dpib010 tpersoon
+INNER JOIN dpic300 tcontract ON tcontract.pers_nr = tpersoon.pers_nr
+INNER JOIN dpib023 tafdeling ON tafdeling.pers_nr = tpersoon.pers_nr
+INNER JOIN dpic351 tfunctie ON tfunctie.func_kd = tcontract.primfunc_kd
+WHERE tcontract.uitdnst_dt > getdate()
+ORDER BY tcontract.indnst_dt]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_employees_contract_end%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT convert(varchar, tpersoon.pers_nr) as 'pers_nr', 
+tpersoon.e_roepnaam + ' ' + tpersoon.naam_samen as 'vol_nm',
+tpersoon.e_vrlt, 
+tpersoon.e_roepnaam, 
+tpersoon.vrvg_samen, 
+tpersoon.naam_samen, 
+tfunctie.func_oms, 
+tafdeling.oe_vol_nm, 
+tcontract.indnst_dt, 
+tcontract.uitdnst_dt
+FROM dpib010 tpersoon
+INNER JOIN dpic300 tcontract ON tcontract.pers_nr = tpersoon.pers_nr
+INNER JOIN dpib023 tafdeling ON tafdeling.pers_nr = tpersoon.pers_nr
+INNER JOIN dpic351 tfunctie ON tfunctie.func_kd = tcontract.primfunc_kd
+WHERE tcontract.uitdnst_dt < getdate()
+ORDER BY tcontract.indnst_dt]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_employee_details%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[select CONVERT(varchar, dpib010.pers_nr) as 'pers_nr', 
+e_vrlt, 
+dpib010.e_roepnaam, 
+dpib010.vrvg_samen, 
+dpib010.naam_samen, 
+func_oms,
+oe_vol_nm, 
+indnst_dt, 
+uitdnst_dt
+From dpib010
+inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
+inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
+inner join dpic351 on dpic300.primfunc_kd = dpic351.func_kd
+where dpib010.pers_nr = %employeeID%
+order by dpib010.pers_nr]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%global_init_db_queries_executed%</VariableName>
+                    <Data class="cUmDataBool">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <BoolValue>TRUE</BoolValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>end</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+            </ObjectArray>
+        </Base>
+        <ScriptInfo></ScriptInfo>
+        <EmbeddedNameGenerationFlag>FALSE</EmbeddedNameGenerationFlag>
+        <LogVariablesFlag>FALSE</LogVariablesFlag>
+        <DynActionDatabaseSyncId class="cUmraDynActionSetSyncId">
+            <Stamp>331</Stamp>
+            <Id>zuZ9fXpxK0ko+U#bdYeo9Bs</Id>
+        </DynActionDatabaseSyncId>
+        <VariableInfoCollection class="cVariableInfoCollection">
+            <Base class="cUmraObArray">
+                <ObjectArray/>
+            </Base>
+        </VariableInfoCollection>
+    </Script>
+    <AccessSettings class="cFormAccess">
+        <Base class="cJvrSec">
+            <Mask>6</Mask>
+            <DACL class="cJvrSecAcl">
+                <ProtectedFlag>FALSE</ProtectedFlag>
+                <ResetChildPermissionsFlags>TRUE</ResetChildPermissionsFlags>
+                <DaclDefaultedFlag>TRUE</DaclDefaultedFlag>
+                <Base class="cUmraObArray">
+                    <ObjectArray>
+                        <ArrayElement class="cJvrSecAce">
+                            <Base class="cJvrSecAceBase">
+                                <AceType>0</AceType>
+                                <AceFlags>0</AceFlags>
+                                <Mask>48</Mask>
+                                <Account class="cJvrSecAccount">
+                                    <Mask>5</Mask>
+                                    <AccountName>Administrators</AccountName>
+                                    <AccountNameVariable></AccountNameVariable>
+                                    <AccountClassName></AccountClassName>
+                                    <AccountSid class="cJvrSecSid">
+                                        <InitializedFlag>TRUE</InitializedFlag>
+                                        <SID>BIAAAAAAAUAIAAAAgIAAAAs</SID>
+                                    </AccountSid>
+                                </Account>
+                            </Base>
+                        </ArrayElement>
+                        <ArrayElement class="cJvrSecAce">
+                            <Base class="cJvrSecAceBase">
+                                <AceType>0</AceType>
+                                <AceFlags>0</AceFlags>
+                                <Mask>48</Mask>
+                                <Account class="cJvrSecAccount">
+                                    <Mask>5</Mask>
+                                    <AccountName>NT Authority\Network Service</AccountName>
+                                    <AccountNameVariable></AccountNameVariable>
+                                    <AccountClassName></AccountClassName>
+                                    <AccountSid class="cJvrSecSid">
+                                        <InitializedFlag>TRUE</InitializedFlag>
+                                        <SID>BEAAAAAAAUAFAAAA</SID>
+                                    </AccountSid>
+                                </Account>
+                            </Base>
+                        </ArrayElement>
+                    </ObjectArray>
+                </Base>
+            </DACL>
+            <Group class="cJvrSecAccount">
+                <Mask>4</Mask>
+                <AccountName></AccountName>
+                <AccountNameVariable></AccountNameVariable>
+                <AccountClassName></AccountClassName>
+                <AccountSid class="cJvrSecSid">
+                    <InitializedFlag>TRUE</InitializedFlag>
+                    <SID>BIAAAAAAAUAIAAAAgIAAAAs</SID>
+                </AccountSid>
+            </Group>
+            <Owner class="cJvrSecAccount">
+                <Mask>4</Mask>
+                <AccountName></AccountName>
+                <AccountNameVariable></AccountNameVariable>
+                <AccountClassName></AccountClassName>
+                <AccountSid class="cJvrSecSid">
+                    <InitializedFlag>TRUE</InitializedFlag>
+                    <SID>BIAAAAAAAUAIAAAAgIAAAAs</SID>
+                </AccountSid>
+            </Owner>
+            <SecurityDescriptorControlBitsOfInterest>0</SecurityDescriptorControlBitsOfInterest>
+            <SecurityDescriptorControlBitsToSetwner>0</SecurityDescriptorControlBitsToSetwner>
+            <Base class="cUmData" Version="1">
+                <HiddenFlag>FALSE</HiddenFlag>
+            </Base>
+        </Base>
+    </AccessSettings>
+    <HelpInfoUrl></HelpInfoUrl>
+    <ScriptTimeOutSec>900</ScriptTimeOutSec>
+    <LocalProjectFlag>FALSE</LocalProjectFlag>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\7c36e03f-c75e-477a-9da9-b1bbd4d2f708.usp</LocalProjectFileName>
+    <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
+    <Scheduler class="cUmraWndSchedulerSpec">
+        <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
+        <Scheduler/>
+    </Scheduler>
+    <Base class="cUmFormNoScriptProject">
+        <ProjectName>global-init-db-queries</ProjectName>
+        <DisplayName>global-init-db-queries</DisplayName>
+        <UUID>/AuN851x6dUnpG7uU#99IAs</UUID>
+        <ProjectComment></ProjectComment>
+        <ProjectLabels/>
+        <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
+        <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
+        <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
+        <PopupMessagesShown>2</PopupMessagesShown>
+        <BuildNumber>1640</BuildNumber>
+        <Form class="cForm">
+            <Base class="cUmraObArray">
+                <ObjectArray/>
+            </Base>
+            <ScreenDrawParam class="cFormScreenDrawParam">
+                <LeftMargin>10</LeftMargin>
+                <RightMargin>10</RightMargin>
+                <TopMargin>10</TopMargin>
+                <VerticalSpacing>0</VerticalSpacing>
+                <BackgroundColor>16777215</BackgroundColor>
+            </ScreenDrawParam>
+            <GlobalFontPoolFlag>TRUE</GlobalFontPoolFlag>
+            <PrivateFontPool class="cFormFontPool">
+                <Base class="cUmraObArray">
+                    <ObjectArray>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>0</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-22</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-16</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>0</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>0</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-44</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-44</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-44</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>0</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-44</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-44</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                    </ObjectArray>
+                </Base>
+            </PrivateFontPool>
+        </Form>
+    </Base>
+    <TableDataSpec class="cUmraWndTableDataSpec">
+        <UmraTableDefinition/>
+        <Base class="cUmraTableSpec">
+            <ColumnsDefinition class="cUmraTableColumnsDef">
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </ColumnsDefinition>
+            <ColumnsSpecification class="cUmraTableColumnsSpec">
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </ColumnsSpecification>
+            <EmbeddedDataFlag>FALSE</EmbeddedDataFlag>
+            <Base class="cUmraTableData">
+                <ColumnCount>0</ColumnCount>
+                <ColumnNames/>
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </Base>
+        </Base>
+    </TableDataSpec>
+    <FileDataSpec class="cUmraWndFileDataSpec">
+        <DataFileParam class="cDataFileParam">
+            <Base class="cDataFileParseInfo">
+                <Separators>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
+                </Separators>
+                <TextQualifier>"</TextQualifier>
+                <DelimitedFlag>TRUE</DelimitedFlag>
+                <FixedWidthPositions/>
+                <FirstRowFieldNamesFlag>FALSE</FirstRowFieldNamesFlag>
+                <FieldCanContainMultipleLinesFlag>FALSE</FieldCanContainMultipleLinesFlag>
+            </Base>
+            <FileName></FileName>
+            <FileHeaderColumnNames/>
+            <AddRowNumberFlag>TRUE</AddRowNumberFlag>
+        </DataFileParam>
+        <Base class="cUmraTableSpec">
+            <ColumnsDefinition class="cUmraTableColumnsDef">
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </ColumnsDefinition>
+            <ColumnsSpecification class="cUmraTableColumnsSpec">
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </ColumnsSpecification>
+            <EmbeddedDataFlag>FALSE</EmbeddedDataFlag>
+            <Base class="cUmraTableData">
+                <ColumnCount>0</ColumnCount>
+                <ColumnNames/>
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </Base>
+        </Base>
+    </FileDataSpec>
+    <NetworkDataSpec class="cUmraWndNetworkDataSpec">
+        <CallSet class="cTdCallSet">
+            <Base class="cUmraObArray">
+                <ObjectArray/>
+            </Base>
+        </CallSet>
+        <Base class="cUmraTableSpec">
+            <ColumnsDefinition class="cUmraTableColumnsDef">
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </ColumnsDefinition>
+            <ColumnsSpecification class="cUmraTableColumnsSpec">
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </ColumnsSpecification>
+            <EmbeddedDataFlag>FALSE</EmbeddedDataFlag>
+            <Base class="cUmraTableData">
+                <ColumnCount>0</ColumnCount>
+                <ColumnNames/>
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </Base>
+        </Base>
+    </NetworkDataSpec>
+</UmraProject>
