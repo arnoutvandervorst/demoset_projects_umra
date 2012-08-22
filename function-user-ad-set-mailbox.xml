@@ -3,6 +3,26 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%LVAR_accountDisabled%</VariableName>
+                    <Data class="cUmDataBool">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <BoolValue>FALSE</BoolValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -118,6 +138,91 @@
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
+                <ArrayElement class="cActionItemScriptGenericTable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDefinition class="cUmraTableDefLdapQuery">
+                        <Base class="cUmraTableDef">
+                            <VariableName>%Table_query_ad%</VariableName>
+                            <TestVariableArray class="cUmVariableArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray/>
+                                </Base>
+                            </TestVariableArray>
+                        </Base>
+                        <UmraLdapQueryBindingType>2</UmraLdapQueryBindingType>
+                        <BindingString>%Binding_ldap%/%Object_dn%</BindingString>
+                        <LdapQueryFilter>(cn=*)</LdapQueryFilter>
+                        <Attributes class="cUmraTableLdapAttributes">
+                            <Base class="cUmraObArray">
+                                <ObjectArray>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>userAccountControl</LdapName>
+                                        <DisplayName>Disabled</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmDataConversion">
+                                                        <OperationId>100</OperationId>
+                                                        <pArgumentData class="cUmDataNumeric">
+                                                            <Base class="cUmData" Version="1">
+                                                                <HiddenFlag>FALSE</HiddenFlag>
+                                                            </Base>
+                                                            <NumericValue>2</NumericValue>
+                                                        </pArgumentData>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                </ObjectArray>
+                            </Base>
+                        </Attributes>
+                        <LdapSearchOptions class="cUmraTableLdapSearchOptions">
+                            <FlagTimeTotal>FALSE</FlagTimeTotal>
+                            <FlagTimePage>FALSE</FlagTimePage>
+                            <FlagSizeTotal>FALSE</FlagSizeTotal>
+                            <FlagSizePage>FALSE</FlagSizePage>
+                            <FlagCacheResults>TRUE</FlagCacheResults>
+                            <TimeTotalSec>120</TimeTotalSec>
+                            <TimePageSec>120</TimePageSec>
+                            <SizeTotal>1000</SizeTotal>
+                            <SizePage>500</SizePage>
+                            <ScopeOption>2</ScopeOption>
+                            <ReferralChaseOption>0</ReferralChaseOption>
+                        </LdapSearchOptions>
+                    </TableDefinition>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>%AD_accountDisabled%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptIfThenElse">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -133,7 +238,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Create_account_disabled%</InputVariableName>
+                                    <InputVariableName>%AD_accountDisabled%</InputVariableName>
                                     <InputVariableType>3</InputVariableType>
                                     <OperatorIndex>500</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -155,6 +260,26 @@
                     <LabelThen>skip-enable</LabelThen>
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%LVAR_accountDisabled%</VariableName>
+                    <Data class="cUmDataBool">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <BoolValue>TRUE</BoolValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemOperationUserEditLogon">
                     <Base class="cActionItemOperation">
@@ -1268,6 +1393,34 @@
                                                 <ErrorIfNotExist>FALSE</ErrorIfNotExist>
                                             </PowershellReturnData>
                                         </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193007</Id>
+                                                <Name>Advanced: Logging mask</Name>
+                                                <Type>2</Type>
+                                                <Description>The mask specified here, determines the logging output of ALL the PowerShell actions in this session. Default all messages except debug messages are shown. The mask is build from the following numbers: 1 = Normal, 2 = Error, 4 = Warning, 8 = Info, 128 = Debug. If not specified the number 7 is used.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>AdvLoggingMask</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
                                     </ObjectArray>
                                 </Base>
                             </Base>
@@ -1287,12 +1440,12 @@
                             </ActionLabels>
                             <SignatureInfo class="cUmraDynActionSignature">
                                 <UserName>Tools4ever</UserName>
-                                <Signature>$vFc4Muv$mw4g4zw$b6KzAs</Signature>
+                                <Signature>cZxn69UT2AiQHhza$4ZSRCs</Signature>
                                 <ContainsSignature>TRUE</ContainsSignature>
                             </SignatureInfo>
                             <DynamicActionClassVersion>2</DynamicActionClassVersion>
                             <ObsoleteFlag>FALSE</ObsoleteFlag>
-                            <VersionNumber>128</VersionNumber>
+                            <VersionNumber>129</VersionNumber>
                         </Base>
                         <Script class="cUmraPsScript">
                             <Base class="cUmraObArray">
@@ -1306,6 +1459,35 @@
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
                                         </Contents>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>Abr-Set-UtilLoggingMask $([System.Int32]::Parse(%AdvLoggingMask%));</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>AdvLoggingMask</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%AdvLoggingMask%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
                                     </ArrayElement>
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
@@ -2326,7 +2508,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Create_account_disabled%</InputVariableName>
+                                    <InputVariableName>%LVAR_accountDisabled%</InputVariableName>
                                     <InputVariableType>3</InputVariableType>
                                     <OperatorIndex>500</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -2345,7 +2527,7 @@
                         <AndVersusOrFlag>FALSE</AndVersusOrFlag>
                         <Comment></Comment>
                     </ConditionCollection>
-                    <LabelThen>continue-log</LabelThen>
+                    <LabelThen>skip-disable</LabelThen>
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
@@ -2501,7 +2683,7 @@
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
-                            <Label>continue-log</Label>
+                            <Label>skip-disable</Label>
                             <ErrorControl>0</ErrorControl>
                             <ErrorControlLabel></ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
@@ -2650,7 +2832,7 @@
         <EmbeddedNameGenerationFlag>FALSE</EmbeddedNameGenerationFlag>
         <LogVariablesFlag>FALSE</LogVariablesFlag>
         <DynActionDatabaseSyncId class="cUmraDynActionSetSyncId">
-            <Stamp>331</Stamp>
+            <Stamp>385</Stamp>
             <Id>zuZ9fXpxK0ko+U#bdYeo9Bs</Id>
         </DynActionDatabaseSyncId>
         <VariableInfoCollection class="cVariableInfoCollection">
@@ -2751,7 +2933,7 @@
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1640</BuildNumber>
+        <BuildNumber>1667</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>
