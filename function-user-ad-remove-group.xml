@@ -198,12 +198,32 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Object_dn_user%</VariableName>
+                    <VariableName>%Object_dn_child%</VariableName>
                     <Data class="cUmDataText">
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
                         <TextValue>%Object_dn%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Object_dn_parent%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Object_dn_remove%</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
                 </ArrayElement>
@@ -289,7 +309,7 @@
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <TextValue>%Object_dn_user%</TextValue>
+                        <TextValue>%Object_dn_child%</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
                 </ArrayElement>
@@ -537,7 +557,7 @@
             <DACL class="cJvrSecAcl">
                 <ProtectedFlag>FALSE</ProtectedFlag>
                 <ResetChildPermissionsFlags>TRUE</ResetChildPermissionsFlags>
-                <DaclDefaultedFlag>FALSE</DaclDefaultedFlag>
+                <DaclDefaultedFlag>TRUE</DaclDefaultedFlag>
                 <Base class="cUmraObArray">
                     <ObjectArray>
                         <ArrayElement class="cJvrSecAce">
