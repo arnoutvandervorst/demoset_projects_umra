@@ -3,6 +3,44 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%global_init_log_executed%</InputVariableName>
+                                    <InputVariableType>3</InputVariableType>
+                                    <OperatorIndex>500</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataBool">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <BoolValue>TRUE</BoolValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptSetVariable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -14,7 +52,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%log_umra_db_enabled%</VariableName>
+                    <VariableName>%Log_umra_db_enabled%</VariableName>
                     <Data class="cUmDataBool">
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
@@ -34,7 +72,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%log_umra_db_operator%</VariableName>
+                    <VariableName>%Log_user_operator%</VariableName>
                     <Data class="cUmDataText">
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
@@ -101,7 +139,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%log_umra_db_operator%</VariableName>
+                    <VariableName>%Log_user_operator%</VariableName>
                     <Data class="cUmDataText">
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
@@ -124,6 +162,46 @@
                     <ScriptActionType>2</ScriptActionType>
                     <ParameterNumeric>0</ParameterNumeric>
                     <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Log_object_managed_primary%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Log_object_managed_secondary%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptSetVariable">
                     <Base class="cActionItemScript">
@@ -304,6 +382,26 @@
                         <TextValue>%RES_table_column_object_secondary%</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%global_init_log_executed%</VariableName>
+                    <Data class="cUmDataBool">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <BoolValue>TRUE</BoolValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">

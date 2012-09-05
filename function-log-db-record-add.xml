@@ -3,28 +3,6 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
-                <ArrayElement class="cActionItemScriptManageNumericVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <NumericDataOperation>1</NumericDataOperation>
-                    <NumericDataVariable>%Count_errors%</NumericDataVariable>
-                    <ValueTextArgument1></ValueTextArgument1>
-                    <ValueTextArgument2></ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -36,7 +14,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init-error</ProjectName>
+                    <ProjectName>global-init-log</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptIfThenElse">
                     <Base class="cActionItemScript">
@@ -53,124 +31,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Status_operation%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>201</OperatorIndex>
-                                    <OperatorVariableName>%RES_status_operation_ok%</OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataText">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <TextValue></TextValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>TRUE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>TRUE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>skip-status-operation</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Status_operation%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>%RES_status_operation_generic%</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptVarious">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label>skip-status-operation</Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ScriptActionType>2</ScriptActionType>
-                    <ParameterNumeric>0</ParameterNumeric>
-                    <ParameterText></ParameterText>
-                </ArrayElement>
-                <ArrayElement class="cActionItemOperationCheckSessionVariable">
-                    <Base class="cActionItemOperation">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                        <Explanation>Check if a variable exists in the session variable list. The variable is specified by its name. The action returns a boolean variable with the result.</Explanation>
-                        <PropertyArray class="cUmraPsPropertyArray">
-                            <Base class="cUmPropertyArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>126000</Id>
-                                            <Name>Variable name</Name>
-                                            <Type>1</Type>
-                                            <Description>The name of the variable to be checked for existence in the session variable list (example: %SessionId%).</Description>
-                                            <ExportMode>1</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value class="cUmDataText">
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                                <TextValue>%Table_errors%</TextValue>
-                                            </Value>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>126001</Id>
-                                            <Name>Variable exists flag</Name>
-                                            <Type>1</Type>
-                                            <Description>The name of the variable used to return the result. The variable is generated automatically, only the name needs to be specified (example: %VariableExsistFlag%).</Description>
-                                            <ExportMode>4097</ExportMode>
-                                            <ExportVariable>%Variable_exists%</ExportVariable>
-                                            <Value/>
-                                        </ArrayElement>
-                                    </ObjectArray>
-                                </Base>
-                            </Base>
-                        </PropertyArray>
-                    </Base>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Variable_exists%</InputVariableName>
+                                    <InputVariableName>%log_umra_db_enabled%</InputVariableName>
                                     <InputVariableType>3</InputVariableType>
                                     <OperatorIndex>500</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -193,332 +54,6 @@
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemOperationGetSessionVariable">
-                    <Base class="cActionItemOperation">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                        <Explanation>Copy a variable from the session variable list. Both the name and value of the variable are copied. If the variable already exists in the project variable list, the value is overwritten.</Explanation>
-                        <PropertyArray class="cUmraPsPropertyArray">
-                            <Base class="cUmPropertyArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>121000</Id>
-                                            <Name>Variable name</Name>
-                                            <Type>1</Type>
-                                            <Description>The name of the variable to be copied from the session variable list to the project variable list (example: %ConnectionString%).</Description>
-                                            <ExportMode>1</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value class="cUmDataText">
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                                <TextValue>%Table_errors%</TextValue>
-                                            </Value>
-                                        </ArrayElement>
-                                    </ObjectArray>
-                                </Base>
-                            </Base>
-                        </PropertyArray>
-                    </Base>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>2</TableDataOperation>
-                    <TableDataVariable>%Table_errors%</TableDataVariable>
-                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
-                    <ValueTextArgument2></ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>3</TableDataOperation>
-                    <TableDataVariable>%Table_errors%</TableDataVariable>
-                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
-                    <ValueTextArgument2>0</ValueTextArgument2>
-                    <ValueTextArgument3>%TimeStamp%</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>3</TableDataOperation>
-                    <TableDataVariable>%Table_errors%</TableDataVariable>
-                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
-                    <ValueTextArgument2>1</ValueTextArgument2>
-                    <ValueTextArgument3>%UmraProjectName%</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>3</TableDataOperation>
-                    <TableDataVariable>%Table_errors%</TableDataVariable>
-                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
-                    <ValueTextArgument2>2</ValueTextArgument2>
-                    <ValueTextArgument3>%UmraProjectNameStack%</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>3</TableDataOperation>
-                    <TableDataVariable>%Table_errors%</TableDataVariable>
-                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
-                    <ValueTextArgument2>3</ValueTextArgument2>
-                    <ValueTextArgument3>%Log_umra_db_operator%</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>3</TableDataOperation>
-                    <TableDataVariable>%Table_errors%</TableDataVariable>
-                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
-                    <ValueTextArgument2>4</ValueTextArgument2>
-                    <ValueTextArgument3>%Status_operation%</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>5</TableDataOperation>
-                    <TableDataVariable>%Table_errors%</TableDataVariable>
-                    <ValueTextArgument1>%Count_errors%</ValueTextArgument1>
-                    <ValueTextArgument2></ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>99</TableDataOperation>
-                    <TableDataVariable>%Table_errors%</TableDataVariable>
-                    <ValueTextArgument1></ValueTextArgument1>
-                    <ValueTextArgument2></ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemOperationSetSessionVariable">
-                    <Base class="cActionItemOperation">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                        <Explanation>Copy a variable to the session variable list. Both the name and value of the variable are copied. If the variable already exists in the session variable list, the value is overwritten.</Explanation>
-                        <PropertyArray class="cUmraPsPropertyArray">
-                            <Base class="cUmPropertyArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>122000</Id>
-                                            <Name>Variable name</Name>
-                                            <Type>1</Type>
-                                            <Description>The name of the variable to be copied from the project variable list to the session variable list (example: %ConnectionString%).</Description>
-                                            <ExportMode>1</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value class="cUmDataText">
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                                <TextValue>%Table_errors%</TextValue>
-                                            </Value>
-                                        </ArrayElement>
-                                    </ObjectArray>
-                                </Base>
-                            </Base>
-                        </PropertyArray>
-                    </Base>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Log_description%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>%UmraProjectName%</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Log_type_operation%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>%UmraProjectName%</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Log_status_operation%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>%Status_operation%</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Log_script_operation%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>%UmraProjectNameStack%</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -530,7 +65,518 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>function-log-db-record-add</ProjectName>
+                    <ProjectName>global-init-db</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Log_description%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>100</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue/>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Log_description%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>208</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>1</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Log_type_operation%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>100</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue/>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Log_type_operation%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>208</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>1</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Log_status_operation%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>100</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue/>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Log_status_operation%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>208</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>1</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Log_status_script%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>100</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue/>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Log_status_script%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>208</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>1</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Log_user_operator%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>100</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue/>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Log_user_operator%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>208</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>1</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Log_description%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionDoubleArgument">
+                                    <Argument1Value>'</Argument1Value>
+                                    <Argument1Name>Source substring</Argument1Name>
+                                    <Argument1Type>0</Argument1Type>
+                                    <Argument2Value>''</Argument2Value>
+                                    <Argument2Name>Target substring</Argument2Name>
+                                    <Argument2Type>0</Argument2Type>
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>30080</FunctionIdentifier>
+                                        <FunctionName>Replace: substring</FunctionName>
+                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Log_object_managed_primary%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionDoubleArgument">
+                                    <Argument1Value>'</Argument1Value>
+                                    <Argument1Name>Source substring</Argument1Name>
+                                    <Argument1Type>0</Argument1Type>
+                                    <Argument2Value>''</Argument2Value>
+                                    <Argument2Name>Target substring</Argument2Name>
+                                    <Argument2Type>0</Argument2Type>
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>30080</FunctionIdentifier>
+                                        <FunctionName>Replace: substring</FunctionName>
+                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Log_object_managed_secondary%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionDoubleArgument">
+                                    <Argument1Value>'</Argument1Value>
+                                    <Argument1Name>Source substring</Argument1Name>
+                                    <Argument1Type>0</Argument1Type>
+                                    <Argument2Value>''</Argument2Value>
+                                    <Argument2Name>Target substring</Argument2Name>
+                                    <Argument2Type>0</Argument2Type>
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>30080</FunctionIdentifier>
+                                        <FunctionName>Replace: substring</FunctionName>
+                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Log_status_operation%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionDoubleArgument">
+                                    <Argument1Value>'</Argument1Value>
+                                    <Argument1Name>Source substring</Argument1Name>
+                                    <Argument1Type>0</Argument1Type>
+                                    <Argument2Value>''</Argument2Value>
+                                    <Argument2Name>Target substring</Argument2Name>
+                                    <Argument2Type>0</Argument2Type>
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>30080</FunctionIdentifier>
+                                        <FunctionName>Replace: substring</FunctionName>
+                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Log_status_script%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionDoubleArgument">
+                                    <Argument1Value>'</Argument1Value>
+                                    <Argument1Name>Source substring</Argument1Name>
+                                    <Argument1Type>0</Argument1Type>
+                                    <Argument2Value>''</Argument2Value>
+                                    <Argument2Name>Target substring</Argument2Name>
+                                    <Argument2Type>0</Argument2Type>
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>30080</FunctionIdentifier>
+                                        <FunctionName>Replace: substring</FunctionName>
+                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Log_type_operation%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionDoubleArgument">
+                                    <Argument1Value>'</Argument1Value>
+                                    <Argument1Name>Source substring</Argument1Name>
+                                    <Argument1Type>0</Argument1Type>
+                                    <Argument2Value>''</Argument2Value>
+                                    <Argument2Name>Target substring</Argument2Name>
+                                    <Argument2Type>0</Argument2Type>
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>30080</FunctionIdentifier>
+                                        <FunctionName>Replace: substring</FunctionName>
+                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Log_user_operator%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionDoubleArgument">
+                                    <Argument1Value>'</Argument1Value>
+                                    <Argument1Name>Source substring</Argument1Name>
+                                    <Argument1Type>0</Argument1Type>
+                                    <Argument2Value>''</Argument2Value>
+                                    <Argument2Name>Target substring</Argument2Name>
+                                    <Argument2Type>0</Argument2Type>
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>30080</FunctionIdentifier>
+                                        <FunctionName>Replace: substring</FunctionName>
+                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGenericTable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDefinition class="cUmraTableDefDatabaseQuery">
+                        <Base class="cUmraTableDef">
+                            <VariableName>%Table_query_db%</VariableName>
+                            <TestVariableArray class="cUmVariableArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray/>
+                                </Base>
+                            </TestVariableArray>
+                        </Base>
+                        <UmraOleDb class="cUmraOleDbGeneral">
+                            <Base class="cUmraOleDb"/>
+                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
+                            <OleDbProviderType>11082184</OleDbProviderType>
+                        </UmraOleDb>
+                        <DatabaseQuery><![CDATA[EXEC spLog_add
+'%Log_description%',
+'%Log_type_operation%',
+'%Log_status_operation%',
+'%Log_status_script%',
+'%Log_user_operator%',
+'%Log_object_managed_primary%',
+'%Log_object_managed_secondary%']]></DatabaseQuery>
+                        <QueryResultColumnNames>
+                            <TextItem>id_snapshot</TextItem>
+                        </QueryResultColumnNames>
+                    </TableDefinition>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
@@ -638,16 +684,16 @@
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\8fd9ac58-d0f1-49c4-a507-50ad5293f515.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\b158963a-b6a0-42fc-81b0-c8d74c1f0f36.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
         <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>global-error-handler</ProjectName>
-        <DisplayName>global-error-handler</DisplayName>
-        <UUID>Yxa2PGP0EnUpHAVrSNZ9VAs</UUID>
+        <ProjectName>function-log-db-record-add</ProjectName>
+        <DisplayName>function-log-db-record-add</DisplayName>
+        <UUID>6YJWxCqt8#Ugwi81M9xD2As</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
