@@ -67,15 +67,336 @@
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
+                <ArrayElement class="cActionItemOperationFsGetFileInfo">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                        <Explanation>Get information from a file or directory. The information includes the existence of the file or directory, type information (file or directory), attributes, creation, access times and size.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152000</Id>
+                                            <Name>Target file/directory</Name>
+                                            <Type>1</Type>
+                                            <Description>The name of target file or directory. Can be specified using the full UNC path (recommended) or local path (local to the UMRA Service or Console application). Example: \\SERVER_A\Share_b\Directory_1\File.ext, \\SERVER_A\Share_b\Directory_1\Dir2, G:\UserData\John.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%SystemRoot%\DSRM.EXE</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152005</Id>
+                                            <Name>File/dir exists flag</Name>
+                                            <Type>3</Type>
+                                            <Description>Output only property. When specified, the output variable value is set to 'Yes' if the file or directory exists.</Description>
+                                            <ExportMode>12289</ExportMode>
+                                            <ExportVariable>%LVR_file_exists%</ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152006</Id>
+                                            <Name>Is directory flag</Name>
+                                            <Type>3</Type>
+                                            <Description>Output only property. When specified, the output variable value is set to 'Yes' if the target path identifies a directory.</Description>
+                                            <ExportMode>8193</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152010</Id>
+                                            <Name>Attributes</Name>
+                                            <Type>2</Type>
+                                            <Description>Output only property. When specified, the output variable value is set equal to the attribute mask of the file or directory.</Description>
+                                            <ExportMode>8193</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152011</Id>
+                                            <Name>Creation time</Name>
+                                            <Type>4</Type>
+                                            <Description>Output only property. When specified, the output variable value is set to the creation time of the file or directory.</Description>
+                                            <ExportMode>8193</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152012</Id>
+                                            <Name>Last access time</Name>
+                                            <Type>4</Type>
+                                            <Description>Output only property. When specified, the output variable value is set to the last access time of the file or directory.</Description>
+                                            <ExportMode>8193</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152013</Id>
+                                            <Name>Last write time</Name>
+                                            <Type>4</Type>
+                                            <Description>Output only property. When specified, the output variable value is set to the last write time of the file or directory.</Description>
+                                            <ExportMode>8193</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152014</Id>
+                                            <Name>Size</Name>
+                                            <Type>13</Type>
+                                            <Description>Output only property. When specified, the output variable value is set to size of the file in bytes (meaningless value for directories: 0).</Description>
+                                            <ExportMode>8193</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152020</Id>
+                                            <Name>Error if not found</Name>
+                                            <Type>3</Type>
+                                            <Description>Set to 'Yes' if this action should produce an error in case the file or directory does not exist. Default value: 'No'.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%LVR_file_exists%</InputVariableName>
+                                    <InputVariableType>3</InputVariableType>
+                                    <OperatorIndex>500</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataBool">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <BoolValue>TRUE</BoolValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>dsrm</LabelThen>
+                    <LabelElse>adsi</LabelElse>
+                    <UseElseFlag>TRUE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>dsrm</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemOperationCommandLine">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                        <Explanation>Execute a command line. The command line can contain any valid command (.exe, .bat, .com, etc.) with any number of command line arguments. Further, the command line can contain variables.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105000</Id>
+                                            <Name>Command Line</Name>
+                                            <Type>1</Type>
+                                            <Description>The command line that must be executed. The command line starts with the name of a file that can be executed (.exe, .bat, etc.) and a number of arguments.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%SystemRoot%\DSRM.EXE "%Object_dn%" -subtree -c -noprompt -s "%DomainController%"</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105002</Id>
+                                            <Name>Wait until terminated</Name>
+                                            <Type>3</Type>
+                                            <Description>Once the command is started, the application can either wait until the command has been terminated or continue immediately with the rest of the script.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>TRUE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105005</Id>
+                                            <Name>Time-out period</Name>
+                                            <Type>2</Type>
+                                            <Description>The period specifies the maximum number of seconds the command can take to complete. When the command is not completed within the time-out period, the command is terminated. If this property is specified, the property 'Wait until terminated' must also be specified. When this value is not specified, a default value of one hour is used.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>30</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105001</Id>
+                                            <Name>Show command window</Name>
+                                            <Type>3</Type>
+                                            <Description>The application can either hide or show a window that is created by the command.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105010</Id>
+                                            <Name>Output variable</Name>
+                                            <Type>1</Type>
+                                            <Description>Store the output of the command in the specified variable.</Description>
+                                            <ExportMode>12289</ExportMode>
+                                            <ExportVariable>%LVR_cmd_output%</ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105006</Id>
+                                            <Name>Remove carriage-return line-feed</Name>
+                                            <Type>3</Type>
+                                            <Description>If property 'Output variable' is specified, the value will often end with the characters carriage return - line feed. Specify 'Yes' to remove these characters from the end of hte command line output. Default value: 'No'.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105007</Id>
+                                            <Name>Output buffer size</Name>
+                                            <Type>2</Type>
+                                            <Description>Optional: When specified, the application reserves a buffer of the specified size in bytes to store the output data in a variable. By default (not specified), the maximum size is 10240 bytes. If the real output data size exceeds the limit, the data is not stored. Example value: 250000.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105008</Id>
+                                            <Name>Do not show in log file</Name>
+                                            <Type>3</Type>
+                                            <Description>Set to 'Yes' if the command line should not be shown in the log file. Default setting (not specified): 'No'.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptLogVariables">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableNames>
+                        <TextItem>%LVR_cmd_output%</TextItem>
+                    </VariableNames>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGoTo">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <GoToLabel>skip-delete</GoToLabel>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>adsi</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
                 <ArrayElement class="cActionItemOperationAdDeleteObject">
                     <Base class="cActionItemOperation">
                         <Base class="cActionItem">
                             <Label></Label>
                             <ErrorControl>1</ErrorControl>
                             <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>TRUE</ErrorVariableFlag>
-                            <ErrorVariableName>%Status_operation%</ErrorVariableName>
-                            <ErrorVariableContents>%RES_status_operation_generic%</ErrorVariableContents>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                         <Explanation>Delete an existing object from Active Directory. The object can be a group, user, OU etc. The object is specified by either a variable, LDAP name or SAM account name.</Explanation>
                         <PropertyArray class="cUmraPsPropertyArray">
@@ -119,6 +440,34 @@
                             </Base>
                         </PropertyArray>
                     </Base>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGoTo">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <GoToLabel>skip-delete</GoToLabel>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>skip-delete</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptSetVariable">
                     <Base class="cActionItemScript">
