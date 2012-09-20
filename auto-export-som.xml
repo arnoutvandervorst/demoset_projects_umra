@@ -3274,7 +3274,7 @@
                                                 <Id>193003</Id>
                                                 <Name>Caregivers</Name>
                                                 <Type>1</Type>
-                                                <Description>The caregivers in the @VO environment. This produces a table with the following 25 columns: 'CaregiverId', 'BSN', 'UserName', 'Initials', 'MiddleName', 'LastName', 'Gender', 'Address', 'Street', 'StreetHouseNumber', 'StreetSuffix', 'PostalCode', 'City', 'BillingAddress', 'BillingAddressText', 'HomePhoneNumber', 'HomePhoneNumberIsSecret', 'MobileNumber', 'MobileNumberIsSecret', 'WorkMobileNumber', 'WorkMobileNumberIsSecret', 'CaregiverType', 'BankAccount', 'LegalRepresentative' and 'LegalRepresentativeText'.</Description>
+                                                <Description>The caregivers in the @VO environment. This produces a table with the following 29 columns: 'CaregiverId', 'BSN', 'UserName', 'Initials', 'MiddleName', 'LastName', 'Gender', 'Address', 'Street', 'StreetHouseNumber', 'StreetSuffix', 'PostalCode', 'City', 'BillingAddress', 'BillingAddressText', 'HomePhoneNumber', 'HomePhoneNumberIsSecret', 'MobileNumber', 'MobileNumberIsSecret', 'WorkMobileNumber', 'WorkMobileNumberIsSecret', 'CaregiverType', 'BankAccount', 'LegalRepresentative', 'LegalRepresentativeText', 'EMail', 'OpendId', 'PostAddress' and 'ExternExportId'.</Description>
                                                 <ExportMode>12289</ExportMode>
                                                 <ExportVariable>%Table_som_caregivers%</ExportVariable>
                                                 <Value/>
@@ -3389,6 +3389,22 @@
                                                                 <MemberDataType>1</MemberDataType>
                                                                 <MemberDataName>LegalRepresentativeText</MemberDataName>
                                                             </ArrayElement>
+                                                            <ArrayElement class="cUmraPsObjectDataItem">
+                                                                <MemberDataType>1</MemberDataType>
+                                                                <MemberDataName>EMail</MemberDataName>
+                                                            </ArrayElement>
+                                                            <ArrayElement class="cUmraPsObjectDataItem">
+                                                                <MemberDataType>1</MemberDataType>
+                                                                <MemberDataName>OpendId</MemberDataName>
+                                                            </ArrayElement>
+                                                            <ArrayElement class="cUmraPsObjectDataItem">
+                                                                <MemberDataType>1</MemberDataType>
+                                                                <MemberDataName>PostAddress</MemberDataName>
+                                                            </ArrayElement>
+                                                            <ArrayElement class="cUmraPsObjectDataItem">
+                                                                <MemberDataType>1</MemberDataType>
+                                                                <MemberDataName>ExternExportId</MemberDataName>
+                                                            </ArrayElement>
                                                         </ObjectArray>
                                                     </Base>
                                                     <Dimension>2</Dimension>
@@ -3403,7 +3419,7 @@
                                                 <Id>193004</Id>
                                                 <Name>Caregiver students</Name>
                                                 <Type>1</Type>
-                                                <Description>The caregiver - student relation in the @VO environment. This produces a table with the following 9 columns: 'CaregiverId', 'StudentId', 'StudentBSN', 'EducationalID', 'CaregiverType', 'BillingAddress', 'BillingAddressText', 'LegalRepresentative' and 'LegalRepresentativeText'.</Description>
+                                                <Description>The caregiver - student relation in the @VO environment. This produces a table with the following 12 columns: 'CaregiverId', 'StudentId', 'StudentBSN', 'EducationalID', 'CaregiverType', 'BillingAddress', 'BillingAddressText', 'LegalRepresentative', 'LegalRepresentativeText', 'PostAddress', 'PostAddressText' and 'ExternExportId'.</Description>
                                                 <ExportMode>12289</ExportMode>
                                                 <ExportVariable>%Table_som_caregivers_students%</ExportVariable>
                                                 <Value/>
@@ -3454,6 +3470,18 @@
                                                                 <MemberDataType>1</MemberDataType>
                                                                 <MemberDataName>LegalRepresentativeText</MemberDataName>
                                                             </ArrayElement>
+                                                            <ArrayElement class="cUmraPsObjectDataItem">
+                                                                <MemberDataType>1</MemberDataType>
+                                                                <MemberDataName>PostAddress</MemberDataName>
+                                                            </ArrayElement>
+                                                            <ArrayElement class="cUmraPsObjectDataItem">
+                                                                <MemberDataType>1</MemberDataType>
+                                                                <MemberDataName>PostAddressText</MemberDataName>
+                                                            </ArrayElement>
+                                                            <ArrayElement class="cUmraPsObjectDataItem">
+                                                                <MemberDataType>1</MemberDataType>
+                                                                <MemberDataName>ExternExportId</MemberDataName>
+                                                            </ArrayElement>
                                                         </ObjectArray>
                                                     </Base>
                                                     <Dimension>2</Dimension>
@@ -3480,13 +3508,13 @@
                                 <TextItem>@VO</TextItem>
                             </ActionLabels>
                             <SignatureInfo class="cUmraDynActionSignature">
-                                <UserName>Tools4ever</UserName>
-                                <Signature>k6C+ggxd6GIH@$iMQ94m1As</Signature>
+                                <UserName>tools4ever</UserName>
+                                <Signature>xDAWbttSz9Bk#Way8pj7qCs</Signature>
                                 <ContainsSignature>TRUE</ContainsSignature>
                             </SignatureInfo>
                             <DynamicActionClassVersion>2</DynamicActionClassVersion>
                             <ObsoleteFlag>FALSE</ObsoleteFlag>
-                            <VersionNumber>2517</VersionNumber>
+                            <VersionNumber>2520</VersionNumber>
                         </Base>
                         <Script class="cUmraPsScript">
                             <Base class="cUmraObArray">
@@ -3539,7 +3567,7 @@
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
                                             <ContentsText><![CDATA[[bool]$AtVoFilterLegalRepresentativeEnabled = $true;
-                [bool]$AtVoFilterLegalRepresentative = %AtVoFilterLegalRepresentative%;]]></ContentsText>
+                [bool]$AtVoFilterLegalRepresentative = $true]]></ContentsText>
                                             <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
@@ -3549,16 +3577,13 @@
                                                 <ObjectArray>
                                                     <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
                                                         <ActionPropertyName>AtVoFilterLegalRepresentative</ActionPropertyName>
-                                                        <Condition class="cUmraPsConditionData">
+                                                        <Condition class="cUmraPsConditionBoolean">
                                                             <Base class="cUmraPsConditionBase"/>
-                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                            <PassedOnTrueFlag>TRUE</PassedOnTrueFlag>
                                                         </Condition>
-                                                        <Replacement class="cUmraPsReplaceBoolean">
-                                                            <Base class="cUmraPsReplaceBase">
-                                                                <QuoteFormatMode>0</QuoteFormatMode>
-                                                                <VariableConversionMode>0</VariableConversionMode>
-                                                            </Base>
-                                                            <ReplacementText>%AtVoFilterLegalRepresentative%</ReplacementText>
+                                                        <Replacement class="cUmraPsReplaceBase">
+                                                            <QuoteFormatMode>0</QuoteFormatMode>
+                                                            <VariableConversionMode>0</VariableConversionMode>
                                                         </Replacement>
                                                     </ArrayElement>
                                                 </ObjectArray>
@@ -4058,7 +4083,7 @@
         <EmbeddedNameGenerationFlag>FALSE</EmbeddedNameGenerationFlag>
         <LogVariablesFlag>FALSE</LogVariablesFlag>
         <DynActionDatabaseSyncId class="cUmraDynActionSetSyncId">
-            <Stamp>385</Stamp>
+            <Stamp>387</Stamp>
             <Id>zuZ9fXpxK0ko+U#bdYeo9Bs</Id>
         </DynActionDatabaseSyncId>
         <VariableInfoCollection class="cVariableInfoCollection">
