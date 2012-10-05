@@ -39,7 +39,7 @@
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <TextValue>Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=NTFS2DB;Data Source=MSAPP12\MSSQL2008;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=MSAPP17;Use Encryption for Data=False;Tag with column collation when possible=False</TextValue>
+                        <TextValue>Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=NTFS2db;Data Source=localhost;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=WFMDC1;Use Encryption for Data=False;Tag with column collation when possible=False</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                 </ArrayElement>
@@ -59,7 +59,7 @@
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <TextValue>NTFS2db</TextValue>
+                        <TextValue>LOCALHOST_C$</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                 </ArrayElement>
@@ -79,7 +79,7 @@
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <TextValue>\\?\UNC\SERVER\SHARE\*</TextValue>
+                        <TextValue>\\?\UNC\LOCALHOST\C$\*</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                 </ArrayElement>
@@ -108,7 +108,7 @@
                         <Base class="cActionItem">
                             <Label></Label>
                             <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>end</ErrorControlLabel>
+                            <ErrorControlLabel>error</ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
                             <ErrorVariableName></ErrorVariableName>
                             <ErrorVariableContents></ErrorVariableContents>
@@ -136,7 +136,7 @@
                         <Base class="cActionItem">
                             <Label></Label>
                             <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>end</ErrorControlLabel>
+                            <ErrorControlLabel>error</ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
                             <ErrorVariableName></ErrorVariableName>
                             <ErrorVariableContents></ErrorVariableContents>
@@ -166,8 +166,8 @@ DBCC SHRINKFILE(NTFS2db_Log);]]></TextItem>
                     <Base class="cActionItemOperation">
                         <Base class="cActionItem">
                             <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
                             <ErrorVariableName></ErrorVariableName>
                             <ErrorVariableContents></ErrorVariableContents>
@@ -284,8 +284,8 @@ DBCC SHRINKFILE(NTFS2db_Log);]]></TextItem>
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
                             <ErrorVariableName></ErrorVariableName>
                             <ErrorVariableContents></ErrorVariableContents>
@@ -300,7 +300,7 @@ DBCC SHRINKFILE(NTFS2db_Log);]]></TextItem>
                         <Base class="cActionItem">
                             <Label></Label>
                             <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>end</ErrorControlLabel>
+                            <ErrorControlLabel>error</ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
                             <ErrorVariableName></ErrorVariableName>
                             <ErrorVariableContents></ErrorVariableContents>
@@ -328,8 +328,8 @@ DBCC SHRINKFILE(NTFS2db_Log);]]></TextItem>
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
                             <ErrorVariableName></ErrorVariableName>
                             <ErrorVariableContents></ErrorVariableContents>
@@ -345,6 +345,180 @@ DBCC SHRINKFILE(NTFS2db_Log);]]></TextItem>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Log_description%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>NTFS2db collection complete</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Log_type_operation%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>ntfs2db-run</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Log_status_operation%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Status_operation%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Log_status_script%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%UmraProjectName%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Log_object_managed_primary%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Log_object_managed_secondary%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>function-log-db-record-add</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGoTo">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <GoToLabel>end</GoToLabel>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>error</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-error-handler</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
@@ -417,11 +591,11 @@ DBCC SHRINKFILE(NTFS2db_Log);]]></TextItem>
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>36000</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\Tools4ever\UmraService\Projects\395ede4f-f000-4aa0-b5bd-1174374d30ec.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\09f99b6e-74b3-41e8-b57c-34fb37a72f43.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
-        <Scheduler class="cUmraSchedulerDaily">
+        <Scheduler class="cUmraSchedulerOnCommand">
             <Base class="cUmraScheduler">
                 <DayIncludeFlags>2</DayIncludeFlags>
                 <SchedulerFlags>0</SchedulerFlags>
@@ -432,8 +606,6 @@ DBCC SHRINKFILE(NTFS2db_Log);]]></TextItem>
                     </Base>
                 </Exceptions>
             </Base>
-            <Hour>3</Hour>
-            <Minute>45</Minute>
         </Scheduler>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
