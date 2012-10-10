@@ -54,6 +54,57 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
+                    <VariableName>%COL_filter%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>attributes=10:10</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptDatabaseCommand">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <SqlUpdate class="cUmraDbUpdate" Version="1">
+                        <OleDb class="cUmraOleDbGeneral">
+                            <Base class="cUmraOleDb"/>
+                            <ConnectionString>%COL_db%</ConnectionString>
+                            <OleDbProviderType>27803728</OleDbProviderType>
+                        </OleDb>
+                        <SqlCommands>
+                            <TextItem><![CDATA[ALTER DATABASE NTFS2db
+SET RECOVERY SIMPLE;
+
+DBCC SHRINKFILE(NTFS2db_Log);]]></TextItem>
+                        </SqlCommands>
+                        <TestVariables class="cUmVariableArray">
+                            <Base class="cUmraObArray">
+                                <ObjectArray/>
+                            </Base>
+                        </TestVariables>
+                        <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
+                    </SqlUpdate>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
                     <VariableName>%COL_description%</VariableName>
                     <Data class="cUmDataText">
                         <Base class="cUmData" Version="1">
@@ -83,26 +134,6 @@
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%COL_filter%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>attributes=10:10</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                </ArrayElement>
                 <ArrayElement class="cActionItemScriptDatabaseCommand">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -121,38 +152,7 @@
                             <OleDbProviderType>27803728</OleDbProviderType>
                         </OleDb>
                         <SqlCommands>
-                            <TextItem>DELETE FROM Collections</TextItem>
-                        </SqlCommands>
-                        <TestVariables class="cUmVariableArray">
-                            <Base class="cUmraObArray">
-                                <ObjectArray/>
-                            </Base>
-                        </TestVariables>
-                        <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
-                    </SqlUpdate>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptDatabaseCommand">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <SqlUpdate class="cUmraDbUpdate" Version="1">
-                        <OleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%COL_db%</ConnectionString>
-                            <OleDbProviderType>27803728</OleDbProviderType>
-                        </OleDb>
-                        <SqlCommands>
-                            <TextItem><![CDATA[ALTER DATABASE NTFS2db
-SET RECOVERY SIMPLE;
-
-DBCC SHRINKFILE(NTFS2db_Log);]]></TextItem>
+                            <TextItem>DELETE FROM Collections WHERE Description = '%COL_description%'</TextItem>
                         </SqlCommands>
                         <TestVariables class="cUmVariableArray">
                             <Base class="cUmraObArray">
@@ -294,6 +294,64 @@ DBCC SHRINKFILE(NTFS2db_Log);]]></TextItem>
                     <VariableNames>
                         <TextItem>%cmd_output%</TextItem>
                     </VariableNames>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptDatabaseCommand">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <SqlUpdate class="cUmraDbUpdate" Version="1">
+                        <OleDb class="cUmraOleDbGeneral">
+                            <Base class="cUmraOleDb"/>
+                            <ConnectionString>%COL_db%</ConnectionString>
+                            <OleDbProviderType>0</OleDbProviderType>
+                        </OleDb>
+                        <SqlCommands>
+                            <TextItem><![CDATA[ALTER INDEX ALL ON CollectionSets
+REORGANIZE]]></TextItem>
+                        </SqlCommands>
+                        <TestVariables class="cUmVariableArray">
+                            <Base class="cUmraObArray">
+                                <ObjectArray/>
+                            </Base>
+                        </TestVariables>
+                        <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
+                    </SqlUpdate>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptDatabaseCommand">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <SqlUpdate class="cUmraDbUpdate" Version="1">
+                        <OleDb class="cUmraOleDbGeneral">
+                            <Base class="cUmraOleDb"/>
+                            <ConnectionString>%COL_db%</ConnectionString>
+                            <OleDbProviderType>0</OleDbProviderType>
+                        </OleDb>
+                        <SqlCommands>
+                            <TextItem><![CDATA[ALTER INDEX ALL ON Files
+REORGANIZE]]></TextItem>
+                        </SqlCommands>
+                        <TestVariables class="cUmVariableArray">
+                            <Base class="cUmraObArray">
+                                <ObjectArray/>
+                            </Base>
+                        </TestVariables>
+                        <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
+                    </SqlUpdate>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGenericTable">
                     <Base class="cActionItemScript">
