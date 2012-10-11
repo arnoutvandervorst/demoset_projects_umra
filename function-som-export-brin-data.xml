@@ -3851,7 +3851,7 @@
                     </ExportFields>
                     <FieldSeparator>,</FieldSeparator>
                     <EncloseCharacter>"</EncloseCharacter>
-                    <ExportFileName>%UmraPath%\Log\%UmraProjectName%-ok.txt</ExportFileName>
+                    <ExportFileName>%UmraPath%\Log\%UmraProjectName%-%SOM_brin_number%-ok.txt</ExportFileName>
                     <ValueSeparator>,</ValueSeparator>
                     <ExportMode>1</ExportMode>
                     <UnicodeFormatFlag>FALSE</UnicodeFormatFlag>
@@ -3883,6 +3883,35 @@
                     <ScriptActionType>2</ScriptActionType>
                     <ParameterNumeric>0</ParameterNumeric>
                     <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExportVariables">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ExportFields>
+                        <TextItem>%TimeStamp%</TextItem>
+                        <TextItem>students_active:%Count_rows_table_som_students_active%</TextItem>
+                        <TextItem>students_inactive:%Count_rows_table_som_students_inactive%</TextItem>
+                        <TextItem>students_courses_classes:%Count_rows_table_som_students_courses_classes%</TextItem>
+                        <TextItem>employees_active:%Count_rows_table_som_employees_active%</TextItem>
+                        <TextItem>employees_inactive:%Count_rows_table_som_employees_inactive%</TextItem>
+                        <TextItem>employees_courses_classes:%Count_rows_table_som_employees_courses_classes%</TextItem>
+                        <TextItem>caregivers:%Count_rows_table_som_caregivers%</TextItem>
+                        <TextItem>caregivers_students:%Count_rows_table_som_caregivers_students%</TextItem>
+                    </ExportFields>
+                    <FieldSeparator>,</FieldSeparator>
+                    <EncloseCharacter>"</EncloseCharacter>
+                    <ExportFileName>%UmraPath%\Log\%UmraProjectName%-%SOM_brin_number%-error.txt</ExportFileName>
+                    <ValueSeparator>,</ValueSeparator>
+                    <ExportMode>1</ExportMode>
+                    <UnicodeFormatFlag>FALSE</UnicodeFormatFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
