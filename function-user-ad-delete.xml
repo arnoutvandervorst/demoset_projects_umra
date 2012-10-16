@@ -118,6 +118,93 @@
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
+                <ArrayElement class="cActionItemScriptGenericTable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDefinition class="cUmraTableDefLdapQuery">
+                        <Base class="cUmraTableDef">
+                            <VariableName>%LVR_table_query_ad%</VariableName>
+                            <TestVariableArray class="cUmVariableArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray/>
+                                </Base>
+                            </TestVariableArray>
+                        </Base>
+                        <UmraLdapQueryBindingType>2</UmraLdapQueryBindingType>
+                        <BindingString>LDAP://%DomainController%/%Object_dn%</BindingString>
+                        <LdapQueryFilter>(!distinguishedName=%Object_dn%)</LdapQueryFilter>
+                        <Attributes class="cUmraTableLdapAttributes">
+                            <Base class="cUmraObArray">
+                                <ObjectArray>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>distinguishedName</LdapName>
+                                        <DisplayName>distinguishedName</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                </ObjectArray>
+                            </Base>
+                        </Attributes>
+                        <LdapSearchOptions class="cUmraTableLdapSearchOptions">
+                            <FlagTimeTotal>FALSE</FlagTimeTotal>
+                            <FlagTimePage>FALSE</FlagTimePage>
+                            <FlagSizeTotal>FALSE</FlagSizeTotal>
+                            <FlagSizePage>TRUE</FlagSizePage>
+                            <FlagCacheResults>TRUE</FlagCacheResults>
+                            <TimeTotalSec>120</TimeTotalSec>
+                            <TimePageSec>120</TimePageSec>
+                            <SizeTotal>1000</SizeTotal>
+                            <SizePage>500</SizePage>
+                            <ScopeOption>0</ScopeOption>
+                            <ReferralChaseOption>0</ReferralChaseOption>
+                        </LdapSearchOptions>
+                    </TableDefinition>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptForEach">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableVariableName>%LVR_table_query_ad%</TableVariableName>
+                    <ProjectName>function-object-ad-delete</ProjectName>
+                    <ColumnVariablesMap>
+                        <TextItem>%Object_dn%</TextItem>
+                    </ColumnVariablesMap>
+                    <ReturnVariableNames>
+                        <TextItem>%Status_operation%</TextItem>
+                        <TextItem>%Count_errors%</TextItem>
+                    </ReturnVariableNames>
+                    <StopLoopOnErrorFlag>TRUE</StopLoopOnErrorFlag>
+                    <TerminationCondition class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray/>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </TerminationCondition>
+                    <VariableFilter class="cUmVariableFilter">
+                        <VariableFilterMode>0</VariableFilterMode>
+                        <VariableSpecification/>
+                    </VariableFilter>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -244,7 +331,7 @@
         <EmbeddedNameGenerationFlag>FALSE</EmbeddedNameGenerationFlag>
         <LogVariablesFlag>FALSE</LogVariablesFlag>
         <DynActionDatabaseSyncId class="cUmraDynActionSetSyncId">
-            <Stamp>385</Stamp>
+            <Stamp>387</Stamp>
             <Id>zuZ9fXpxK0ko+U#bdYeo9Bs</Id>
         </DynActionDatabaseSyncId>
         <VariableInfoCollection class="cVariableInfoCollection">
