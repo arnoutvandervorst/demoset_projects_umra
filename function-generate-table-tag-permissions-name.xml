@@ -41,7 +41,7 @@
                         </Base>
                     </Base>
                     <TableDataOperation>1</TableDataOperation>
-                    <TableDataVariable>%Table_tag_permissions%</TableDataVariable>
+                    <TableDataVariable>%Table_tag_permissions_name%</TableDataVariable>
                     <ValueTextArgument1>4</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
@@ -63,7 +63,7 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tag_permissions%</TableDataVariable>
+                    <TableDataVariable>%Table_tag_permissions_name%</TableDataVariable>
                     <ValueTextArgument1>0</ValueTextArgument1>
                     <ValueTextArgument2>[hidden]%RES_table_column_id%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
@@ -85,9 +85,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tag_permissions%</TableDataVariable>
+                    <TableDataVariable>%Table_tag_permissions_name%</TableDataVariable>
                     <ValueTextArgument1>1</ValueTextArgument1>
-                    <ValueTextArgument2>%RES_table_column_name%</ValueTextArgument2>
+                    <ValueTextArgument2>TAG_%RES_table_column_id%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -107,7 +107,7 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tag_permissions%</TableDataVariable>
+                    <TableDataVariable>%Table_tag_permissions_name%</TableDataVariable>
                     <ValueTextArgument1>2</ValueTextArgument1>
                     <ValueTextArgument2>%RES_table_column_type%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
@@ -129,7 +129,7 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tag_permissions%</TableDataVariable>
+                    <TableDataVariable>%Table_tag_permissions_name%</TableDataVariable>
                     <ValueTextArgument1>3</ValueTextArgument1>
                     <ValueTextArgument2>%RES_table_column_allowed%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
@@ -154,7 +154,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%TAG_id%</InputVariableName>
+                                    <InputVariableName>%TAG_permission_type%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>100</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -163,7 +163,7 @@
                                     <InvertResultFlag>FALSE</InvertResultFlag>
                                 </ArrayElement>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%TAG_id%</InputVariableName>
+                                    <InputVariableName>%TAG_permission_type%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>208</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -211,8 +211,8 @@
                             <ConnectionString>%Conn_string_db_umra%</ConnectionString>
                             <OleDbProviderType>55466104</OleDbProviderType>
                         </UmraOleDb>
-                        <DatabaseQuery><![CDATA[EXEC spTag_permissions_get
-%TAG_id%]]></DatabaseQuery>
+                        <DatabaseQuery><![CDATA[EXEC spTag_permissions_get_name
+'%TAG_permission_name%']]></DatabaseQuery>
                         <QueryResultColumnNames/>
                     </TableDefinition>
                 </ArrayElement>
@@ -228,7 +228,7 @@
                         </Base>
                     </Base>
                     <TableDataOperation>9</TableDataOperation>
-                    <TableDataVariable>%Table_tag_permissions%</TableDataVariable>
+                    <TableDataVariable>%Table_tag_permissions_name%</TableDataVariable>
                     <ValueTextArgument1>%Table_query_db%</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
@@ -407,20 +407,20 @@
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\78fcff25-9cbe-40ee-b1fa-83e69768c62a.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\34fc0828-babd-43a8-828c-7567b4f1ce83.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
         <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-generate-table-tag-permissions</ProjectName>
+        <ProjectName>function-generate-table-tag-permissions-name</ProjectName>
         <DisplayName>function-generate-table-tag-permissions</DisplayName>
-        <UUID>@8P/45#nuDU$6Po5XimxqAs</UUID>
+        <UUID>ogA/00ruoOkgMW3Z0GvzDCs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
-        <UpdatePreviewFlag>FALSE</UpdatePreviewFlag>
+        <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
         <BuildNumber>1667</BuildNumber>
@@ -983,6 +983,10 @@
         <DataFileParam class="cDataFileParam">
             <Base class="cDataFileParseInfo">
                 <Separators>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
                     <TextItem>,</TextItem>
                 </Separators>
                 <TextQualifier>"</TextQualifier>
