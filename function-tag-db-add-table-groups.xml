@@ -65,7 +65,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Table_groups_add%</InputVariableName>
+                                    <InputVariableName>%Table_tag_groups_add%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>100</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -94,14 +94,14 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%TAG_id_add%</VariableName>
+                    <VariableName>%TAG_object_type%</VariableName>
                     <Data class="cUmDataText">
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <TextValue>%TAG_id%</TextValue>
+                        <TextValue>group</TextValue>
                     </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptForEach">
                     <Base class="cActionItemScript">
@@ -114,13 +114,14 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableVariableName>%Table_groups_add%</TableVariableName>
-                    <ProjectName>function-group-ad-add-tag</ProjectName>
+                    <TableVariableName>%Table_tag_groups_add%</TableVariableName>
+                    <ProjectName>function-tag-db-add-object</ProjectName>
                     <ColumnVariablesMap>
-                        <TextItem>%Object_dn%</TextItem>
+                        <TextItem>%TAG_permission_name%</TextItem>
                     </ColumnVariablesMap>
                     <ReturnVariableNames>
                         <TextItem>%Status_operation%</TextItem>
+                        <TextItem>%Count_errors%</TextItem>
                     </ReturnVariableNames>
                     <StopLoopOnErrorFlag>TRUE</StopLoopOnErrorFlag>
                     <TerminationCondition class="cVariableConditionCollection">
@@ -157,7 +158,7 @@
         <EmbeddedNameGenerationFlag>FALSE</EmbeddedNameGenerationFlag>
         <LogVariablesFlag>FALSE</LogVariablesFlag>
         <DynActionDatabaseSyncId class="cUmraDynActionSetSyncId">
-            <Stamp>385</Stamp>
+            <Stamp>387</Stamp>
             <Id>zuZ9fXpxK0ko+U#bdYeo9Bs</Id>
         </DynActionDatabaseSyncId>
         <VariableInfoCollection class="cVariableInfoCollection">

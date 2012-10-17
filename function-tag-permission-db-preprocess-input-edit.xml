@@ -3,7 +3,7 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
-                <ArrayElement class="cActionItemScriptIfThenElse">
+                <ArrayElement class="cActionItemScriptSetVariable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -14,43 +14,16 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Object_dn%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>100</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue/>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Object_dn%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>208</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>1</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
+                    <VariableName>%TAG_permission_name%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>end</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
+                        <TextValue>%input_tag_permission_name%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
+                <ArrayElement class="cActionItemScriptSetVariable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -61,29 +34,16 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Table_tags_remove%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>100</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue/>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
+                    <VariableName>%TAG_permission_type%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>end</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
+                        <TextValue>%input_tag_permission_type%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptForEach">
+                <ArrayElement class="cActionItemScriptSetVariable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -94,42 +54,14 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableVariableName>%Table_tags_remove%</TableVariableName>
-                    <ProjectName>function-user-ad-remove-tag</ProjectName>
-                    <ColumnVariablesMap>
-                        <TextItem>%TAG_id_remove%</TextItem>
-                    </ColumnVariablesMap>
-                    <ReturnVariableNames>
-                        <TextItem>%Status_operation%</TextItem>
-                    </ReturnVariableNames>
-                    <StopLoopOnErrorFlag>TRUE</StopLoopOnErrorFlag>
-                    <TerminationCondition class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray/>
+                    <VariableName>%TAG_permission_allowed%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </TerminationCondition>
-                    <VariableFilter class="cUmVariableFilter">
-                        <VariableFilterMode>0</VariableFilterMode>
-                        <VariableSpecification/>
-                    </VariableFilter>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptVarious">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label>end</Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ScriptActionType>2</ScriptActionType>
-                    <ParameterNumeric>0</ParameterNumeric>
-                    <ParameterText></ParameterText>
+                        <TextValue>%input_tag_permission_allowed%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
                 </ArrayElement>
             </ObjectArray>
         </Base>
@@ -137,7 +69,7 @@
         <EmbeddedNameGenerationFlag>FALSE</EmbeddedNameGenerationFlag>
         <LogVariablesFlag>FALSE</LogVariablesFlag>
         <DynActionDatabaseSyncId class="cUmraDynActionSetSyncId">
-            <Stamp>385</Stamp>
+            <Stamp>387</Stamp>
             <Id>zuZ9fXpxK0ko+U#bdYeo9Bs</Id>
         </DynActionDatabaseSyncId>
         <VariableInfoCollection class="cVariableInfoCollection">
@@ -220,18 +152,18 @@
         </Base>
     </AccessSettings>
     <HelpInfoUrl></HelpInfoUrl>
-    <ScriptTimeOutSec>900</ScriptTimeOutSec>
+    <ScriptTimeOutSec>1492536</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\3a40448e-745a-492b-b679-f264dcb6551c.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\559a6669-828d-44b1-a519-a41850f59b4d.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
         <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-user-ad-remove-table-tags</ProjectName>
-        <DisplayName>function-user-ad-add-table-tags</DisplayName>
-        <UUID>OSEQ6oFdrkkt5JPZcbbVcAs</UUID>
+        <ProjectName>function-tag-permission-db-preprocess-input-edit</ProjectName>
+        <DisplayName>function-tag-permission-db-preprocess-input-create</DisplayName>
+        <UUID>pZmmV1ogxSUpZQKGQV/mNBs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
@@ -798,6 +730,7 @@
         <DataFileParam class="cDataFileParam">
             <Base class="cDataFileParseInfo">
                 <Separators>
+                    <TextItem>,</TextItem>
                     <TextItem>,</TextItem>
                     <TextItem>,</TextItem>
                     <TextItem>,</TextItem>
