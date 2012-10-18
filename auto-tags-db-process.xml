@@ -81,6 +81,19 @@
                     </Base>
                     <ProjectName>auto-cache-ad-create</ProjectName>
                 </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>auto-snapshot-create</ProjectName>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptGenericTable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -106,7 +119,7 @@
                             <ConnectionString>%Conn_string_db_umra%</ConnectionString>
                             <OleDbProviderType>55466104</OleDbProviderType>
                         </UmraOleDb>
-                        <DatabaseQuery>EXEC spTag_table_relationships_member_left</DatabaseQuery>
+                        <DatabaseQuery>EXEC spTags_relationships_snapshot_left</DatabaseQuery>
                         <QueryResultColumnNames/>
                     </TableDefinition>
                 </ArrayElement>
@@ -146,6 +159,7 @@
                     <TableVariableName>%Table_query_db%</TableVariableName>
                     <ProjectName>function-tag-db-process-record-left</ProjectName>
                     <ColumnVariablesMap>
+                        <TextItem>%id%</TextItem>
                         <TextItem>%Object_dn%</TextItem>
                         <TextItem>%date_start_group%</TextItem>
                         <TextItem>%date_end_group%</TextItem>
@@ -207,7 +221,7 @@
                         <AndVersusOrFlag>FALSE</AndVersusOrFlag>
                         <Comment></Comment>
                     </ConditionCollection>
-                    <LabelThen>finish</LabelThen>
+                    <LabelThen>end</LabelThen>
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
@@ -236,137 +250,7 @@
                             <ConnectionString>%Conn_string_db_umra%</ConnectionString>
                             <OleDbProviderType>55466104</OleDbProviderType>
                         </UmraOleDb>
-                        <DatabaseQuery>EXEC spTag_table_relationships_member_common</DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>99</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1></ValueTextArgument1>
-                    <ValueTextArgument2></ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptForEach">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableVariableName>%Table_query_db%</TableVariableName>
-                    <ProjectName>function-tag-db-process-record-common</ProjectName>
-                    <ColumnVariablesMap>
-                        <TextItem>%Object_dn%</TextItem>
-                        <TextItem>%date_start_group%</TextItem>
-                        <TextItem>%date_end_group%</TextItem>
-                        <TextItem>%Object_dn_add%</TextItem>
-                        <TextItem>%date_start_user%</TextItem>
-                        <TextItem>%date_end_user%</TextItem>
-                    </ColumnVariablesMap>
-                    <ReturnVariableNames>
-                        <TextItem>%Status_operation%</TextItem>
-                        <TextItem>%Count_errors%</TextItem>
-                    </ReturnVariableNames>
-                    <StopLoopOnErrorFlag>TRUE</StopLoopOnErrorFlag>
-                    <TerminationCondition class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray/>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </TerminationCondition>
-                    <VariableFilter class="cUmVariableFilter">
-                        <VariableFilterMode>3</VariableFilterMode>
-                        <VariableSpecification>
-                            <TextItem>%Table_query_db%</TextItem>
-                        </VariableSpecification>
-                    </VariableFilter>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Count_errors%</InputVariableName>
-                                    <InputVariableType>2</InputVariableType>
-                                    <OperatorIndex>300</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>0</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>TRUE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>finish</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
-                            <OleDbProviderType>55466104</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery>EXEC spTag_table_relationships_member_right</DatabaseQuery>
+                        <DatabaseQuery>EXEC spTags_relationships_snapshot_right</DatabaseQuery>
                         <QueryResultColumnNames/>
                     </TableDefinition>
                 </ArrayElement>
@@ -406,6 +290,7 @@
                     <TableVariableName>%Table_query_db%</TableVariableName>
                     <ProjectName>function-tag-db-process-record-right</ProjectName>
                     <ColumnVariablesMap>
+                        <TextItem>%id%</TextItem>
                         <TextItem>%Object_dn%</TextItem>
                         <TextItem>%Object_dn_remove%</TextItem>
                     </ColumnVariablesMap>
@@ -428,6 +313,19 @@
                             <TextItem>%Table_query_db%</TextItem>
                         </VariableSpecification>
                     </VariableFilter>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>auto-snapshot-create</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
@@ -535,7 +433,7 @@
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\07f60f9d-5b7f-4246-8e2f-baade3553ab5.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\4aa48118-24f5-419f-b878-bab8a1b2940e.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
@@ -550,8 +448,8 @@
                     </Base>
                 </Exceptions>
             </Base>
-            <Hour>5</Hour>
-            <Minute>30</Minute>
+            <Hour>20</Hour>
+            <Minute>0</Minute>
         </Scheduler>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
