@@ -154,7 +154,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%TAG_permission_type%</InputVariableName>
+                                    <InputVariableName>%TAG_permission_name%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>100</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -163,7 +163,7 @@
                                     <InvertResultFlag>FALSE</InvertResultFlag>
                                 </ArrayElement>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%TAG_permission_type%</InputVariableName>
+                                    <InputVariableName>%TAG_permission_name%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>208</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -185,6 +185,26 @@
                     <LabelThen>end</LabelThen>
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%TAG_permission_name_sql%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%TAG_permission_name%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGenericTable">
                     <Base class="cActionItemScript">
@@ -212,7 +232,7 @@
                             <OleDbProviderType>55466104</OleDbProviderType>
                         </UmraOleDb>
                         <DatabaseQuery><![CDATA[EXEC spTag_permissions_get_name
-'%TAG_permission_name%']]></DatabaseQuery>
+'%TAG_permission_name_sql%']]></DatabaseQuery>
                         <QueryResultColumnNames/>
                     </TableDefinition>
                 </ArrayElement>
@@ -337,7 +357,7 @@
             <DACL class="cJvrSecAcl">
                 <ProtectedFlag>FALSE</ProtectedFlag>
                 <ResetChildPermissionsFlags>TRUE</ResetChildPermissionsFlags>
-                <DaclDefaultedFlag>TRUE</DaclDefaultedFlag>
+                <DaclDefaultedFlag>FALSE</DaclDefaultedFlag>
                 <Base class="cUmraObArray">
                     <ObjectArray>
                         <ArrayElement class="cJvrSecAce">
