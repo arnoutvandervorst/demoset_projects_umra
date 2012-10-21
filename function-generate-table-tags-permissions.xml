@@ -198,7 +198,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Object_dn%</InputVariableName>
+                                    <InputVariableName>%name_permission%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>100</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -207,7 +207,7 @@
                                     <InvertResultFlag>FALSE</InvertResultFlag>
                                 </ArrayElement>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Object_dn%</InputVariableName>
+                                    <InputVariableName>%name_permission%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>208</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -229,6 +229,147 @@
                     <LabelThen>end</LabelThen>
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%type_permission%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>100</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue/>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%name_permission_sql%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%name_permission%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%name_permission_sql%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionDoubleArgument">
+                                    <Argument1Value>'</Argument1Value>
+                                    <Argument1Name>Source substring</Argument1Name>
+                                    <Argument1Type>0</Argument1Type>
+                                    <Argument2Value>''</Argument2Value>
+                                    <Argument2Name>Target substring</Argument2Name>
+                                    <Argument2Type>0</Argument2Type>
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>30080</FunctionIdentifier>
+                                        <FunctionName>Replace: substring</FunctionName>
+                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%type_permission_sql%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%type_permission%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%type_permission_sql%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionDoubleArgument">
+                                    <Argument1Value>'</Argument1Value>
+                                    <Argument1Name>Source substring</Argument1Name>
+                                    <Argument1Type>0</Argument1Type>
+                                    <Argument2Value>''</Argument2Value>
+                                    <Argument2Name>Target substring</Argument2Name>
+                                    <Argument2Type>0</Argument2Type>
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>30080</FunctionIdentifier>
+                                        <FunctionName>Replace: substring</FunctionName>
+                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGenericTable">
                     <Base class="cActionItemScript">
@@ -256,7 +397,8 @@
                             <OleDbProviderType>55466104</OleDbProviderType>
                         </UmraOleDb>
                         <DatabaseQuery><![CDATA[EXEC spTags_get_permissions
-'%Object_dn%']]></DatabaseQuery>
+'%name_permission_sql%',
+'%type_permission_sql%']]></DatabaseQuery>
                         <QueryResultColumnNames/>
                     </TableDefinition>
                 </ArrayElement>
