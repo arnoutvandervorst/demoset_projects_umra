@@ -14,20 +14,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>function-generate-table-snapshot-objects-attributes</ProjectName>
+                    <ProjectName>global-init-db</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
@@ -40,9 +27,104 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>25</TableDataOperation>
-                    <TableDataVariable>%Table_snapshot_objects_attributes%</TableDataVariable>
-                    <ValueTextArgument1>%Table_snapshot_objects_attributes_repository%</ValueTextArgument1>
+                    <TableDataOperation>1</TableDataOperation>
+                    <TableDataVariable>%Table_snapshot_attributes%</TableDataVariable>
+                    <ValueTextArgument1>2</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_snapshot_attributes%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>[hidden]%RES_table_column_id%</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_snapshot_attributes%</TableDataVariable>
+                    <ValueTextArgument1>1</ValueTextArgument1>
+                    <ValueTextArgument2>%RES_table_column_name%</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGenericTable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDefinition class="cUmraTableDefDatabaseQuery">
+                        <Base class="cUmraTableDef">
+                            <VariableName>%Table_query_db%</VariableName>
+                            <TestVariableArray class="cUmVariableArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray/>
+                                </Base>
+                            </TestVariableArray>
+                        </Base>
+                        <UmraOleDb class="cUmraOleDbGeneral">
+                            <Base class="cUmraOleDb"/>
+                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
+                            <OleDbProviderType>55466104</OleDbProviderType>
+                        </UmraOleDb>
+                        <DatabaseQuery>EXEC spSnapshot_attributes_get</DatabaseQuery>
+                        <QueryResultColumnNames/>
+                    </TableDefinition>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>9</TableDataOperation>
+                    <TableDataVariable>%Table_snapshot_attributes%</TableDataVariable>
+                    <ValueTextArgument1>%Table_query_db%</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
@@ -63,7 +145,7 @@
                         </Base>
                     </Base>
                     <TableDataOperation>1</TableDataOperation>
-                    <TableDataVariable>%Table_snapshot_objects_attributes%</TableDataVariable>
+                    <TableDataVariable>%Table_query_db%</TableDataVariable>
                     <ValueTextArgument1>0</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
@@ -72,6 +154,62 @@
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGoTo">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <GoToLabel>end</GoToLabel>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>error</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-error-handler</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>end</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
                 </ArrayElement>
             </ObjectArray>
         </Base>
@@ -164,16 +302,16 @@
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\f3a53d97-a73d-4783-a31a-6e91ba0d86a7.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\860200c9-96f3-474f-a105-0f481b8eb76e.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
         <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-generate-table-snapshot-objects-attributes-repository</ProjectName>
-        <DisplayName>function-generate-table-users</DisplayName>
-        <UUID>X2Tpz3zpDe0oa4Wk62ghnCs</UUID>
+        <ProjectName>function-generate-table-snapshot-attributes</ProjectName>
+        <DisplayName>function-generate-table-snapshot-attributes</DisplayName>
+        <UUID>JDgAGOv@PdUoF8ASb44tuBs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
