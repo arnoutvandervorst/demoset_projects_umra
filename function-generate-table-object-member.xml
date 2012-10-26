@@ -1512,138 +1512,88 @@
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Object_dn_sql%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Object_dn%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Object_dn_sql%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionDoubleArgument">
+                                    <Argument1Value>'</Argument1Value>
+                                    <Argument1Name>Source substring</Argument1Name>
+                                    <Argument1Type>0</Argument1Type>
+                                    <Argument2Value>''</Argument2Value>
+                                    <Argument2Name>Target substring</Argument2Name>
+                                    <Argument2Type>0</Argument2Type>
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>30080</FunctionIdentifier>
+                                        <FunctionName>Replace: substring</FunctionName>
+                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptGenericTable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
                             <ErrorControl>1</ErrorControl>
                             <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>TRUE</ErrorVariableFlag>
-                            <ErrorVariableName>%Status_operation%</ErrorVariableName>
-                            <ErrorVariableContents>%RES_status_operation_generic%</ErrorVariableContents>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDefinition class="cUmraTableDefLdapQuery">
+                    <TableDefinition class="cUmraTableDefDatabaseQuery">
                         <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_ad%</VariableName>
+                            <VariableName>%Table_query_db%</VariableName>
                             <TestVariableArray class="cUmVariableArray">
                                 <Base class="cUmraObArray">
                                     <ObjectArray/>
                                 </Base>
                             </TestVariableArray>
                         </Base>
-                        <UmraLdapQueryBindingType>2</UmraLdapQueryBindingType>
-                        <BindingString>%Binding_ldap%/%Table_object_member_search_root%</BindingString>
-                        <LdapQueryFilter>(&amp;(objectCategory=group)(member:1.2.840.113556.1.4.1941:=%Object_dn%)(%Table_groups_filter_ldap%))</LdapQueryFilter>
-                        <Attributes class="cUmraTableLdapAttributes">
-                            <Base class="cUmraObArray">
-                                <ObjectArray>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_column0_value%</LdapName>
-                                        <DisplayName>%Table_groups_column0_value%</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_column1_value%</LdapName>
-                                        <DisplayName>%Table_groups_column1_value%</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_column2_value%</LdapName>
-                                        <DisplayName>%Table_groups_column2_value%</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_column3_value%</LdapName>
-                                        <DisplayName>%Table_groups_column3_value%</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_column4_value%</LdapName>
-                                        <DisplayName>%Table_groups_column4_value%</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_column5_value%</LdapName>
-                                        <DisplayName>%Table_groups_column5_value%</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_column6_value%</LdapName>
-                                        <DisplayName>%Table_groups_column6_value%</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_column7_value%</LdapName>
-                                        <DisplayName>%Table_groups_column7_value%</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_column8_value%</LdapName>
-                                        <DisplayName>%Table_groups_column8_value%</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_column9_value%</LdapName>
-                                        <DisplayName>%Table_groups_column9_value%</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                </ObjectArray>
-                            </Base>
-                        </Attributes>
-                        <LdapSearchOptions class="cUmraTableLdapSearchOptions">
-                            <FlagTimeTotal>FALSE</FlagTimeTotal>
-                            <FlagTimePage>FALSE</FlagTimePage>
-                            <FlagSizeTotal>FALSE</FlagSizeTotal>
-                            <FlagSizePage>TRUE</FlagSizePage>
-                            <FlagCacheResults>TRUE</FlagCacheResults>
-                            <TimeTotalSec>120</TimeTotalSec>
-                            <TimePageSec>120</TimePageSec>
-                            <SizeTotal>1000</SizeTotal>
-                            <SizePage>500</SizePage>
-                            <ScopeOption>0</ScopeOption>
-                            <ReferralChaseOption>0</ReferralChaseOption>
-                        </LdapSearchOptions>
+                        <UmraOleDb class="cUmraOleDbGeneral">
+                            <Base class="cUmraOleDb"/>
+                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
+                            <OleDbProviderType>55466104</OleDbProviderType>
+                        </UmraOleDb>
+                        <DatabaseQuery><![CDATA[EXEC spSnapshot_table_object_member_groups_nested
+'%Object_dn_sql%']]></DatabaseQuery>
+                        <QueryResultColumnNames/>
                     </TableDefinition>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
@@ -1658,8 +1608,8 @@
                         </Base>
                     </Base>
                     <TableDataOperation>5</TableDataOperation>
-                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
-                    <ValueTextArgument1>%Count_rows_table_query_ad%</ValueTextArgument1>
+                    <TableDataVariable>%Table_query_db%</TableDataVariable>
+                    <ValueTextArgument1>%Count_rows_table_query_db%</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
@@ -1683,7 +1633,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Count_rows_table_query_ad%</InputVariableName>
+                                    <InputVariableName>%Count_rows_table_query_db%</InputVariableName>
                                     <InputVariableType>2</InputVariableType>
                                     <OperatorIndex>300</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -1718,7 +1668,7 @@
                         </Base>
                     </Base>
                     <TableDataOperation>18</TableDataOperation>
-                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <TableDataVariable>%Table_query_db%</TableDataVariable>
                     <ValueTextArgument1>%Table_groups_sort_column%</ValueTextArgument1>
                     <ValueTextArgument2>Yes</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
@@ -1741,7 +1691,7 @@
                     </Base>
                     <TableDataOperation>9</TableDataOperation>
                     <TableDataVariable>%Table_object_member_groups_nested%</TableDataVariable>
-                    <ValueTextArgument1>%Table_query_ad%</ValueTextArgument1>
+                    <ValueTextArgument1>%Table_query_db%</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
@@ -1762,7 +1712,7 @@
                         </Base>
                     </Base>
                     <TableDataOperation>1</TableDataOperation>
-                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <TableDataVariable>%Table_query_db%</TableDataVariable>
                     <ValueTextArgument1>0</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
