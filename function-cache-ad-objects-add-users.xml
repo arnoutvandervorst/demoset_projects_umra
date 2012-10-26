@@ -65,6 +65,15 @@
                                         </DataConversionCollection>
                                     </ArrayElement>
                                     <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>column1_reserved</LdapName>
+                                        <DisplayName>column1_reserved</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
                                         <LdapName>%Table_users_column0_value%</LdapName>
                                         <DisplayName>%Table_users_column0_value%</DisplayName>
                                         <DataConversionCollection class="cUmDataConversionCollection">
@@ -212,7 +221,7 @@
                             <OleDbProviderType>8</OleDbProviderType>
                         </OleDb>
                         <SqlCommands>
-                            <TextItem><![CDATA[BULK INSERT Cache_table_users
+                            <TextItem><![CDATA[BULK INSERT Cache_table_ad
 FROM '%Cache_csv_unc_path%\table_users_cache.csv'
 WITH
 (
@@ -247,9 +256,9 @@ DATAFILETYPE = 'widechar'
                             <OleDbProviderType>8</OleDbProviderType>
                         </OleDb>
                         <SqlCommands>
-                            <TextItem><![CDATA[UPDATE Cache_table_users
-SET source = '%Domain_dc%'
-WHERE source IS NULL]]></TextItem>
+                            <TextItem><![CDATA[UPDATE Cache_table_ad
+SET source = '%Domain_dc%', type = 'user'
+WHERE source IS NULL or source = '']]></TextItem>
                         </SqlCommands>
                         <TestVariables class="cUmVariableArray">
                             <Base class="cUmraObArray">
