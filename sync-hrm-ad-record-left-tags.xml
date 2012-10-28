@@ -3,6 +3,21 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>4</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText>%Object_dn%</ParameterText>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptGenericTable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -31,7 +46,7 @@
                         <DatabaseQuery><![CDATA[EXEC spJob_add
 %TASK_id%,
 'default',
-'function-user-ad-add-tag'
+'function-tag-db-add-object'
 ]]></DatabaseQuery>
                         <QueryResultColumnNames/>
                     </TableDefinition>
@@ -85,8 +100,28 @@
                         </UmraOleDb>
                         <DatabaseQuery><![CDATA[EXEC spJobvariable_add
 %JOB_id_user_ad_add_tag%,
-'TAG_id_add',
-'%TAG_id_add%']]></DatabaseQuery>
+'TAG_id',
+'%TAG_id%'
+
+EXEC spJobvariable_add
+%JOB_id_user_ad_add_tag%,
+'TAG_object_type',
+'user'
+
+EXEC spJobvariable_add
+%JOB_id_user_ad_add_tag%,
+'TAG_object_name',
+'%Object_dn%'
+
+EXEC spJobvariable_add
+%JOB_id_user_ad_add_tag%,
+'TAG_object_date_start',
+''
+
+EXEC spJobvariable_add
+%JOB_id_user_ad_add_tag%,
+'TAG_object_date_end',
+'']]></DatabaseQuery>
                         <QueryResultColumnNames/>
                     </TableDefinition>
                 </ArrayElement>
@@ -253,7 +288,7 @@
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1640</BuildNumber>
+        <BuildNumber>1667</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>
