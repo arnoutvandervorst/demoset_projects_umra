@@ -606,7 +606,11 @@
         <ProjectName>global-init-snapshot</ProjectName>
         <DisplayName>global-init-user</DisplayName>
         <UUID>/HJ4QQzw+CE@ZM6SnVn1$As</UUID>
-        <ProjectComment></ProjectComment>
+        <ProjectComment><![CDATA[Make sure the %Snapshot_db_name% and log name are set to the correct files, this is used in the DB cleanup and transaction log routines when creating/refreshing a snapshot.
+
+Leave the %Table_snapshots_ad_source% table to its defaults for most cases. You can modify "basic" to "detailed" to collect more attributes during the snapshot if needed. If you need to collect multiple AD domains, add these to this table and the snapshot will collect them. The local/csv sources are for advanced use only, contact Tools4ever when you need to collect CSV in a snapshot.
+
+%Snapshot_staging/export_csv_unc_path% needs to be local for the SQL Server service, a BULK INSERT operation will not work when the files are located on a remote system. Pay attention to the active node when using clusters, the active node will have the SQL Server service running, the other node will have this service stopped.]]></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
