@@ -434,6 +434,83 @@ DATAFILETYPE = 'widechar'
                         <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
                     </SqlUpdate>
                 </ArrayElement>
+                <ArrayElement class="cActionItemOperationFsDeleteFiles">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                        <Explanation>Delete the specified file or files. The file name specification can contain wildcards (*, or ?).</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>160000</Id>
+                                            <Name>File path</Name>
+                                            <Type>1</Type>
+                                            <Description>The full path of the file(s). The path should start with a logical drive (example G:\) or share name \\COMPUTER\Share. The path name may contain the wildcard characters * and ?. Examples: G:\Data\*.txt, \\PC\Share\UserData\John\Project?.*.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%Snapshot_staging_csv_unc_path%\table_groups_staging.csv</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>160001</Id>
+                                            <Name>Include subdirectories (recursive)</Name>
+                                            <Type>3</Type>
+                                            <Description>Specify 'Yes' searh for the specified file(s) recursively.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>160010</Id>
+                                            <Name>Use backup and restore privileges</Name>
+                                            <Type>3</Type>
+                                            <Description>A flag indicating that backup and restore privileges must be used to delete the files. This property is required in case the logged on user has no access rights to the directories and files that must be deleted. The logged on user must have the corresponding access rights configured on the target computer to use these privileges successfully. See the online help for more information.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>TRUE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>160011</Id>
+                                            <Name>Ignore error</Name>
+                                            <Type>3</Type>
+                                            <Description>A flag indicating that errors must be ignored. An error is for instance generated when the target file does not exist or cannot be deleted.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptGoTo">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
