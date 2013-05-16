@@ -3,419 +3,63 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
-                <ArrayElement class="cActionItemScriptIfThenElse">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%ID_snapshot%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>100</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue/>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%ID_snapshot%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>208</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>1</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>error</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemOperationFsGetFileInfo">
+                <ArrayElement class="cActionItemOperationAdSetGroups">
                     <Base class="cActionItemOperation">
                         <Base class="cActionItem">
                             <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>TRUE</ErrorVariableFlag>
+                            <ErrorVariableName>%Status_operation%</ErrorVariableName>
+                            <ErrorVariableContents>%RES_status_operation_generic%</ErrorVariableContents>
                         </Base>
-                        <Explanation>Get information from a file or directory. The information includes the existence of the file or directory, type information (file or directory), attributes, creation, access times and size.</Explanation>
+                        <Explanation>Set the group memberships for Active Directory object. The Active Directory object can be any object that can become a member of the specified groups, e.g. a user, other group, contact etc. The Active Directory object can be specified by a variable or an object distinguished name.</Explanation>
                         <PropertyArray class="cUmraPsPropertyArray">
                             <Base class="cUmPropertyArray">
                                 <Base class="cUmraObArray">
                                     <ObjectArray>
                                         <ArrayElement class="cUmProperty">
-                                            <Id>152000</Id>
-                                            <Name>Target file/directory</Name>
+                                            <Id>126000</Id>
+                                            <Name>Active Directory Object</Name>
+                                            <Type>7</Type>
+                                            <Description>A data structure representing the Active Directory object for which the group membership is updated. To specify the object, you must use this property or property 'Active Directory LDAP name'. If you use this property you must specify a variable for which the value is generated by another action.</Description>
+                                            <ExportMode>0</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>126001</Id>
+                                            <Name>Active Directory name</Name>
                                             <Type>1</Type>
-                                            <Description>The name of target file or directory. Can be specified using the full UNC path (recommended) or local path (local to the UMRA Service or Console application). Example: \\SERVER_A\Share_b\Directory_1\File.ext, \\SERVER_A\Share_b\Directory_1\Dir2, G:\UserData\John.</Description>
+                                            <Description>The name of the Active Directory object for which the group membership is updated. To specify the object, you must use this property or property 'Active Directory Object'. If you use this property you must specify the object disinghuised name of the Active Directory object. Example: cn=Group123,ou=Ou32,dc=tools4ever,dc=com.</Description>
                                             <ExportMode>1</ExportMode>
                                             <ExportVariable></ExportVariable>
                                             <Value class="cUmDataText">
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <TextValue>%SNAPSHOT_input_file%</TextValue>
+                                                <TextValue>LDAP://%domaincontroller%/%AD_delegated_group_dn%</TextValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
-                                            <Id>152005</Id>
-                                            <Name>File/dir exists flag</Name>
-                                            <Type>3</Type>
-                                            <Description>Output only property. When specified, the output variable value is set to 'Yes' if the file or directory exists.</Description>
-                                            <ExportMode>12289</ExportMode>
-                                            <ExportVariable>%File_exists%</ExportVariable>
-                                            <Value/>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>152006</Id>
-                                            <Name>Is directory flag</Name>
-                                            <Type>3</Type>
-                                            <Description>Output only property. When specified, the output variable value is set to 'Yes' if the target path identifies a directory.</Description>
-                                            <ExportMode>8193</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value/>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>152010</Id>
-                                            <Name>Attributes</Name>
-                                            <Type>2</Type>
-                                            <Description>Output only property. When specified, the output variable value is set equal to the attribute mask of the file or directory.</Description>
-                                            <ExportMode>8193</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value/>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>152011</Id>
-                                            <Name>Creation time</Name>
-                                            <Type>4</Type>
-                                            <Description>Output only property. When specified, the output variable value is set to the creation time of the file or directory.</Description>
-                                            <ExportMode>8193</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value/>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>152012</Id>
-                                            <Name>Last access time</Name>
-                                            <Type>4</Type>
-                                            <Description>Output only property. When specified, the output variable value is set to the last access time of the file or directory.</Description>
-                                            <ExportMode>8193</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value/>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>152013</Id>
-                                            <Name>Last write time</Name>
-                                            <Type>4</Type>
-                                            <Description>Output only property. When specified, the output variable value is set to the last write time of the file or directory.</Description>
-                                            <ExportMode>8193</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value/>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>152014</Id>
-                                            <Name>Size</Name>
-                                            <Type>13</Type>
-                                            <Description>Output only property. When specified, the output variable value is set to size of the file in bytes (meaningless value for directories: 0).</Description>
-                                            <ExportMode>8193</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value/>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>152020</Id>
-                                            <Name>Error if not found</Name>
-                                            <Type>3</Type>
-                                            <Description>Set to 'Yes' if this action should produce an error in case the file or directory does not exist. Default value: 'No'.</Description>
+                                            <Id>126002</Id>
+                                            <Name>Group names (variable)</Name>
+                                            <Type>8</Type>
+                                            <Description>The names of the groups of which the Active Directory object must become a member. Each group name must be specified by its full LDAP name. The value of this property can only be specified by a multi-text variable.</Description>
                                             <ExportMode>1</ExportMode>
                                             <ExportVariable></ExportVariable>
-                                            <Value/>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>LDAP://%domaincontroller%/%WFM_delegation_group_dn%</TextValue>
+                                            </Value>
                                         </ArrayElement>
                                     </ObjectArray>
                                 </Base>
                             </Base>
                         </PropertyArray>
                     </Base>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%File_exists%</InputVariableName>
-                                    <InputVariableType>3</InputVariableType>
-                                    <OperatorIndex>500</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataBool">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <BoolValue>TRUE</BoolValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>TRUE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>error</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>global-init-db</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>global-init-snapshot</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSplitVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <InputVariableName>%SNAPSHOT_relationship_columns%</InputVariableName>
-                    <Separators>,</Separators>
-                    <OutputVariableName1>%SNAPSHOT_relationship_column_parent%</OutputVariableName1>
-                    <OutputVariableName2>%SNAPSHOT_relationship_column_child%</OutputVariableName2>
-                    <Var1EmptyIfNoSplitFlag>FALSE</Var1EmptyIfNoSplitFlag>
-                    <RightToLeftFlag>FALSE</RightToLeftFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptDatabaseCommand">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <SqlUpdate class="cUmraDbUpdate" Version="1">
-                        <OleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
-                            <OleDbProviderType>8</OleDbProviderType>
-                        </OleDb>
-                        <SqlCommands>
-                            <TextItem><![CDATA[TRUNCATE TABLE Staging_table
-BULK INSERT Staging_table_%SNAPSHOT_input_column_index_end%
-FROM '%SNAPSHOT_input_file%'
-WITH
-(
-FIELDTERMINATOR ='%SNAPSHOT_input_column_separator%',
-ROWTERMINATOR = '\n',
-DATAFILETYPE = '%SNAPSHOT_input_chartype%'
-)]]></TextItem>
-                        </SqlCommands>
-                        <TestVariables class="cUmVariableArray">
-                            <Base class="cUmraObArray">
-                                <ObjectArray/>
-                            </Base>
-                        </TestVariables>
-                        <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
-                    </SqlUpdate>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGoTo">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <GoToLabel>%SNAPSHOT_relationship_mode%</GoToLabel>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGoTo">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <GoToLabel>end</GoToLabel>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptVarious">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label>horizontal</Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ScriptActionType>2</ScriptActionType>
-                    <ParameterNumeric>0</ParameterNumeric>
-                    <ParameterText></ParameterText>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptDatabaseCommand">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <SqlUpdate class="cUmraDbUpdate" Version="1">
-                        <OleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
-                            <OleDbProviderType>8</OleDbProviderType>
-                        </OleDb>
-                        <SqlCommands>
-                            <TextItem><![CDATA[EXEC spSnapshot_relationships_add_staging_horizontal
-%ID_snapshot%,
-'%SNAPSHOT_relationship_type%',
-'%SNAPSHOT_object_source_parent%',
-'%SNAPSHOT_object_source_child%',
-%SNAPSHOT_relationship_column_parent%,
-'%SNAPSHOT_object_type_parent%',
-%SNAPSHOT_relationship_column_child%,
-'%SNAPSHOT_object_type_child%',
-'%SNAPSHOT_input_value_separator%']]></TextItem>
-                        </SqlCommands>
-                        <TestVariables class="cUmVariableArray">
-                            <Base class="cUmraObArray">
-                                <ObjectArray/>
-                            </Base>
-                        </TestVariables>
-                        <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
-                    </SqlUpdate>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGoTo">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <GoToLabel>end</GoToLabel>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptVarious">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label>vertical</Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ScriptActionType>2</ScriptActionType>
-                    <ParameterNumeric>0</ParameterNumeric>
-                    <ParameterText></ParameterText>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptDatabaseCommand">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <SqlUpdate class="cUmraDbUpdate" Version="1">
-                        <OleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
-                            <OleDbProviderType>8</OleDbProviderType>
-                        </OleDb>
-                        <SqlCommands>
-                            <TextItem><![CDATA[EXEC spSnapshot_relationships_add_staging_vertical
-%ID_snapshot%,
-'%SNAPSHOT_relationship_type%',
-'%SNAPSHOT_object_source_parent%',
-'%SNAPSHOT_object_source_child%',
-%SNAPSHOT_relationship_column_parent%,
-'%SNAPSHOT_object_type_parent%',
-%SNAPSHOT_relationship_column_child%,
-'%SNAPSHOT_object_type_child%']]></TextItem>
-                        </SqlCommands>
-                        <TestVariables class="cUmVariableArray">
-                            <Base class="cUmraObArray">
-                                <ObjectArray/>
-                            </Base>
-                        </TestVariables>
-                        <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
-                    </SqlUpdate>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGoTo">
                     <Base class="cActionItemScript">
@@ -564,23 +208,23 @@ DATAFILETYPE = '%SNAPSHOT_input_chartype%'
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\bf783d4a-2753-4865-9e62-9324991b1a49.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\1458061a-a89f-4fab-8818-3a884895046d.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
         <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-snapshot-csv-load-file-relationships</ProjectName>
-        <DisplayName>function-snapshot-csv-load-file-relationships</DisplayName>
-        <UUID>K1De/O1J@hkniNJJZuhGJBs</UUID>
+        <ProjectName>sync-managers-wfm-delegated-record-set-memberships</ProjectName>
+        <DisplayName>sync-managers-wfm-delegated-record-set-memberships</DisplayName>
+        <UUID>aYAWU8Jqr+EiYoDiIVJBtBs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1667</BuildNumber>
+        <BuildNumber>1668</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>
