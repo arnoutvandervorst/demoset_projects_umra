@@ -220,7 +220,8 @@ WHERE c.EndTime =
 (SELECT MAX(c_max.EndTime)
 FROM Collections c_max
 WHERE c_max.Resource = c.Resource)
-AND c.State = 'COMPLETED']]></DatabaseQuery>
+AND c.State = 'COMPLETED'
+ORDER BY c.Resource]]></DatabaseQuery>
                         <QueryResultColumnNames/>
                     </TableDefinition>
                 </ArrayElement>
