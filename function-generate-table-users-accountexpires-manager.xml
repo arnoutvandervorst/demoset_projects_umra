@@ -14,7 +14,20 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init-db</ProjectName>
+                    <ProjectName>global-init</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init-user</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
@@ -28,8 +41,270 @@
                         </Base>
                     </Base>
                     <TableDataOperation>1</TableDataOperation>
-                    <TableDataVariable>%Table_snapshot_object_relationships_child%</TableDataVariable>
-                    <ValueTextArgument1>9</ValueTextArgument1>
+                    <TableDataVariable>%Table_objects%</TableDataVariable>
+                    <ValueTextArgument1>10</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Table_objects_class_ldap%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Table_users_class_ldap%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Table_objects_filter_ldap%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Table_users_filter_ldap_accountexpires%(manager=%Object_dn%)</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Table_objects_column0_value%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Table_users_column0_value%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Table_objects_column1_value%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Table_users_column1_value%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Table_objects_column2_value%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Table_users_column2_value%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Table_objects_column3_value%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Table_users_column3_value%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Table_objects_column4_value%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Table_users_column4_value%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Table_objects_column5_value%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Table_users_column5_value%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Table_objects_column6_value%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Table_users_column6_value%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Table_objects_column7_value%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Table_users_column7_value%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Table_objects_column8_value%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Table_users_column8_value%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Table_objects_column9_value%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Table_users_column9_value%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>1</TableDataOperation>
+                    <TableDataVariable>%Table_users_accountexpires_manager%</TableDataVariable>
+                    <ValueTextArgument1>10</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
@@ -50,9 +325,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_snapshot_object_relationships_child%</TableDataVariable>
+                    <TableDataVariable>%Table_users_accountexpires_manager%</TableDataVariable>
                     <ValueTextArgument1>0</ValueTextArgument1>
-                    <ValueTextArgument2>[hidden]id</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_users_column0_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -72,9 +347,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_snapshot_object_relationships_child%</TableDataVariable>
+                    <TableDataVariable>%Table_users_accountexpires_manager%</TableDataVariable>
                     <ValueTextArgument1>1</ValueTextArgument1>
-                    <ValueTextArgument2>[hidden]id_object_child</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_users_column1_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -94,9 +369,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_snapshot_object_relationships_child%</TableDataVariable>
+                    <TableDataVariable>%Table_users_accountexpires_manager%</TableDataVariable>
                     <ValueTextArgument1>2</ValueTextArgument1>
-                    <ValueTextArgument2>Type child</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_users_column2_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -116,9 +391,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_snapshot_object_relationships_child%</TableDataVariable>
+                    <TableDataVariable>%Table_users_accountexpires_manager%</TableDataVariable>
                     <ValueTextArgument1>3</ValueTextArgument1>
-                    <ValueTextArgument2>Child</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_users_column3_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -138,9 +413,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_snapshot_object_relationships_child%</TableDataVariable>
+                    <TableDataVariable>%Table_users_accountexpires_manager%</TableDataVariable>
                     <ValueTextArgument1>4</ValueTextArgument1>
-                    <ValueTextArgument2>Type relatie</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_users_column4_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -160,9 +435,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_snapshot_object_relationships_child%</TableDataVariable>
+                    <TableDataVariable>%Table_users_accountexpires_manager%</TableDataVariable>
                     <ValueTextArgument1>5</ValueTextArgument1>
-                    <ValueTextArgument2>[hidden]id_object_parent</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_users_column5_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -182,9 +457,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_snapshot_object_relationships_child%</TableDataVariable>
+                    <TableDataVariable>%Table_users_accountexpires_manager%</TableDataVariable>
                     <ValueTextArgument1>6</ValueTextArgument1>
-                    <ValueTextArgument2>Type parent</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_users_column6_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -204,9 +479,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_snapshot_object_relationships_child%</TableDataVariable>
+                    <TableDataVariable>%Table_users_accountexpires_manager%</TableDataVariable>
                     <ValueTextArgument1>7</ValueTextArgument1>
-                    <ValueTextArgument2>Parent</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_users_column7_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -226,9 +501,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_snapshot_object_relationships_child%</TableDataVariable>
+                    <TableDataVariable>%Table_users_accountexpires_manager%</TableDataVariable>
                     <ValueTextArgument1>8</ValueTextArgument1>
-                    <ValueTextArgument2>Niveau</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_users_column8_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -236,35 +511,167 @@
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
-                            <ErrorControl>1</ErrorControl>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_users_accountexpires_manager%</TableDataVariable>
+                    <ValueTextArgument1>9</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_users_column9_name%</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Object_dn%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>208</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>1</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Object_dn%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>100</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue/>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptForEach">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
                             <ErrorControlLabel>error</ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
                             <ErrorVariableName></ErrorVariableName>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
+                    <TableVariableName>%Table_users_search_roots%</TableVariableName>
+                    <ProjectName>function-generate-table-objects</ProjectName>
+                    <ColumnVariablesMap>
+                        <TextItem>%Binding_object%</TextItem>
+                    </ColumnVariablesMap>
+                    <ReturnVariableNames>
+                        <TextItem>%Table_objects%</TextItem>
+                    </ReturnVariableNames>
+                    <StopLoopOnErrorFlag>TRUE</StopLoopOnErrorFlag>
+                    <TerminationCondition class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray/>
                         </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
-                            <OleDbProviderType>55466104</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[EXEC spSnapshot_object_relationships_get_child
-%ID_object%]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </TerminationCondition>
+                    <VariableFilter class="cUmVariableFilter">
+                        <VariableFilterMode>0</VariableFilterMode>
+                        <VariableSpecification/>
+                    </VariableFilter>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>5</TableDataOperation>
+                    <TableDataVariable>%Table_objects%</TableDataVariable>
+                    <ValueTextArgument1>%Count_rows_table_objects%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Count_rows_table_objects%</InputVariableName>
+                                    <InputVariableType>2</InputVariableType>
+                                    <OperatorIndex>300</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>0</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
@@ -278,8 +685,8 @@
                         </Base>
                     </Base>
                     <TableDataOperation>9</TableDataOperation>
-                    <TableDataVariable>%Table_snapshot_object_relationships_child%</TableDataVariable>
-                    <ValueTextArgument1>%Table_query_db%</ValueTextArgument1>
+                    <TableDataVariable>%Table_users_accountexpires_manager%</TableDataVariable>
+                    <ValueTextArgument1>%Table_objects%</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
@@ -299,57 +706,16 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>1</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>0</ValueTextArgument1>
-                    <ValueTextArgument2></ValueTextArgument2>
+                    <TableDataOperation>18</TableDataOperation>
+                    <TableDataVariable>%Table_users_accountexpires_manager%</TableDataVariable>
+                    <ValueTextArgument1>%Table_users_sort_column%</ValueTextArgument1>
+                    <ValueTextArgument2>Yes</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGoTo">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <GoToLabel>end</GoToLabel>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptVarious">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label>error</Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ScriptActionType>2</ScriptActionType>
-                    <ParameterNumeric>0</ParameterNumeric>
-                    <ParameterText></ParameterText>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>global-error-handler</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
@@ -457,16 +823,16 @@
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\f7454b8a-5f2b-4e2c-8e52-898b7096d7d0.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\2cde0329-1b7f-419a-a2e4-dca2c743b2b3.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
         <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-generate-table-snapshot-object-relationships-child</ProjectName>
-        <DisplayName>function-generate-table-snapshot-object-relationships-child</DisplayName>
-        <UUID>KuUR3vyX$4kjS@4iwZ51QDs</UUID>
+        <ProjectName>function-generate-table-users-accountexpires-manager</ProjectName>
+        <DisplayName>function-generate-table-users-accountexpires-manager</DisplayName>
+        <UUID>pMg3$83GaGkokztoHPk$zCs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
