@@ -81,8 +81,10 @@
                             <OleDbProviderType>74591088</OleDbProviderType>
                         </OleDb>
                         <SqlCommands>
-                            <TextItem>DELETE FROM [User Answers] WHERE [account id] = '%SSRPM_account_id%'</TextItem>
-                            <TextItem>DELETE FROM [Enrolled Users] WHERE ID = '%SSRPM_account_id%'</TextItem>
+                            <TextItem><![CDATA[DELETE FROM [User Answers] 
+WHERE [account id] = %SSRPM_account_id%]]></TextItem>
+                            <TextItem><![CDATA[DELETE FROM [Enrolled Users] 
+WHERE ID = %SSRPM_account_id%]]></TextItem>
                         </SqlCommands>
                         <TestVariables class="cUmVariableArray">
                             <Base class="cUmraObArray">
@@ -128,7 +130,7 @@
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <TextValue>reset-unlock-unenroll</TextValue>
+                        <TextValue>ssrpm-unenroll</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                 </ArrayElement>
@@ -379,8 +381,8 @@
         <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-user-ad-reset-unlock-unenroll</ProjectName>
-        <DisplayName>function-user-ad-reset-unlock</DisplayName>
+        <ProjectName>function-user-ssrpm-unenroll</ProjectName>
+        <DisplayName>function-user-ssrpm-unenroll</DisplayName>
         <UUID>22NjvZK0h6Ep0Q3xc6qMkAs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
