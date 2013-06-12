@@ -3,6 +3,45 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init-db</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init-snapshot</ProjectName>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptGenericTable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -14,26 +53,30 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
+                    <TableDefinition class="cUmraTableDefFile">
                         <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
+                            <VariableName>%Table_query_csv%</VariableName>
                             <TestVariableArray class="cUmVariableArray">
                                 <Base class="cUmraObArray">
                                     <ObjectArray/>
                                 </Base>
                             </TestVariableArray>
                         </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
-                            <OleDbProviderType>55466104</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[EXEC spJob_add
-%TASK_id%,
-'default',
-'function-user-ad-set-attribute'
-]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
+                        <DataFileParam class="cDataFileParam">
+                            <Base class="cDataFileParseInfo">
+                                <Separators>
+                                    <TextItem>;</TextItem>
+                                </Separators>
+                                <TextQualifier>"</TextQualifier>
+                                <DelimitedFlag>TRUE</DelimitedFlag>
+                                <FixedWidthPositions/>
+                                <FirstRowFieldNamesFlag>TRUE</FirstRowFieldNamesFlag>
+                                <FieldCanContainMultipleLinesFlag>FALSE</FieldCanContainMultipleLinesFlag>
+                            </Base>
+                            <FileName>%UmraPath%\UMRA_Employees.csv</FileName>
+                            <FileHeaderColumnNames/>
+                            <AddRowNumberFlag>FALSE</AddRowNumberFlag>
+                        </DataFileParam>
                     </TableDefinition>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
@@ -47,53 +90,53 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>4</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>0</ValueTextArgument1>
-                    <ValueTextArgument2>0</ValueTextArgument2>
-                    <ValueTextArgument3>%JOB_id_user_ad_set_attribute%</ValueTextArgument3>
+                    <TableDataOperation>80</TableDataOperation>
+                    <TableDataVariable>%Table_query_csv%</TableDataVariable>
+                    <ValueTextArgument1>%Snapshot_staging_csv_unc_path%\UMRA_Employees.csv</ValueTextArgument1>
+                    <ValueTextArgument2>&lt;TAB&gt;</ValueTextArgument2>
+                    <ValueTextArgument3>UNICODE</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
+                <ArrayElement class="cActionItemScriptDatabaseCommand">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
                             <ErrorVariableName></ErrorVariableName>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
+                    <SqlUpdate class="cUmraDbUpdate" Version="1">
+                        <OleDb class="cUmraOleDbGeneral">
                             <Base class="cUmraOleDb"/>
                             <ConnectionString>%Conn_string_db_umra%</ConnectionString>
-                            <OleDbProviderType>55466104</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[EXEC spJobvariable_add
-%JOB_id_user_ad_set_attribute%,
-'Attribute_name',
-'%Attribute_name%'
+                            <OleDbProviderType>1</OleDbProviderType>
+                        </OleDb>
+                        <SqlCommands>
+                            <TextItem><![CDATA[DELETE FROM AFAS_UMRA_Employees;
 
-EXEC spJobvariable_add
-%JOB_id_user_ad_set_attribute%,
-'Attribute_value',
-'%Attribute_value%']]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
+BULK INSERT AFAS_UMRA_Employees
+FROM '%Snapshot_staging_csv_unc_path%\UMRA_Employees.csv'
+WITH
+(
+FIELDTERMINATOR ='\t',
+ROWTERMINATOR = '\n',
+DATAFILETYPE = 'widechar'
+)]]></TextItem>
+                        </SqlCommands>
+                        <TestVariables class="cUmVariableArray">
+                            <Base class="cUmraObArray">
+                                <ObjectArray/>
+                            </Base>
+                        </TestVariables>
+                        <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
+                    </SqlUpdate>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGoTo">
                     <Base class="cActionItemScript">
@@ -242,23 +285,36 @@ EXEC spJobvariable_add
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\887174ed-96ad-4712-8d2d-51b875a07adc.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\a2b92e15-1002-419a-97a1-f0e7a6e29121.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
-        <Scheduler/>
+        <Scheduler class="cUmraSchedulerDaily">
+            <Base class="cUmraScheduler">
+                <DayIncludeFlags>127</DayIncludeFlags>
+                <SchedulerFlags>0</SchedulerFlags>
+                <Exceptions class="cUmraSchedulerExceptions">
+                    <ExceptionMode>0</ExceptionMode>
+                    <Base class="cUmraObArray">
+                        <ObjectArray/>
+                    </Base>
+                </Exceptions>
+            </Base>
+            <Hour>22</Hour>
+            <Minute>30</Minute>
+        </Scheduler>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>sync-hrm-ad-record-common-enable-attributes</ProjectName>
-        <DisplayName>sync-hrm-ad-record-left</DisplayName>
-        <UUID>tTXcI2q@ScUjtEFu1BqecDs</UUID>
+        <ProjectName>auto-organization-afas-export</ProjectName>
+        <DisplayName>auto-organization-beaufort-export</DisplayName>
+        <UUID>V4SuiKAEaG0@hC/5mKekhAs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1640</BuildNumber>
+        <BuildNumber>1667</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>
@@ -818,8 +874,6 @@ EXEC spJobvariable_add
         <DataFileParam class="cDataFileParam">
             <Base class="cDataFileParseInfo">
                 <Separators>
-                    <TextItem>,</TextItem>
-                    <TextItem>,</TextItem>
                     <TextItem>,</TextItem>
                 </Separators>
                 <TextQualifier>"</TextQualifier>

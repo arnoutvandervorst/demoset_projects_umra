@@ -14,7 +14,20 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init-db</ProjectName>
+                    <ProjectName>global-init-user-config</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init-data</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
@@ -29,19 +42,6 @@
                     </Base>
                     <ProjectName>global-init-tag</ProjectName>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>global-init-user</ProjectName>
-                </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -54,8 +54,8 @@
                         </Base>
                     </Base>
                     <TableDataOperation>1</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
-                    <ValueTextArgument1>16</ValueTextArgument1>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
+                    <ValueTextArgument1>7</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
@@ -76,9 +76,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
                     <ValueTextArgument1>0</ValueTextArgument1>
-                    <ValueTextArgument2>[hidden]ID_tag</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_tags_column0_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -98,9 +98,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
                     <ValueTextArgument1>1</ValueTextArgument1>
-                    <ValueTextArgument2>[hidden]ID_tagobject</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_tags_column1_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -120,9 +120,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
                     <ValueTextArgument1>2</ValueTextArgument1>
-                    <ValueTextArgument2>%RES_table_column_name%</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_tags_column2_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -142,9 +142,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
                     <ValueTextArgument1>3</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_users_column0_name%</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_tags_column3_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -164,9 +164,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
                     <ValueTextArgument1>4</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_users_column1_name%</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_tags_column4_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -186,9 +186,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
                     <ValueTextArgument1>5</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_users_column2_name%</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_tags_column5_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -208,15 +208,379 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
                     <ValueTextArgument1>6</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_users_column3_name%</ValueTextArgument2>
+                    <ValueTextArgument2>%Table_tags_column6_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Container_dn_user_create%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>OU=AFAS,OU=Organisation,DC=wfm,DC=local</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%name_preference_code%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%HR_gbrk_naam%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%initials%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%HR_e_vrlt%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%firstname%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%HR_e_roepnaam%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%middlename_birth%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%HR_e_vrvg%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%middlename_partner%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%HR_p_vrvg%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%lastname_birth%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%HR_e_naam%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%lastname_partner%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%HR_p_naam%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%initials%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionNoArguments">
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>10045</FunctionIdentifier>
+                                        <FunctionName>Delete: Leading and trailing blank characters.</FunctionName>
+                                        <FunctionDescription>Delete all leading and trailing blank and tab characters from the name.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                                <ArrayElement class="cUgFunctionSingleArgument">
+                                    <ArgumentValue>6</ArgumentValue>
+                                    <ArgumentName># Characters</ArgumentName>
+                                    <ArgumentType>1</ArgumentType>
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>20010</FunctionIdentifier>
+                                        <FunctionName>Shorten name: Convert to first N</FunctionName>
+                                        <FunctionDescription>Convert the name to the first N characters of the name. If the name does not contain N characters, it is not changed.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%firstname%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionNoArguments">
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>10045</FunctionIdentifier>
+                                        <FunctionName>Delete: Leading and trailing blank characters.</FunctionName>
+                                        <FunctionDescription>Delete all leading and trailing blank and tab characters from the name.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%middlename_birth%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionNoArguments">
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>10045</FunctionIdentifier>
+                                        <FunctionName>Delete: Leading and trailing blank characters.</FunctionName>
+                                        <FunctionDescription>Delete all leading and trailing blank and tab characters from the name.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%middlename_partner%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionNoArguments">
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>10045</FunctionIdentifier>
+                                        <FunctionName>Delete: Leading and trailing blank characters.</FunctionName>
+                                        <FunctionDescription>Delete all leading and trailing blank and tab characters from the name.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%lastname_birth%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionNoArguments">
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>10045</FunctionIdentifier>
+                                        <FunctionName>Delete: Leading and trailing blank characters.</FunctionName>
+                                        <FunctionDescription>Delete all leading and trailing blank and tab characters from the name.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%lastname_partner%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionNoArguments">
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>10045</FunctionIdentifier>
+                                        <FunctionName>Delete: Leading and trailing blank characters.</FunctionName>
+                                        <FunctionDescription>Delete all leading and trailing blank and tab characters from the name.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>function-user-ad-generate-names</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>function-user-ad-generate-password</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
@@ -229,10 +593,10 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
+                    <TableDataOperation>1</TableDataOperation>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
                     <ValueTextArgument1>7</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_users_column4_name%</ValueTextArgument2>
+                    <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -252,9 +616,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
-                    <ValueTextArgument1>8</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_users_column5_name%</ValueTextArgument2>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_tags_column0_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -274,9 +638,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
-                    <ValueTextArgument1>9</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_users_column6_name%</ValueTextArgument2>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
+                    <ValueTextArgument1>1</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_tags_column1_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -296,9 +660,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
-                    <ValueTextArgument1>10</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_users_column7_name%</ValueTextArgument2>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
+                    <ValueTextArgument1>2</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_tags_column2_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -318,9 +682,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
-                    <ValueTextArgument1>11</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_users_column8_name%</ValueTextArgument2>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
+                    <ValueTextArgument1>3</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_tags_column3_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -340,9 +704,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
-                    <ValueTextArgument1>12</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_users_column9_name%</ValueTextArgument2>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
+                    <ValueTextArgument1>4</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_tags_column4_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -362,9 +726,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
-                    <ValueTextArgument1>13</ValueTextArgument1>
-                    <ValueTextArgument2>%RES_table_column_type%</ValueTextArgument2>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
+                    <ValueTextArgument1>5</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_tags_column5_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -384,9 +748,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
-                    <ValueTextArgument1>14</ValueTextArgument1>
-                    <ValueTextArgument2>%RES_table_column_duration_hour%</ValueTextArgument2>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
+                    <ValueTextArgument1>6</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_tags_column6_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -394,7 +758,7 @@
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
+                <ArrayElement class="cActionItemScriptSetVariable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -405,16 +769,68 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
-                    <ValueTextArgument1>15</ValueTextArgument1>
-                    <ValueTextArgument2>%RES_table_column_duration_used%</ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                    <VariableName>%keywords%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>default,%HR_cost_kd%,%HR_func_kd%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%keywords_sql%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%keywords%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%keywords_sql%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionDoubleArgument">
+                                    <Argument1Value>'</Argument1Value>
+                                    <Argument1Name>Source substring</Argument1Name>
+                                    <Argument1Type>0</Argument1Type>
+                                    <Argument2Value>''</Argument2Value>
+                                    <Argument2Name>Target substring</Argument2Name>
+                                    <Argument2Type>0</Argument2Type>
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>30080</FunctionIdentifier>
+                                        <FunctionName>Replace: substring</FunctionName>
+                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGenericTable">
                     <Base class="cActionItemScript">
@@ -441,8 +857,9 @@
                             <ConnectionString>%Conn_string_db_umra%</ConnectionString>
                             <OleDbProviderType>55466104</OleDbProviderType>
                         </UmraOleDb>
-                        <DatabaseQuery><![CDATA[EXEC spTags_objects_timer_get
-'user']]></DatabaseQuery>
+                        <DatabaseQuery><![CDATA[EXEC spTags_get
+1,
+'%keywords_sql%']]></DatabaseQuery>
                         <QueryResultColumnNames/>
                     </TableDefinition>
                 </ArrayElement>
@@ -458,7 +875,7 @@
                         </Base>
                     </Base>
                     <TableDataOperation>9</TableDataOperation>
-                    <TableDataVariable>%Table_tags_users_timer%</TableDataVariable>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
                     <ValueTextArgument1>%Table_query_db%</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
@@ -479,8 +896,8 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>1</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
+                    <TableDataOperation>6</TableDataOperation>
+                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
                     <ValueTextArgument1>0</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
@@ -490,7 +907,7 @@
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptGoTo">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -501,24 +918,18 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <GoToLabel>end</GoToLabel>
+                    <TableDataOperation>2</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptVarious">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label>error</Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ScriptActionType>2</ScriptActionType>
-                    <ParameterNumeric>0</ParameterNumeric>
-                    <ParameterText></ParameterText>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -529,12 +940,21 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-error-handler</ProjectName>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>employeeID</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptVarious">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
-                            <Label>end</Label>
+                            <Label></Label>
                             <ErrorControl>0</ErrorControl>
                             <ErrorControlLabel></ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
@@ -542,9 +962,346 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ScriptActionType>2</ScriptActionType>
-                    <ParameterNumeric>0</ParameterNumeric>
-                    <ParameterText></ParameterText>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%HR_bsn%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>2</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>employeeNumber</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%HR_nr%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>2</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>description</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%HR_func_oms% (%HR_cost_oms%)</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>2</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>title</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%HR_func_kd% (%HR_func_oms%)</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>2</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>department</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%HR_cost_kd% (%HR_cost_oms%)</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>2</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>company</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%HR_org_kd% (%HR_org_oms%)</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
             </ObjectArray>
         </Base>
@@ -635,18 +1392,18 @@
         </Base>
     </AccessSettings>
     <HelpInfoUrl></HelpInfoUrl>
-    <ScriptTimeOutSec>900</ScriptTimeOutSec>
+    <ScriptTimeOutSec>1492536</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\3632adee-250d-4c96-ab6a-633bf09d528e.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\5f79f0a9-e374-43a9-82a6-f8bd1d9b2053.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
         <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-generate-table-tags-users-timer</ProjectName>
-        <DisplayName>function-generate-table-tags-users-timer</DisplayName>
-        <UUID>u3qM20QJWy0qqN2Ow3pUOCs</UUID>
+        <ProjectName>function-user-ad-preprocess-input-afas</ProjectName>
+        <DisplayName>function-user-ad-preprocess-input-afas</DisplayName>
+        <UUID>pCfefR34pOkgmifvd$JITBs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
@@ -1213,6 +1970,7 @@
         <DataFileParam class="cDataFileParam">
             <Base class="cDataFileParseInfo">
                 <Separators>
+                    <TextItem>,</TextItem>
                     <TextItem>,</TextItem>
                     <TextItem>,</TextItem>
                     <TextItem>,</TextItem>

@@ -3,378 +3,6 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>sync-hrm-ad-init</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_hrm_source%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_hrm%</ConnectionString>
-                            <OleDbProviderType>0</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery>%Query_hrm_employees_all%</DatabaseQuery>
-                        <QueryResultColumnNames>
-                            <TextItem>pers_nr</TextItem>
-                            <TextItem>e_vrlt</TextItem>
-                            <TextItem>e_roepnaam</TextItem>
-                            <TextItem>vrvg_samen</TextItem>
-                            <TextItem>naam_samen</TextItem>
-                            <TextItem>oe_kort_nm</TextItem>
-                            <TextItem>oe_vol_nm</TextItem>
-                            <TextItem>indnst_dt</TextItem>
-                            <TextItem>uitdnst_dt</TextItem>
-                        </QueryResultColumnNames>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefLdapQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_ad%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraLdapQueryBindingType>2</UmraLdapQueryBindingType>
-                        <BindingString>%Binding_ldap%</BindingString>
-                        <LdapQueryFilter>(&amp;(objectClass=user)(employeeID=*))</LdapQueryFilter>
-                        <Attributes class="cUmraTableLdapAttributes">
-                            <Base class="cUmraObArray">
-                                <ObjectArray>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>distinguishedName</LdapName>
-                                        <DisplayName>distinguishedName</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>employeeID</LdapName>
-                                        <DisplayName>employeeID</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>memberOf</LdapName>
-                                        <DisplayName>memberOf</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>sAMAccountName</LdapName>
-                                        <DisplayName>Username</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>displayName</LdapName>
-                                        <DisplayName>displayname</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>department</LdapName>
-                                        <DisplayName>department</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>userAccountControl</LdapName>
-                                        <DisplayName>Disabled</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray>
-                                                    <ArrayElement class="cUmDataConversion">
-                                                        <OperationId>100</OperationId>
-                                                        <pArgumentData class="cUmDataNumeric">
-                                                            <Base class="cUmData" Version="1">
-                                                                <HiddenFlag>FALSE</HiddenFlag>
-                                                            </Base>
-                                                            <NumericValue>2</NumericValue>
-                                                        </pArgumentData>
-                                                    </ArrayElement>
-                                                </ObjectArray>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>givenName</LdapName>
-                                        <DisplayName>givenName</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>initials</LdapName>
-                                        <DisplayName>initials</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>sn</LdapName>
-                                        <DisplayName>sn</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>description</LdapName>
-                                        <DisplayName>description</DisplayName>
-                                        <DataConversionCollection class="cUmDataConversionCollection">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray/>
-                                            </Base>
-                                        </DataConversionCollection>
-                                    </ArrayElement>
-                                </ObjectArray>
-                            </Base>
-                        </Attributes>
-                        <LdapSearchOptions class="cUmraTableLdapSearchOptions">
-                            <FlagTimeTotal>FALSE</FlagTimeTotal>
-                            <FlagTimePage>FALSE</FlagTimePage>
-                            <FlagSizeTotal>FALSE</FlagSizeTotal>
-                            <FlagSizePage>TRUE</FlagSizePage>
-                            <FlagCacheResults>TRUE</FlagCacheResults>
-                            <TimeTotalSec>120</TimeTotalSec>
-                            <TimePageSec>120</TimePageSec>
-                            <SizeTotal>1000</SizeTotal>
-                            <SizePage>500</SizePage>
-                            <ScopeOption>0</ScopeOption>
-                            <ReferralChaseOption>0</ReferralChaseOption>
-                        </LdapSearchOptions>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableJoin">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <InputTable1Variable>%Table_hrm_source%</InputTable1Variable>
-                    <InputTable2Variable>%Table_query_ad%</InputTable2Variable>
-                    <OutputTableVariable>%Table_join%</OutputTableVariable>
-                    <JoinColumnNameTable1>pers_nr</JoinColumnNameTable1>
-                    <JoinColumnNameTable2>employeeID</JoinColumnNameTable2>
-                    <TextModeFlag>TRUE</TextModeFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
-                            <OleDbProviderType>55466104</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[EXEC spBatch_add
-'Koppeling HRM-AD',
-1000,
-1,
-NULL]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>4</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>0</ValueTextArgument1>
-                    <ValueTextArgument2>0</ValueTextArgument2>
-                    <ValueTextArgument3>%BATCH_id%</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptForEach">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableVariableName>%Table_join%</TableVariableName>
-                    <ProjectName>sync-hrm-ad-record</ProjectName>
-                    <ColumnVariablesMap>
-                        <TextItem>%HR_pers_nr%</TextItem>
-                        <TextItem>%HR_vol_nm%</TextItem>
-                        <TextItem>%HR_e_vrlt%</TextItem>
-                        <TextItem>%HR_e_roepnaam%</TextItem>
-                        <TextItem>%HR_vrvg_samen%</TextItem>
-                        <TextItem>%HR_naam_samen%</TextItem>
-                        <TextItem>%HR_func_kd%</TextItem>
-                        <TextItem>%HR_func_oms%</TextItem>
-                        <TextItem>%HR_oe_kort_nm%</TextItem>
-                        <TextItem>%HR_oe_vol_nm%</TextItem>
-                        <TextItem>%HR_indnst_dt%</TextItem>
-                        <TextItem>%HR_uitdnst_dt%</TextItem>
-                        <TextItem>%Object_dn%</TextItem>
-                        <TextItem>%AD_employeeID%</TextItem>
-                        <TextItem>%AD_memberOf%</TextItem>
-                        <TextItem>%AD_sAMAccountName%</TextItem>
-                        <TextItem>%AD_displayname%</TextItem>
-                        <TextItem>%AD_department%</TextItem>
-                        <TextItem>%AD_accountDisabled%</TextItem>
-                        <TextItem>%AD_givenName%</TextItem>
-                        <TextItem>%AD_initials%</TextItem>
-                        <TextItem>%AD_sn%</TextItem>
-                        <TextItem>%AD_description%</TextItem>
-                        <TextItem>%JoinResult%</TextItem>
-                    </ColumnVariablesMap>
-                    <ReturnVariableNames>
-                        <TextItem>%Count_operation_left%</TextItem>
-                        <TextItem>%Count_operation_common_in_dienst%</TextItem>
-                        <TextItem>%Count_operation_common_uit_dienst%</TextItem>
-                        <TextItem>%Status_operation%</TextItem>
-                        <TextItem>%Count_errors%</TextItem>
-                    </ReturnVariableNames>
-                    <StopLoopOnErrorFlag>TRUE</StopLoopOnErrorFlag>
-                    <TerminationCondition class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray/>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </TerminationCondition>
-                    <VariableFilter class="cUmVariableFilter">
-                        <VariableFilterMode>3</VariableFilterMode>
-                        <VariableSpecification>
-                            <TextItem>%Table_query_ad%</TextItem>
-                            <TextItem>%Table_hrm_source%</TextItem>
-                            <TextItem>%Table_join%</TextItem>
-                        </VariableSpecification>
-                    </VariableFilter>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
-                            <OleDbProviderType>55466104</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[EXEC spBatch_finish
-%BATCH_id%]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
                 <ArrayElement class="cActionItemScriptGoTo">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -388,10 +16,10 @@ NULL]]></DatabaseQuery>
                     </Base>
                     <GoToLabel>end</GoToLabel>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptVarious">
+                <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
-                            <Label>error</Label>
+                            <Label></Label>
                             <ErrorControl>0</ErrorControl>
                             <ErrorControlLabel></ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
@@ -399,9 +27,45 @@ NULL]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ScriptActionType>2</ScriptActionType>
-                    <ParameterNumeric>0</ParameterNumeric>
-                    <ParameterText></ParameterText>
+                    <ProjectName>function-user-ad-preprocess-disable</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%AD_accountDisabled%</InputVariableName>
+                                    <InputVariableType>3</InputVariableType>
+                                    <OperatorIndex>500</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataBool">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <BoolValue>TRUE</BoolValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
@@ -414,7 +78,7 @@ NULL]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-error-handler</ProjectName>
+                    <ProjectName>function-user-ad-disable</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
@@ -522,33 +186,22 @@ NULL]]></DatabaseQuery>
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\a0f047a6-73a9-40e6-8e3b-18b507db9cf8.usp</LocalProjectFileName>
-    <DisableScriptActionRamLogging>FALSE</DisableScriptActionRamLogging>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\57308fac-449d-49ad-ba7e-e095d41ffebe.usp</LocalProjectFileName>
+    <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
-        <Scheduler class="cUmraSchedulerOnCommand">
-            <Base class="cUmraScheduler">
-                <DayIncludeFlags>0</DayIncludeFlags>
-                <SchedulerFlags>1</SchedulerFlags>
-                <Exceptions class="cUmraSchedulerExceptions">
-                    <ExceptionMode>0</ExceptionMode>
-                    <Base class="cUmraObArray">
-                        <ObjectArray/>
-                    </Base>
-                </Exceptions>
-            </Base>
-        </Scheduler>
+        <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>sync-hrm-ad-run</ProjectName>
-        <DisplayName>sync-hrm-ad-run</DisplayName>
-        <UUID>meE8gm6cmDkj7gRtH$Nn4Ds</UUID>
+        <ProjectName>sync-afas-ad-employee-common-inactive</ProjectName>
+        <DisplayName>sync-afas-ad-employee-common-inactive</DisplayName>
+        <UUID>$+IMX1JRtmku+Be@U/h/+Cs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
-        <UpdatePreviewFlag>FALSE</UpdatePreviewFlag>
+        <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
-        <PopupMessagesShown>0</PopupMessagesShown>
+        <PopupMessagesShown>2</PopupMessagesShown>
         <BuildNumber>1667</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
