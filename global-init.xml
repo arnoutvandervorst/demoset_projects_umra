@@ -3,6 +3,37 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
+                <ArrayElement class="cActionItemScriptConditionalVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <InputVariable>%WFM_sessionLanguageCode%</InputVariable>
+                    <OutputVariable>%code_language%</OutputVariable>
+                    <InputOutputValues class="cNameValueCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cNameValue">
+                                    <Name>nl</Name>
+                                    <Value>nl</Value>
+                                </ArrayElement>
+                                <ArrayElement class="cNameValue">
+                                    <Name>usa</Name>
+                                    <Value>usa</Value>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </InputOutputValues>
+                    <DefaultOutputValue>nl</DefaultOutputValue>
+                    <CaseSensitiveCompareFlag>FALSE</CaseSensitiveCompareFlag>
+                    <UseDefaultValueIfNotFoundFlag>TRUE</UseDefaultValueIfNotFoundFlag>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -14,7 +45,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init-resources-%WFM_sessionLanguageCode%</ProjectName>
+                    <ProjectName>global-init-resources-%code_language%</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
