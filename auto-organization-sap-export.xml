@@ -160,7 +160,7 @@
                         </OleDb>
                         <SqlCommands>
                             <TextItem><![CDATA[DELETE FROM SAP_UMRA_Employees
-WHERE payroll_area = '%SAP_payroll_area%';
+WHERE PAYAREA = '%SAP_payroll_area%';
 
 BULK INSERT SAP_UMRA_Employees
 FROM '%Snapshot_staging_csv_unc_path%\table_sap_employees_%SAP_payroll_area%.csv'
@@ -353,7 +353,7 @@ DATAFILETYPE = 'widechar'
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1667</BuildNumber>
+        <BuildNumber>1673</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>
