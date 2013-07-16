@@ -585,6 +585,42 @@
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
+                <ArrayElement class="cActionItemScriptSplitVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <InputVariableName>%homeDirectory%</InputVariableName>
+                    <Separators>\</Separators>
+                    <OutputVariableName1>%homeDirectory_path%</OutputVariableName1>
+                    <OutputVariableName2>%homeDirectory_folder%</OutputVariableName2>
+                    <Var1EmptyIfNoSplitFlag>FALSE</Var1EmptyIfNoSplitFlag>
+                    <RightToLeftFlag>TRUE</RightToLeftFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSplitVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <InputVariableName>%homeDirectory_path%</InputVariableName>
+                    <Separators>\</Separators>
+                    <OutputVariableName1>%homeDirectory_parent%</OutputVariableName1>
+                    <OutputVariableName2>%homeDirectory_path%</OutputVariableName2>
+                    <Var1EmptyIfNoSplitFlag>FALSE</Var1EmptyIfNoSplitFlag>
+                    <RightToLeftFlag>TRUE</RightToLeftFlag>
+                </ArrayElement>
                 <ArrayElement class="cActionItemOperationCreateDirectory">
                     <Base class="cActionItemOperation">
                         <Base class="cActionItem">
@@ -611,7 +647,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <TextValue>%homeDirectory_server%</TextValue>
+                                                <TextValue>%homeDirectory_parent%</TextValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -625,7 +661,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <TextValue>%homeDirectory_share%</TextValue>
+                                                <TextValue>%homeDirectory_path%</TextValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -639,7 +675,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <TextValue>%AD_sAMAccountName%</TextValue>
+                                                <TextValue>%homeDirectory_folder%</TextValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -667,7 +703,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <BoolValue>TRUE</BoolValue>
+                                                <BoolValue>FALSE</BoolValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -677,60 +713,7 @@
                                             <Description>The security settings of the new directory. The security settings include all of the permissions and the owner of the directory.</Description>
                                             <ExportMode>0</ExportMode>
                                             <ExportVariable></ExportVariable>
-                                            <Value class="cJvrSec">
-                                                <Mask>0</Mask>
-                                                <DACL class="cJvrSecAcl">
-                                                    <ProtectedFlag>FALSE</ProtectedFlag>
-                                                    <ResetChildPermissionsFlags>TRUE</ResetChildPermissionsFlags>
-                                                    <DaclDefaultedFlag>FALSE</DaclDefaultedFlag>
-                                                    <Base class="cUmraObArray">
-                                                        <ObjectArray>
-                                                            <ArrayElement class="cJvrSecAce">
-                                                                <Base class="cJvrSecAceBase">
-                                                                    <AceType>0</AceType>
-                                                                    <AceFlags>3</AceFlags>
-                                                                    <Mask>1245631</Mask>
-                                                                    <Account class="cJvrSecAccount">
-                                                                        <Mask>2</Mask>
-                                                                        <AccountName></AccountName>
-                                                                        <AccountNameVariable>%UserSid%</AccountNameVariable>
-                                                                        <AccountClassName></AccountClassName>
-                                                                        <AccountSid class="cJvrSecSid">
-                                                                            <InitializedFlag>FALSE</InitializedFlag>
-                                                                            <SID></SID>
-                                                                        </AccountSid>
-                                                                    </Account>
-                                                                </Base>
-                                                            </ArrayElement>
-                                                        </ObjectArray>
-                                                    </Base>
-                                                </DACL>
-                                                <Group class="cJvrSecAccount">
-                                                    <Mask>0</Mask>
-                                                    <AccountName></AccountName>
-                                                    <AccountNameVariable></AccountNameVariable>
-                                                    <AccountClassName></AccountClassName>
-                                                    <AccountSid class="cJvrSecSid">
-                                                        <InitializedFlag>FALSE</InitializedFlag>
-                                                        <SID></SID>
-                                                    </AccountSid>
-                                                </Group>
-                                                <Owner class="cJvrSecAccount">
-                                                    <Mask>0</Mask>
-                                                    <AccountName></AccountName>
-                                                    <AccountNameVariable></AccountNameVariable>
-                                                    <AccountClassName></AccountClassName>
-                                                    <AccountSid class="cJvrSecSid">
-                                                        <InitializedFlag>FALSE</InitializedFlag>
-                                                        <SID></SID>
-                                                    </AccountSid>
-                                                </Owner>
-                                                <SecurityDescriptorControlBitsOfInterest>0</SecurityDescriptorControlBitsOfInterest>
-                                                <SecurityDescriptorControlBitsToSetwner>0</SecurityDescriptorControlBitsToSetwner>
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                            </Value>
+                                            <Value/>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
                                             <Id>102050</Id>
@@ -753,12 +736,7 @@
                                             <Description>The name of the share that is used to create a share on the new directory. If a share with the same name already exists, a number is added to the share name until the share name is a unique name.</Description>
                                             <ExportMode>1</ExportMode>
                                             <ExportVariable></ExportVariable>
-                                            <Value class="cUmDataText">
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                                <TextValue>%UserName%</TextValue>
-                                            </Value>
+                                            <Value/>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
                                             <Id>102052</Id>
@@ -800,6 +778,154 @@
                                             <ExportMode>1</ExportMode>
                                             <ExportVariable></ExportVariable>
                                             <Value/>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
+                </ArrayElement>
+                <ArrayElement class="cActionItemOperationFsSetSecurity">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                        <Explanation>Setup the permissions (security access rights) of a directory, file or directory tree.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153000</Id>
+                                            <Name>Target directory or file</Name>
+                                            <Type>1</Type>
+                                            <Description>The name of source directory or file. The source directory can be specified in two ways: For local directories: &lt;logical drive&gt;\&lt;directory&gt;\&lt;directory&gt; etc. Example: 'C:\UserData\Marketing'. For remote and local directories: \\&lt;computer&gt;\&lt;share&gt;\&lt;directory&gt;\&lt;directory&gt;. Example: '\\SERVER_A\Users\Data'. The source directory must exist. The name of the file or directory should not include any wildcard characters.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%homeDirectory%</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153010</Id>
+                                            <Name>Security</Name>
+                                            <Type>5</Type>
+                                            <Description>The new security settings for the target directory and/or files. Note that the original security settings will be overwritten.</Description>
+                                            <ExportMode>0</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cJvrSec">
+                                                <Mask>0</Mask>
+                                                <DACL class="cJvrSecAcl">
+                                                    <ProtectedFlag>FALSE</ProtectedFlag>
+                                                    <ResetChildPermissionsFlags>TRUE</ResetChildPermissionsFlags>
+                                                    <DaclDefaultedFlag>FALSE</DaclDefaultedFlag>
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray>
+                                                            <ArrayElement class="cJvrSecAce">
+                                                                <Base class="cJvrSecAceBase">
+                                                                    <AceType>0</AceType>
+                                                                    <AceFlags>3</AceFlags>
+                                                                    <Mask>1245631</Mask>
+                                                                    <Account class="cJvrSecAccount">
+                                                                        <Mask>2</Mask>
+                                                                        <AccountName></AccountName>
+                                                                        <AccountNameVariable>%UserSid%</AccountNameVariable>
+                                                                        <AccountClassName></AccountClassName>
+                                                                        <AccountSid class="cJvrSecSid">
+                                                                            <InitializedFlag>FALSE</InitializedFlag>
+                                                                            <SID></SID>
+                                                                        </AccountSid>
+                                                                    </Account>
+                                                                </Base>
+                                                            </ArrayElement>
+                                                        </ObjectArray>
+                                                    </Base>
+                                                </DACL>
+                                                <Group class="cJvrSecAccount">
+                                                    <Mask>0</Mask>
+                                                    <AccountName></AccountName>
+                                                    <AccountNameVariable></AccountNameVariable>
+                                                    <AccountClassName></AccountClassName>
+                                                    <AccountSid class="cJvrSecSid">
+                                                        <InitializedFlag>FALSE</InitializedFlag>
+                                                        <SID></SID>
+                                                    </AccountSid>
+                                                </Group>
+                                                <Owner class="cJvrSecAccount">
+                                                    <Mask>2</Mask>
+                                                    <AccountName></AccountName>
+                                                    <AccountNameVariable>%UserSid%</AccountNameVariable>
+                                                    <AccountClassName></AccountClassName>
+                                                    <AccountSid class="cJvrSecSid">
+                                                        <InitializedFlag>FALSE</InitializedFlag>
+                                                        <SID></SID>
+                                                    </AccountSid>
+                                                </Owner>
+                                                <SecurityDescriptorControlBitsOfInterest>0</SecurityDescriptorControlBitsOfInterest>
+                                                <SecurityDescriptorControlBitsToSetwner>0</SecurityDescriptorControlBitsToSetwner>
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153021</Id>
+                                            <Name>Propagation mode</Name>
+                                            <Type>3</Type>
+                                            <Description>Specify 'Yes' to setup the security settings for a typical user account home directory: The permission settings of the specified target directory are implicitly set to the specified value and then propagated to all child directories and subdirectories. Explicit security settings for child directories and files are removed.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153020</Id>
+                                            <Name>Recursive mode</Name>
+                                            <Type>3</Type>
+                                            <Description>Specify 'Yes' to setup the security settings for the whole directory tree, including the specified directory, subdirectories and files, and subdirectories of subdirectories etc. For all directories and files of the directory tree, the security settings are set identically.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>TRUE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153030</Id>
+                                            <Name>Use backup and restore privileges</Name>
+                                            <Type>3</Type>
+                                            <Description>A flag indicating that backup and restore privileges must be used to setup the security settings. This property is required in case the logged on user has no access rights to the directories and files that must be copied. The logged on user must have the corresponding access rights configured on the target computer to use these privileges successfully. See the online help for more information. Default value: 'No'.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153031</Id>
+                                            <Name>Continue on error</Name>
+                                            <Type>3</Type>
+                                            <Description>A flag indicating that the action must continue with the next file or directory if an error occurs when setting the permissions of a file or directory. Default value: 'Yes'.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>TRUE</BoolValue>
+                                            </Value>
                                         </ArrayElement>
                                     </ObjectArray>
                                 </Base>
@@ -860,6 +986,42 @@
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
+                <ArrayElement class="cActionItemScriptSplitVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <InputVariableName>%profilePath%</InputVariableName>
+                    <Separators>\</Separators>
+                    <OutputVariableName1>%profilePath_path%</OutputVariableName1>
+                    <OutputVariableName2>%profilePath_folder%</OutputVariableName2>
+                    <Var1EmptyIfNoSplitFlag>FALSE</Var1EmptyIfNoSplitFlag>
+                    <RightToLeftFlag>TRUE</RightToLeftFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSplitVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <InputVariableName>%profilePath_path%</InputVariableName>
+                    <Separators>\</Separators>
+                    <OutputVariableName1>%profilePath_parent%</OutputVariableName1>
+                    <OutputVariableName2>%profilePath_path%</OutputVariableName2>
+                    <Var1EmptyIfNoSplitFlag>FALSE</Var1EmptyIfNoSplitFlag>
+                    <RightToLeftFlag>TRUE</RightToLeftFlag>
+                </ArrayElement>
                 <ArrayElement class="cActionItemOperationCreateDirectory">
                     <Base class="cActionItemOperation">
                         <Base class="cActionItem">
@@ -886,7 +1048,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <TextValue>%profilePath_server%</TextValue>
+                                                <TextValue>%profilePath_parent%</TextValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -900,7 +1062,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <TextValue>%profilePath_share%</TextValue>
+                                                <TextValue>%profilePath_path%</TextValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -914,7 +1076,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <TextValue>%AD_sAMAccountName%</TextValue>
+                                                <TextValue>%profilePath_folder%</TextValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -942,7 +1104,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <BoolValue>TRUE</BoolValue>
+                                                <BoolValue>FALSE</BoolValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -952,60 +1114,7 @@
                                             <Description>The security settings of the new directory. The security settings include all of the permissions and the owner of the directory.</Description>
                                             <ExportMode>0</ExportMode>
                                             <ExportVariable></ExportVariable>
-                                            <Value class="cJvrSec">
-                                                <Mask>0</Mask>
-                                                <DACL class="cJvrSecAcl">
-                                                    <ProtectedFlag>FALSE</ProtectedFlag>
-                                                    <ResetChildPermissionsFlags>TRUE</ResetChildPermissionsFlags>
-                                                    <DaclDefaultedFlag>FALSE</DaclDefaultedFlag>
-                                                    <Base class="cUmraObArray">
-                                                        <ObjectArray>
-                                                            <ArrayElement class="cJvrSecAce">
-                                                                <Base class="cJvrSecAceBase">
-                                                                    <AceType>0</AceType>
-                                                                    <AceFlags>3</AceFlags>
-                                                                    <Mask>1245631</Mask>
-                                                                    <Account class="cJvrSecAccount">
-                                                                        <Mask>2</Mask>
-                                                                        <AccountName></AccountName>
-                                                                        <AccountNameVariable>%UserSid%</AccountNameVariable>
-                                                                        <AccountClassName></AccountClassName>
-                                                                        <AccountSid class="cJvrSecSid">
-                                                                            <InitializedFlag>FALSE</InitializedFlag>
-                                                                            <SID></SID>
-                                                                        </AccountSid>
-                                                                    </Account>
-                                                                </Base>
-                                                            </ArrayElement>
-                                                        </ObjectArray>
-                                                    </Base>
-                                                </DACL>
-                                                <Group class="cJvrSecAccount">
-                                                    <Mask>0</Mask>
-                                                    <AccountName></AccountName>
-                                                    <AccountNameVariable></AccountNameVariable>
-                                                    <AccountClassName></AccountClassName>
-                                                    <AccountSid class="cJvrSecSid">
-                                                        <InitializedFlag>FALSE</InitializedFlag>
-                                                        <SID></SID>
-                                                    </AccountSid>
-                                                </Group>
-                                                <Owner class="cJvrSecAccount">
-                                                    <Mask>0</Mask>
-                                                    <AccountName></AccountName>
-                                                    <AccountNameVariable></AccountNameVariable>
-                                                    <AccountClassName></AccountClassName>
-                                                    <AccountSid class="cJvrSecSid">
-                                                        <InitializedFlag>FALSE</InitializedFlag>
-                                                        <SID></SID>
-                                                    </AccountSid>
-                                                </Owner>
-                                                <SecurityDescriptorControlBitsOfInterest>0</SecurityDescriptorControlBitsOfInterest>
-                                                <SecurityDescriptorControlBitsToSetwner>0</SecurityDescriptorControlBitsToSetwner>
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                            </Value>
+                                            <Value/>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
                                             <Id>102050</Id>
@@ -1028,12 +1137,7 @@
                                             <Description>The name of the share that is used to create a share on the new directory. If a share with the same name already exists, a number is added to the share name until the share name is a unique name.</Description>
                                             <ExportMode>1</ExportMode>
                                             <ExportVariable></ExportVariable>
-                                            <Value class="cUmDataText">
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                                <TextValue>%UserName%</TextValue>
-                                            </Value>
+                                            <Value/>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
                                             <Id>102052</Id>
@@ -1075,6 +1179,154 @@
                                             <ExportMode>1</ExportMode>
                                             <ExportVariable></ExportVariable>
                                             <Value/>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
+                </ArrayElement>
+                <ArrayElement class="cActionItemOperationFsSetSecurity">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                        <Explanation>Setup the permissions (security access rights) of a directory, file or directory tree.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153000</Id>
+                                            <Name>Target directory or file</Name>
+                                            <Type>1</Type>
+                                            <Description>The name of source directory or file. The source directory can be specified in two ways: For local directories: &lt;logical drive&gt;\&lt;directory&gt;\&lt;directory&gt; etc. Example: 'C:\UserData\Marketing'. For remote and local directories: \\&lt;computer&gt;\&lt;share&gt;\&lt;directory&gt;\&lt;directory&gt;. Example: '\\SERVER_A\Users\Data'. The source directory must exist. The name of the file or directory should not include any wildcard characters.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%profilePath%</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153010</Id>
+                                            <Name>Security</Name>
+                                            <Type>5</Type>
+                                            <Description>The new security settings for the target directory and/or files. Note that the original security settings will be overwritten.</Description>
+                                            <ExportMode>0</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cJvrSec">
+                                                <Mask>4</Mask>
+                                                <DACL class="cJvrSecAcl">
+                                                    <ProtectedFlag>FALSE</ProtectedFlag>
+                                                    <ResetChildPermissionsFlags>TRUE</ResetChildPermissionsFlags>
+                                                    <DaclDefaultedFlag>FALSE</DaclDefaultedFlag>
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray>
+                                                            <ArrayElement class="cJvrSecAce">
+                                                                <Base class="cJvrSecAceBase">
+                                                                    <AceType>0</AceType>
+                                                                    <AceFlags>3</AceFlags>
+                                                                    <Mask>2032127</Mask>
+                                                                    <Account class="cJvrSecAccount">
+                                                                        <Mask>2</Mask>
+                                                                        <AccountName></AccountName>
+                                                                        <AccountNameVariable>%UserSid%</AccountNameVariable>
+                                                                        <AccountClassName></AccountClassName>
+                                                                        <AccountSid class="cJvrSecSid">
+                                                                            <InitializedFlag>FALSE</InitializedFlag>
+                                                                            <SID></SID>
+                                                                        </AccountSid>
+                                                                    </Account>
+                                                                </Base>
+                                                            </ArrayElement>
+                                                        </ObjectArray>
+                                                    </Base>
+                                                </DACL>
+                                                <Group class="cJvrSecAccount">
+                                                    <Mask>0</Mask>
+                                                    <AccountName></AccountName>
+                                                    <AccountNameVariable></AccountNameVariable>
+                                                    <AccountClassName></AccountClassName>
+                                                    <AccountSid class="cJvrSecSid">
+                                                        <InitializedFlag>FALSE</InitializedFlag>
+                                                        <SID></SID>
+                                                    </AccountSid>
+                                                </Group>
+                                                <Owner class="cJvrSecAccount">
+                                                    <Mask>2</Mask>
+                                                    <AccountName></AccountName>
+                                                    <AccountNameVariable>%UserSid%</AccountNameVariable>
+                                                    <AccountClassName></AccountClassName>
+                                                    <AccountSid class="cJvrSecSid">
+                                                        <InitializedFlag>FALSE</InitializedFlag>
+                                                        <SID></SID>
+                                                    </AccountSid>
+                                                </Owner>
+                                                <SecurityDescriptorControlBitsOfInterest>0</SecurityDescriptorControlBitsOfInterest>
+                                                <SecurityDescriptorControlBitsToSetwner>0</SecurityDescriptorControlBitsToSetwner>
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153021</Id>
+                                            <Name>Propagation mode</Name>
+                                            <Type>3</Type>
+                                            <Description>Specify 'Yes' to setup the security settings for a typical user account home directory: The permission settings of the specified target directory are implicitly set to the specified value and then propagated to all child directories and subdirectories. Explicit security settings for child directories and files are removed.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153020</Id>
+                                            <Name>Recursive mode</Name>
+                                            <Type>3</Type>
+                                            <Description>Specify 'Yes' to setup the security settings for the whole directory tree, including the specified directory, subdirectories and files, and subdirectories of subdirectories etc. For all directories and files of the directory tree, the security settings are set identically.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>TRUE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153030</Id>
+                                            <Name>Use backup and restore privileges</Name>
+                                            <Type>3</Type>
+                                            <Description>A flag indicating that backup and restore privileges must be used to setup the security settings. This property is required in case the logged on user has no access rights to the directories and files that must be copied. The logged on user must have the corresponding access rights configured on the target computer to use these privileges successfully. See the online help for more information. Default value: 'No'.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153031</Id>
+                                            <Name>Continue on error</Name>
+                                            <Type>3</Type>
+                                            <Description>A flag indicating that the action must continue with the next file or directory if an error occurs when setting the permissions of a file or directory. Default value: 'Yes'.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>TRUE</BoolValue>
+                                            </Value>
                                         </ArrayElement>
                                     </ObjectArray>
                                 </Base>
@@ -1135,6 +1387,42 @@
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
+                <ArrayElement class="cActionItemScriptSplitVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <InputVariableName>%homeDirectory_ts%</InputVariableName>
+                    <Separators>\</Separators>
+                    <OutputVariableName1>%homeDirectory_ts_path%</OutputVariableName1>
+                    <OutputVariableName2>%homeDirectory_ts_folder%</OutputVariableName2>
+                    <Var1EmptyIfNoSplitFlag>FALSE</Var1EmptyIfNoSplitFlag>
+                    <RightToLeftFlag>TRUE</RightToLeftFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSplitVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <InputVariableName>%homeDirectory_ts_path%</InputVariableName>
+                    <Separators>\</Separators>
+                    <OutputVariableName1>%homeDirectory_ts_parent%</OutputVariableName1>
+                    <OutputVariableName2>%homeDirectory_ts_path%</OutputVariableName2>
+                    <Var1EmptyIfNoSplitFlag>FALSE</Var1EmptyIfNoSplitFlag>
+                    <RightToLeftFlag>TRUE</RightToLeftFlag>
+                </ArrayElement>
                 <ArrayElement class="cActionItemOperationCreateDirectory">
                     <Base class="cActionItemOperation">
                         <Base class="cActionItem">
@@ -1161,7 +1449,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <TextValue>%homeDirectory_ts_server%</TextValue>
+                                                <TextValue>%homeDirectory_ts_parent%</TextValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -1175,7 +1463,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <TextValue>%homeDirectory_ts_share%</TextValue>
+                                                <TextValue>%homeDirectory_ts_path%</TextValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -1189,7 +1477,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <TextValue>%AD_sAMAccountName%</TextValue>
+                                                <TextValue>%homeDirectory_folder%</TextValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -1227,60 +1515,7 @@
                                             <Description>The security settings of the new directory. The security settings include all of the permissions and the owner of the directory.</Description>
                                             <ExportMode>0</ExportMode>
                                             <ExportVariable></ExportVariable>
-                                            <Value class="cJvrSec">
-                                                <Mask>0</Mask>
-                                                <DACL class="cJvrSecAcl">
-                                                    <ProtectedFlag>FALSE</ProtectedFlag>
-                                                    <ResetChildPermissionsFlags>TRUE</ResetChildPermissionsFlags>
-                                                    <DaclDefaultedFlag>FALSE</DaclDefaultedFlag>
-                                                    <Base class="cUmraObArray">
-                                                        <ObjectArray>
-                                                            <ArrayElement class="cJvrSecAce">
-                                                                <Base class="cJvrSecAceBase">
-                                                                    <AceType>0</AceType>
-                                                                    <AceFlags>3</AceFlags>
-                                                                    <Mask>1245631</Mask>
-                                                                    <Account class="cJvrSecAccount">
-                                                                        <Mask>2</Mask>
-                                                                        <AccountName></AccountName>
-                                                                        <AccountNameVariable>%UserSid%</AccountNameVariable>
-                                                                        <AccountClassName></AccountClassName>
-                                                                        <AccountSid class="cJvrSecSid">
-                                                                            <InitializedFlag>FALSE</InitializedFlag>
-                                                                            <SID></SID>
-                                                                        </AccountSid>
-                                                                    </Account>
-                                                                </Base>
-                                                            </ArrayElement>
-                                                        </ObjectArray>
-                                                    </Base>
-                                                </DACL>
-                                                <Group class="cJvrSecAccount">
-                                                    <Mask>0</Mask>
-                                                    <AccountName></AccountName>
-                                                    <AccountNameVariable></AccountNameVariable>
-                                                    <AccountClassName></AccountClassName>
-                                                    <AccountSid class="cJvrSecSid">
-                                                        <InitializedFlag>FALSE</InitializedFlag>
-                                                        <SID></SID>
-                                                    </AccountSid>
-                                                </Group>
-                                                <Owner class="cJvrSecAccount">
-                                                    <Mask>0</Mask>
-                                                    <AccountName></AccountName>
-                                                    <AccountNameVariable></AccountNameVariable>
-                                                    <AccountClassName></AccountClassName>
-                                                    <AccountSid class="cJvrSecSid">
-                                                        <InitializedFlag>FALSE</InitializedFlag>
-                                                        <SID></SID>
-                                                    </AccountSid>
-                                                </Owner>
-                                                <SecurityDescriptorControlBitsOfInterest>0</SecurityDescriptorControlBitsOfInterest>
-                                                <SecurityDescriptorControlBitsToSetwner>0</SecurityDescriptorControlBitsToSetwner>
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                            </Value>
+                                            <Value/>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
                                             <Id>102050</Id>
@@ -1303,12 +1538,7 @@
                                             <Description>The name of the share that is used to create a share on the new directory. If a share with the same name already exists, a number is added to the share name until the share name is a unique name.</Description>
                                             <ExportMode>1</ExportMode>
                                             <ExportVariable></ExportVariable>
-                                            <Value class="cUmDataText">
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                                <TextValue>%UserName%</TextValue>
-                                            </Value>
+                                            <Value/>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
                                             <Id>102052</Id>
@@ -1350,6 +1580,154 @@
                                             <ExportMode>1</ExportMode>
                                             <ExportVariable></ExportVariable>
                                             <Value/>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
+                </ArrayElement>
+                <ArrayElement class="cActionItemOperationFsSetSecurity">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                        <Explanation>Setup the permissions (security access rights) of a directory, file or directory tree.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153000</Id>
+                                            <Name>Target directory or file</Name>
+                                            <Type>1</Type>
+                                            <Description>The name of source directory or file. The source directory can be specified in two ways: For local directories: &lt;logical drive&gt;\&lt;directory&gt;\&lt;directory&gt; etc. Example: 'C:\UserData\Marketing'. For remote and local directories: \\&lt;computer&gt;\&lt;share&gt;\&lt;directory&gt;\&lt;directory&gt;. Example: '\\SERVER_A\Users\Data'. The source directory must exist. The name of the file or directory should not include any wildcard characters.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%homeDirectory_ts%</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153010</Id>
+                                            <Name>Security</Name>
+                                            <Type>5</Type>
+                                            <Description>The new security settings for the target directory and/or files. Note that the original security settings will be overwritten.</Description>
+                                            <ExportMode>0</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cJvrSec">
+                                                <Mask>0</Mask>
+                                                <DACL class="cJvrSecAcl">
+                                                    <ProtectedFlag>FALSE</ProtectedFlag>
+                                                    <ResetChildPermissionsFlags>TRUE</ResetChildPermissionsFlags>
+                                                    <DaclDefaultedFlag>FALSE</DaclDefaultedFlag>
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray>
+                                                            <ArrayElement class="cJvrSecAce">
+                                                                <Base class="cJvrSecAceBase">
+                                                                    <AceType>0</AceType>
+                                                                    <AceFlags>3</AceFlags>
+                                                                    <Mask>1245631</Mask>
+                                                                    <Account class="cJvrSecAccount">
+                                                                        <Mask>2</Mask>
+                                                                        <AccountName></AccountName>
+                                                                        <AccountNameVariable>%UserSid%</AccountNameVariable>
+                                                                        <AccountClassName></AccountClassName>
+                                                                        <AccountSid class="cJvrSecSid">
+                                                                            <InitializedFlag>FALSE</InitializedFlag>
+                                                                            <SID></SID>
+                                                                        </AccountSid>
+                                                                    </Account>
+                                                                </Base>
+                                                            </ArrayElement>
+                                                        </ObjectArray>
+                                                    </Base>
+                                                </DACL>
+                                                <Group class="cJvrSecAccount">
+                                                    <Mask>0</Mask>
+                                                    <AccountName></AccountName>
+                                                    <AccountNameVariable></AccountNameVariable>
+                                                    <AccountClassName></AccountClassName>
+                                                    <AccountSid class="cJvrSecSid">
+                                                        <InitializedFlag>FALSE</InitializedFlag>
+                                                        <SID></SID>
+                                                    </AccountSid>
+                                                </Group>
+                                                <Owner class="cJvrSecAccount">
+                                                    <Mask>2</Mask>
+                                                    <AccountName></AccountName>
+                                                    <AccountNameVariable>%UserSid%</AccountNameVariable>
+                                                    <AccountClassName></AccountClassName>
+                                                    <AccountSid class="cJvrSecSid">
+                                                        <InitializedFlag>FALSE</InitializedFlag>
+                                                        <SID></SID>
+                                                    </AccountSid>
+                                                </Owner>
+                                                <SecurityDescriptorControlBitsOfInterest>0</SecurityDescriptorControlBitsOfInterest>
+                                                <SecurityDescriptorControlBitsToSetwner>0</SecurityDescriptorControlBitsToSetwner>
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153021</Id>
+                                            <Name>Propagation mode</Name>
+                                            <Type>3</Type>
+                                            <Description>Specify 'Yes' to setup the security settings for a typical user account home directory: The permission settings of the specified target directory are implicitly set to the specified value and then propagated to all child directories and subdirectories. Explicit security settings for child directories and files are removed.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153020</Id>
+                                            <Name>Recursive mode</Name>
+                                            <Type>3</Type>
+                                            <Description>Specify 'Yes' to setup the security settings for the whole directory tree, including the specified directory, subdirectories and files, and subdirectories of subdirectories etc. For all directories and files of the directory tree, the security settings are set identically.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>TRUE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153030</Id>
+                                            <Name>Use backup and restore privileges</Name>
+                                            <Type>3</Type>
+                                            <Description>A flag indicating that backup and restore privileges must be used to setup the security settings. This property is required in case the logged on user has no access rights to the directories and files that must be copied. The logged on user must have the corresponding access rights configured on the target computer to use these privileges successfully. See the online help for more information. Default value: 'No'.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153031</Id>
+                                            <Name>Continue on error</Name>
+                                            <Type>3</Type>
+                                            <Description>A flag indicating that the action must continue with the next file or directory if an error occurs when setting the permissions of a file or directory. Default value: 'Yes'.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>TRUE</BoolValue>
+                                            </Value>
                                         </ArrayElement>
                                     </ObjectArray>
                                 </Base>
@@ -1410,6 +1788,42 @@
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
+                <ArrayElement class="cActionItemScriptSplitVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <InputVariableName>%profilePath_ts%</InputVariableName>
+                    <Separators>\</Separators>
+                    <OutputVariableName1>%profilePath_ts_path%</OutputVariableName1>
+                    <OutputVariableName2>%profilePath_ts_folder%</OutputVariableName2>
+                    <Var1EmptyIfNoSplitFlag>FALSE</Var1EmptyIfNoSplitFlag>
+                    <RightToLeftFlag>TRUE</RightToLeftFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSplitVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <InputVariableName>%profilePath_ts_path%</InputVariableName>
+                    <Separators>\</Separators>
+                    <OutputVariableName1>%profilePath_ts_parent%</OutputVariableName1>
+                    <OutputVariableName2>%profilePath_ts_path%</OutputVariableName2>
+                    <Var1EmptyIfNoSplitFlag>FALSE</Var1EmptyIfNoSplitFlag>
+                    <RightToLeftFlag>TRUE</RightToLeftFlag>
+                </ArrayElement>
                 <ArrayElement class="cActionItemOperationCreateDirectory">
                     <Base class="cActionItemOperation">
                         <Base class="cActionItem">
@@ -1436,7 +1850,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <TextValue>%profilePath_ts_server%</TextValue>
+                                                <TextValue>%profilePath_ts_parent%</TextValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -1450,7 +1864,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <TextValue>%profilePath_ts_share%</TextValue>
+                                                <TextValue>%profilePath_ts_path%</TextValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -1464,7 +1878,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <TextValue>%AD_sAMAccountName%</TextValue>
+                                                <TextValue>%profilePath_ts_folder%</TextValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -1492,7 +1906,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <BoolValue>TRUE</BoolValue>
+                                                <BoolValue>FALSE</BoolValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -1502,60 +1916,7 @@
                                             <Description>The security settings of the new directory. The security settings include all of the permissions and the owner of the directory.</Description>
                                             <ExportMode>0</ExportMode>
                                             <ExportVariable></ExportVariable>
-                                            <Value class="cJvrSec">
-                                                <Mask>0</Mask>
-                                                <DACL class="cJvrSecAcl">
-                                                    <ProtectedFlag>FALSE</ProtectedFlag>
-                                                    <ResetChildPermissionsFlags>TRUE</ResetChildPermissionsFlags>
-                                                    <DaclDefaultedFlag>FALSE</DaclDefaultedFlag>
-                                                    <Base class="cUmraObArray">
-                                                        <ObjectArray>
-                                                            <ArrayElement class="cJvrSecAce">
-                                                                <Base class="cJvrSecAceBase">
-                                                                    <AceType>0</AceType>
-                                                                    <AceFlags>3</AceFlags>
-                                                                    <Mask>1245631</Mask>
-                                                                    <Account class="cJvrSecAccount">
-                                                                        <Mask>2</Mask>
-                                                                        <AccountName></AccountName>
-                                                                        <AccountNameVariable>%UserSid%</AccountNameVariable>
-                                                                        <AccountClassName></AccountClassName>
-                                                                        <AccountSid class="cJvrSecSid">
-                                                                            <InitializedFlag>FALSE</InitializedFlag>
-                                                                            <SID></SID>
-                                                                        </AccountSid>
-                                                                    </Account>
-                                                                </Base>
-                                                            </ArrayElement>
-                                                        </ObjectArray>
-                                                    </Base>
-                                                </DACL>
-                                                <Group class="cJvrSecAccount">
-                                                    <Mask>0</Mask>
-                                                    <AccountName></AccountName>
-                                                    <AccountNameVariable></AccountNameVariable>
-                                                    <AccountClassName></AccountClassName>
-                                                    <AccountSid class="cJvrSecSid">
-                                                        <InitializedFlag>FALSE</InitializedFlag>
-                                                        <SID></SID>
-                                                    </AccountSid>
-                                                </Group>
-                                                <Owner class="cJvrSecAccount">
-                                                    <Mask>0</Mask>
-                                                    <AccountName></AccountName>
-                                                    <AccountNameVariable></AccountNameVariable>
-                                                    <AccountClassName></AccountClassName>
-                                                    <AccountSid class="cJvrSecSid">
-                                                        <InitializedFlag>FALSE</InitializedFlag>
-                                                        <SID></SID>
-                                                    </AccountSid>
-                                                </Owner>
-                                                <SecurityDescriptorControlBitsOfInterest>0</SecurityDescriptorControlBitsOfInterest>
-                                                <SecurityDescriptorControlBitsToSetwner>0</SecurityDescriptorControlBitsToSetwner>
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                            </Value>
+                                            <Value/>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
                                             <Id>102050</Id>
@@ -1578,12 +1939,7 @@
                                             <Description>The name of the share that is used to create a share on the new directory. If a share with the same name already exists, a number is added to the share name until the share name is a unique name.</Description>
                                             <ExportMode>1</ExportMode>
                                             <ExportVariable></ExportVariable>
-                                            <Value class="cUmDataText">
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                                <TextValue>%UserName%</TextValue>
-                                            </Value>
+                                            <Value/>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
                                             <Id>102052</Id>
@@ -1632,6 +1988,154 @@
                         </PropertyArray>
                     </Base>
                 </ArrayElement>
+                <ArrayElement class="cActionItemOperationFsSetSecurity">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                        <Explanation>Setup the permissions (security access rights) of a directory, file or directory tree.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153000</Id>
+                                            <Name>Target directory or file</Name>
+                                            <Type>1</Type>
+                                            <Description>The name of source directory or file. The source directory can be specified in two ways: For local directories: &lt;logical drive&gt;\&lt;directory&gt;\&lt;directory&gt; etc. Example: 'C:\UserData\Marketing'. For remote and local directories: \\&lt;computer&gt;\&lt;share&gt;\&lt;directory&gt;\&lt;directory&gt;. Example: '\\SERVER_A\Users\Data'. The source directory must exist. The name of the file or directory should not include any wildcard characters.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%profilePath_ts%</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153010</Id>
+                                            <Name>Security</Name>
+                                            <Type>5</Type>
+                                            <Description>The new security settings for the target directory and/or files. Note that the original security settings will be overwritten.</Description>
+                                            <ExportMode>0</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cJvrSec">
+                                                <Mask>4</Mask>
+                                                <DACL class="cJvrSecAcl">
+                                                    <ProtectedFlag>FALSE</ProtectedFlag>
+                                                    <ResetChildPermissionsFlags>TRUE</ResetChildPermissionsFlags>
+                                                    <DaclDefaultedFlag>FALSE</DaclDefaultedFlag>
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray>
+                                                            <ArrayElement class="cJvrSecAce">
+                                                                <Base class="cJvrSecAceBase">
+                                                                    <AceType>0</AceType>
+                                                                    <AceFlags>3</AceFlags>
+                                                                    <Mask>2032127</Mask>
+                                                                    <Account class="cJvrSecAccount">
+                                                                        <Mask>2</Mask>
+                                                                        <AccountName></AccountName>
+                                                                        <AccountNameVariable>%UserSid%</AccountNameVariable>
+                                                                        <AccountClassName></AccountClassName>
+                                                                        <AccountSid class="cJvrSecSid">
+                                                                            <InitializedFlag>FALSE</InitializedFlag>
+                                                                            <SID></SID>
+                                                                        </AccountSid>
+                                                                    </Account>
+                                                                </Base>
+                                                            </ArrayElement>
+                                                        </ObjectArray>
+                                                    </Base>
+                                                </DACL>
+                                                <Group class="cJvrSecAccount">
+                                                    <Mask>0</Mask>
+                                                    <AccountName></AccountName>
+                                                    <AccountNameVariable></AccountNameVariable>
+                                                    <AccountClassName></AccountClassName>
+                                                    <AccountSid class="cJvrSecSid">
+                                                        <InitializedFlag>FALSE</InitializedFlag>
+                                                        <SID></SID>
+                                                    </AccountSid>
+                                                </Group>
+                                                <Owner class="cJvrSecAccount">
+                                                    <Mask>2</Mask>
+                                                    <AccountName></AccountName>
+                                                    <AccountNameVariable>%UserSid%</AccountNameVariable>
+                                                    <AccountClassName></AccountClassName>
+                                                    <AccountSid class="cJvrSecSid">
+                                                        <InitializedFlag>FALSE</InitializedFlag>
+                                                        <SID></SID>
+                                                    </AccountSid>
+                                                </Owner>
+                                                <SecurityDescriptorControlBitsOfInterest>0</SecurityDescriptorControlBitsOfInterest>
+                                                <SecurityDescriptorControlBitsToSetwner>0</SecurityDescriptorControlBitsToSetwner>
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153021</Id>
+                                            <Name>Propagation mode</Name>
+                                            <Type>3</Type>
+                                            <Description>Specify 'Yes' to setup the security settings for a typical user account home directory: The permission settings of the specified target directory are implicitly set to the specified value and then propagated to all child directories and subdirectories. Explicit security settings for child directories and files are removed.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153020</Id>
+                                            <Name>Recursive mode</Name>
+                                            <Type>3</Type>
+                                            <Description>Specify 'Yes' to setup the security settings for the whole directory tree, including the specified directory, subdirectories and files, and subdirectories of subdirectories etc. For all directories and files of the directory tree, the security settings are set identically.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>TRUE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153030</Id>
+                                            <Name>Use backup and restore privileges</Name>
+                                            <Type>3</Type>
+                                            <Description>A flag indicating that backup and restore privileges must be used to setup the security settings. This property is required in case the logged on user has no access rights to the directories and files that must be copied. The logged on user must have the corresponding access rights configured on the target computer to use these privileges successfully. See the online help for more information. Default value: 'No'.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>153031</Id>
+                                            <Name>Continue on error</Name>
+                                            <Type>3</Type>
+                                            <Description>A flag indicating that the action must continue with the next file or directory if an error occurs when setting the permissions of a file or directory. Default value: 'Yes'.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>TRUE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -1663,7 +2167,7 @@
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <TextValue>Toewijzen attribuut aan AD account: %Attribute_name% = %Attribute_value%</TextValue>
+                        <TextValue>Aanmaken NTFS objecten: %homeDirectory%, %profilePath%, %homeDirectory_ts%, %profilePath_ts%</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
                 </ArrayElement>
@@ -1683,7 +2187,7 @@
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <TextValue>set-data-attribute</TextValue>
+                        <TextValue>set-ntfs-attribute</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
                 </ArrayElement>
