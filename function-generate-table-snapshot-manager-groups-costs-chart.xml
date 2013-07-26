@@ -3,6 +3,19 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init-group</ProjectName>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptIfThenElse">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -18,7 +31,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%ID_snapshot%</InputVariableName>
+                                    <InputVariableName>%Object_dn%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>100</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -27,7 +40,7 @@
                                     <InvertResultFlag>FALSE</InvertResultFlag>
                                 </ArrayElement>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%ID_snapshot%</InputVariableName>
+                                    <InputVariableName>%Object_dn%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>208</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -61,45 +74,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>function-snapshot-ad-relationships-add-member</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Count_errors%</InputVariableName>
-                                    <InputVariableType>2</InputVariableType>
-                                    <OperatorIndex>300</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>0</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>TRUE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>end</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
+                    <ProjectName>global-init-db</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
@@ -112,9 +87,40 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>function-snapshot-ad-relationships-add-managedby</ProjectName>
+                    <ProjectName>global-init-snapshot</ProjectName>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
+                <ArrayElement class="cActionItemScriptGenericTable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDefinition class="cUmraTableDefDatabaseQuery">
+                        <Base class="cUmraTableDef">
+                            <VariableName>%Table_snapshot_manager_groups_costs_chart%</VariableName>
+                            <TestVariableArray class="cUmVariableArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray/>
+                                </Base>
+                            </TestVariableArray>
+                        </Base>
+                        <UmraOleDb class="cUmraOleDbGeneral">
+                            <Base class="cUmraOleDb"/>
+                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
+                            <OleDbProviderType>55466104</OleDbProviderType>
+                        </UmraOleDb>
+                        <DatabaseQuery><![CDATA[EXEC spSnapshot_table_snapshot_manager_groups_costs_chart
+'%Object_dn%',
+'%Table_snapshots_group_attribute_cost%']]></DatabaseQuery>
+                        <QueryResultColumnNames/>
+                    </TableDefinition>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGoTo">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -125,32 +131,22 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Count_errors%</InputVariableName>
-                                    <InputVariableType>2</InputVariableType>
-                                    <OperatorIndex>300</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>0</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>TRUE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
+                    <GoToLabel>end</GoToLabel>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>error</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
                         </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>end</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
@@ -163,7 +159,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>function-snapshot-ad-relationships-add-manager</ProjectName>
+                    <ProjectName>global-error-handler</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
@@ -201,7 +197,7 @@
             <DACL class="cJvrSecAcl">
                 <ProtectedFlag>FALSE</ProtectedFlag>
                 <ResetChildPermissionsFlags>TRUE</ResetChildPermissionsFlags>
-                <DaclDefaultedFlag>FALSE</DaclDefaultedFlag>
+                <DaclDefaultedFlag>TRUE</DaclDefaultedFlag>
                 <Base class="cUmraObArray">
                     <ObjectArray>
                         <ArrayElement class="cJvrSecAce">
@@ -271,20 +267,20 @@
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\5b76e72e-2205-4d64-a68f-a75c0ab1522a.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\b45222dd-694c-4538-86da-648eb7ea5e10.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
         <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-snapshot-ad-load-relationships</ProjectName>
-        <DisplayName>function-snapshot-ad-load-objects</DisplayName>
-        <UUID>ucudbVgIk1kpPeKXKErUqAs</UUID>
+        <ProjectName>function-generate-table-snapshot-manager-groups-costs-chart</ProjectName>
+        <DisplayName>function-generate-table-users</DisplayName>
+        <UUID>d#iU0yUa4UkhaTmj3quXQAs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
-        <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
+        <UpdatePreviewFlag>FALSE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
         <BuildNumber>1667</BuildNumber>
