@@ -14,248 +14,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_hrm%</ConnectionString>
-                            <OleDbProviderType>0</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[select CONVERT(varchar, dpib010.pers_nr) as 'pers_nr', 
-dpib010.naam_samen + ', ' + dpib010.e_roepnaam as 'vol_nm',
-e_vrlt, 
-dpib010.e_roepnaam, 
-dpib010.vrvg_samen, 
-dpib010.naam_samen, 
-func_kd,
-func_oms,
-oe_kort_nm, 
-oe_vol_nm, 
-indnst_dt, 
-uitdnst_dt
-From dpib010
-inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
-inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
-left join dpic351 on dpic351.func_kd = dpic300.primfunc_kd
-order by dpib010.pers_nr]]></DatabaseQuery>
-                        <QueryResultColumnNames>
-                            <TextItem>pers_nr</TextItem>
-                            <TextItem>e_vrlt</TextItem>
-                            <TextItem>e_roepnaam</TextItem>
-                            <TextItem>vrvg_samen</TextItem>
-                            <TextItem>naam_samen</TextItem>
-                            <TextItem>oe_kort_nm</TextItem>
-                            <TextItem>oe_vol_nm</TextItem>
-                            <TextItem>indnst_dt</TextItem>
-                            <TextItem>uitdnst_dt</TextItem>
-                        </QueryResultColumnNames>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\cache-organization\table_organization_export_employees_beaufort.csv</ValueTextArgument1>
-                    <ValueTextArgument2>&lt;TAB&gt;</ValueTextArgument2>
-                    <ValueTextArgument3>UNICODE,HEADER</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_hrm%</ConnectionString>
-                            <OleDbProviderType>0</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[select distinct
-oe_kort_nm, 
-oe_vol_nm
-From dpib010
-inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
-inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
-left join dpic351 on dpic351.func_kd = dpic300.primfunc_kd
-order by oe_kort_nm, oe_vol_nm]]></DatabaseQuery>
-                        <QueryResultColumnNames>
-                            <TextItem>pers_nr</TextItem>
-                            <TextItem>e_vrlt</TextItem>
-                            <TextItem>e_roepnaam</TextItem>
-                            <TextItem>vrvg_samen</TextItem>
-                            <TextItem>naam_samen</TextItem>
-                            <TextItem>oe_kort_nm</TextItem>
-                            <TextItem>oe_vol_nm</TextItem>
-                            <TextItem>indnst_dt</TextItem>
-                            <TextItem>uitdnst_dt</TextItem>
-                        </QueryResultColumnNames>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\cache-organization\table_organization_export_units_beaufort.csv</ValueTextArgument1>
-                    <ValueTextArgument2>&lt;TAB&gt;</ValueTextArgument2>
-                    <ValueTextArgument3>UNICODE,HEADER</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_hrm%</ConnectionString>
-                            <OleDbProviderType>0</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[select distinct
-func_kd,
-func_oms
-From dpib010
-inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
-inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
-left join dpic351 on dpic351.func_kd = dpic300.primfunc_kd
-order by func_kd, func_oms]]></DatabaseQuery>
-                        <QueryResultColumnNames>
-                            <TextItem>pers_nr</TextItem>
-                            <TextItem>e_vrlt</TextItem>
-                            <TextItem>e_roepnaam</TextItem>
-                            <TextItem>vrvg_samen</TextItem>
-                            <TextItem>naam_samen</TextItem>
-                            <TextItem>oe_kort_nm</TextItem>
-                            <TextItem>oe_vol_nm</TextItem>
-                            <TextItem>indnst_dt</TextItem>
-                            <TextItem>uitdnst_dt</TextItem>
-                        </QueryResultColumnNames>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\cache-organization\table_organization_export_functions_beaufort.csv</ValueTextArgument1>
-                    <ValueTextArgument2>&lt;TAB&gt;</ValueTextArgument2>
-                    <ValueTextArgument3>UNICODE,HEADER</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGoTo">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <GoToLabel>end</GoToLabel>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptVarious">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label>error</Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ScriptActionType>2</ScriptActionType>
-                    <ParameterNumeric>0</ParameterNumeric>
-                    <ParameterText></ParameterText>
+                    <ProjectName>global-init-ad</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
@@ -268,12 +27,106 @@ order by func_kd, func_oms]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-error-handler</ProjectName>
+                    <ProjectName>global-init-group-config</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init-data</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%description%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%input_name%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%folder%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%input_name%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%folder%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionSingleArgument">
+                                    <ArgumentValue>0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM</ArgumentValue>
+                                    <ArgumentName>Characters not to delete</ArgumentName>
+                                    <ArgumentType>0</ArgumentType>
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>20045</FunctionIdentifier>
+                                        <FunctionName>Delete: All but the matching characters</FunctionName>
+                                        <FunctionDescription>Delete all characters from the name if the character is not found as one of the specified characters. Example: abcdefghijklmnopqrstuvwxyz.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                                <ArrayElement class="cUgFunctionSingleArgument">
+                                    <ArgumentValue>20</ArgumentValue>
+                                    <ArgumentName># Characters</ArgumentName>
+                                    <ArgumentType>1</ArgumentType>
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>20010</FunctionIdentifier>
+                                        <FunctionName>Shorten name: Convert to first N</FunctionName>
+                                        <FunctionDescription>Convert the name to the first N characters of the name. If the name does not contain N characters, it is not changed.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
-                            <Label>end</Label>
+                            <Label>g_read</Label>
                             <ErrorControl>0</ErrorControl>
                             <ErrorControlLabel></ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
@@ -284,6 +137,423 @@ order by func_kd, func_oms]]></DatabaseQuery>
                     <ScriptActionType>2</ScriptActionType>
                     <ParameterNumeric>0</ParameterNumeric>
                     <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%input_cn%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%shared_folder_group_prefix_g%%folder%%shared_folder_group_suffix_g_read%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%input_sAMAccountName%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%shared_folder_group_prefix_g%%folder%%shared_folder_group_suffix_g_read%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>function-group-ad-generate-names</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%cn_g_read%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%cn%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%sAMAccountName_g_read%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%sAMAccountName%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>g_write</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%input_cn%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%shared_folder_group_prefix_g%%folder%%shared_folder_group_suffix_g_write%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%input_sAMAccountName%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%shared_folder_group_prefix_g%%folder%%shared_folder_group_suffix_g_write%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>function-group-ad-generate-names</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%cn_g_write%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%cn%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%sAMAccountName_g_write%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%sAMAccountName%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>l_read</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%input_cn%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%shared_folder_group_prefix_l%%folder%%shared_folder_group_suffix_l_read%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%input_sAMAccountName%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%shared_folder_group_prefix_l%%folder%%shared_folder_group_suffix_l_read%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>function-group-ad-generate-names</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%cn_l_read%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%cn%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%sAMAccountName_l_read%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%sAMAccountName%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>l_write</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%input_cn%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%shared_folder_group_prefix_l%%folder%%shared_folder_group_suffix_l_write%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%input_sAMAccountName%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%shared_folder_group_prefix_l%%folder%%shared_folder_group_suffix_l_write%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>function-group-ad-generate-names</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%cn_l_write%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%cn%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%sAMAccountName_l_write%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%sAMAccountName%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
                 </ArrayElement>
             </ObjectArray>
         </Base>
@@ -374,29 +644,18 @@ order by func_kd, func_oms]]></DatabaseQuery>
         </Base>
     </AccessSettings>
     <HelpInfoUrl></HelpInfoUrl>
-    <ScriptTimeOutSec>900</ScriptTimeOutSec>
+    <ScriptTimeOutSec>1492536</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\5c9f6b8c-8c3f-4dc8-b703-3fdc4d882902.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\d475072e-8ef6-4664-8930-070ef8e46c8f.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
-        <Scheduler class="cUmraSchedulerOnCommand">
-            <Base class="cUmraScheduler">
-                <DayIncludeFlags>127</DayIncludeFlags>
-                <SchedulerFlags>1</SchedulerFlags>
-                <Exceptions class="cUmraSchedulerExceptions">
-                    <ExceptionMode>0</ExceptionMode>
-                    <Base class="cUmraObArray">
-                        <ObjectArray/>
-                    </Base>
-                </Exceptions>
-            </Base>
-        </Scheduler>
+        <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>auto-organization-beaufort-export</ProjectName>
-        <DisplayName>auto-organization-beaufort-export</DisplayName>
-        <UUID>Mu2nc9DjI30tD8D3NhYKCAs</UUID>
+        <ProjectName>function-shared-folder-ad-preprocess-input-form</ProjectName>
+        <DisplayName>function-shared-folder-ad-preprocess-input-form</DisplayName>
+        <UUID>ucQdUbvjkZUiwcgD4TObPCs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
@@ -963,6 +1222,11 @@ order by func_kd, func_oms]]></DatabaseQuery>
         <DataFileParam class="cDataFileParam">
             <Base class="cDataFileParseInfo">
                 <Separators>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
                     <TextItem>,</TextItem>
                 </Separators>
                 <TextQualifier>"</TextQualifier>

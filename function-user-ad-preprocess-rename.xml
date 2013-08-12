@@ -638,6 +638,378 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
+                    <VariableName>%initials%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%input_initials%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%firstname%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%input_firstname%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%middlename_birth%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%input_middlename%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%middlename_partner%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%lastname_birth%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%input_lastname%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%lastname_partner%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%initials%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionNoArguments">
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>10045</FunctionIdentifier>
+                                        <FunctionName>Delete: Leading and trailing blank characters.</FunctionName>
+                                        <FunctionDescription>Delete all leading and trailing blank and tab characters from the name.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                                <ArrayElement class="cUgFunctionSingleArgument">
+                                    <ArgumentValue>6</ArgumentValue>
+                                    <ArgumentName># Characters</ArgumentName>
+                                    <ArgumentType>1</ArgumentType>
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>20010</FunctionIdentifier>
+                                        <FunctionName>Shorten name: Convert to first N</FunctionName>
+                                        <FunctionDescription>Convert the name to the first N characters of the name. If the name does not contain N characters, it is not changed.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%firstname%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionNoArguments">
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>10045</FunctionIdentifier>
+                                        <FunctionName>Delete: Leading and trailing blank characters.</FunctionName>
+                                        <FunctionDescription>Delete all leading and trailing blank and tab characters from the name.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%middlename_birth%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionNoArguments">
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>10045</FunctionIdentifier>
+                                        <FunctionName>Delete: Leading and trailing blank characters.</FunctionName>
+                                        <FunctionDescription>Delete all leading and trailing blank and tab characters from the name.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%middlename_partner%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionNoArguments">
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>10045</FunctionIdentifier>
+                                        <FunctionName>Delete: Leading and trailing blank characters.</FunctionName>
+                                        <FunctionDescription>Delete all leading and trailing blank and tab characters from the name.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%lastname_birth%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionNoArguments">
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>10045</FunctionIdentifier>
+                                        <FunctionName>Delete: Leading and trailing blank characters.</FunctionName>
+                                        <FunctionDescription>Delete all leading and trailing blank and tab characters from the name.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%lastname_partner%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionNoArguments">
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>10045</FunctionIdentifier>
+                                        <FunctionName>Delete: Leading and trailing blank characters.</FunctionName>
+                                        <FunctionDescription>Delete all leading and trailing blank and tab characters from the name.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%displayName%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%input_displayName%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%displayName%</VariableName>
+                    <TestName></TestName>
+                    <Functions class="cUgFunctionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cUgFunctionNoArguments">
+                                    <Base class="cUgFunction">
+                                        <FunctionIdentifier>10045</FunctionIdentifier>
+                                        <FunctionName>Delete: Leading and trailing blank characters.</FunctionName>
+                                        <FunctionDescription>Delete all leading and trailing blank and tab characters from the name.</FunctionDescription>
+                                    </Base>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </Functions>
+                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>function-user-ad-generate-names-givenname</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>function-user-ad-generate-names-sn</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
                     <VariableName>%homeDirectory%</VariableName>
                     <Data class="cUmDataText">
                         <Base class="cUmData" Version="1">
@@ -1034,6 +1406,402 @@
                     <ScriptActionType>2</ScriptActionType>
                     <ParameterNumeric>0</ParameterNumeric>
                     <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>2</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>displayName</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%displayName%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>2</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>sAMAccountName</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%sAMAccountName%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>2</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>userPrincipalName</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%sAMAccountName%@%userPrincipalName_suffix%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>2</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>sn</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%sn%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>2</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>initials</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%initials%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>2</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>givenName</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%givenName%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">

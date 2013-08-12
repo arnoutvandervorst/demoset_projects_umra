@@ -3,7 +3,7 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
-                <ArrayElement class="cActionItemScriptExecuteProject">
+                <ArrayElement class="cActionItemScriptSetVariable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -14,64 +14,16 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
+                    <VariableName>%E-SSOMServer%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_hrm%</ConnectionString>
-                            <OleDbProviderType>0</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[select CONVERT(varchar, dpib010.pers_nr) as 'pers_nr', 
-dpib010.naam_samen + ', ' + dpib010.e_roepnaam as 'vol_nm',
-e_vrlt, 
-dpib010.e_roepnaam, 
-dpib010.vrvg_samen, 
-dpib010.naam_samen, 
-func_kd,
-func_oms,
-oe_kort_nm, 
-oe_vol_nm, 
-indnst_dt, 
-uitdnst_dt
-From dpib010
-inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
-inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
-left join dpic351 on dpic351.func_kd = dpic300.primfunc_kd
-order by dpib010.pers_nr]]></DatabaseQuery>
-                        <QueryResultColumnNames>
-                            <TextItem>pers_nr</TextItem>
-                            <TextItem>e_vrlt</TextItem>
-                            <TextItem>e_roepnaam</TextItem>
-                            <TextItem>vrvg_samen</TextItem>
-                            <TextItem>naam_samen</TextItem>
-                            <TextItem>oe_kort_nm</TextItem>
-                            <TextItem>oe_vol_nm</TextItem>
-                            <TextItem>indnst_dt</TextItem>
-                            <TextItem>uitdnst_dt</TextItem>
-                        </QueryResultColumnNames>
-                    </TableDefinition>
+                        <TextValue>Localhost</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
+                <ArrayElement class="cActionItemScriptSetVariable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -82,208 +34,14 @@ order by dpib010.pers_nr]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\cache-organization\table_organization_export_employees_beaufort.csv</ValueTextArgument1>
-                    <ValueTextArgument2>&lt;TAB&gt;</ValueTextArgument2>
-                    <ValueTextArgument3>UNICODE,HEADER</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
+                    <VariableName>%E-SSOMServerPort%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_hrm%</ConnectionString>
-                            <OleDbProviderType>0</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[select distinct
-oe_kort_nm, 
-oe_vol_nm
-From dpib010
-inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
-inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
-left join dpic351 on dpic351.func_kd = dpic300.primfunc_kd
-order by oe_kort_nm, oe_vol_nm]]></DatabaseQuery>
-                        <QueryResultColumnNames>
-                            <TextItem>pers_nr</TextItem>
-                            <TextItem>e_vrlt</TextItem>
-                            <TextItem>e_roepnaam</TextItem>
-                            <TextItem>vrvg_samen</TextItem>
-                            <TextItem>naam_samen</TextItem>
-                            <TextItem>oe_kort_nm</TextItem>
-                            <TextItem>oe_vol_nm</TextItem>
-                            <TextItem>indnst_dt</TextItem>
-                            <TextItem>uitdnst_dt</TextItem>
-                        </QueryResultColumnNames>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\cache-organization\table_organization_export_units_beaufort.csv</ValueTextArgument1>
-                    <ValueTextArgument2>&lt;TAB&gt;</ValueTextArgument2>
-                    <ValueTextArgument3>UNICODE,HEADER</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_hrm%</ConnectionString>
-                            <OleDbProviderType>0</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[select distinct
-func_kd,
-func_oms
-From dpib010
-inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
-inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
-left join dpic351 on dpic351.func_kd = dpic300.primfunc_kd
-order by func_kd, func_oms]]></DatabaseQuery>
-                        <QueryResultColumnNames>
-                            <TextItem>pers_nr</TextItem>
-                            <TextItem>e_vrlt</TextItem>
-                            <TextItem>e_roepnaam</TextItem>
-                            <TextItem>vrvg_samen</TextItem>
-                            <TextItem>naam_samen</TextItem>
-                            <TextItem>oe_kort_nm</TextItem>
-                            <TextItem>oe_vol_nm</TextItem>
-                            <TextItem>indnst_dt</TextItem>
-                            <TextItem>uitdnst_dt</TextItem>
-                        </QueryResultColumnNames>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\cache-organization\table_organization_export_functions_beaufort.csv</ValueTextArgument1>
-                    <ValueTextArgument2>&lt;TAB&gt;</ValueTextArgument2>
-                    <ValueTextArgument3>UNICODE,HEADER</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGoTo">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <GoToLabel>end</GoToLabel>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptVarious">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label>error</Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ScriptActionType>2</ScriptActionType>
-                    <ParameterNumeric>0</ParameterNumeric>
-                    <ParameterText></ParameterText>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>global-error-handler</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptVarious">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label>end</Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ScriptActionType>2</ScriptActionType>
-                    <ParameterNumeric>0</ParameterNumeric>
-                    <ParameterText></ParameterText>
+                        <TextValue>36785</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                 </ArrayElement>
             </ObjectArray>
         </Base>
@@ -308,42 +66,7 @@ order by func_kd, func_oms]]></DatabaseQuery>
                 <ResetChildPermissionsFlags>TRUE</ResetChildPermissionsFlags>
                 <DaclDefaultedFlag>TRUE</DaclDefaultedFlag>
                 <Base class="cUmraObArray">
-                    <ObjectArray>
-                        <ArrayElement class="cJvrSecAce">
-                            <Base class="cJvrSecAceBase">
-                                <AceType>0</AceType>
-                                <AceFlags>0</AceFlags>
-                                <Mask>48</Mask>
-                                <Account class="cJvrSecAccount">
-                                    <Mask>5</Mask>
-                                    <AccountName>Administrators</AccountName>
-                                    <AccountNameVariable></AccountNameVariable>
-                                    <AccountClassName></AccountClassName>
-                                    <AccountSid class="cJvrSecSid">
-                                        <InitializedFlag>TRUE</InitializedFlag>
-                                        <SID>BIAAAAAAAUAIAAAAgIAAAAs</SID>
-                                    </AccountSid>
-                                </Account>
-                            </Base>
-                        </ArrayElement>
-                        <ArrayElement class="cJvrSecAce">
-                            <Base class="cJvrSecAceBase">
-                                <AceType>0</AceType>
-                                <AceFlags>0</AceFlags>
-                                <Mask>48</Mask>
-                                <Account class="cJvrSecAccount">
-                                    <Mask>5</Mask>
-                                    <AccountName>NT Authority\Network Service</AccountName>
-                                    <AccountNameVariable></AccountNameVariable>
-                                    <AccountClassName></AccountClassName>
-                                    <AccountSid class="cJvrSecSid">
-                                        <InitializedFlag>TRUE</InitializedFlag>
-                                        <SID>BEAAAAAAAUAFAAAA</SID>
-                                    </AccountSid>
-                                </Account>
-                            </Base>
-                        </ArrayElement>
-                    </ObjectArray>
+                    <ObjectArray/>
                 </Base>
             </DACL>
             <Group class="cJvrSecAccount">
@@ -376,27 +99,16 @@ order by func_kd, func_oms]]></DatabaseQuery>
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\5c9f6b8c-8c3f-4dc8-b703-3fdc4d882902.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\d014a7d6-dee5-4983-b306-54081a83d2b7.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
-        <Scheduler class="cUmraSchedulerOnCommand">
-            <Base class="cUmraScheduler">
-                <DayIncludeFlags>127</DayIncludeFlags>
-                <SchedulerFlags>1</SchedulerFlags>
-                <Exceptions class="cUmraSchedulerExceptions">
-                    <ExceptionMode>0</ExceptionMode>
-                    <Base class="cUmraObArray">
-                        <ObjectArray/>
-                    </Base>
-                </Exceptions>
-            </Base>
-        </Scheduler>
+        <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>auto-organization-beaufort-export</ProjectName>
-        <DisplayName>auto-organization-beaufort-export</DisplayName>
-        <UUID>Mu2nc9DjI30tD8D3NhYKCAs</UUID>
+        <ProjectName>global-init-essom</ProjectName>
+        <DisplayName>global-init-essom</DisplayName>
+        <UUID>WfKFQXu3Dm0$GQFCaMo03Cs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>

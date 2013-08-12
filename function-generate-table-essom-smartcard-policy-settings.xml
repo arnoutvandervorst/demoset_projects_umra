@@ -14,62 +14,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_hrm%</ConnectionString>
-                            <OleDbProviderType>0</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[select CONVERT(varchar, dpib010.pers_nr) as 'pers_nr', 
-dpib010.naam_samen + ', ' + dpib010.e_roepnaam as 'vol_nm',
-e_vrlt, 
-dpib010.e_roepnaam, 
-dpib010.vrvg_samen, 
-dpib010.naam_samen, 
-func_kd,
-func_oms,
-oe_kort_nm, 
-oe_vol_nm, 
-indnst_dt, 
-uitdnst_dt
-From dpib010
-inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
-inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
-left join dpic351 on dpic351.func_kd = dpic300.primfunc_kd
-order by dpib010.pers_nr]]></DatabaseQuery>
-                        <QueryResultColumnNames>
-                            <TextItem>pers_nr</TextItem>
-                            <TextItem>e_vrlt</TextItem>
-                            <TextItem>e_roepnaam</TextItem>
-                            <TextItem>vrvg_samen</TextItem>
-                            <TextItem>naam_samen</TextItem>
-                            <TextItem>oe_kort_nm</TextItem>
-                            <TextItem>oe_vol_nm</TextItem>
-                            <TextItem>indnst_dt</TextItem>
-                            <TextItem>uitdnst_dt</TextItem>
-                        </QueryResultColumnNames>
-                    </TableDefinition>
+                    <ProjectName>global-init-db</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
@@ -82,11 +27,77 @@ order by dpib010.pers_nr]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\cache-organization\table_organization_export_employees_beaufort.csv</ValueTextArgument1>
-                    <ValueTextArgument2>&lt;TAB&gt;</ValueTextArgument2>
-                    <ValueTextArgument3>UNICODE,HEADER</ValueTextArgument3>
+                    <TableDataOperation>1</TableDataOperation>
+                    <TableDataVariable>%Table_essom_smartcard_policy_settings%</TableDataVariable>
+                    <ValueTextArgument1>2</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>2</TableDataOperation>
+                    <TableDataVariable>%Table_essom_smartcard_policy_settings%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_essom_smartcard_policy_settings%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>%RES_table_column_status%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_essom_smartcard_policy_settings%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%RES_table_column_no_details_found%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
@@ -109,33 +120,106 @@ order by dpib010.pers_nr]]></DatabaseQuery>
                             <VariableName>%Table_query_db%</VariableName>
                             <TestVariableArray class="cUmVariableArray">
                                 <Base class="cUmraObArray">
-                                    <ObjectArray/>
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmVariable">
+                                            <Name>%conn_string_db_essom%</Name>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue><![CDATA[Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=ESSOM;Data Source=MT-VM-DC;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=MT-VM-DC;Use Encryption for Data=False;
+with column collation when possible=False]]></TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                    </ObjectArray>
                                 </Base>
                             </TestVariableArray>
                         </Base>
                         <UmraOleDb class="cUmraOleDbGeneral">
                             <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_hrm%</ConnectionString>
-                            <OleDbProviderType>0</OleDbProviderType>
+                            <ConnectionString>%Conn_string_db_essom%</ConnectionString>
+                            <OleDbProviderType>7</OleDbProviderType>
                         </UmraOleDb>
-                        <DatabaseQuery><![CDATA[select distinct
-oe_kort_nm, 
-oe_vol_nm
-From dpib010
-inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
-inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
-left join dpic351 on dpic351.func_kd = dpic300.primfunc_kd
-order by oe_kort_nm, oe_vol_nm]]></DatabaseQuery>
+                        <DatabaseQuery><![CDATA[SELECT TOP 1
+        CASE (SmartCardPolicyOptions & 65536)
+            WHEN  '0' THEN 'False'
+            ELSE 'True'
+      END AS 'Allow unlock/logon on every computer',
+        CASE (SmartCardPolicyOptions & 32768)
+            WHEN  '0' THEN 'False'
+            ELSE 'True'
+      END AS 'Use account password',
+        CASE (SmartCardPolicyOptions & 16384)
+            WHEN  '0' THEN 'False'
+            ELSE 'True'
+      END AS 'Pincode complexity rules',
+        CASE (SmartCardPolicyOptions & 8192)
+            WHEN  '0' THEN 'False'
+            ELSE 'True'
+      END AS 'Allow alphanumeriek values',
+        CASE (SmartCardPolicyOptions & 4096)
+            WHEN  '0' THEN 'False'
+            ELSE convert(varchar,PINExpiration)
+      END AS 'Pincode expires in X days',
+        CASE (SmartCardPolicyOptions & 1024)
+            WHEN  '0' THEN 'False'
+            ELSE convert(varchar,PINMaxLength)
+      END AS 'Pincode nolonger then X characters',
+        CASE (SmartCardPolicyOptions & 512)
+            WHEN  '0' THEN 'False'
+            ELSE convert(varchar,PINMinLength)
+      END AS 'Pincode atleast X characters',
+        CASE (SmartCardPolicyOptions & 256)
+            WHEN  '0' THEN 'False'
+            ELSE 'True'
+      END AS 'Allow unenrollment',
+        CASE (SmartCardPolicyOptions & 128)
+            WHEN  '0' THEN 'False'
+            ELSE 'True'
+      END AS 'Allow multiple cards',
+        CASE (SmartCardPolicyOptions & 64)
+            WHEN  '0' THEN 'False'
+            ELSE convert(varchar,LogonWithoutPINInterval)
+      END AS 'Allow cached login for X minutes',
+        CASE (SmartCardPolicyOptions & 32)
+            WHEN  '0' THEN 'False'
+            ELSE convert(varchar,UnlockWithoutPINInterval)
+      END AS 'Allow cached unlock for X minutes',
+        CASE (SmartCardPolicyOptions & 16)
+            WHEN  '0' THEN 'False'
+            ELSE 'True'
+      END AS 'Force smartcard login',
+        CASE (SmartCardPolicyOptions & 8)
+            WHEN  '0' THEN 'False'
+            ELSE 'True'
+      END AS 'Force enrollement',
+        CASE (SmartCardPolicyOptions & 4)
+            WHEN  '0' THEN 'False'
+            ELSE 'True'
+      END AS 'Ask for enrollement',
+        CASE (SmartCardPolicyOptions & 1)
+            WHEN  '0' THEN 'False'
+            ELSE 'True'
+      END AS 'Disable Policy'
+  FROM SmartCardPolicies
+  WHERE IsDisabled = 0
+  ORDER BY SmartCardPolicyPreference DESC]]></DatabaseQuery>
                         <QueryResultColumnNames>
-                            <TextItem>pers_nr</TextItem>
-                            <TextItem>e_vrlt</TextItem>
-                            <TextItem>e_roepnaam</TextItem>
-                            <TextItem>vrvg_samen</TextItem>
-                            <TextItem>naam_samen</TextItem>
-                            <TextItem>oe_kort_nm</TextItem>
-                            <TextItem>oe_vol_nm</TextItem>
-                            <TextItem>indnst_dt</TextItem>
-                            <TextItem>uitdnst_dt</TextItem>
+                            <TextItem>Allow unlock/logon on every computer</TextItem>
+                            <TextItem>Use account password</TextItem>
+                            <TextItem>Pincode complexity rules</TextItem>
+                            <TextItem>Allow alphanumeriek values</TextItem>
+                            <TextItem>Pincode expires in X days</TextItem>
+                            <TextItem>Pincode nolonger then X characters</TextItem>
+                            <TextItem>Pincode atleast X characters</TextItem>
+                            <TextItem>Allow unenrollment</TextItem>
+                            <TextItem>Allow multiple cards</TextItem>
+                            <TextItem>Allow cached login for X minutes</TextItem>
+                            <TextItem>Allow cached unlock for X minutes</TextItem>
+                            <TextItem>Force smartcard login</TextItem>
+                            <TextItem>Force enrollement</TextItem>
+                            <TextItem>Ask for enrollement</TextItem>
+                            <TextItem>Disable Policy</TextItem>
                         </QueryResultColumnNames>
                     </TableDefinition>
                 </ArrayElement>
@@ -150,62 +234,54 @@ order by oe_kort_nm, oe_vol_nm]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>80</TableDataOperation>
+                    <TableDataOperation>5</TableDataOperation>
                     <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\cache-organization\table_organization_export_units_beaufort.csv</ValueTextArgument1>
-                    <ValueTextArgument2>&lt;TAB&gt;</ValueTextArgument2>
-                    <ValueTextArgument3>UNICODE,HEADER</ValueTextArgument3>
+                    <ValueTextArgument1>%Count_rows_table_query_db%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
+                <ArrayElement class="cActionItemScriptIfThenElse">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
                             <ErrorVariableName></ErrorVariableName>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Count_rows_table_query_db%</InputVariableName>
+                                    <InputVariableType>2</InputVariableType>
+                                    <OperatorIndex>300</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>0</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
                         </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_hrm%</ConnectionString>
-                            <OleDbProviderType>0</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[select distinct
-func_kd,
-func_oms
-From dpib010
-inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
-inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
-left join dpic351 on dpic351.func_kd = dpic300.primfunc_kd
-order by func_kd, func_oms]]></DatabaseQuery>
-                        <QueryResultColumnNames>
-                            <TextItem>pers_nr</TextItem>
-                            <TextItem>e_vrlt</TextItem>
-                            <TextItem>e_roepnaam</TextItem>
-                            <TextItem>vrvg_samen</TextItem>
-                            <TextItem>naam_samen</TextItem>
-                            <TextItem>oe_kort_nm</TextItem>
-                            <TextItem>oe_vol_nm</TextItem>
-                            <TextItem>indnst_dt</TextItem>
-                            <TextItem>uitdnst_dt</TextItem>
-                        </QueryResultColumnNames>
-                    </TableDefinition>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
@@ -218,11 +294,33 @@ order by func_kd, func_oms]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>80</TableDataOperation>
+                    <TableDataOperation>25</TableDataOperation>
                     <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\cache-organization\table_organization_export_functions_beaufort.csv</ValueTextArgument1>
-                    <ValueTextArgument2>&lt;TAB&gt;</ValueTextArgument2>
-                    <ValueTextArgument3>UNICODE,HEADER</ValueTextArgument3>
+                    <ValueTextArgument1>%Table_essom_smartcard_policy_settings%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>1</TableDataOperation>
+                    <TableDataVariable>%Table_query_db%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
@@ -376,30 +474,19 @@ order by func_kd, func_oms]]></DatabaseQuery>
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\5c9f6b8c-8c3f-4dc8-b703-3fdc4d882902.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\8851f49c-2d0b-4f78-be9d-3a6bb7cc2970.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
-        <Scheduler class="cUmraSchedulerOnCommand">
-            <Base class="cUmraScheduler">
-                <DayIncludeFlags>127</DayIncludeFlags>
-                <SchedulerFlags>1</SchedulerFlags>
-                <Exceptions class="cUmraSchedulerExceptions">
-                    <ExceptionMode>0</ExceptionMode>
-                    <Base class="cUmraObArray">
-                        <ObjectArray/>
-                    </Base>
-                </Exceptions>
-            </Base>
-        </Scheduler>
+        <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>auto-organization-beaufort-export</ProjectName>
-        <DisplayName>auto-organization-beaufort-export</DisplayName>
-        <UUID>Mu2nc9DjI30tD8D3NhYKCAs</UUID>
+        <ProjectName>function-generate-table-essom-smartcard-policy-settings</ProjectName>
+        <DisplayName>function-generate-table-essom-smartcard-policy-settings</DisplayName>
+        <UUID>cSfUIuQ#49kvdqza3ycKwBs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
-        <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
+        <ShowInProjectsBarFlag>TRUE</ShowInProjectsBarFlag>
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>

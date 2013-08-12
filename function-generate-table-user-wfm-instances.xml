@@ -277,20 +277,25 @@
                             <ConnectionString>%Conn_string_db_wfm%</ConnectionString>
                             <OleDbProviderType>55466104</OleDbProviderType>
                         </UmraOleDb>
-                        <DatabaseQuery><![CDATA[SELECT DISTINCT t1.id,
-workflows.name,
-t1.dateCreated,
-t1.dateClosed,
-t1.finalStatus,
-t1.createdByDisplayName,
-t1.assignedToDisplayName
-FROM workflowInstances t1
-INNER JOIN workflows ON Workflows.ID = t1.workflowID
-INNER JOIN workflowInstanceTrace ON workflowInstanceTrace.workflowInstanceID = t1.ID
-WHERE t1.assignedTo = '%Domain_netbios%\%AD_sAMAccountName%'
-OR t1.createdBy = '%Domain_netbios%\%AD_sAMAccountName%'
-OR workflowInstanceTrace.sAMAccountName = '%Domain_netbios%\%AD_sAMAccountName%'
-ORDER BY t1.dateCreated DESC, t1.dateClosed DESC]]></DatabaseQuery>
+                        <DatabaseQuery><![CDATA[SELECT DISTINCT 
+wi.id,
+tw.value,
+wi.dateCreated,
+wi.dateClosed,
+wi.finalStatus,
+wi.createdByDisplayName,
+wi.assignedToDisplayName
+FROM workflowInstances wi
+INNER JOIN workflows w ON w.ID = wi.workflowID
+INNER JOIN translationObjects tro ON tro.id = w.nameTranslationObjectID
+INNER JOIN translations tw ON tw.translationObjectID = tro.id
+INNER JOIN workflowInstanceTrace wit ON wit.workflowInstanceID = wi.ID
+WHERE (wi.assignedTo = '%Domain_netbios%\%AD_sAMAccountName%'
+OR wi.createdBy = '%Domain_netbios%\%AD_sAMAccountName%'
+OR wit.sAMAccountName = '%Domain_netbios%\%AD_sAMAccountName%')
+AND tw.languageID = (SELECT id FROM languages WHERE isDefault = 1)
+ORDER BY wi.dateCreated DESC, 
+wi.dateClosed DESC]]></DatabaseQuery>
                         <QueryResultColumnNames/>
                     </TableDefinition>
                 </ArrayElement>
