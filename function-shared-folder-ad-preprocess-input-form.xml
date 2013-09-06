@@ -62,7 +62,7 @@
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptFsList">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -73,16 +73,29 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%folder%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>%input_name%</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <FilesFlag>FALSE</FilesFlag>
+                    <DirsFlag>TRUE</DirsFlag>
+                    <RecursivelyFlag>FALSE</RecursivelyFlag>
+                    <PrivilegesFlag>TRUE</PrivilegesFlag>
+                    <PathName>\\%shared_folder_path_server%\%shared_folder_path_share%</PathName>
+                    <VariableName>%Table_query_ntfs%</VariableName>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>generate</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGenerateName">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -93,35 +106,220 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%folder%</VariableName>
-                    <TestName></TestName>
-                    <Functions class="cUgFunctionCollection">
+                    <NameGenerationAlgorithm class="cUgAlgorithm">
+                        <Name>folder</Name>
+                        <UserComment></UserComment>
                         <Base class="cUmraObArray">
                             <ObjectArray>
-                                <ArrayElement class="cUgFunctionSingleArgument">
-                                    <ArgumentValue>0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM</ArgumentValue>
-                                    <ArgumentName>Characters not to delete</ArgumentName>
-                                    <ArgumentType>0</ArgumentType>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>20045</FunctionIdentifier>
-                                        <FunctionName>Delete: All but the matching characters</FunctionName>
-                                        <FunctionDescription>Delete all characters from the name if the character is not found as one of the specified characters. Example: abcdefghijklmnopqrstuvwxyz.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionSingleArgument">
-                                    <ArgumentValue>20</ArgumentValue>
-                                    <ArgumentName># Characters</ArgumentName>
-                                    <ArgumentType>1</ArgumentType>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>20010</FunctionIdentifier>
-                                        <FunctionName>Shorten name: Convert to first N</FunctionName>
-                                        <FunctionDescription>Convert the name to the first N characters of the name. If the name does not contain N characters, it is not changed.</FunctionDescription>
+                                <ArrayElement class="cUgMethodCollection">
+                                    <OutputVariable>%folder%</OutputVariable>
+                                    <CurrentMethodIndex>114</CurrentMethodIndex>
+                                    <Base class="cUmraObArray">
+                                        <ObjectArray>
+                                            <ArrayElement class="cUgMethod">
+                                                <MethodName>method1</MethodName>
+                                                <ComposerSettings class="cUgNameComposerSettings">
+                                                    <Functions class="cUgFunctionCollection">
+                                                        <Base class="cUmraObArray">
+                                                            <ObjectArray/>
+                                                        </Base>
+                                                    </Functions>
+                                                </ComposerSettings>
+                                                <Base class="cUmraObArray">
+                                                    <ObjectArray>
+                                                        <ArrayElement class="cUgNamePartVariable">
+                                                            <VariableName>%input_name%</VariableName>
+                                                            <ExampleName>Tijdelijke map UMRA2</ExampleName>
+                                                            <Functions class="cUgFunctionCollection">
+                                                                <Base class="cUmraObArray">
+                                                                    <ObjectArray>
+                                                                        <ArrayElement class="cUgFunctionSingleArgument">
+                                                                            <ArgumentValue>0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM</ArgumentValue>
+                                                                            <ArgumentName>Characters not to delete</ArgumentName>
+                                                                            <ArgumentType>0</ArgumentType>
+                                                                            <Base class="cUgFunction">
+                                                                                <FunctionIdentifier>20045</FunctionIdentifier>
+                                                                                <FunctionName>Delete: All but the matching characters</FunctionName>
+                                                                                <FunctionDescription>Delete all characters from the name if the character is not found as one of the specified characters. Example: abcdefghijklmnopqrstuvwxyz.</FunctionDescription>
+                                                                            </Base>
+                                                                        </ArrayElement>
+                                                                        <ArrayElement class="cUgFunctionSingleArgument">
+                                                                            <ArgumentValue>20</ArgumentValue>
+                                                                            <ArgumentName># Characters</ArgumentName>
+                                                                            <ArgumentType>1</ArgumentType>
+                                                                            <Base class="cUgFunction">
+                                                                                <FunctionIdentifier>20010</FunctionIdentifier>
+                                                                                <FunctionName>Shorten name: Convert to first N</FunctionName>
+                                                                                <FunctionDescription>Convert the name to the first N characters of the name. If the name does not contain N characters, it is not changed.</FunctionDescription>
+                                                                            </Base>
+                                                                        </ArrayElement>
+                                                                    </ObjectArray>
+                                                                </Base>
+                                                            </Functions>
+                                                            <Base class="cUgNamePart"/>
+                                                        </ArrayElement>
+                                                    </ObjectArray>
+                                                </Base>
+                                            </ArrayElement>
+                                            <ArrayElement class="cUgMethod">
+                                                <MethodName>method2</MethodName>
+                                                <ComposerSettings class="cUgNameComposerSettings">
+                                                    <Functions class="cUgFunctionCollection">
+                                                        <Base class="cUmraObArray">
+                                                            <ObjectArray/>
+                                                        </Base>
+                                                    </Functions>
+                                                </ComposerSettings>
+                                                <Base class="cUmraObArray">
+                                                    <ObjectArray>
+                                                        <ArrayElement class="cUgNamePartVariable">
+                                                            <VariableName>%input_name%</VariableName>
+                                                            <ExampleName>Tijdelijke map UMRA2</ExampleName>
+                                                            <Functions class="cUgFunctionCollection">
+                                                                <Base class="cUmraObArray">
+                                                                    <ObjectArray>
+                                                                        <ArrayElement class="cUgFunctionSingleArgument">
+                                                                            <ArgumentValue>0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM</ArgumentValue>
+                                                                            <ArgumentName>Characters not to delete</ArgumentName>
+                                                                            <ArgumentType>0</ArgumentType>
+                                                                            <Base class="cUgFunction">
+                                                                                <FunctionIdentifier>20045</FunctionIdentifier>
+                                                                                <FunctionName>Delete: All but the matching characters</FunctionName>
+                                                                                <FunctionDescription>Delete all characters from the name if the character is not found as one of the specified characters. Example: abcdefghijklmnopqrstuvwxyz.</FunctionDescription>
+                                                                            </Base>
+                                                                        </ArrayElement>
+                                                                        <ArrayElement class="cUgFunctionSingleArgument">
+                                                                            <ArgumentValue>20</ArgumentValue>
+                                                                            <ArgumentName># Characters</ArgumentName>
+                                                                            <ArgumentType>1</ArgumentType>
+                                                                            <Base class="cUgFunction">
+                                                                                <FunctionIdentifier>20010</FunctionIdentifier>
+                                                                                <FunctionName>Shorten name: Convert to first N</FunctionName>
+                                                                                <FunctionDescription>Convert the name to the first N characters of the name. If the name does not contain N characters, it is not changed.</FunctionDescription>
+                                                                            </Base>
+                                                                        </ArrayElement>
+                                                                        <ArrayElement class="cUgFunctionSingleArgument">
+                                                                            <ArgumentValue>_</ArgumentValue>
+                                                                            <ArgumentName>Text to insert</ArgumentName>
+                                                                            <ArgumentType>0</ArgumentType>
+                                                                            <Base class="cUgFunction">
+                                                                                <FunctionIdentifier>20021</FunctionIdentifier>
+                                                                                <FunctionName>Add at end</FunctionName>
+                                                                                <FunctionDescription>Insert the specified text at the end of the name.</FunctionDescription>
+                                                                            </Base>
+                                                                        </ArrayElement>
+                                                                    </ObjectArray>
+                                                                </Base>
+                                                            </Functions>
+                                                            <Base class="cUgNamePart"/>
+                                                        </ArrayElement>
+                                                        <ArrayElement class="cUgNamePartIteratorIncrementor">
+                                                            <FillCharacter>0</FillCharacter>
+                                                            <StartCharacters>2</StartCharacters>
+                                                            <FixedLengthFlag>FALSE</FixedLengthFlag>
+                                                            <LimitedNumberOfIterationsFlag>FALSE</LimitedNumberOfIterationsFlag>
+                                                            <FixedLengthCharacterCount>2</FixedLengthCharacterCount>
+                                                            <MaxIterationCount>0</MaxIterationCount>
+                                                            <Base class="cUgNamePartIterator">
+                                                                <SessionIterationCounter>1</SessionIterationCounter>
+                                                                <EmptyFirstIterationFlag>FALSE</EmptyFirstIterationFlag>
+                                                                <Base class="cUgNamePart"/>
+                                                            </Base>
+                                                        </ArrayElement>
+                                                    </ObjectArray>
+                                                </Base>
+                                            </ArrayElement>
+                                        </ObjectArray>
                                     </Base>
                                 </ArrayElement>
                             </ObjectArray>
                         </Base>
-                    </Functions>
-                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                    </NameGenerationAlgorithm>
+                    <IterationByVariableFlag>FALSE</IterationByVariableFlag>
+                    <StateInitializeIterationFlag>TRUE</StateInitializeIterationFlag>
+                    <IterationVariableName></IterationVariableName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>17</TableDataOperation>
+                    <TableDataVariable>%Table_query_ntfs%</TableDataVariable>
+                    <ValueTextArgument1>%folder%</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_result_output%</ValueTextArgument2>
+                    <ValueTextArgument3>STRICT</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>5</TableDataOperation>
+                    <TableDataVariable>%Table_result_output%</TableDataVariable>
+                    <ValueTextArgument1>%Count_rows_table_result_output%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Count_rows_table_result_output%</InputVariableName>
+                                    <InputVariableType>2</InputVariableType>
+                                    <OperatorIndex>300</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>0</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>TRUE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>generate</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">

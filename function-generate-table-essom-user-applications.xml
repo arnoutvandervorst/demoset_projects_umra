@@ -16,7 +16,7 @@
                     </Base>
                     <TableDataOperation>1</TableDataOperation>
                     <TableDataVariable>%Table_essom_user_applications%</TableDataVariable>
-                    <ValueTextArgument1>4</ValueTextArgument1>
+                    <ValueTextArgument1>5</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
@@ -106,6 +106,28 @@
                     <TableDataVariable>%Table_essom_user_applications%</TableDataVariable>
                     <ValueTextArgument1>3</ValueTextArgument1>
                     <ValueTextArgument2>%RES_table_column_description%</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_essom_user_applications%</TableDataVariable>
+                    <ValueTextArgument1>4</ValueTextArgument1>
+                    <ValueTextArgument2>%RES_table_column_date%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -213,11 +235,21 @@ with column collation when possible=False]]></TextValue>
 u_a_d.UserApplicationDataID,
 u.UserName,
 a.ApplicationName,
-u_a_d.UserApplicationDataName
+u_a_d.UserApplicationDataName AS 'Account Profile',
+MAX(CONVERT(DATETIME,SWITCHOFFSET(CONVERT(DATETIMEOFFSET,l.LogTime),DATENAME(TZOFFSET,SYSDATETIMEOFFSET())))) AS 'Last started'
 FROM UserApplicationData u_a_d
 INNER JOIN Users u ON u_a_d.UserID = u.UserID
 INNER JOIN Applications a ON a.ApplicationID = u_a_d.ApplicationID
-WHERE u.UserId = '%ESSOM_user_id%']]></DatabaseQuery>
+INNER JOIN UserApplicationDataVariables u_a_d_v ON u_a_d_v.UserApplicationDataID = u_a_d.UserApplicationDataID
+	AND u_a_d_v.VariableName = a.VariableToDisplay
+LEFT JOIN LogApplication l_a ON l_a.ApplicationID = a.ApplicationID
+LEFT JOIN Log l ON l.LogApplicationID = l_a.LogApplicationID
+WHERE u.UserId = '1'
+GROUP BY 
+u_a_d.UserApplicationDataID,
+u.UserName,
+a.ApplicationName,
+u_a_d.UserApplicationDataName]]></DatabaseQuery>
                         <QueryResultColumnNames>
                             <TextItem>Gebruikers</TextItem>
                             <TextItem>Applicaties</TextItem>
@@ -481,7 +513,7 @@ WHERE u.UserId = '%ESSOM_user_id%']]></DatabaseQuery>
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\c299247f-59bc-482c-9c77-6b4ba23c9aa5.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\0cbc9035-05d6-4cce-b8d4-b44d19d27b8a.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
