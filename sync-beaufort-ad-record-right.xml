@@ -3,7 +3,7 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
-                <ArrayElement class="cActionItemScriptExecuteProject">
+                <ArrayElement class="cActionItemScriptExportVariables">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -14,20 +14,21 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>function-group-ad-preprocess-input-afas-function</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>function-group-ad-create</ProjectName>
+                    <ExportFields>
+                        <TextItem>%AD_employeeID%</TextItem>
+                        <TextItem>%AD_sAMAccountName%</TextItem>
+                        <TextItem>%AD_mail%</TextItem>
+                        <TextItem>%AD_givenName%</TextItem>
+                        <TextItem>%AD_sn%</TextItem>
+                        <TextItem>%AD_cn%</TextItem>
+                        <TextItem>%object_dn%</TextItem>
+                    </ExportFields>
+                    <FieldSeparator>;</FieldSeparator>
+                    <EncloseCharacter>"</EncloseCharacter>
+                    <ExportFileName>%UmraPath%\Log\%TimeStamp%-accounts-niet-in-beaufort.txt</ExportFileName>
+                    <ValueSeparator>,</ValueSeparator>
+                    <ExportMode>1</ExportMode>
+                    <UnicodeFormatFlag>FALSE</UnicodeFormatFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
@@ -75,29 +76,12 @@
                                 <Mask>48</Mask>
                                 <Account class="cJvrSecAccount">
                                     <Mask>5</Mask>
-                                    <AccountName>Administrators</AccountName>
+                                    <AccountName>everyone</AccountName>
                                     <AccountNameVariable></AccountNameVariable>
                                     <AccountClassName></AccountClassName>
                                     <AccountSid class="cJvrSecSid">
                                         <InitializedFlag>TRUE</InitializedFlag>
-                                        <SID>BIAAAAAAAUAIAAAAgIAAAAs</SID>
-                                    </AccountSid>
-                                </Account>
-                            </Base>
-                        </ArrayElement>
-                        <ArrayElement class="cJvrSecAce">
-                            <Base class="cJvrSecAceBase">
-                                <AceType>0</AceType>
-                                <AceFlags>0</AceFlags>
-                                <Mask>48</Mask>
-                                <Account class="cJvrSecAccount">
-                                    <Mask>5</Mask>
-                                    <AccountName>NT Authority\Network Service</AccountName>
-                                    <AccountNameVariable></AccountNameVariable>
-                                    <AccountClassName></AccountClassName>
-                                    <AccountSid class="cJvrSecSid">
-                                        <InitializedFlag>TRUE</InitializedFlag>
-                                        <SID>BEAAAAAAAUAFAAAA</SID>
+                                        <SID>BEAAAAAAAEAAAAAA</SID>
                                     </AccountSid>
                                 </Account>
                             </Base>
@@ -135,16 +119,16 @@
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\951e204d-ae93-4de2-9a80-d74e1255b704.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\d566ca28-57a4-4bb2-bc73-23d23e70c362.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
         <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>sync-afas-ad-function-left-active</ProjectName>
-        <DisplayName>sync-afas-ad-employee-left-active</DisplayName>
-        <UUID>NBiHVOpri3kmAetTSU1tEAs</UUID>
+        <ProjectName>sync-beaufort-ad-record-right</ProjectName>
+        <DisplayName>sync-beaufort-ad-record-right</DisplayName>
+        <UUID>oo$ZVT6VyuEvzNi0+A3wiBs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
@@ -711,8 +695,6 @@
         <DataFileParam class="cDataFileParam">
             <Base class="cDataFileParseInfo">
                 <Separators>
-                    <TextItem>,</TextItem>
-                    <TextItem>,</TextItem>
                     <TextItem>,</TextItem>
                 </Separators>
                 <TextQualifier>"</TextQualifier>

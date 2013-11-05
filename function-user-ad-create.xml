@@ -879,7 +879,9 @@
         <ProjectName>function-user-ad-create</ProjectName>
         <DisplayName>function-user-ad-create</DisplayName>
         <UUID>VtC6cb9u9d0tYqf/UtW$VCs</UUID>
-        <ProjectComment></ProjectComment>
+        <ProjectComment><![CDATA[Default function to create AD user accounts. The best-practice is to use this function in combination with the preprocessor and generate-names projects. The preprocessor creates all tables referenced in this function. The tables are only used when they contain data, so you don't have to remove unused elements from this function.
+
+When finished, the function updates the UMRA-DB (snapshot + cache). This is required for some functionality, for instance the tag system, which requires the user's SID to be available in the UMRA-DB.]]></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>

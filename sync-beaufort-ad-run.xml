@@ -3,53 +3,6 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
-                <ArrayElement class="cActionItemScriptIfThenElse">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Object_dn%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>208</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>1</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Object_dn%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>100</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue/>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>end</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
-                </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -61,10 +14,39 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init-ad</ProjectName>
+                    <ProjectName>sync-beaufort-ad-init</ProjectName>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
+                <ArrayElement class="cActionItemScriptGenericTable">
                     <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>TRUE</ErrorVariableFlag>
+                            <ErrorVariableName>%status_operation%</ErrorVariableName>
+                            <ErrorVariableContents>Error bij genereren tabellen vanuit beaufort</ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDefinition class="cUmraTableDefDatabaseQuery">
+                        <Base class="cUmraTableDef">
+                            <VariableName>%Table_query_hr%</VariableName>
+                            <TestVariableArray class="cUmVariableArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray/>
+                                </Base>
+                            </TestVariableArray>
+                        </Base>
+                        <UmraOleDb class="cUmraOleDbGeneral">
+                            <Base class="cUmraOleDb"/>
+                            <ConnectionString>%Conn_string_db_hrm%</ConnectionString>
+                            <OleDbProviderType>74336136</OleDbProviderType>
+                        </UmraOleDb>
+                        <DatabaseQuery>%Query_hrm_employees_all%</DatabaseQuery>
+                        <QueryResultColumnNames/>
+                    </TableDefinition>
+                </ArrayElement>
+                <ArrayElement class="cActionItemOperationSetSessionVariable">
+                    <Base class="cActionItemOperation">
                         <Base class="cActionItem">
                             <Label></Label>
                             <ErrorControl>0</ErrorControl>
@@ -73,34 +55,30 @@
                             <ErrorVariableName></ErrorVariableName>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
+                        <Explanation>Copy a variable to the session variable list. Both the name and value of the variable are copied. If the variable already exists in the session variable list, the value is overwritten.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>122000</Id>
+                                            <Name>Variable name</Name>
+                                            <Type>1</Type>
+                                            <Description>The name of the variable to be copied from the project variable list to the session variable list (example: %ConnectionString%).</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%Table_query_hr%</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
                     </Base>
-                    <ProjectName>global-init-data</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>global-init-user</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>global-init-group-selfservice</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
@@ -113,32 +91,10 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>1</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_managed_folders%</TableDataVariable>
-                    <ValueTextArgument1>10</ValueTextArgument1>
-                    <ValueTextArgument2></ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_managed_folders%</TableDataVariable>
+                    <TableDataOperation>6</TableDataOperation>
+                    <TableDataVariable>%Table_query_hr%</TableDataVariable>
                     <ValueTextArgument1>0</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_groups_selfservice_column0_name%</ValueTextArgument2>
+                    <ValueTextArgument2>sofi_nr</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -157,186 +113,10 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_managed_folders%</TableDataVariable>
-                    <ValueTextArgument1>1</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_groups_selfservice_column1_name%</ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_managed_folders%</TableDataVariable>
-                    <ValueTextArgument1>2</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_groups_selfservice_column2_name%</ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_managed_folders%</TableDataVariable>
-                    <ValueTextArgument1>3</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_groups_selfservice_column3_name%</ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_managed_folders%</TableDataVariable>
-                    <ValueTextArgument1>4</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_groups_selfservice_column4_name%</ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_managed_folders%</TableDataVariable>
-                    <ValueTextArgument1>5</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_groups_selfservice_column5_name%</ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_managed_folders%</TableDataVariable>
-                    <ValueTextArgument1>6</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_groups_selfservice_column6_name%</ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_managed_folders%</TableDataVariable>
-                    <ValueTextArgument1>7</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_groups_selfservice_column7_name%</ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_managed_folders%</TableDataVariable>
-                    <ValueTextArgument1>8</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_groups_selfservice_column8_name%</ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_managed_folders%</TableDataVariable>
-                    <ValueTextArgument1>9</ValueTextArgument1>
-                    <ValueTextArgument2>%Table_groups_selfservice_column9_name%</ValueTextArgument2>
+                    <TableDataOperation>5</TableDataOperation>
+                    <TableDataVariable>%Table_query_hr%</TableDataVariable>
+                    <ValueTextArgument1>%count_rows%</ValueTextArgument1>
+                    <ValueTextArgument2>sofi_nr</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -359,27 +139,18 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Object_dn%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>208</OperatorIndex>
+                                    <InputVariableName>%count_rows%</InputVariableName>
+                                    <InputVariableType>2</InputVariableType>
+                                    <OperatorIndex>301</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
                                     <OperatorArgumentValue class="cUmDataNumeric">
                                         <Base class="cUmData" Version="1">
                                             <HiddenFlag>FALSE</HiddenFlag>
                                         </Base>
-                                        <NumericValue>1</NumericValue>
+                                        <NumericValue>200</NumericValue>
                                     </OperatorArgumentValue>
                                     <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Object_dn%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>100</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue/>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                    <InvertResultFlag>TRUE</InvertResultFlag>
                                 </ArrayElement>
                             </ObjectArray>
                         </Base>
@@ -397,9 +168,9 @@
                             <Label></Label>
                             <ErrorControl>1</ErrorControl>
                             <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName>%Status_operation%</ErrorVariableName>
-                            <ErrorVariableContents>%RES_status_operation_generic%</ErrorVariableContents>
+                            <ErrorVariableFlag>TRUE</ErrorVariableFlag>
+                            <ErrorVariableName>%status_operation%</ErrorVariableName>
+                            <ErrorVariableContents>Fout bij laden van AD Gebruikers voor Beuafort Koppeling</ErrorVariableContents>
                         </Base>
                     </Base>
                     <TableDefinition class="cUmraTableDefLdapQuery">
@@ -412,14 +183,14 @@
                             </TestVariableArray>
                         </Base>
                         <UmraLdapQueryBindingType>2</UmraLdapQueryBindingType>
-                        <BindingString>LDAP://%DomainController%</BindingString>
-                        <LdapQueryFilter>(&amp;(objectCategory=group)(cn=%shared_folder_group_prefix_g%*)(managedBy=%Object_dn%))</LdapQueryFilter>
+                        <BindingString>%binding_ldap%</BindingString>
+                        <LdapQueryFilter>(&amp;%Table_users_class_ldap%(%global_unique_employeeID_attribute%=*))</LdapQueryFilter>
                         <Attributes class="cUmraTableLdapAttributes">
                             <Base class="cUmraObArray">
                                 <ObjectArray>
                                     <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_selfservice_column0_value%</LdapName>
-                                        <DisplayName>%Table_groups_selfservice_column0_value%</DisplayName>
+                                        <LdapName>sAMAccountName</LdapName>
+                                        <DisplayName>sAMAccountName</DisplayName>
                                         <DataConversionCollection class="cUmDataConversionCollection">
                                             <Base class="cUmraObArray">
                                                 <ObjectArray/>
@@ -427,8 +198,8 @@
                                         </DataConversionCollection>
                                     </ArrayElement>
                                     <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_selfservice_column1_value%</LdapName>
-                                        <DisplayName>%Table_groups_selfservice_column1_value%</DisplayName>
+                                        <LdapName>initials</LdapName>
+                                        <DisplayName>initials</DisplayName>
                                         <DataConversionCollection class="cUmDataConversionCollection">
                                             <Base class="cUmraObArray">
                                                 <ObjectArray/>
@@ -436,8 +207,8 @@
                                         </DataConversionCollection>
                                     </ArrayElement>
                                     <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_selfservice_column2_value%</LdapName>
-                                        <DisplayName>%Table_groups_selfservice_column2_value%</DisplayName>
+                                        <LdapName>cn</LdapName>
+                                        <DisplayName>cn</DisplayName>
                                         <DataConversionCollection class="cUmDataConversionCollection">
                                             <Base class="cUmraObArray">
                                                 <ObjectArray/>
@@ -445,8 +216,8 @@
                                         </DataConversionCollection>
                                     </ArrayElement>
                                     <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_selfservice_column3_value%</LdapName>
-                                        <DisplayName>%Table_groups_selfservice_column3_value%</DisplayName>
+                                        <LdapName>givenName</LdapName>
+                                        <DisplayName>givenName</DisplayName>
                                         <DataConversionCollection class="cUmDataConversionCollection">
                                             <Base class="cUmraObArray">
                                                 <ObjectArray/>
@@ -454,8 +225,8 @@
                                         </DataConversionCollection>
                                     </ArrayElement>
                                     <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_selfservice_column4_value%</LdapName>
-                                        <DisplayName>%Table_groups_selfservice_column4_value%</DisplayName>
+                                        <LdapName>sn</LdapName>
+                                        <DisplayName>sn</DisplayName>
                                         <DataConversionCollection class="cUmDataConversionCollection">
                                             <Base class="cUmraObArray">
                                                 <ObjectArray/>
@@ -463,8 +234,8 @@
                                         </DataConversionCollection>
                                     </ArrayElement>
                                     <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_selfservice_column5_value%</LdapName>
-                                        <DisplayName>%Table_groups_selfservice_column5_value%</DisplayName>
+                                        <LdapName>displayName</LdapName>
+                                        <DisplayName>displayName</DisplayName>
                                         <DataConversionCollection class="cUmDataConversionCollection">
                                             <Base class="cUmraObArray">
                                                 <ObjectArray/>
@@ -472,8 +243,8 @@
                                         </DataConversionCollection>
                                     </ArrayElement>
                                     <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_selfservice_column6_value%</LdapName>
-                                        <DisplayName>%Table_groups_selfservice_column6_value%</DisplayName>
+                                        <LdapName>employeeID</LdapName>
+                                        <DisplayName>employeeID</DisplayName>
                                         <DataConversionCollection class="cUmDataConversionCollection">
                                             <Base class="cUmraObArray">
                                                 <ObjectArray/>
@@ -481,8 +252,8 @@
                                         </DataConversionCollection>
                                     </ArrayElement>
                                     <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_selfservice_column7_value%</LdapName>
-                                        <DisplayName>%Table_groups_selfservice_column7_value%</DisplayName>
+                                        <LdapName>memberOf</LdapName>
+                                        <DisplayName>memberOf</DisplayName>
                                         <DataConversionCollection class="cUmDataConversionCollection">
                                             <Base class="cUmraObArray">
                                                 <ObjectArray/>
@@ -490,8 +261,8 @@
                                         </DataConversionCollection>
                                     </ArrayElement>
                                     <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_selfservice_column8_value%</LdapName>
-                                        <DisplayName>%Table_groups_selfservice_column8_value%</DisplayName>
+                                        <LdapName>mail</LdapName>
+                                        <DisplayName>mail</DisplayName>
                                         <DataConversionCollection class="cUmDataConversionCollection">
                                             <Base class="cUmraObArray">
                                                 <ObjectArray/>
@@ -499,8 +270,370 @@
                                         </DataConversionCollection>
                                     </ArrayElement>
                                     <ArrayElement class="cUmraTableLdapAttribute">
-                                        <LdapName>%Table_groups_selfservice_column9_value%</LdapName>
-                                        <DisplayName>%Table_groups_selfservice_column9_value%</DisplayName>
+                                        <LdapName>title</LdapName>
+                                        <DisplayName>title</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>department</LdapName>
+                                        <DisplayName>department</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>company</LdapName>
+                                        <DisplayName>company</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>telephoneNumber</LdapName>
+                                        <DisplayName>telephoneNumber</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>physicalDeliveryOfficeName</LdapName>
+                                        <DisplayName>physicalDeliveryOfficeName</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>description</LdapName>
+                                        <DisplayName>description</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>extensionattribute1</LdapName>
+                                        <DisplayName>extensionattribute1</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>extensionattribute2</LdapName>
+                                        <DisplayName>extensionattribute2</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>extensionattribute3</LdapName>
+                                        <DisplayName>extensionattribute3</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>extensionattribute4</LdapName>
+                                        <DisplayName>extensionattribute4</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>extensionattribute5</LdapName>
+                                        <DisplayName>extensionattribute5</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>extensionattribute6</LdapName>
+                                        <DisplayName>extensionattribute6</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>extensionattribute7</LdapName>
+                                        <DisplayName>extensionattribute7</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>extensionattribute8</LdapName>
+                                        <DisplayName>extensionattribute8</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>extensionattribute9</LdapName>
+                                        <DisplayName>extensionattribute9</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>extensionattribute10</LdapName>
+                                        <DisplayName>extensionattribute10</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>extensionattribute11</LdapName>
+                                        <DisplayName>extensionattribute11</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>extensionattribute12</LdapName>
+                                        <DisplayName>extensionattribute12</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>extensionattribute13</LdapName>
+                                        <DisplayName>extensionattribute13</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>extensionattribute14</LdapName>
+                                        <DisplayName>extensionattribute14</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>extensionattribute15</LdapName>
+                                        <DisplayName>extensionattribute15</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>wWWHomePage</LdapName>
+                                        <DisplayName>wWWHomePage</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>employeeNumber</LdapName>
+                                        <DisplayName>employeeNumber</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>userAccountControl</LdapName>
+                                        <DisplayName>Disabled</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmDataConversion">
+                                                        <OperationId>100</OperationId>
+                                                        <pArgumentData class="cUmDataNumeric">
+                                                            <Base class="cUmData" Version="1">
+                                                                <HiddenFlag>FALSE</HiddenFlag>
+                                                            </Base>
+                                                            <NumericValue>2</NumericValue>
+                                                        </pArgumentData>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>lastLogon</LdapName>
+                                        <DisplayName>Last Logon</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmDataConversion">
+                                                        <OperationId>901</OperationId>
+                                                        <pArgumentData class="cUmDataText">
+                                                            <Base class="cUmData" Version="1">
+                                                                <HiddenFlag>FALSE</HiddenFlag>
+                                                            </Base>
+                                                            <TextValue></TextValue>
+                                                        </pArgumentData>
+                                                    </ArrayElement>
+                                                    <ArrayElement class="cUmDataConversion">
+                                                        <OperationId>900</OperationId>
+                                                        <pArgumentData class="cUmDataText">
+                                                            <Base class="cUmData" Version="1">
+                                                                <HiddenFlag>FALSE</HiddenFlag>
+                                                            </Base>
+                                                            <TextValue></TextValue>
+                                                        </pArgumentData>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>proxyaddresses</LdapName>
+                                        <DisplayName>proxyaddresses</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>manager</LdapName>
+                                        <DisplayName>manager</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>info</LdapName>
+                                        <DisplayName>info</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>scriptpath</LdapName>
+                                        <DisplayName>scriptpath</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>homephone</LdapName>
+                                        <DisplayName>homephone</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>mobile</LdapName>
+                                        <DisplayName>mobile</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>streetaddress</LdapName>
+                                        <DisplayName>streetaddress</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>postalcode</LdapName>
+                                        <DisplayName>postalcode</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>l</LdapName>
+                                        <DisplayName>l</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>employeeType</LdapName>
+                                        <DisplayName>employeeType</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>otherTelephone</LdapName>
+                                        <DisplayName>otherTelephone</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>otherMobile</LdapName>
+                                        <DisplayName>otherMobile</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>distinguishedName</LdapName>
+                                        <DisplayName>distinguishedName</DisplayName>
                                         <DataConversionCollection class="cUmDataConversionCollection">
                                             <Base class="cUmraObArray">
                                                 <ObjectArray/>
@@ -513,7 +646,7 @@
                         <LdapSearchOptions class="cUmraTableLdapSearchOptions">
                             <FlagTimeTotal>FALSE</FlagTimeTotal>
                             <FlagTimePage>FALSE</FlagTimePage>
-                            <FlagSizeTotal>FALSE</FlagSizeTotal>
+                            <FlagSizeTotal>TRUE</FlagSizeTotal>
                             <FlagSizePage>TRUE</FlagSizePage>
                             <FlagCacheResults>TRUE</FlagCacheResults>
                             <TimeTotalSec>120</TimeTotalSec>
@@ -536,10 +669,50 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>9</TableDataOperation>
-                    <TableDataVariable>%Table_user_attributes_managed_folders%</TableDataVariable>
-                    <ValueTextArgument1>%Table_query_ad%</ValueTextArgument1>
-                    <ValueTextArgument2></ValueTextArgument2>
+                    <TableDataOperation>6</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>6</ValueTextArgument1>
+                    <ValueTextArgument2>sofi_nr</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableJoin">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>TRUE</ErrorVariableFlag>
+                            <ErrorVariableName>%status_operation%</ErrorVariableName>
+                            <ErrorVariableContents>Error bij matchen van beaufort gebruikers aan ad</ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <InputTable1Variable>%Table_query_hr%</InputTable1Variable>
+                    <InputTable2Variable>%Table_query_ad%</InputTable2Variable>
+                    <OutputTableVariable>%Table_join%</OutputTableVariable>
+                    <JoinColumnNameTable1>pers_nr</JoinColumnNameTable1>
+                    <JoinColumnNameTable2>employeeID</JoinColumnNameTable2>
+                    <TextModeFlag>TRUE</TextModeFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>12</TableDataOperation>
+                    <TableDataVariable>%Table_join%</TableDataVariable>
+                    <ValueTextArgument1>joinresult</ValueTextArgument1>
+                    <ValueTextArgument2>YES</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -558,16 +731,144 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>1</TableDataOperation>
-                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <TableDataOperation>99</TableDataOperation>
+                    <TableDataVariable>%Table_join%</TableDataVariable>
                     <ValueTextArgument1>0</ValueTextArgument1>
-                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument2>sofi_nr</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptForEach">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableVariableName>%Table_join%</TableVariableName>
+                    <ProjectName>sync-beaufort-ad-record</ProjectName>
+                    <ColumnVariablesMap>
+                        <TextItem>%HR_pers_nr%</TextItem>
+                        <TextItem>%HR_e_vrlt%</TextItem>
+                        <TextItem>%HR_e_roepnaam%</TextItem>
+                        <TextItem>%HR_e_voornmn%</TextItem>
+                        <TextItem>%HR_e_vrvg%</TextItem>
+                        <TextItem>%HR_e_naam%</TextItem>
+                        <TextItem>%HR_p_vrvg%</TextItem>
+                        <TextItem>%HR_p_naam%</TextItem>
+                        <TextItem>%HR_vrvg_samen%</TextItem>
+                        <TextItem>%HR_naam_samen%</TextItem>
+                        <TextItem>%HR_gbrk_naam%</TextItem>
+                        <TextItem>%HR_geslacht%</TextItem>
+                        <TextItem>%HR_geb_dt%</TextItem>
+                        <TextItem>%HR_email_werk%</TextItem>
+                        <TextItem>%HR_mobiel_tel_nr%</TextItem>
+                        <TextItem>%HR_werk_tel_nr%</TextItem>
+                        <TextItem>%HR_kstpl_kd%</TextItem>
+                        <TextItem>%HR_oe_kort_nm%</TextItem>
+                        <TextItem>%HR_oe_vol_nm%</TextItem>
+                        <TextItem>%HR_func_kd%</TextItem>
+                        <TextItem>%HR_func_oms_not_in_use%</TextItem>
+                        <TextItem>%HR_func_oms%</TextItem>
+                        <TextItem>%HR_opdrgvr_nr%</TextItem>
+                        <TextItem>%HR_OPDRGVR_OMS%</TextItem>
+                        <TextItem>%HR_mngr_pers_nr%</TextItem>
+                        <TextItem></TextItem>
+                        <TextItem></TextItem>
+                        <TextItem></TextItem>
+                        <TextItem>%HR_mngr_soort%</TextItem>
+                        <TextItem>%HR_indnst_dt%</TextItem>
+                        <TextItem>%HR_indnst_dt_nl%</TextItem>
+                        <TextItem>%HR_uitdnst_dt%</TextItem>
+                        <TextItem>%HR_uitdnst_dt_nl%</TextItem>
+                        <TextItem>%HR_uitdnst_dt_normal%</TextItem>
+                        <TextItem>%HR_contract_dv_vlgnr%</TextItem>
+                        <TextItem>%HR_contract_arel_code%</TextItem>
+                        <TextItem>%AD_sAMAccountName%</TextItem>
+                        <TextItem>%AD_initials%</TextItem>
+                        <TextItem>%AD_cn%</TextItem>
+                        <TextItem>%AD_givenName%</TextItem>
+                        <TextItem>%AD_sn%</TextItem>
+                        <TextItem>%AD_displayName%</TextItem>
+                        <TextItem>%AD_employeeID%</TextItem>
+                        <TextItem>%AD_memberOf%</TextItem>
+                        <TextItem>%AD_mail%</TextItem>
+                        <TextItem>%AD_title%</TextItem>
+                        <TextItem>%AD_department%</TextItem>
+                        <TextItem>%AD_company%</TextItem>
+                        <TextItem>%AD_telephoneNumber%</TextItem>
+                        <TextItem>%AD_physicalDeliveryOfficeName%</TextItem>
+                        <TextItem>%AD_description%</TextItem>
+                        <TextItem>%AD_extensionAttribute1%</TextItem>
+                        <TextItem>%AD_extensionAttribute2%</TextItem>
+                        <TextItem>%AD_extensionAttribute3%</TextItem>
+                        <TextItem>%AD_extensionAttribute4%</TextItem>
+                        <TextItem>%AD_extensionAttribute5%</TextItem>
+                        <TextItem>%AD_extensionAttribute6%</TextItem>
+                        <TextItem>%AD_extensionAttribute7%</TextItem>
+                        <TextItem>%AD_extensionAttribute8%</TextItem>
+                        <TextItem>%AD_extensionAttribute9%</TextItem>
+                        <TextItem>%AD_extensionAttribute10%</TextItem>
+                        <TextItem>%AD_extensionAttribute11%</TextItem>
+                        <TextItem>%AD_extensionAttribute12%</TextItem>
+                        <TextItem>%AD_extensionAttribute13%</TextItem>
+                        <TextItem>%AD_extensionAttribute14%</TextItem>
+                        <TextItem>%AD_extensionAttribute15%</TextItem>
+                        <TextItem>%AD_wwwHomePage%</TextItem>
+                        <TextItem>%AD_employeeNumber%</TextItem>
+                        <TextItem>%AD_userDisabled%</TextItem>
+                        <TextItem>%AD_lastLogonTimestamp%</TextItem>
+                        <TextItem>%AD_proxyAddresses%</TextItem>
+                        <TextItem>%AD_manager%</TextItem>
+                        <TextItem>%AD_info%</TextItem>
+                        <TextItem>%AD_scriptPath%</TextItem>
+                        <TextItem>%AD_homePhone%</TextItem>
+                        <TextItem>%AD_mobile%</TextItem>
+                        <TextItem>%AD_streetaddress%</TextItem>
+                        <TextItem>%AD_postalCode%</TextItem>
+                        <TextItem>%AD_l%</TextItem>
+                        <TextItem>%AD_employeeType%</TextItem>
+                        <TextItem>%AD_otherTelephone%</TextItem>
+                        <TextItem>%AD_otherMobile%</TextItem>
+                        <TextItem>%object_dn%</TextItem>
+                        <TextItem>%JoinResult%</TextItem>
+                    </ColumnVariablesMap>
+                    <ReturnVariableNames>
+                        <TextItem>%count_operation%</TextItem>
+                    </ReturnVariableNames>
+                    <StopLoopOnErrorFlag>FALSE</StopLoopOnErrorFlag>
+                    <TerminationCondition class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray/>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </TerminationCondition>
+                    <VariableFilter class="cUmVariableFilter">
+                        <VariableFilterMode>3</VariableFilterMode>
+                        <VariableSpecification>
+                            <TextItem>%Table_query_ad%</TextItem>
+                            <TextItem>%Table_query_hr%</TextItem>
+                            <TextItem>%Table_join%</TextItem>
+                            <TextItem>%Table_query_ad_user_cache_no_id%</TextItem>
+                            <TextItem>%Table_query_ad_user_cache%</TextItem>
+                            <TextItem>%Table_ou%</TextItem>
+                            <TextItem>%Table_query_ad_2%</TextItem>
+                            <TextItem>%Table_afd_mngr%</TextItem>
+                            <TextItem>%table_ad_delegated_groups%</TextItem>
+                            <TextItem>%Table_telephonesystem%</TextItem>
+                            <TextItem>%Table_iprotect_users%</TextItem>
+                        </VariableSpecification>
+                    </VariableFilter>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGoTo">
                     <Base class="cActionItemScript">
@@ -656,29 +957,12 @@
                                 <Mask>48</Mask>
                                 <Account class="cJvrSecAccount">
                                     <Mask>5</Mask>
-                                    <AccountName>Administrators</AccountName>
+                                    <AccountName>everyone</AccountName>
                                     <AccountNameVariable></AccountNameVariable>
                                     <AccountClassName></AccountClassName>
                                     <AccountSid class="cJvrSecSid">
                                         <InitializedFlag>TRUE</InitializedFlag>
-                                        <SID>BIAAAAAAAUAIAAAAgIAAAAs</SID>
-                                    </AccountSid>
-                                </Account>
-                            </Base>
-                        </ArrayElement>
-                        <ArrayElement class="cJvrSecAce">
-                            <Base class="cJvrSecAceBase">
-                                <AceType>0</AceType>
-                                <AceFlags>0</AceFlags>
-                                <Mask>48</Mask>
-                                <Account class="cJvrSecAccount">
-                                    <Mask>5</Mask>
-                                    <AccountName>NT Authority\Network Service</AccountName>
-                                    <AccountNameVariable></AccountNameVariable>
-                                    <AccountClassName></AccountClassName>
-                                    <AccountSid class="cJvrSecSid">
-                                        <InitializedFlag>TRUE</InitializedFlag>
-                                        <SID>BEAAAAAAAUAFAAAA</SID>
+                                        <SID>BEAAAAAAAEAAAAAA</SID>
                                     </AccountSid>
                                 </Account>
                             </Base>
@@ -714,18 +998,29 @@
         </Base>
     </AccessSettings>
     <HelpInfoUrl></HelpInfoUrl>
-    <ScriptTimeOutSec>1492536</ScriptTimeOutSec>
+    <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\41239785-05ec-48af-85f3-1937ad427f2d.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\750f9a65-1a26-406d-8740-5ebd4a0d5350.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
-        <Scheduler/>
+        <Scheduler class="cUmraSchedulerNever">
+            <Base class="cUmraScheduler">
+                <DayIncludeFlags>127</DayIncludeFlags>
+                <SchedulerFlags>0</SchedulerFlags>
+                <Exceptions class="cUmraSchedulerExceptions">
+                    <ExceptionMode>0</ExceptionMode>
+                    <Base class="cUmraObArray">
+                        <ObjectArray/>
+                    </Base>
+                </Exceptions>
+            </Base>
+        </Scheduler>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-generate-table-user-attributes-managed-folders</ProjectName>
-        <DisplayName>function-generate-table-user-memberof</DisplayName>
-        <UUID>Fe5IBxeBviUhznxNtK0ftAs</UUID>
+        <ProjectName>sync-beaufort-ad-run</ProjectName>
+        <DisplayName>sync-beaufort-ad-run</DisplayName>
+        <UUID>@p5D1ZiGtB0hA5VvK1wUQBs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
@@ -1292,11 +1587,6 @@
         <DataFileParam class="cDataFileParam">
             <Base class="cDataFileParseInfo">
                 <Separators>
-                    <TextItem>,</TextItem>
-                    <TextItem>,</TextItem>
-                    <TextItem>,</TextItem>
-                    <TextItem>,</TextItem>
-                    <TextItem>,</TextItem>
                     <TextItem>,</TextItem>
                     <TextItem>,</TextItem>
                 </Separators>
