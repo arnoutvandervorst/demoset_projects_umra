@@ -27,7 +27,7 @@
                             <ErrorVariableContents>Error bij genereren tabellen vanuit beaufort</ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
+                    <TableDefinition class="cUmraTableDefDatabaseQuery" Version="1">
                         <Base class="cUmraTableDef">
                             <VariableName>%Table_query_hr%</VariableName>
                             <TestVariableArray class="cUmVariableArray">
@@ -43,6 +43,7 @@
                         </UmraOleDb>
                         <DatabaseQuery>%Query_hrm_employees_all%</DatabaseQuery>
                         <QueryResultColumnNames/>
+                        <FlagEscapeSingleQuote>FALSE</FlagEscapeSingleQuote>
                     </TableDefinition>
                 </ArrayElement>
                 <ArrayElement class="cActionItemOperationSetSessionVariable">
@@ -697,9 +698,10 @@
                     <JoinColumnNameTable1>pers_nr</JoinColumnNameTable1>
                     <JoinColumnNameTable2>employeeID</JoinColumnNameTable2>
                     <TextModeFlag>TRUE</TextModeFlag>
+                    <SplitResultFlag>TRUE</SplitResultFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
+                <ArrayElement class="cActionItemOperationDeleteVariables">
+                    <Base class="cActionItemOperation">
                         <Base class="cActionItem">
                             <Label></Label>
                             <ErrorControl>0</ErrorControl>
@@ -708,39 +710,30 @@
                             <ErrorVariableName></ErrorVariableName>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
+                        <Explanation>Delete multiple variables from the variable list. If one or more variables do not exist, no error is generated.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>130000</Id>
+                                            <Name>Variable names</Name>
+                                            <Type>1</Type>
+                                            <Description>The names of one or more variables that must be deleted from the variable list (example: %FirstName%, %MiddleName%, %LastName%).</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%Table_join%,%Table_query_ad%,%Table_query_hr%,%Table_join%</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
                     </Base>
-                    <TableDataOperation>12</TableDataOperation>
-                    <TableDataVariable>%Table_join%</TableDataVariable>
-                    <ValueTextArgument1>joinresult</ValueTextArgument1>
-                    <ValueTextArgument2>YES</ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>99</TableDataOperation>
-                    <TableDataVariable>%Table_join%</TableDataVariable>
-                    <ValueTextArgument1>0</ValueTextArgument1>
-                    <ValueTextArgument2>sofi_nr</ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptForEach">
                     <Base class="cActionItemScript">
@@ -753,8 +746,8 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableVariableName>%Table_join%</TableVariableName>
-                    <ProjectName>sync-beaufort-ad-record</ProjectName>
+                    <TableVariableName>%Table_join_1%</TableVariableName>
+                    <ProjectName>sync-beaufort-ad-record-left</ProjectName>
                     <ColumnVariablesMap>
                         <TextItem>%HR_pers_nr%</TextItem>
                         <TextItem>%HR_e_vrlt%</TextItem>
@@ -867,6 +860,271 @@
                             <TextItem>%table_ad_delegated_groups%</TextItem>
                             <TextItem>%Table_telephonesystem%</TextItem>
                             <TextItem>%Table_iprotect_users%</TextItem>
+                            <TextItem>%Table_join_0%</TextItem>
+                            <TextItem>%Table_join_1%</TextItem>
+                            <TextItem>%Table_join_2%</TextItem>
+                        </VariableSpecification>
+                    </VariableFilter>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptForEach">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableVariableName>%Table_join_0%</TableVariableName>
+                    <ProjectName>sync-beaufort-ad-record-common</ProjectName>
+                    <ColumnVariablesMap>
+                        <TextItem>%HR_pers_nr%</TextItem>
+                        <TextItem>%HR_e_vrlt%</TextItem>
+                        <TextItem>%HR_e_roepnaam%</TextItem>
+                        <TextItem>%HR_e_voornmn%</TextItem>
+                        <TextItem>%HR_e_vrvg%</TextItem>
+                        <TextItem>%HR_e_naam%</TextItem>
+                        <TextItem>%HR_p_vrvg%</TextItem>
+                        <TextItem>%HR_p_naam%</TextItem>
+                        <TextItem>%HR_vrvg_samen%</TextItem>
+                        <TextItem>%HR_naam_samen%</TextItem>
+                        <TextItem>%HR_gbrk_naam%</TextItem>
+                        <TextItem>%HR_geslacht%</TextItem>
+                        <TextItem>%HR_geb_dt%</TextItem>
+                        <TextItem>%HR_email_werk%</TextItem>
+                        <TextItem>%HR_mobiel_tel_nr%</TextItem>
+                        <TextItem>%HR_werk_tel_nr%</TextItem>
+                        <TextItem>%HR_kstpl_kd%</TextItem>
+                        <TextItem>%HR_oe_kort_nm%</TextItem>
+                        <TextItem>%HR_oe_vol_nm%</TextItem>
+                        <TextItem>%HR_func_kd%</TextItem>
+                        <TextItem>%HR_func_oms_not_in_use%</TextItem>
+                        <TextItem>%HR_func_oms%</TextItem>
+                        <TextItem>%HR_opdrgvr_nr%</TextItem>
+                        <TextItem>%HR_OPDRGVR_OMS%</TextItem>
+                        <TextItem>%HR_mngr_pers_nr%</TextItem>
+                        <TextItem></TextItem>
+                        <TextItem></TextItem>
+                        <TextItem></TextItem>
+                        <TextItem>%HR_mngr_soort%</TextItem>
+                        <TextItem>%HR_indnst_dt%</TextItem>
+                        <TextItem>%HR_indnst_dt_nl%</TextItem>
+                        <TextItem>%HR_uitdnst_dt%</TextItem>
+                        <TextItem>%HR_uitdnst_dt_nl%</TextItem>
+                        <TextItem>%HR_uitdnst_dt_normal%</TextItem>
+                        <TextItem>%HR_contract_dv_vlgnr%</TextItem>
+                        <TextItem>%HR_contract_arel_code%</TextItem>
+                        <TextItem>%AD_sAMAccountName%</TextItem>
+                        <TextItem>%AD_initials%</TextItem>
+                        <TextItem>%AD_cn%</TextItem>
+                        <TextItem>%AD_givenName%</TextItem>
+                        <TextItem>%AD_sn%</TextItem>
+                        <TextItem>%AD_displayName%</TextItem>
+                        <TextItem>%AD_employeeID%</TextItem>
+                        <TextItem>%AD_memberOf%</TextItem>
+                        <TextItem>%AD_mail%</TextItem>
+                        <TextItem>%AD_title%</TextItem>
+                        <TextItem>%AD_department%</TextItem>
+                        <TextItem>%AD_company%</TextItem>
+                        <TextItem>%AD_telephoneNumber%</TextItem>
+                        <TextItem>%AD_physicalDeliveryOfficeName%</TextItem>
+                        <TextItem>%AD_description%</TextItem>
+                        <TextItem>%AD_extensionAttribute1%</TextItem>
+                        <TextItem>%AD_extensionAttribute2%</TextItem>
+                        <TextItem>%AD_extensionAttribute3%</TextItem>
+                        <TextItem>%AD_extensionAttribute4%</TextItem>
+                        <TextItem>%AD_extensionAttribute5%</TextItem>
+                        <TextItem>%AD_extensionAttribute6%</TextItem>
+                        <TextItem>%AD_extensionAttribute7%</TextItem>
+                        <TextItem>%AD_extensionAttribute8%</TextItem>
+                        <TextItem>%AD_extensionAttribute9%</TextItem>
+                        <TextItem>%AD_extensionAttribute10%</TextItem>
+                        <TextItem>%AD_extensionAttribute11%</TextItem>
+                        <TextItem>%AD_extensionAttribute12%</TextItem>
+                        <TextItem>%AD_extensionAttribute13%</TextItem>
+                        <TextItem>%AD_extensionAttribute14%</TextItem>
+                        <TextItem>%AD_extensionAttribute15%</TextItem>
+                        <TextItem>%AD_wwwHomePage%</TextItem>
+                        <TextItem>%AD_employeeNumber%</TextItem>
+                        <TextItem>%AD_userDisabled%</TextItem>
+                        <TextItem>%AD_lastLogonTimestamp%</TextItem>
+                        <TextItem>%AD_proxyAddresses%</TextItem>
+                        <TextItem>%AD_manager%</TextItem>
+                        <TextItem>%AD_info%</TextItem>
+                        <TextItem>%AD_scriptPath%</TextItem>
+                        <TextItem>%AD_homePhone%</TextItem>
+                        <TextItem>%AD_mobile%</TextItem>
+                        <TextItem>%AD_streetaddress%</TextItem>
+                        <TextItem>%AD_postalCode%</TextItem>
+                        <TextItem>%AD_l%</TextItem>
+                        <TextItem>%AD_employeeType%</TextItem>
+                        <TextItem>%AD_otherTelephone%</TextItem>
+                        <TextItem>%AD_otherMobile%</TextItem>
+                        <TextItem>%object_dn%</TextItem>
+                        <TextItem>%JoinResult%</TextItem>
+                    </ColumnVariablesMap>
+                    <ReturnVariableNames>
+                        <TextItem>%count_operation%</TextItem>
+                    </ReturnVariableNames>
+                    <StopLoopOnErrorFlag>FALSE</StopLoopOnErrorFlag>
+                    <TerminationCondition class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray/>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </TerminationCondition>
+                    <VariableFilter class="cUmVariableFilter">
+                        <VariableFilterMode>3</VariableFilterMode>
+                        <VariableSpecification>
+                            <TextItem>%Table_query_ad%</TextItem>
+                            <TextItem>%Table_query_hr%</TextItem>
+                            <TextItem>%Table_join%</TextItem>
+                            <TextItem>%Table_query_ad_user_cache_no_id%</TextItem>
+                            <TextItem>%Table_query_ad_user_cache%</TextItem>
+                            <TextItem>%Table_ou%</TextItem>
+                            <TextItem>%Table_query_ad_2%</TextItem>
+                            <TextItem>%Table_afd_mngr%</TextItem>
+                            <TextItem>%table_ad_delegated_groups%</TextItem>
+                            <TextItem>%Table_telephonesystem%</TextItem>
+                            <TextItem>%Table_iprotect_users%</TextItem>
+                            <TextItem>%Table_join_0%</TextItem>
+                            <TextItem>%Table_join_1%</TextItem>
+                            <TextItem>%Table_join_2%</TextItem>
+                        </VariableSpecification>
+                    </VariableFilter>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptForEach">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableVariableName>%Table_join_2%</TableVariableName>
+                    <ProjectName>sync-beaufort-ad-record-right</ProjectName>
+                    <ColumnVariablesMap>
+                        <TextItem>%HR_pers_nr%</TextItem>
+                        <TextItem>%HR_e_vrlt%</TextItem>
+                        <TextItem>%HR_e_roepnaam%</TextItem>
+                        <TextItem>%HR_e_voornmn%</TextItem>
+                        <TextItem>%HR_e_vrvg%</TextItem>
+                        <TextItem>%HR_e_naam%</TextItem>
+                        <TextItem>%HR_p_vrvg%</TextItem>
+                        <TextItem>%HR_p_naam%</TextItem>
+                        <TextItem>%HR_vrvg_samen%</TextItem>
+                        <TextItem>%HR_naam_samen%</TextItem>
+                        <TextItem>%HR_gbrk_naam%</TextItem>
+                        <TextItem>%HR_geslacht%</TextItem>
+                        <TextItem>%HR_geb_dt%</TextItem>
+                        <TextItem>%HR_email_werk%</TextItem>
+                        <TextItem>%HR_mobiel_tel_nr%</TextItem>
+                        <TextItem>%HR_werk_tel_nr%</TextItem>
+                        <TextItem>%HR_kstpl_kd%</TextItem>
+                        <TextItem>%HR_oe_kort_nm%</TextItem>
+                        <TextItem>%HR_oe_vol_nm%</TextItem>
+                        <TextItem>%HR_func_kd%</TextItem>
+                        <TextItem>%HR_func_oms_not_in_use%</TextItem>
+                        <TextItem>%HR_func_oms%</TextItem>
+                        <TextItem>%HR_opdrgvr_nr%</TextItem>
+                        <TextItem>%HR_OPDRGVR_OMS%</TextItem>
+                        <TextItem>%HR_mngr_pers_nr%</TextItem>
+                        <TextItem></TextItem>
+                        <TextItem></TextItem>
+                        <TextItem></TextItem>
+                        <TextItem>%HR_mngr_soort%</TextItem>
+                        <TextItem>%HR_indnst_dt%</TextItem>
+                        <TextItem>%HR_indnst_dt_nl%</TextItem>
+                        <TextItem>%HR_uitdnst_dt%</TextItem>
+                        <TextItem>%HR_uitdnst_dt_nl%</TextItem>
+                        <TextItem>%HR_uitdnst_dt_normal%</TextItem>
+                        <TextItem>%HR_contract_dv_vlgnr%</TextItem>
+                        <TextItem>%HR_contract_arel_code%</TextItem>
+                        <TextItem>%AD_sAMAccountName%</TextItem>
+                        <TextItem>%AD_initials%</TextItem>
+                        <TextItem>%AD_cn%</TextItem>
+                        <TextItem>%AD_givenName%</TextItem>
+                        <TextItem>%AD_sn%</TextItem>
+                        <TextItem>%AD_displayName%</TextItem>
+                        <TextItem>%AD_employeeID%</TextItem>
+                        <TextItem>%AD_memberOf%</TextItem>
+                        <TextItem>%AD_mail%</TextItem>
+                        <TextItem>%AD_title%</TextItem>
+                        <TextItem>%AD_department%</TextItem>
+                        <TextItem>%AD_company%</TextItem>
+                        <TextItem>%AD_telephoneNumber%</TextItem>
+                        <TextItem>%AD_physicalDeliveryOfficeName%</TextItem>
+                        <TextItem>%AD_description%</TextItem>
+                        <TextItem>%AD_extensionAttribute1%</TextItem>
+                        <TextItem>%AD_extensionAttribute2%</TextItem>
+                        <TextItem>%AD_extensionAttribute3%</TextItem>
+                        <TextItem>%AD_extensionAttribute4%</TextItem>
+                        <TextItem>%AD_extensionAttribute5%</TextItem>
+                        <TextItem>%AD_extensionAttribute6%</TextItem>
+                        <TextItem>%AD_extensionAttribute7%</TextItem>
+                        <TextItem>%AD_extensionAttribute8%</TextItem>
+                        <TextItem>%AD_extensionAttribute9%</TextItem>
+                        <TextItem>%AD_extensionAttribute10%</TextItem>
+                        <TextItem>%AD_extensionAttribute11%</TextItem>
+                        <TextItem>%AD_extensionAttribute12%</TextItem>
+                        <TextItem>%AD_extensionAttribute13%</TextItem>
+                        <TextItem>%AD_extensionAttribute14%</TextItem>
+                        <TextItem>%AD_extensionAttribute15%</TextItem>
+                        <TextItem>%AD_wwwHomePage%</TextItem>
+                        <TextItem>%AD_employeeNumber%</TextItem>
+                        <TextItem>%AD_userDisabled%</TextItem>
+                        <TextItem>%AD_lastLogonTimestamp%</TextItem>
+                        <TextItem>%AD_proxyAddresses%</TextItem>
+                        <TextItem>%AD_manager%</TextItem>
+                        <TextItem>%AD_info%</TextItem>
+                        <TextItem>%AD_scriptPath%</TextItem>
+                        <TextItem>%AD_homePhone%</TextItem>
+                        <TextItem>%AD_mobile%</TextItem>
+                        <TextItem>%AD_streetaddress%</TextItem>
+                        <TextItem>%AD_postalCode%</TextItem>
+                        <TextItem>%AD_l%</TextItem>
+                        <TextItem>%AD_employeeType%</TextItem>
+                        <TextItem>%AD_otherTelephone%</TextItem>
+                        <TextItem>%AD_otherMobile%</TextItem>
+                        <TextItem>%object_dn%</TextItem>
+                        <TextItem>%JoinResult%</TextItem>
+                    </ColumnVariablesMap>
+                    <ReturnVariableNames>
+                        <TextItem>%count_operation%</TextItem>
+                    </ReturnVariableNames>
+                    <StopLoopOnErrorFlag>FALSE</StopLoopOnErrorFlag>
+                    <TerminationCondition class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray/>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </TerminationCondition>
+                    <VariableFilter class="cUmVariableFilter">
+                        <VariableFilterMode>3</VariableFilterMode>
+                        <VariableSpecification>
+                            <TextItem>%Table_query_ad%</TextItem>
+                            <TextItem>%Table_query_hr%</TextItem>
+                            <TextItem>%Table_join%</TextItem>
+                            <TextItem>%Table_query_ad_user_cache_no_id%</TextItem>
+                            <TextItem>%Table_query_ad_user_cache%</TextItem>
+                            <TextItem>%Table_ou%</TextItem>
+                            <TextItem>%Table_query_ad_2%</TextItem>
+                            <TextItem>%Table_afd_mngr%</TextItem>
+                            <TextItem>%table_ad_delegated_groups%</TextItem>
+                            <TextItem>%Table_telephonesystem%</TextItem>
+                            <TextItem>%Table_iprotect_users%</TextItem>
+                            <TextItem>%Table_join_0%</TextItem>
+                            <TextItem>%Table_join_1%</TextItem>
+                            <TextItem>%Table_join_2%</TextItem>
                         </VariableSpecification>
                     </VariableFilter>
                 </ArrayElement>
@@ -932,7 +1190,7 @@
         <EmbeddedNameGenerationFlag>FALSE</EmbeddedNameGenerationFlag>
         <LogVariablesFlag>FALSE</LogVariablesFlag>
         <DynActionDatabaseSyncId class="cUmraDynActionSetSyncId">
-            <Stamp>398</Stamp>
+            <Stamp>427</Stamp>
             <Id>zuZ9fXpxK0ko+U#bdYeo9Bs</Id>
         </DynActionDatabaseSyncId>
         <VariableInfoCollection class="cVariableInfoCollection">
@@ -1027,7 +1285,7 @@
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1667</BuildNumber>
+        <BuildNumber>1677</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>

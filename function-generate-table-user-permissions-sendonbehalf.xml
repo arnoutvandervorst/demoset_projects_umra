@@ -18,7 +18,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%NTFS2dbCollection_ID%</InputVariableName>
+                                    <InputVariableName>%Object_dn%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>100</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -27,7 +27,7 @@
                                     <InvertResultFlag>FALSE</InvertResultFlag>
                                 </ArrayElement>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%NTFS2dbCollection_ID%</InputVariableName>
+                                    <InputVariableName>%Object_dn%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>208</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -50,7 +50,7 @@
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -61,62 +61,408 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%NTFS2dbCollection_description%</VariableName>
-                    <TestName></TestName>
-                    <Functions class="cUgFunctionCollection">
+                    <ProjectName>global-init-user</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>1</TableDataOperation>
+                    <TableDataVariable>%Table_user_permissions_sendonbehalf%</TableDataVariable>
+                    <ValueTextArgument1>10</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_user_permissions_sendonbehalf%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_users_column0_name%</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_user_permissions_sendonbehalf%</TableDataVariable>
+                    <ValueTextArgument1>1</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_users_column1_name%</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_user_permissions_sendonbehalf%</TableDataVariable>
+                    <ValueTextArgument1>2</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_users_column2_name%</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_user_permissions_sendonbehalf%</TableDataVariable>
+                    <ValueTextArgument1>3</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_users_column3_name%</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_user_permissions_sendonbehalf%</TableDataVariable>
+                    <ValueTextArgument1>4</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_users_column4_name%</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_user_permissions_sendonbehalf%</TableDataVariable>
+                    <ValueTextArgument1>5</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_users_column5_name%</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_user_permissions_sendonbehalf%</TableDataVariable>
+                    <ValueTextArgument1>6</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_users_column6_name%</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_user_permissions_sendonbehalf%</TableDataVariable>
+                    <ValueTextArgument1>7</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_users_column7_name%</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_user_permissions_sendonbehalf%</TableDataVariable>
+                    <ValueTextArgument1>8</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_users_column8_name%</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_user_permissions_sendonbehalf%</TableDataVariable>
+                    <ValueTextArgument1>9</ValueTextArgument1>
+                    <ValueTextArgument2>%Table_users_column9_name%</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGenericTable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDefinition class="cUmraTableDefLdapQuery">
+                        <Base class="cUmraTableDef">
+                            <VariableName>%Table_query_ad%</VariableName>
+                            <TestVariableArray class="cUmVariableArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray/>
+                                </Base>
+                            </TestVariableArray>
+                        </Base>
+                        <UmraLdapQueryBindingType>2</UmraLdapQueryBindingType>
+                        <BindingString>LDAP://%DomainController%/%Object_dn%</BindingString>
+                        <LdapQueryFilter>(cn=*)</LdapQueryFilter>
+                        <Attributes class="cUmraTableLdapAttributes">
+                            <Base class="cUmraObArray">
+                                <ObjectArray>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>publicDelegates</LdapName>
+                                        <DisplayName>publicDelegates</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                </ObjectArray>
+                            </Base>
+                        </Attributes>
+                        <LdapSearchOptions class="cUmraTableLdapSearchOptions">
+                            <FlagTimeTotal>FALSE</FlagTimeTotal>
+                            <FlagTimePage>FALSE</FlagTimePage>
+                            <FlagSizeTotal>FALSE</FlagSizeTotal>
+                            <FlagSizePage>TRUE</FlagSizePage>
+                            <FlagCacheResults>TRUE</FlagCacheResults>
+                            <TimeTotalSec>120</TimeTotalSec>
+                            <TimePageSec>120</TimePageSec>
+                            <SizeTotal>1000</SizeTotal>
+                            <SizePage>500</SizePage>
+                            <ScopeOption>2</ScopeOption>
+                            <ReferralChaseOption>0</ReferralChaseOption>
+                        </LdapSearchOptions>
+                    </TableDefinition>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>%AD_publicDelegates%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>14</TableDataOperation>
+                    <TableDataVariable>%Table_publicdelegates%</TableDataVariable>
+                    <ValueTextArgument1>%AD_publicDelegates%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>5</TableDataOperation>
+                    <TableDataVariable>%Table_publicdelegates%</TableDataVariable>
+                    <ValueTextArgument1>%Count_rows_table_publicdelegates%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
                         <Base class="cUmraObArray">
                             <ObjectArray>
-                                <ArrayElement class="cUgFunctionSingleArgument">
-                                    <ArgumentValue>~`!@#$%^&amp;*()_-+={[}]:;"'|\?/&gt;.&lt;,|\</ArgumentValue>
-                                    <ArgumentName>Characters to delete</ArgumentName>
-                                    <ArgumentType>0</ArgumentType>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>20043</FunctionIdentifier>
-                                        <FunctionName>Delete: All matching characters</FunctionName>
-                                        <FunctionDescription>Delete any character from the name that matches a character of the specified characters. Example: ~!`'"?&lt;&gt;.</FunctionDescription>
-                                    </Base>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Count_rows_table_publicdelegates%</InputVariableName>
+                                    <InputVariableType>2</InputVariableType>
+                                    <OperatorIndex>300</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>0</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
                                 </ArrayElement>
                             </ObjectArray>
                         </Base>
-                    </Functions>
-                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end-loop</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT 
-dbo.GetFullFilePath(@ColID,f.ID) AS 'NTFS-object'
-FROM GetFilesByCollID(@ColID) f
-WHERE f.ParentFRN = 0
-ORDER BY f.Name]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptManageNumericVariable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -127,14 +473,31 @@ ORDER BY f.Name]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
+                    <NumericDataOperation>2</NumericDataOperation>
+                    <NumericDataVariable>%Count_rows_table_publicdelegates%</NumericDataVariable>
+                    <ValueTextArgument1></ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>start-loop</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
                         </Base>
-                        <TextValue>top_level_folders</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
@@ -147,11 +510,11 @@ ORDER BY f.Name]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_publicdelegates%</TableDataVariable>
+                    <ValueTextArgument1>%Count_rows_table_publicdelegates%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>%Binding_object%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
@@ -164,66 +527,133 @@ ORDER BY f.Name]]></DatabaseQuery>
                             <Label></Label>
                             <ErrorControl>1</ErrorControl>
                             <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
+                            <ErrorVariableFlag>TRUE</ErrorVariableFlag>
+                            <ErrorVariableName>%Status_operation%</ErrorVariableName>
+                            <ErrorVariableContents>%RES_status_operation_generic%</ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
+                    <TableDefinition class="cUmraTableDefLdapQuery">
                         <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
+                            <VariableName>%Table_query_ad%</VariableName>
                             <TestVariableArray class="cUmVariableArray">
                                 <Base class="cUmraObArray">
                                     <ObjectArray/>
                                 </Base>
                             </TestVariableArray>
                         </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT TOP 25
-a.Name AS 'Permission-account',
-a.Domain AS 'Account-domain',
-t.Text AS 'Account-type',
-COUNT(ace.ID) AS '# of permissions'
-FROM GetFilesByCollID(@ColID) f
-INNER JOIN SecurityDescriptors sd ON f.SdID = sd.ID
-INNER JOIN Acls acl ON acl.ID = sd.DaclID
-INNER JOIN AclsVsAces a_a ON a_a.AclID = acl.ID
-INNER JOIN Aces ace ON ace.ID = a_a.AceID
-INNER JOIN Sids s_ace ON s_ace.ID = ace.SidID
-INNER JOIN GetAccountsByCollID(@ColID) a ON a.SidID = s_ace.ID
-INNER JOIN AccountTypes t ON t.Type = a.Type
-WHERE (t.Text = 'User' OR t.Text = 'Group')
-AND NOT ace.Flags & 16 = 16 
-GROUP BY a.Name, a.Domain, t.Text
-ORDER BY COUNT(ace.ID) DESC]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
+                        <UmraLdapQueryBindingType>2</UmraLdapQueryBindingType>
+                        <BindingString>%Binding_ldap%/%Binding_object%</BindingString>
+                        <LdapQueryFilter>(cn=*)</LdapQueryFilter>
+                        <Attributes class="cUmraTableLdapAttributes">
+                            <Base class="cUmraObArray">
+                                <ObjectArray>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>%Table_users_column0_value%</LdapName>
+                                        <DisplayName>%Table_users_column0_value%</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>%Table_users_column1_value%</LdapName>
+                                        <DisplayName>%Table_users_column1_value%</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>%Table_users_column2_value%</LdapName>
+                                        <DisplayName>%Table_users_column2_value%</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>%Table_users_column3_value%</LdapName>
+                                        <DisplayName>%Table_users_column3_value%</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>%Table_users_column4_value%</LdapName>
+                                        <DisplayName>%Table_users_column4_value%</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>%Table_users_column5_value%</LdapName>
+                                        <DisplayName>%Table_users_column5_value%</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>%Table_users_column6_value%</LdapName>
+                                        <DisplayName>%Table_users_column6_value%</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>%Table_users_column7_value%</LdapName>
+                                        <DisplayName>%Table_users_column7_value%</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>%Table_users_column8_value%</LdapName>
+                                        <DisplayName>%Table_users_column8_value%</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>%Table_users_column9_value%</LdapName>
+                                        <DisplayName>%Table_users_column9_value%</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                </ObjectArray>
+                            </Base>
+                        </Attributes>
+                        <LdapSearchOptions class="cUmraTableLdapSearchOptions">
+                            <FlagTimeTotal>FALSE</FlagTimeTotal>
+                            <FlagTimePage>FALSE</FlagTimePage>
+                            <FlagSizeTotal>FALSE</FlagSizeTotal>
+                            <FlagSizePage>TRUE</FlagSizePage>
+                            <FlagCacheResults>TRUE</FlagCacheResults>
+                            <TimeTotalSec>120</TimeTotalSec>
+                            <TimePageSec>120</TimePageSec>
+                            <SizeTotal>1000</SizeTotal>
+                            <SizePage>500</SizePage>
+                            <ScopeOption>2</ScopeOption>
+                            <ReferralChaseOption>3</ReferralChaseOption>
+                        </LdapSearchOptions>
                     </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>top_25_explicit_user_group_permissions</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
@@ -236,64 +666,18 @@ ORDER BY COUNT(ace.ID) DESC]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
+                    <TableDataOperation>9</TableDataOperation>
+                    <TableDataVariable>%Table_user_permissions_sendonbehalf%</TableDataVariable>
+                    <ValueTextArgument1>%Table_query_ad%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT TOP 25
-a.Name AS 'Permission-account',
-a.Domain AS 'Account-domain',
-t.Text AS 'Account-type',
-COUNT(ace.ID) AS '# of permissions'
-FROM GetFilesByCollID(@ColID) f
-INNER JOIN SecurityDescriptors sd ON f.SdID = sd.ID
-INNER JOIN Acls acl ON acl.ID = sd.DaclID
-INNER JOIN AclsVsAces a_a ON a_a.AclID = acl.ID
-INNER JOIN Aces ace ON ace.ID = a_a.AceID
-INNER JOIN Sids s_ace ON s_ace.ID = ace.SidID
-INNER JOIN GetAccountsByCollID(@ColID) a ON a.SidID = s_ace.ID
-INNER JOIN AccountTypes t ON t.Type = a.Type
-WHERE (t.Text = 'User' OR t.Text = 'Group')
-GROUP BY a.Name, a.Domain, t.Text
-ORDER BY COUNT(ace.ID) DESC]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -304,16 +688,26 @@ ORDER BY COUNT(ace.ID) DESC]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>top_25_all_user_group_permissions</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <ScriptActionType>4</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText>%Table_query_ad%</ParameterText>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>skip-record</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptManageNumericVariable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -324,65 +718,18 @@ ORDER BY COUNT(ace.ID) DESC]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
+                    <NumericDataOperation>2</NumericDataOperation>
+                    <NumericDataVariable>%Count_rows_table_publicdelegates%</NumericDataVariable>
+                    <ValueTextArgument1></ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT TOP 25
-ISNULL(a.Name,s_ace.String) AS 'Permission-account',
-ISNULL(a.Domain,'') AS 'Account-domain',
-ISNULL(t.Text,'SID') AS 'Account-type',
-COUNT(dbo.GetFullFilePath(@ColID,f.ID)) AS '# of permissions'
-FROM GetFilesByCollID(@ColID) f
-INNER JOIN SecurityDescriptors sd ON f.SdID = sd.ID
-LEFT JOIN Acls acl ON acl.ID = sd.DaclID
-LEFT JOIN AclsVsAces a_a ON a_a.AclID = acl.ID
-LEFT JOIN Aces ace ON ace.ID = a_a.AceID
-LEFT JOIN Sids s_ace ON s_ace.ID = ace.SidID
-LEFT JOIN AceMaskValues ace_m_v ON ace_m_v.Value = ace.Mask
-LEFT JOIN GetAccountsByCollID(@ColID) a ON a.SidID = s_ace.ID
-LEFT JOIN AccountTypes t ON t.Type = a.Type
-WHERE ISNULL(ace_m_v.Text, 'Special') = 'Special'
-GROUP BY ISNULL(a.Name,s_ace.String), ISNULL(a.Domain,''), ISNULL(t.Text,'SID')
-ORDER BY COUNT(dbo.GetFullFilePath(@ColID,f.ID)) DESC]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptIfThenElse">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -393,16 +740,34 @@ ORDER BY COUNT(dbo.GetFullFilePath(@ColID,f.ID)) DESC]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Count_rows_table_publicdelegates%</InputVariableName>
+                                    <InputVariableType>2</InputVariableType>
+                                    <OperatorIndex>304</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>0</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
                         </Base>
-                        <TextValue>top_25_all_special_permissions</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end-loop</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
+                <ArrayElement class="cActionItemScriptGoTo">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -413,74 +778,12 @@ ORDER BY COUNT(dbo.GetFullFilePath(@ColID,f.ID)) DESC]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                    <GoToLabel>start-loop</GoToLabel>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
+                <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT 
-dbo.GetFullFilePath(@ColID,f.ID) AS 'NTFS-object',
-a.Name AS 'Permission-account',
-a.Domain AS 'Account-domain',
-t.Text AS 'Account-type',
-ISNULL(ace_m_v.Text, 'Special') AS 'Rights'
-FROM GetFilesByCollID(@ColID) f
-INNER JOIN SecurityDescriptors sd ON f.SdID = sd.ID
-INNER JOIN Acls acl ON acl.ID = sd.DaclID
-INNER JOIN AclsVsAces a_a ON a_a.AclID = acl.ID
-INNER JOIN Aces ace ON ace.ID = a_a.AceID
-INNER JOIN Sids s_ace ON s_ace.ID = ace.SidID
-LEFT JOIN AceMaskValues ace_m_v ON ace_m_v.Value = ace.Mask
-LEFT JOIN GetAccountsByCollID(@ColID) a ON a.SidID = s_ace.ID
-LEFT JOIN AccountTypes t ON t.Type = a.Type
-WHERE f.ParentFRN = 0
-AND NOT (a.Name = f.Name)
-AND NOT (t.Text = 'Alias' OR t.Text = 'WellKnown'
-  OR t.Text = 'WellKnown' 
-  OR a.Name = 'Administrators'
-  OR a.Name = 'Administrator'
-  OR a.Name = 'Domain Admins')
-ORDER BY f.Name]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
+                            <Label>end-loop</Label>
                             <ErrorControl>0</ErrorControl>
                             <ErrorControlLabel></ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
@@ -488,1002 +791,9 @@ ORDER BY f.Name]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>top_level_permissions_non_admin_wellknown_accounts</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT 
-dbo.GetFullFilePath(@ColID,f.ID) AS 'NTFS-object',
-a.Name AS 'Permission-account',
-a.Domain AS 'Account-domain',
-t.Text AS 'Account-type',
-ISNULL(ace_m_v.Text, 'Special') AS 'Rights'
-FROM GetFilesByCollID(@ColID) f
-INNER JOIN SecurityDescriptors sd ON f.SdID = sd.ID
-INNER JOIN Acls acl ON acl.ID = sd.DaclID
-INNER JOIN AclsVsAces a_a ON a_a.AclID = acl.ID
-INNER JOIN Aces ace ON ace.ID = a_a.AceID
-INNER JOIN Sids s_ace ON s_ace.ID = ace.SidID
-LEFT JOIN AceMaskValues ace_m_v ON ace_m_v.Value = ace.Mask
-LEFT JOIN GetAccountsByCollID(@ColID) a ON a.SidID = s_ace.ID
-LEFT JOIN AccountTypes t ON t.Type = a.Type
-WHERE t.Text = 'User'
-AND f.ParentFRN = 0
-AND NOT ace.Flags & 16 = 16
-ORDER BY f.Name]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>top_level_explicit_user_permissions</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT 
-dbo.GetFullFilePath(@ColID,f.ID) AS 'NTFS-object',
-a.Name AS 'Permission-account',
-a.Domain AS 'Account-domain',
-t.Text AS 'Account-type',
-ISNULL(ace_m_v.Text, 'Special') AS 'Rights'
-FROM GetFilesByCollID(@ColID) f
-INNER JOIN SecurityDescriptors sd ON f.SdID = sd.ID
-INNER JOIN Acls acl ON acl.ID = sd.DaclID
-INNER JOIN AclsVsAces a_a ON a_a.AclID = acl.ID
-INNER JOIN Aces ace ON ace.ID = a_a.AceID
-INNER JOIN Sids s_ace ON s_ace.ID = ace.SidID
-LEFT JOIN AceMaskValues ace_m_v ON ace_m_v.Value = ace.Mask
-LEFT JOIN GetAccountsByCollID(@ColID) a ON a.SidID = s_ace.ID
-LEFT JOIN AccountTypes t ON t.Type = a.Type
-WHERE t.Text = 'User'
-AND NOT ace.Flags & 16 = 16
-ORDER BY f.Name]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>explicit_user_permissions</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT 
-dbo.GetFullFilePath(@ColID,f.ID) AS 'NTFS-object',
-a.Name AS 'Permission-account',
-a.Domain AS 'Account-domain',
-t.Text AS 'Account-type',
-ISNULL(ace_m_v.Text, 'Special') AS 'Rights'
-FROM GetFilesByCollID(@ColID) f
-INNER JOIN SecurityDescriptors sd ON f.SdID = sd.ID
-INNER JOIN Acls acl ON acl.ID = sd.DaclID
-INNER JOIN AclsVsAces a_a ON a_a.AclID = acl.ID
-INNER JOIN Aces ace ON ace.ID = a_a.AceID
-INNER JOIN Sids s_ace ON s_ace.ID = ace.SidID
-LEFT JOIN AceMaskValues ace_m_v ON ace_m_v.Value = ace.Mask
-LEFT JOIN GetAccountsByCollID(@ColID) a ON a.SidID = s_ace.ID
-LEFT JOIN AccountTypes t ON t.Type = a.Type
-WHERE a.GroupType = '-2147483646'
-AND f.ParentFRN = 0
-AND NOT ace.Flags & 16 = 16
-ORDER BY f.Name]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>top_level_explicit_global_group_permissions</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT
-dbo.GetFullFilePath(@ColID,f.ID) AS 'NTFS-object',
-a.Name AS 'Permission-account',
-a.Domain AS 'Account-domain',
-t.Text AS 'Account-type',
-ISNULL(ace_m_v.Text, 'Special') AS 'Rights'
-FROM GetFilesByCollID(@ColID) f
-INNER JOIN SecurityDescriptors sd ON f.SdID = sd.ID
-INNER JOIN Acls acl ON acl.ID = sd.DaclID
-INNER JOIN AclsVsAces a_a ON a_a.AclID = acl.ID
-INNER JOIN Aces ace ON ace.ID = a_a.AceID
-INNER JOIN Sids s_ace ON s_ace.ID = ace.SidID
-LEFT JOIN AceMaskValues ace_m_v ON ace_m_v.Value = ace.Mask
-LEFT JOIN GetAccountsByCollID(@ColID) a ON a.SidID = s_ace.ID
-LEFT JOIN AccountTypes t ON t.Type = a.Type
-WHERE a.GroupType = '-2147483646'
-AND NOT ace.Flags & 16 = 16
-ORDER BY f.Name]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>explicit_global_group_permissions</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT 
-dbo.GetFullFilePath(@ColID,f.ID) AS 'NTFS-object',
-a.Name AS 'Permission-account',
-a.Domain AS 'Account-domain',
-t.Text AS 'Account-type'
-FROM GetFilesByCollID(@ColID) f
-INNER JOIN SecurityDescriptors sd ON f.SdID = sd.ID
-INNER JOIN Acls acl ON acl.ID = sd.DaclID
-INNER JOIN AclsVsAces a_a ON a_a.AclID = acl.ID
-INNER JOIN Aces ace ON ace.ID = a_a.AceID
-INNER JOIN Sids s_ace ON s_ace.ID = ace.SidID
-LEFT JOIN AceMaskValues ace_m_v ON ace_m_v.Value = ace.Mask
-LEFT JOIN GetAccountsByCollID(@ColID) a ON a.SidID = s_ace.ID
-LEFT JOIN AccountTypes t ON t.Type = a.Type
-WHERE t.Text = 'User'
-AND ace_m_v.Text = 'Full Control'
-AND NOT ace.Flags & 16 = 16
-ORDER BY f.Name]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>explicit_user_full_control_permissions</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT 
-dbo.GetFullFilePath(@ColID,f.ID) AS 'NTFS-object',
-a.Name AS 'Permission-account',
-t.Text AS 'Account-type'
-FROM GetFilesByCollID(@ColID) f
-INNER JOIN SecurityDescriptors sd ON f.SdID = sd.ID
-INNER JOIN Acls acl ON acl.ID = sd.DaclID
-INNER JOIN AclsVsAces a_a ON a_a.AclID = acl.ID
-INNER JOIN Aces ace ON ace.ID = a_a.AceID
-INNER JOIN Sids s_ace ON s_ace.ID = ace.SidID
-LEFT JOIN AceMaskValues ace_m_v ON ace_m_v.Value = ace.Mask
-LEFT JOIN GetAccountsByCollID(@ColID) a ON a.SidID = s_ace.ID
-LEFT JOIN AccountTypes t ON t.Type = a.Type
-WHERE t.Text = 'User'
-AND ace_m_v.Text = 'Change/Sync'
-AND NOT ace.Flags & 16 = 16
-ORDER BY f.Name]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>explicit_user_change_permissions</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT 
-dbo.GetFullFilePath(@ColID,f.ID) AS 'NTFS-object',
-a.Name AS 'Permission-account',
-a.Domain AS 'Account-domain',
-t.Text AS 'Account-type',
-ISNULL(ace_m_v.Text, 'Special') AS 'Rights'
-FROM GetFilesByCollID(@ColID) f
-INNER JOIN SecurityDescriptors sd ON f.SdID = sd.ID
-INNER JOIN Acls acl ON acl.ID = sd.DaclID
-INNER JOIN AclsVsAces a_a ON a_a.AclID = acl.ID
-INNER JOIN Aces ace ON ace.ID = a_a.AceID
-INNER JOIN Sids s_ace ON s_ace.ID = ace.SidID
-LEFT JOIN AceMaskValues ace_m_v ON ace_m_v.Value = ace.Mask
-LEFT JOIN GetAccountsByCollID(@ColID) a ON a.SidID = s_ace.ID
-LEFT JOIN AccountTypes t ON t.Type = a.Type
-WHERE (ace.Type = 1 OR ace.Type = 6 OR ace.Type = 10 OR ace.Type = 12)]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>deny_permissions</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT 
-dbo.GetFullFilePath(@ColID,f.ID) AS 'NTFS-object',
-a.Name AS 'Permission-account',
-a.Domain AS 'Account-domain',
-t.Text AS 'Account-type'
-FROM GetFilesByCollID(@ColID) f
-INNER JOIN SecurityDescriptors sd ON f.SdID = sd.ID
-INNER JOIN Acls acl ON acl.ID = sd.DaclID
-INNER JOIN AclsVsAces a_a ON a_a.AclID = acl.ID
-INNER JOIN Aces ace ON ace.ID = a_a.AceID
-INNER JOIN Sids s_ace ON s_ace.ID = ace.SidID
-LEFT JOIN GetAccountsByCollID(@ColID) a ON a.SidID = s_ace.ID
-LEFT JOIN AccountTypes t ON t.Type = a.Type
-WHERE NOT ace.Mask IN (SELECT ace_m_v.Value FROM AceMaskValues ace_m_v)]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>special_permissions</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT
-dbo.GetFullFilePath(@ColID,f.ID) AS 'NTFS-object',
-s_ace.String,
-ISNULL(ace_m_v.Text, 'Special') AS 'Rights'
-FROM GetFilesByCollID(@ColID) f
-INNER JOIN SecurityDescriptors sd ON f.SdID = sd.ID
-INNER JOIN Acls acl ON acl.ID = sd.DaclID
-INNER JOIN AclsVsAces a_a ON a_a.AclID = acl.ID
-INNER JOIN Aces ace ON ace.ID = a_a.AceID
-INNER JOIN Sids s_ace ON s_ace.ID = ace.SidID
-LEFT JOIN GetAccountsByCollID(@ColID) a ON a.SidID = s_ace.ID
-LEFT JOIN AceMaskValues ace_m_v ON ace_m_v.Value = ace.Mask
-WHERE a.Name IS NULL
-AND NOT ace.Flags & 16 = 16]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>unresolved_sids</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT 
-dbo.GetFullFilePath(@ColID,f.ID) AS 'NTFS-object',
-a.Name AS 'Permission-account',
-a.Domain AS 'Account-domain',
-t.Text AS 'Account-type',
-ISNULL(ace_m_v.Text, 'Special') AS 'Rights'
-FROM GetFilesByCollID(@ColID) f
-INNER JOIN SecurityDescriptors sd ON f.SdID = sd.ID
-INNER JOIN Acls acl ON acl.ID = sd.DaclID
-INNER JOIN AclsVsAces a_a ON a_a.AclID = acl.ID
-INNER JOIN Aces ace ON ace.ID = a_a.AceID
-INNER JOIN Sids s_ace ON s_ace.ID = ace.SidID
-LEFT JOIN AceMaskValues ace_m_v ON ace_m_v.Value = ace.Mask
-LEFT JOIN GetAccountsByCollID(@ColID) a ON a.SidID = s_ace.ID
-LEFT JOIN AccountTypes t ON t.Type = a.Type
-WHERE NOT (ace.Flags & 1 = 1 AND ace.Flags & 2 = 2)]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>propagation_disabled</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_ntfs2db%</ConnectionString>
-                            <OleDbProviderType>11107080</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[DECLARE @ColID integer = %NTFS2dbCollection_ID%
-
-SELECT 
-dbo.GetFullFilePath(@ColID,f.ID) AS 'NTFS-object'
-FROM GetFilesByCollID(@ColID) f
-INNER JOIN SecurityDescriptors sd ON f.SdID = sd.ID
-WHERE (sd.SdControl & 4096 = 4096 OR sd.SdControl & 8192 = 8192)]]></DatabaseQuery>
-                        <QueryResultColumnNames/>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Name_report%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>inheritance_protected</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\Log\ntfs2db_report_%NTFS2dbCollection_ID%_%NTFS2dbCollection_description%_%Name_report%.csv</ValueTextArgument1>
-                    <ValueTextArgument2>;</ValueTextArgument2>
-                    <ValueTextArgument3>QUOTEBLANK,UNICODE</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGoTo">
                     <Base class="cActionItemScript">
@@ -1545,9 +855,9 @@ WHERE (sd.SdControl & 4096 = 4096 OR sd.SdControl & 8192 = 8192)]]></DatabaseQue
         </Base>
         <ScriptInfo></ScriptInfo>
         <EmbeddedNameGenerationFlag>FALSE</EmbeddedNameGenerationFlag>
-        <LogVariablesFlag>TRUE</LogVariablesFlag>
+        <LogVariablesFlag>FALSE</LogVariablesFlag>
         <DynActionDatabaseSyncId class="cUmraDynActionSetSyncId">
-            <Stamp>398</Stamp>
+            <Stamp>427</Stamp>
             <Id>zuZ9fXpxK0ko+U#bdYeo9Bs</Id>
         </DynActionDatabaseSyncId>
         <VariableInfoCollection class="cVariableInfoCollection">
@@ -1572,12 +882,29 @@ WHERE (sd.SdControl & 4096 = 4096 OR sd.SdControl & 8192 = 8192)]]></DatabaseQue
                                 <Mask>48</Mask>
                                 <Account class="cJvrSecAccount">
                                     <Mask>5</Mask>
-                                    <AccountName>everyone</AccountName>
+                                    <AccountName>Administrators</AccountName>
                                     <AccountNameVariable></AccountNameVariable>
                                     <AccountClassName></AccountClassName>
                                     <AccountSid class="cJvrSecSid">
                                         <InitializedFlag>TRUE</InitializedFlag>
-                                        <SID>BEAAAAAAAEAAAAAA</SID>
+                                        <SID>BIAAAAAAAUAIAAAAgIAAAAs</SID>
+                                    </AccountSid>
+                                </Account>
+                            </Base>
+                        </ArrayElement>
+                        <ArrayElement class="cJvrSecAce">
+                            <Base class="cJvrSecAceBase">
+                                <AceType>0</AceType>
+                                <AceFlags>0</AceFlags>
+                                <Mask>48</Mask>
+                                <Account class="cJvrSecAccount">
+                                    <Mask>5</Mask>
+                                    <AccountName>NT Authority\Network Service</AccountName>
+                                    <AccountNameVariable></AccountNameVariable>
+                                    <AccountClassName></AccountClassName>
+                                    <AccountSid class="cJvrSecSid">
+                                        <InitializedFlag>TRUE</InitializedFlag>
+                                        <SID>BEAAAAAAAUAFAAAA</SID>
                                     </AccountSid>
                                 </Account>
                             </Base>
@@ -1613,36 +940,25 @@ WHERE (sd.SdControl & 4096 = 4096 OR sd.SdControl & 8192 = 8192)]]></DatabaseQue
         </Base>
     </AccessSettings>
     <HelpInfoUrl></HelpInfoUrl>
-    <ScriptTimeOutSec>36000</ScriptTimeOutSec>
+    <ScriptTimeOutSec>1492536</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\3c250e91-851c-45d6-be05-32b6b958e08a.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\571719f2-fae8-49cd-9c11-84b878fdecbe.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
-        <Scheduler class="cUmraSchedulerNever">
-            <Base class="cUmraScheduler">
-                <DayIncludeFlags>127</DayIncludeFlags>
-                <SchedulerFlags>0</SchedulerFlags>
-                <Exceptions class="cUmraSchedulerExceptions">
-                    <ExceptionMode>0</ExceptionMode>
-                    <Base class="cUmraObArray">
-                        <ObjectArray/>
-                    </Base>
-                </Exceptions>
-            </Base>
-        </Scheduler>
+        <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-ntfs2db-collection-db-export-reports</ProjectName>
-        <DisplayName>function-ntfs2db-collection-managed-db-start</DisplayName>
-        <UUID>R6QJ8wRhWXkvFIjt5iF4KCs</UUID>
+        <ProjectName>function-generate-table-user-permissions-sendonbehalf</ProjectName>
+        <DisplayName>function-generate-table-user-memberof</DisplayName>
+        <UUID>ynxFXhu+NnEnRQIu41P7+Cs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1667</BuildNumber>
+        <BuildNumber>1677</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>
@@ -2202,6 +1518,12 @@ WHERE (sd.SdControl & 4096 = 4096 OR sd.SdControl & 8192 = 8192)]]></DatabaseQue
         <DataFileParam class="cDataFileParam">
             <Base class="cDataFileParseInfo">
                 <Separators>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
                     <TextItem>,</TextItem>
                 </Separators>
                 <TextQualifier>"</TextQualifier>

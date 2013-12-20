@@ -3,7 +3,7 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -22,6 +22,7 @@
                         <BoolValue>FALSE</BoolValue>
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
@@ -261,7 +262,7 @@
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -280,6 +281,7 @@
                         <BoolValue>TRUE</BoolValue>
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemOperationUserEditLogon">
                     <Base class="cActionItemOperation">
@@ -1905,6 +1907,90 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193006</Id>
+                                                <Name>Archive</Name>
+                                                <Type>3</Type>
+                                                <Description>Specify YES if an archive mailbox for the specified user must be created. If not specified 'No' is assumed</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>Archive</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193007</Id>
+                                                <Name>Archive Database</Name>
+                                                <Type>1</Type>
+                                                <Description><![CDATA[Optional value.The ArchiveDatabase parameter specifies the Exchange database that contains the archive associated with this mailbox. You can use the following values:	GUID of the database or the Database name.]]></Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>ArchiveDatabase</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193008</Id>
+                                                <Name>Archive Name</Name>
+                                                <Type>8</Type>
+                                                <Description>Optional value. The ArchiveName parameter specifies the name of the archive mailbox. This is the name displayed to users in Microsoft Office Outlook Web App. The default name is Online Archive - [Mailbox User's Display Name]. NOTE: This parameter is defined as a multivalue parameter in Powershell, so use a UMRA Textlist variable for input.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>ArchiveName</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193009</Id>
                                                 <Name>Managed Folder Mailbox Policy</Name>
                                                 <Type>1</Type>
                                                 <Description>Optional value. The 'Managed Folder Mailbox Policy' parameter specifies the managed folder mailbox policy to enable for the mailbox that you create. If you do not specify this parameter, the default managed folder mailbox policy is used.</Description>
@@ -1932,7 +2018,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193007</Id>
+                                                <Id>193010</Id>
                                                 <Name>Managed Folder Mailbox Policy Allowed</Name>
                                                 <Type>3</Type>
                                                 <Description>Optional value. The 'Managed Folder Mailbox Policy Allowed' parameter bypasses the warning that messaging records management features are not supported for e-mail clients using versions of Outlook earlier than Outlook 2007. When a managed folder mailbox policy is assigned to a mailbox using the ManagedFolderMailboxPolicy parameter, the warning appears by default unless ManagedFolderMailboxPolicyAllowed is used.</Description>
@@ -1960,7 +2046,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193008</Id>
+                                                <Id>193011</Id>
                                                 <Name>Exchange GUID</Name>
                                                 <Type>1</Type>
                                                 <Description>Optional value. This parameter returns the Exchange GUID of the new mailbox.</Description>
@@ -1993,7 +2079,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193009</Id>
+                                                <Id>193012</Id>
                                                 <Name>Legacy Exchange DN</Name>
                                                 <Type>1</Type>
                                                 <Description>Optional value. This parameter returns the Legacy Exchange Distinguished Name of the new mailbox.</Description>
@@ -2043,12 +2129,12 @@
                             </ActionLabels>
                             <SignatureInfo class="cUmraDynActionSignature">
                                 <UserName>Tools4ever</UserName>
-                                <Signature>G/DK+UBvfABGCIC#+tJpKBs</Signature>
+                                <Signature>1rRtHYtmg9TciTJ2VWa#YCs</Signature>
                                 <ContainsSignature>TRUE</ContainsSignature>
                             </SignatureInfo>
                             <DynamicActionClassVersion>1</DynamicActionClassVersion>
                             <ObsoleteFlag>FALSE</ObsoleteFlag>
-                            <VersionNumber>121</VersionNumber>
+                            <VersionNumber>125</VersionNumber>
                         </Base>
                         <Script class="cUmraPsScript">
                             <Base class="cUmraObArray">
@@ -2062,6 +2148,9 @@
                 [string]$Ex10Database                        = '';
                 [string]$Ex10ActiveSyncMailboxPolicy         = '';
                 [string]$Ex10Alias                           = '';
+                [bool]$Ex10Archive                           =$false;
+                [string]$Ex10ArchiveDatabase                 = ''; 
+                [string[]]$Ex10ArchiveName                   = @();
                 [string]$Ex10ManagedFolderMailboxPolicy      = '';
                 [bool]$Ex10ManagedFolderMailboxPolicyAllowed = $false;
                 $Ex10NewMailbox                              = $null;]]></ContentsText>
@@ -2218,6 +2307,91 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10Archive = $true;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>Archive</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionBoolean">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnTrueFlag>TRUE</PassedOnTrueFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceBase">
+                                                            <QuoteFormatMode>0</QuoteFormatMode>
+                                                            <VariableConversionMode>0</VariableConversionMode>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10ArchiveDatabase = %ArchiveDatabase%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>ArchiveDatabase</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%ArchiveDatabase%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10ArchiveName += , %ArchiveName%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>ArchiveName</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceMultivalue">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%ArchiveName%</ReplacementText>
+                                                            <ColumnIndex>0</ColumnIndex>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
                                             <ContentsText>$Ex10ManagedFolderMailboxPolicy = %ManagedFolderMailboxPolicy%;</ContentsText>
                                             <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
@@ -2277,10 +2451,13 @@
 					-DomainController $Ex10DomainController `
 					-Identity $Ex10Identity `
 					-database $Ex10Database `
-                    -ActiveSyncMailboxPolicy $Ex10ActiveSyncMailboxPolicy `
+          -ActiveSyncMailboxPolicy $Ex10ActiveSyncMailboxPolicy `
 					-Alias $Ex10Alias `
-                    -ManagedFolderMailboxPolicy $Ex10ManagedFolderMailboxPolicy `
-                    -ManagedFolderMailboxPolicyAllowed $Ex10ManagedFolderMailboxPolicyAllowed;]]></ContentsText>
+					-Archive $Ex10Archive `
+					-ArchiveDatabase $Ex10ArchiveDatabase `
+					-ArchiveName $Ex10Archivename `
+          -ManagedFolderMailboxPolicy $Ex10ManagedFolderMailboxPolicy `
+          -ManagedFolderMailboxPolicyAllowed $Ex10ManagedFolderMailboxPolicyAllowed;]]></ContentsText>
                                             <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
@@ -2307,8 +2484,12 @@
                                 <TextItem><![CDATA[ Ex10Identity]]></TextItem>
                                 <TextItem><![CDATA[ Ex10Database]]></TextItem>
                                 <TextItem><![CDATA[ Ex10ActiveSyncMailboxPolicy]]></TextItem>
-                                <TextItem><![CDATA[ Ex10Alias]]></TextItem>
-                                <TextItem><![CDATA[ 
+                                <TextItem><![CDATA[
+			Ex10Alias]]></TextItem>
+                                <TextItem><![CDATA[ Ex10Archive]]></TextItem>
+                                <TextItem><![CDATA[ Ex10ArchiveDatabase]]></TextItem>
+                                <TextItem><![CDATA[ Ex10ArchiveName]]></TextItem>
+                                <TextItem><![CDATA[
 			Ex10ManagedFolderMailboxPolicy]]></TextItem>
                                 <TextItem><![CDATA[ Ex10ManagedFolderMailboxPolicyAllowed]]></TextItem>
                             </VariablesCleanup>
@@ -2695,7 +2876,7 @@
                     <ParameterNumeric>0</ParameterNumeric>
                     <ParameterText></ParameterText>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -2714,8 +2895,9 @@
                         <TextValue>Mailbox aangemaakt</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -2734,8 +2916,9 @@
                         <TextValue>enable-mailbox</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -2754,8 +2937,9 @@
                         <TextValue>%Status_operation%</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -2774,8 +2958,9 @@
                         <TextValue>%UmraProjectName%</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -2794,8 +2979,9 @@
                         <TextValue>%Object_dn%</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -2814,6 +3000,7 @@
                         <TextValue></TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
@@ -2890,7 +3077,7 @@
         <EmbeddedNameGenerationFlag>FALSE</EmbeddedNameGenerationFlag>
         <LogVariablesFlag>FALSE</LogVariablesFlag>
         <DynActionDatabaseSyncId class="cUmraDynActionSetSyncId">
-            <Stamp>398</Stamp>
+            <Stamp>427</Stamp>
             <Id>zuZ9fXpxK0ko+U#bdYeo9Bs</Id>
         </DynActionDatabaseSyncId>
         <VariableInfoCollection class="cVariableInfoCollection">
@@ -2991,7 +3178,7 @@
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1667</BuildNumber>
+        <BuildNumber>1677</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>

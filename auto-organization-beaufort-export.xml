@@ -16,6 +16,32 @@
                     </Base>
                     <ProjectName>global-init</ProjectName>
                 </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init-db</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init-snapshot</ProjectName>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptGenericTable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -27,7 +53,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
+                    <TableDefinition class="cUmraTableDefDatabaseQuery" Version="1">
                         <Base class="cUmraTableDef">
                             <VariableName>%Table_query_db%</VariableName>
                             <TestVariableArray class="cUmVariableArray">
@@ -41,23 +67,79 @@
                             <ConnectionString>%Conn_string_db_hrm%</ConnectionString>
                             <OleDbProviderType>0</OleDbProviderType>
                         </UmraOleDb>
-                        <DatabaseQuery><![CDATA[select CONVERT(varchar, dpib010.pers_nr) as 'pers_nr', 
-dpib010.naam_samen + ', ' + dpib010.e_roepnaam as 'vol_nm',
-e_vrlt, 
-dpib010.e_roepnaam, 
-dpib010.vrvg_samen, 
-dpib010.naam_samen, 
-func_kd,
-func_oms,
-oe_kort_nm, 
-oe_vol_nm, 
-indnst_dt, 
-uitdnst_dt
-From dpib010
-inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
-inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
-left join dpic351 on dpic351.func_kd = dpic300.primfunc_kd
-order by dpib010.pers_nr]]></DatabaseQuery>
+                        <DatabaseQuery><![CDATA[
+SELECT
+convert(varchar,p.sofi_nr) as sofi_nr,
+convert(varchar,p.pers_nr) as pers_nr,
+p.e_titul,
+p.e_titul_na,
+p.e_vrlt,
+p.e_roepnaam,
+p.e_voornmn,
+p.e_vrvg,
+p.e_naam,
+p.p_vrvg,
+p.p_naam,
+p.vrvg_samen,
+p.naam_samen,
+p.gbrk_naam,
+p.tssnvgsl_kd,
+p.burgst_kd,
+p.geslacht,
+p.geb_dt,
+p.geb_plts,
+p.mobiel_tel_nr,
+p.werk_tel_nr,
+p.werk_fax_nr,
+p.email_werk,
+p.email_prive,
+p.locatie,
+p.w_straat,
+p.w_huisnr,
+p.w_hnr_toev,
+p.w_postcode,
+p.w_plaats,
+p.w_tel_nr,
+f.func_kd,
+f.func_oms,
+f.func_bschr,
+f.ind_formatie,
+a.OE_BLOK,
+a.oe_kort_nm,
+a.oe_vol_nm,
+a.oe_straat,
+a.oe_huisnr,
+a.oe_hnr_toev,
+a.oe_postcode,
+a.oe_plaats,
+a.ORGEENH_KD,
+convert(varchar,a.OE_HOGER_N) as oe_hoger_n,
+k.KSTPL_KD,
+k.kstpl_nm,
+o.OPDRGVR_NR,
+o.OPDRGVR_OMS,
+convert(varchar,m.pers_nr) as m_pers_nr,
+m.rol_oe_kd,
+m.ingang_dt as m_ingang_dt,
+m.eind_dt as m_eind_dt,
+m.toewijzing_oms,
+convert(varchar,c.dv_vlgnr) as c_dv_vlgnr,
+c.indnst_dt as c_indnst_dt,
+c.uitdnst_dt as c_indnst_dt,
+c.uren_pw as c_uren_pw,
+convert(varchar,i.dv_vlgnr) as i_dv_vlgnr,
+i.ingang_dt as i_ingang_dt,
+i.eind_dt as i_eind_dt,
+i.uren_pw as i_uren_pw
+FROM
+dpib010 p
+LEFT JOIN dpic310 i ON p.pers_nr = i.pers_nr
+LEFT JOIN dpic300 c ON p.pers_nr = c.pers_nr
+LEFT JOIN dpib015 a ON c.oe_hier_sl = a.DPIB015_SL
+LEFT JOIN dpic351 f ON c.primfunc_kd = f.func_kd
+LEFT JOIN dpib004 k ON a.KSTPL_KD = k.KSTPL_KD
+LEFT JOIN dpic200 o ON c.OPDRGVR_NR = o.OPDRGVR_NR
+LEFT JOIN dpib025 m ON a.DPIB015_SL = m.DPIB015_SL]]></DatabaseQuery>
                         <QueryResultColumnNames>
                             <TextItem>pers_nr</TextItem>
                             <TextItem>e_vrlt</TextItem>
@@ -69,6 +151,7 @@ order by dpib010.pers_nr]]></DatabaseQuery>
                             <TextItem>indnst_dt</TextItem>
                             <TextItem>uitdnst_dt</TextItem>
                         </QueryResultColumnNames>
+                        <FlagEscapeSingleQuote>FALSE</FlagEscapeSingleQuote>
                     </TableDefinition>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
@@ -84,16 +167,16 @@ order by dpib010.pers_nr]]></DatabaseQuery>
                     </Base>
                     <TableDataOperation>80</TableDataOperation>
                     <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\cache-organization\table_organization_export_employees_beaufort.csv</ValueTextArgument1>
+                    <ValueTextArgument1>%Snapshot_staging_csv_unc_path%\BO4_UMRA_Employees.csv</ValueTextArgument1>
                     <ValueTextArgument2>&lt;TAB&gt;</ValueTextArgument2>
-                    <ValueTextArgument3>UNICODE,HEADER</ValueTextArgument3>
+                    <ValueTextArgument3>UNICODE</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
+                <ArrayElement class="cActionItemScriptDatabaseCommand">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -104,130 +187,32 @@ order by dpib010.pers_nr]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
+                    <SqlUpdate class="cUmraDbUpdate" Version="2">
+                        <OleDb class="cUmraOleDbGeneral">
                             <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_hrm%</ConnectionString>
-                            <OleDbProviderType>0</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[select distinct
-oe_kort_nm, 
-oe_vol_nm
-From dpib010
-inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
-inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
-left join dpic351 on dpic351.func_kd = dpic300.primfunc_kd
-order by oe_kort_nm, oe_vol_nm]]></DatabaseQuery>
-                        <QueryResultColumnNames>
-                            <TextItem>pers_nr</TextItem>
-                            <TextItem>e_vrlt</TextItem>
-                            <TextItem>e_roepnaam</TextItem>
-                            <TextItem>vrvg_samen</TextItem>
-                            <TextItem>naam_samen</TextItem>
-                            <TextItem>oe_kort_nm</TextItem>
-                            <TextItem>oe_vol_nm</TextItem>
-                            <TextItem>indnst_dt</TextItem>
-                            <TextItem>uitdnst_dt</TextItem>
-                        </QueryResultColumnNames>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\cache-organization\table_organization_export_units_beaufort.csv</ValueTextArgument1>
-                    <ValueTextArgument2>&lt;TAB&gt;</ValueTextArgument2>
-                    <ValueTextArgument3>UNICODE,HEADER</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGenericTable">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
-                        <Base class="cUmraTableDef">
-                            <VariableName>%Table_query_db%</VariableName>
-                            <TestVariableArray class="cUmVariableArray">
-                                <Base class="cUmraObArray">
-                                    <ObjectArray/>
-                                </Base>
-                            </TestVariableArray>
-                        </Base>
-                        <UmraOleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_hrm%</ConnectionString>
-                            <OleDbProviderType>0</OleDbProviderType>
-                        </UmraOleDb>
-                        <DatabaseQuery><![CDATA[select distinct
-func_kd,
-func_oms
-From dpib010
-inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
-inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
-left join dpic351 on dpic351.func_kd = dpic300.primfunc_kd
-order by func_kd, func_oms]]></DatabaseQuery>
-                        <QueryResultColumnNames>
-                            <TextItem>pers_nr</TextItem>
-                            <TextItem>e_vrlt</TextItem>
-                            <TextItem>e_roepnaam</TextItem>
-                            <TextItem>vrvg_samen</TextItem>
-                            <TextItem>naam_samen</TextItem>
-                            <TextItem>oe_kort_nm</TextItem>
-                            <TextItem>oe_vol_nm</TextItem>
-                            <TextItem>indnst_dt</TextItem>
-                            <TextItem>uitdnst_dt</TextItem>
-                        </QueryResultColumnNames>
-                    </TableDefinition>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>80</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%UmraPath%\cache-organization\table_organization_export_functions_beaufort.csv</ValueTextArgument1>
-                    <ValueTextArgument2>&lt;TAB&gt;</ValueTextArgument2>
-                    <ValueTextArgument3>UNICODE,HEADER</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
+                            <OleDbProviderType>1</OleDbProviderType>
+                        </OleDb>
+                        <SqlCommands>
+                            <TextItem><![CDATA[DELETE FROM BO4_UMRA_Employees;
+
+BULK INSERT BO4_UMRA_Employees
+FROM '%Snapshot_staging_csv_unc_path%\BO4_UMRA_Employees.csv'
+WITH
+(
+FIELDTERMINATOR ='\t',
+ROWTERMINATOR = '\n',
+DATAFILETYPE = 'widechar'
+)]]></TextItem>
+                        </SqlCommands>
+                        <TestVariables class="cUmVariableArray">
+                            <Base class="cUmraObArray">
+                                <ObjectArray/>
+                            </Base>
+                        </TestVariables>
+                        <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
+                        <FlagEscapeSingleQuote>FALSE</FlagEscapeSingleQuote>
+                    </SqlUpdate>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGoTo">
                     <Base class="cActionItemScript">
@@ -291,7 +276,7 @@ order by func_kd, func_oms]]></DatabaseQuery>
         <EmbeddedNameGenerationFlag>FALSE</EmbeddedNameGenerationFlag>
         <LogVariablesFlag>FALSE</LogVariablesFlag>
         <DynActionDatabaseSyncId class="cUmraDynActionSetSyncId">
-            <Stamp>398</Stamp>
+            <Stamp>427</Stamp>
             <Id>zuZ9fXpxK0ko+U#bdYeo9Bs</Id>
         </DynActionDatabaseSyncId>
         <VariableInfoCollection class="cVariableInfoCollection">
@@ -403,7 +388,7 @@ order by func_kd, func_oms]]></DatabaseQuery>
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1667</BuildNumber>
+        <BuildNumber>1677</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>

@@ -121,19 +121,49 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init-db</ProjectName>
+                    <ProjectName>global-init-exchange</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemOperationPowershellSessionSetup">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                        <Explanation>Setup a session with the Powershell Agent service. The session is requied for a number of UMRA script actions that use the Powershell Agent service. See the online help for more information.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>124000</Id>
+                                            <Name>Session ID</Name>
+                                            <Type>2</Type>
+                                            <Description>The identifier of the Powershell Agent service session. The value should be stored in a variable that is used in subsequent UMRA acions thath use the Powershell Agent service session. This property is an 'output only' property. By default, the value for this property is stored in variable %PowershellAgentSessionId%.</Description>
+                                            <ExportMode>4097</ExportMode>
+                                            <ExportVariable>%G_Ex2010PowerShellSession%</ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
                 </ArrayElement>
                 <ArrayElement class="cActionItemOperationPowerShell">
                     <Base class="cActionItemOperation">
                         <Base class="cActionItem">
                             <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
                             <ErrorVariableName></ErrorVariableName>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
-                        <Explanation>Add a permission to an Active Directory object. Like for example: a group, organizational unit, user or computer.</Explanation>
+                        <Explanation>Setup an Exchange session for PowerShell to manage an Exchange 2010 server.</Explanation>
                         <PropertyArray class="cUmraPsPropertyArray">
                             <Base class="cUmPropertyArray">
                                 <Base class="cUmraObArray">
@@ -141,19 +171,19 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193000</Id>
-                                                <Name>Identity</Name>
-                                                <Type>1</Type>
-                                                <Description>The Identity parameter identifies the Active Directory object (group, user, computer or organizational unit) you want to add a permissions to. Use for example the distinguished name (OU=sales,DC=tools4ever,DC=com), the domain\account name (tools4ever.com\Jsmith), or the GUID.</Description>
+                                                <Name>Session ID</Name>
+                                                <Type>2</Type>
+                                                <Description>This parameter identifies the PowerShell Agent service session.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value class="cUmDataText">
                                                     <Base class="cUmData" Version="1">
                                                         <HiddenFlag>FALSE</HiddenFlag>
                                                     </Base>
-                                                    <TextValue>%Object_dn%</TextValue>
+                                                    <TextValue>%G_Ex2010PowerShellSession%</TextValue>
                                                 </Value>
                                             </Base>
-                                            <TechName>Identity</TechName>
+                                            <TechName>SessionID</TechName>
                                             <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
                                             <MandatoryFlag>TRUE</MandatoryFlag>
                                             <MandatoryProps/>
@@ -162,7 +192,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <TextValue>%Identity%</TextValue>
+                                                <TextValue>%G_Ex2010PowerShellSession%</TextValue>
                                             </DefaultValue>
                                             <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
                                                 <Base class="cUmraPsObjectDataSpec">
@@ -179,19 +209,19 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193001</Id>
-                                                <Name>Account</Name>
+                                                <Name>Connection URI</Name>
                                                 <Type>1</Type>
-                                                <Description>The Account parameter identifies the user, group or computer of the permission you want to add to the Active Directory object. Use for example the distinguished name (CN=jsmith,OU=sales,DC=tools4ever,DC=com), the domain\account name (tools4ever.com\Jsmith), the User principal name (UPN). (JSmith@tools4ever.com) or the GUID.</Description>
+                                                <Description>The Connection URI parameter specifies the location of the PowerShell. For example: 'https://[ExchangeServer].tools4ever.local/Powershell' or 'https://[ExchangeServer]/Powershell' or 'https://ps.outlook.com/powershell/'.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value class="cUmDataText">
                                                     <Base class="cUmData" Version="1">
                                                         <HiddenFlag>FALSE</HiddenFlag>
                                                     </Base>
-                                                    <TextValue>%Object_dn_add%</TextValue>
+                                                    <TextValue>%Exchange_connection_uri%</TextValue>
                                                 </Value>
                                             </Base>
-                                            <TechName>Account</TechName>
+                                            <TechName>Connection</TechName>
                                             <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
                                             <MandatoryFlag>TRUE</MandatoryFlag>
                                             <MandatoryProps/>
@@ -212,14 +242,19 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193002</Id>
-                                                <Name>Access rights</Name>
+                                                <Name>Credential User Name</Name>
                                                 <Type>1</Type>
-                                                <Description>The 'Access rights' parameter identifies the access rights the account gets on the Active Directory object. Valid values are Delete, ReadControl, WriteDacl, WriteOwner, Synchronize, AccessSystemSecurity, GenericRead, GenericWrite, GenericExecute, GenericAll, CreateChild, DeleteChild, ListChildren, Self, ReadProperty, WriteProperty, DeleteTree, ListObject and ExtendedRight.</Description>
+                                                <Description>Optional. The credential user name, use this parameter when you want to access the Exchange Server with an explicit account. The user name must be of an account inside the domain of the Exchange server and must have access to the Exchange server For example: 'tools4ever\JohnSmith'. If not specified, a default security context is tried for the specified authentication method, Generally this will be the security context of the Powershell Agent Service account.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
-                                                <Value/>
+                                                <Value class="cUmDataText">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <TextValue>%Exchange_connection_credential_username%</TextValue>
+                                                </Value>
                                             </Base>
-                                            <TechName>AccessRights</TechName>
+                                            <TechName>UserName</TechName>
                                             <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
                                             <MandatoryFlag>FALSE</MandatoryFlag>
                                             <MandatoryProps/>
@@ -240,20 +275,20 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193003</Id>
-                                                <Name>Extended rights</Name>
+                                                <Name>Credential Password</Name>
                                                 <Type>1</Type>
-                                                <Description>The 'Extended rights' parameter identifies the extended rights the account gets on the Active Directory object. Valid values are Open-Address-Book, Allowed-To-Authenticate, Receive-As, Send-As, User-Change-Password, User-Force-Change-Password, Send-To, Apply-Group-Policy, Allowed-To-Authenticate and Enable-Per-User-Reversibly-Encrypted-Password.</Description>
+                                                <Description>Optional. The encrypted password of the account you want to use to access the Exchange server with. The input should be the encrypted value of the password.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value class="cUmDataText">
                                                     <Base class="cUmData" Version="1">
                                                         <HiddenFlag>FALSE</HiddenFlag>
                                                     </Base>
-                                                    <TextValue>Send-As</TextValue>
+                                                    <TextValue>%Exchange_connection_credential_password%</TextValue>
                                                 </Value>
                                             </Base>
-                                            <TechName>ExtendedRights</TechName>
-                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <TechName>Password</TechName>
+                                            <EncryptedTextVariableFlag>TRUE</EncryptedTextVariableFlag>
                                             <MandatoryFlag>FALSE</MandatoryFlag>
                                             <MandatoryProps/>
                                             <MandatoryAbsentProps/>
@@ -273,14 +308,19 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193004</Id>
-                                                <Name>Child object types</Name>
-                                                <Type>1</Type>
-                                                <Description>The 'Child object types' parameter specifies what type of object the permissions is with. This parameter can only be specified when you specify the CreateChild or DeleteChild permission in the 'Access rights' property.</Description>
+                                                <Name>Skip certificate check</Name>
+                                                <Type>3</Type>
+                                                <Description>With the 'Skip certificate check' parameter you can choose to connect to the exchange server without checking the certificate of the exchange server.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
-                                                <Value/>
+                                                <Value class="cUmDataBool">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <BoolValue>TRUE</BoolValue>
+                                                </Value>
                                             </Base>
-                                            <TechName>ChildObjectTypes</TechName>
+                                            <TechName>SkipCertificate</TechName>
                                             <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
                                             <MandatoryFlag>FALSE</MandatoryFlag>
                                             <MandatoryProps/>
@@ -301,14 +341,14 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193005</Id>
-                                                <Name>Inheritance type</Name>
-                                                <Type>1</Type>
-                                                <Description>The 'Inheritance type' parameter specifies whether permissions are inherited. Use for example: None, All, Descendents, SelfAndChildren or Children.</Description>
+                                                <Name>Skip prerequisites test</Name>
+                                                <Type>3</Type>
+                                                <Description>With the 'Skip prerequisites test' parameter you can choose to skip the check for PowerShell version, windows remoting version, execution policy. Set this only if you're completely sure the check fails, but the settings are correct.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
                                             </Base>
-                                            <TechName>InheritanceType</TechName>
+                                            <TechName>SkipPrerequisitesTest</TechName>
                                             <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
                                             <MandatoryFlag>FALSE</MandatoryFlag>
                                             <MandatoryProps/>
@@ -329,14 +369,14 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193006</Id>
-                                                <Name>Inherited object type</Name>
+                                                <Name>Authentication</Name>
                                                 <Type>1</Type>
-                                                <Description>The 'Inherited object type' parameter specifies what kind of object inherits this ACE. Use for example: User, Group, Computer etc.</Description>
+                                                <Description>Specifies the mechanism that is used to authenticate the user's credentials. Valid values are "Default", "Basic", "Credssp", "Digest", "Kerberos", "Negotiate", and "NegotiateWithImplicitCredential". The default value is "Default".</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
                                             </Base>
-                                            <TechName>InheritedObjectType</TechName>
+                                            <TechName>Authentication</TechName>
                                             <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
                                             <MandatoryFlag>FALSE</MandatoryFlag>
                                             <MandatoryProps/>
@@ -357,75 +397,14 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193007</Id>
-                                                <Name>Properties</Name>
-                                                <Type>1</Type>
-                                                <Description>The 'Properties' parameter specifies on what properties of the Active Directory object this ACE applies to. This parameter can only be used when the ReadProperty, WriteProperty or Self permission is used in the 'Access rights' property. Use for example: E-mail-Addresses, Display-Name, Exchange-Information etc.</Description>
+                                                <Name>Advanced: Logging mask</Name>
+                                                <Type>2</Type>
+                                                <Description>The mask specified here, determines the logging output of ALL the PowerShell actions in this session. Default all messages except debug messages are shown. The mask is build from the following numbers: 1 = Normal, 2 = Error, 4 = Warning, 8 = Info, 128 = Debug. If not specified the number 7 is used.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
                                             </Base>
-                                            <TechName>Properties</TechName>
-                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
-                                            <MandatoryFlag>FALSE</MandatoryFlag>
-                                            <MandatoryProps/>
-                                            <MandatoryAbsentProps/>
-                                            <DefaultValue/>
-                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
-                                                <Base class="cUmraPsObjectDataSpec">
-                                                    <Base class="cUmraObArray">
-                                                        <ObjectArray/>
-                                                    </Base>
-                                                    <Dimension>-1</Dimension>
-                                                </Base>
-                                                <PowershellVariableName></PowershellVariableName>
-                                                <DataSpecType>0</DataSpecType>
-                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
-                                            </PowershellReturnData>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmraPsActionProperty">
-                                            <Base class="cUmProperty">
-                                                <Id>193008</Id>
-                                                <Name>Deny</Name>
-                                                <Type>3</Type>
-                                                <Description>Set the 'Deny' parameter to 'Yes' to deny the permission for the specified account on this Active Directory object.</Description>
-                                                <ExportMode>0</ExportMode>
-                                                <ExportVariable></ExportVariable>
-                                                <Value/>
-                                            </Base>
-                                            <TechName>Deny</TechName>
-                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
-                                            <MandatoryFlag>FALSE</MandatoryFlag>
-                                            <MandatoryProps/>
-                                            <MandatoryAbsentProps/>
-                                            <DefaultValue/>
-                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
-                                                <Base class="cUmraPsObjectDataSpec">
-                                                    <Base class="cUmraObArray">
-                                                        <ObjectArray/>
-                                                    </Base>
-                                                    <Dimension>-1</Dimension>
-                                                </Base>
-                                                <PowershellVariableName></PowershellVariableName>
-                                                <DataSpecType>0</DataSpecType>
-                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
-                                            </PowershellReturnData>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmraPsActionProperty">
-                                            <Base class="cUmProperty">
-                                                <Id>193009</Id>
-                                                <Name>Domain controller</Name>
-                                                <Type>1</Type>
-                                                <Description>Optional value. The name of the domain controller used to retrieve the Active Directory object's permissions from. Use the fully qualified domain name (FQDN) of the domain controller you want to use. For example: EXCHSERVER.tools4ever.com.</Description>
-                                                <ExportMode>0</ExportMode>
-                                                <ExportVariable></ExportVariable>
-                                                <Value class="cUmDataText">
-                                                    <Base class="cUmData" Version="1">
-                                                        <HiddenFlag>FALSE</HiddenFlag>
-                                                    </Base>
-                                                    <TextValue>%DomainController%</TextValue>
-                                                </Value>
-                                            </Base>
-                                            <TechName>Domaincontroller</TechName>
+                                            <TechName>AdvLoggingMask</TechName>
                                             <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
                                             <MandatoryFlag>FALSE</MandatoryFlag>
                                             <MandatoryProps/>
@@ -450,32 +429,43 @@
                     </Base>
                     <UmraPsActionScript class="cUmraPsActionScript">
                         <Base class="cUmraDynAction" Version="2">
-                            <XmlFileName>umpsadaddadpermission.xml</XmlFileName>
-                            <UmraActionName>Add AD permissions</UmraActionName>
-                            <ActionImageIndex>42</ActionImageIndex>
-                            <RelativeActionTreePosition>1050</RelativeActionTreePosition>
-                            <ActionHelpId>31</ActionHelpId>
+                            <XmlFileName>umpsex10setupexchangesession.xml</XmlFileName>
+                            <UmraActionName>Setup Exchange Session (Exchange 2010)</UmraActionName>
+                            <ActionImageIndex>77</ActionImageIndex>
+                            <RelativeActionTreePosition>20000</RelativeActionTreePosition>
+                            <ActionHelpId>57</ActionHelpId>
                             <ActionLabels>
-                                <TextItem>Powershell</TextItem>
-                                <TextItem>Active Directory permissions</TextItem>
+                                <TextItem>Exchange</TextItem>
+                                <TextItem>Exchange 2010</TextItem>
+                                <TextItem>Exchange Server</TextItem>
                             </ActionLabels>
                             <SignatureInfo class="cUmraDynActionSignature">
                                 <UserName>Tools4ever</UserName>
-                                <Signature>XdUJ3n7SiOfzXY+mDFIptCs</Signature>
+                                <Signature>cZxn69UT2AiQHhza$4ZSRCs</Signature>
                                 <ContainsSignature>TRUE</ContainsSignature>
                             </SignatureInfo>
-                            <DynamicActionClassVersion>1</DynamicActionClassVersion>
+                            <DynamicActionClassVersion>2</DynamicActionClassVersion>
                             <ObsoleteFlag>FALSE</ObsoleteFlag>
-                            <VersionNumber>502</VersionNumber>
+                            <VersionNumber>129</VersionNumber>
                         </Base>
                         <Script class="cUmraPsScript">
                             <Base class="cUmraObArray">
                                 <ObjectArray>
+                                    <ArrayElement class="cUmraPsScriptPhraseSimple">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText><![CDATA[$script:ErrorActionPreference               = 'Stop';
+                [System.Security.SecureString]$Ex10Password = $null;]]></ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                    </ArrayElement>
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>Add-ADPermission -Identity %Identity% -User %Account%</ContentsText>
-                                            <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
+                                            <ContentsText>Abr-Set-UtilLoggingMask $([System.Int32]::Parse(%AdvLoggingMask%));</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
                                         </Contents>
@@ -483,25 +473,17 @@
                                             <Base class="cUmraObArray">
                                                 <ObjectArray>
                                                     <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
-                                                        <ActionPropertyName>Identity</ActionPropertyName>
-                                                        <Condition class="cUmraPsConditionBase"/>
+                                                        <ActionPropertyName>AdvLoggingMask</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
                                                         <Replacement class="cUmraPsReplaceSimple">
                                                             <Base class="cUmraPsReplaceBase">
                                                                 <QuoteFormatMode>1</QuoteFormatMode>
                                                                 <VariableConversionMode>0</VariableConversionMode>
                                                             </Base>
-                                                            <ReplacementText>%Identity%</ReplacementText>
-                                                        </Replacement>
-                                                    </ArrayElement>
-                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
-                                                        <ActionPropertyName>Account</ActionPropertyName>
-                                                        <Condition class="cUmraPsConditionBase"/>
-                                                        <Replacement class="cUmraPsReplaceSimple">
-                                                            <Base class="cUmraPsReplaceBase">
-                                                                <QuoteFormatMode>1</QuoteFormatMode>
-                                                                <VariableConversionMode>0</VariableConversionMode>
-                                                            </Base>
-                                                            <ReplacementText>%Account%</ReplacementText>
+                                                            <ReplacementText>%AdvLoggingMask%</ReplacementText>
                                                         </Replacement>
                                                     </ArrayElement>
                                                 </ObjectArray>
@@ -511,8 +493,826 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>-AccessRights %AccessRights%</ContentsText>
+                                            <ContentsText>$Ex10Password = ConvertTo-SecureString %Password% -Force -AsPlainText;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>TRUE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>Password</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%Password%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseSimple">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>Abr-New-Exchange2010Session -password $Ex10Password</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>-userName %UserName%</ContentsText>
                                             <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>UserName</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%UserName%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>-connectionUri %Connection%</ContentsText>
+                                            <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>Connection</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%Connection%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>-Authentication %Authentication%</ContentsText>
+                                            <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>Authentication</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%Authentication%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>-skipCertificateChecks</ContentsText>
+                                            <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>SkipCertificate</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionBoolean">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnTrueFlag>TRUE</PassedOnTrueFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceBase">
+                                                            <QuoteFormatMode>0</QuoteFormatMode>
+                                                            <VariableConversionMode>0</VariableConversionMode>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>-skipPrerequisitesTest</ContentsText>
+                                            <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>SkipPrerequisitesTest</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionBoolean">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnTrueFlag>TRUE</PassedOnTrueFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceBase">
+                                                            <QuoteFormatMode>0</QuoteFormatMode>
+                                                            <VariableConversionMode>0</VariableConversionMode>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                </ObjectArray>
+                            </Base>
+                        </Script>
+                        <PropSeriesSet class="cUmraPsPropSeriesSet">
+                            <Base class="cUmraObArray">
+                                <ObjectArray/>
+                            </Base>
+                        </PropSeriesSet>
+                        <UmraPsConfiguration class="cUmraPsConfiguration" Version="1">
+                            <PowershellSnapIns/>
+                            <ErrorPropagateFlag>TRUE</ErrorPropagateFlag>
+                            <RequiresSessionFlag>TRUE</RequiresSessionFlag>
+                            <PowershellAgentLibraries>
+                                <TextItem>Psal.Abr.Systems.Exchange2010</TextItem>
+                            </PowershellAgentLibraries>
+                        </UmraPsConfiguration>
+                        <UmraPsSession class="cUmraPsSession">
+                            <VariablesCleanup>
+                                <TextItem>Ex10Password</TextItem>
+                            </VariablesCleanup>
+                        </UmraPsSession>
+                    </UmraPsActionScript>
+                </ArrayElement>
+                <ArrayElement class="cActionItemOperationPowerShell">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                        <Explanation>Manage the permissions of an Active Directory object by adding or removing access permissions.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193000</Id>
+                                                <Name>Session ID</Name>
+                                                <Type>2</Type>
+                                                <Description>This parameter identifies the PowerShell Agent service session.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value class="cUmDataText">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <TextValue>%G_Ex2010PowerShellSession%</TextValue>
+                                                </Value>
+                                            </Base>
+                                            <TechName>SessionID</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>TRUE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%G_Ex2010PowerShellSession%</TextValue>
+                                            </DefaultValue>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193001</Id>
+                                                <Name>Domain controller</Name>
+                                                <Type>1</Type>
+                                                <Description>Optional value. The name of the domain controller used for reading or writing configuration changes. If not specified, Exchange will determine a domain controller. To prevent replication issues always use the same domain controller in the same session. Use the fully qualified domain name (FQDN) of the domain controller. For example 'EXCHSERVER.tools4ever.com'.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value class="cUmDataText">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <TextValue>%DomainController%</TextValue>
+                                                </Value>
+                                            </Base>
+                                            <TechName>DomainController</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193002</Id>
+                                                <Name>Identity</Name>
+                                                <Type>1</Type>
+                                                <Description>The Identity parameter specifies the identity of the object that's getting permissions added. You can specify either the distinguished name (DN) of the object or the object's name if it's unique. If the DN or name contains spaces, enclose the name in quotation marks (").</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value class="cUmDataText">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <TextValue>%Object_dn%</TextValue>
+                                                </Value>
+                                            </Base>
+                                            <TechName>Identity</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>TRUE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193003</Id>
+                                                <Name>User</Name>
+                                                <Type>1</Type>
+                                                <Description>Optional value. The User parameter specifies the user that the permissions are being added to on the object. If the name contains spaces, enclose the name in quotation marks (").</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value class="cUmDataText">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <TextValue>%Object_dn_add%</TextValue>
+                                                </Value>
+                                            </Base>
+                                            <TechName>User</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps>
+                                                <TextItem>Owner</TextItem>
+                                            </MandatoryAbsentProps>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193004</Id>
+                                                <Name>Owner</Name>
+                                                <Type>1</Type>
+                                                <Description>Optional value. Owner parameter specifies the owner of the Active Directory object. If the name of the owner contains spaces, enclose the name in quotation marks (").The Owner parameter can only be used with the Identity parameter and no other parameters.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>Owner</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps>
+                                                <TextItem>User</TextItem>
+                                                <TextItem>AccessRights</TextItem>
+                                                <TextItem>ExtendedRights</TextItem>
+                                            </MandatoryAbsentProps>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193005</Id>
+                                                <Name>Access rights</Name>
+                                                <Type>8</Type>
+                                                <Description>Optional value. The AccessRights parameter specifies the rights to be added. Valid values include: CreateChild, DeleteChild, ListChildren, Self, ReadProperty, WriteProperty, DeleteTree, ListObject, ExtendedRight, Delete, ReadControl, GenericExecute, GenericWrite, GenericRead, WriteDacl, WriteOwner, GenericAll, Synchronize, AccessSystemSecurity, Specify a text-list value for this parameter.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>AccessRights</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps>
+                                                <TextItem>Owner</TextItem>
+                                            </MandatoryAbsentProps>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193006</Id>
+                                                <Name>Extended Rights</Name>
+                                                <Type>8</Type>
+                                                <Description>The ExtendedRights parameter specifies the extended rights needed to perform the operation. For Exchange Mailboxes this is usually used the specify the "Send as" permission. Specify a text-list value for this parameter.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value class="cUmDataText">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <TextValue>Send-As</TextValue>
+                                                </Value>
+                                            </Base>
+                                            <TechName>ExtendedRights</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps>
+                                                <TextItem>Owner</TextItem>
+                                            </MandatoryAbsentProps>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193007</Id>
+                                                <Name>Child Object Type</Name>
+                                                <Type>8</Type>
+                                                <Description>The ChildObjectTypes parameter specifies what type of object the permission should be applied to. The ChildObjectTypes parameter can only be used if the AccessRights parameter is set to CreateChild or DeleteChild. Specify a text-list value for this parameter.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>ChildObjectType</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps>
+                                                <TextItem>Owner</TextItem>
+                                            </MandatoryAbsentProps>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193008</Id>
+                                                <Name>InheritanceType</Name>
+                                                <Type>1</Type>
+                                                <Description>Optional value. Use this parameter to specify whether permissions are inherited to Childobjects. Valid values are: 'None', 'All', 'Descendents', 'SelfAndChildren' and 'Children'.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>InheritanceType</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193009</Id>
+                                                <Name>Inherited Object Type</Name>
+                                                <Type>1</Type>
+                                                <Description>Optional value.The InheritedObjectType parameter specifies what kind of object inherits this access control entry (ACE).</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>InheritedObjectType</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193010</Id>
+                                                <Name>Properties</Name>
+                                                <Type>8</Type>
+                                                <Description>optional Value. The Properties parameter specifies which properties the object The access applies to. The Properties parameter can only be used if the AccessRights parameter is set to ReadProperty, WriteProperty or Self. Specify a text-list value for this parameter.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>Properties</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193011</Id>
+                                                <Name>Deny</Name>
+                                                <Type>3</Type>
+                                                <Description>Optional value. If set to 'Yes', this parameter indicates that the specified access rights are to be added to the list of rights that are explicitly denied to the indicated user. The default value is 'No'.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>Deny</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193012</Id>
+                                                <Name>Remove permission</Name>
+                                                <Type>3</Type>
+                                                <Description>If set to 'Yes' this parameter specifies that the right is to be removed from the list of rights instead of added. If the 'Deny' parameter is also specified, the right is removed from the list of rights that are explicitly denied. The default value is 'No'.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>RemovePermission</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193013</Id>
+                                                <Name>Remove Existing Permissions</Name>
+                                                <Type>3</Type>
+                                                <Description>If set to 'Yes' this parameter specifies that all current rights (of the specific user and inheritance type) are removed, instead of only the permissions specified in the AccessRights parameter.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>RemoveExistingPermissions</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps>
+                                                <TextItem>RemovePermission</TextItem>
+                                            </MandatoryProps>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
+                    <UmraPsActionScript class="cUmraPsActionScript">
+                        <Base class="cUmraDynAction" Version="2">
+                            <XmlFileName>umpsex10manageadpermission.xml</XmlFileName>
+                            <UmraActionName>Manage Active Directory permission (Exchange 2010)</UmraActionName>
+                            <ActionImageIndex>42</ActionImageIndex>
+                            <RelativeActionTreePosition>19600</RelativeActionTreePosition>
+                            <ActionHelpId>57</ActionHelpId>
+                            <ActionLabels>
+                                <TextItem>Exchange</TextItem>
+                                <TextItem>Exchange 2010</TextItem>
+                                <TextItem>User mailbox</TextItem>
+                            </ActionLabels>
+                            <SignatureInfo class="cUmraDynActionSignature">
+                                <UserName>Tools4ever</UserName>
+                                <Signature>6h3DVpZN04mccmZtd+avADs</Signature>
+                                <ContainsSignature>TRUE</ContainsSignature>
+                            </SignatureInfo>
+                            <DynamicActionClassVersion>2</DynamicActionClassVersion>
+                            <ObsoleteFlag>FALSE</ObsoleteFlag>
+                            <VersionNumber>7</VersionNumber>
+                        </Base>
+                        <Script class="cUmraPsScript">
+                            <Base class="cUmraObArray">
+                                <ObjectArray>
+                                    <ArrayElement class="cUmraPsScriptPhraseSimple">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText><![CDATA[$script:ErrorActionPreference        = 'Stop';
+                [string]$Ex10DomainController        = '';
+                [string]$Ex10Identity                = '';
+                [string]$Ex10User                    = '';
+                [string]$Ex10Owner                   = '';
+                [string[]]$Ex10AccessRights          = @();
+                [string[]]$Ex10ExtendedRights        = @();
+                [string]$Ex10ChildObjectType         = '';
+                [string]$Ex10InheritanceType         = '';
+                [string]$Ex10InheritedObjectType     = '';
+                [string[]]$Ex10Properties            = @();
+                [bool]$Ex10Deny                      = $false;
+                [bool]$Ex10RemovePermission          = $false;
+                [bool]$Ex10RemoveExistingPermissions = $false;]]></ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10DomainController = %DomainController%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>DomainController</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%DomainController%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10Identity = %Identity%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>Identity</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%Identity%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10User = %User%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>User</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%User%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10Owner = %Owner%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>Owner</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%Owner%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10AccessRights += %AccessRights%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
                                         </Contents>
@@ -525,12 +1325,13 @@
                                                             <Base class="cUmraPsConditionBase"/>
                                                             <PassedOnDataFlag>TRUE</PassedOnDataFlag>
                                                         </Condition>
-                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                        <Replacement class="cUmraPsReplaceMultivalue">
                                                             <Base class="cUmraPsReplaceBase">
-                                                                <QuoteFormatMode>2</QuoteFormatMode>
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
                                                                 <VariableConversionMode>0</VariableConversionMode>
                                                             </Base>
                                                             <ReplacementText>%AccessRights%</ReplacementText>
+                                                            <ColumnIndex>0</ColumnIndex>
                                                         </Replacement>
                                                     </ArrayElement>
                                                 </ObjectArray>
@@ -540,8 +1341,8 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>-ExtendedRights %ExtendedRights%</ContentsText>
-                                            <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
+                                            <ContentsText>$Ex10ExtendedRights += %ExtendedRights%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
                                         </Contents>
@@ -554,12 +1355,13 @@
                                                             <Base class="cUmraPsConditionBase"/>
                                                             <PassedOnDataFlag>TRUE</PassedOnDataFlag>
                                                         </Condition>
-                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                        <Replacement class="cUmraPsReplaceMultivalue">
                                                             <Base class="cUmraPsReplaceBase">
-                                                                <QuoteFormatMode>2</QuoteFormatMode>
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
                                                                 <VariableConversionMode>0</VariableConversionMode>
                                                             </Base>
                                                             <ReplacementText>%ExtendedRights%</ReplacementText>
+                                                            <ColumnIndex>0</ColumnIndex>
                                                         </Replacement>
                                                     </ArrayElement>
                                                 </ObjectArray>
@@ -569,8 +1371,8 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>-ChildObjectTypes %ChildObjectTypes%</ContentsText>
-                                            <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
+                                            <ContentsText>$Ex10ChildObjectType = %ChildObjectType%</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
                                         </Contents>
@@ -578,17 +1380,17 @@
                                             <Base class="cUmraObArray">
                                                 <ObjectArray>
                                                     <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
-                                                        <ActionPropertyName>ChildObjectTypes</ActionPropertyName>
+                                                        <ActionPropertyName>ChildObjectType</ActionPropertyName>
                                                         <Condition class="cUmraPsConditionData">
                                                             <Base class="cUmraPsConditionBase"/>
                                                             <PassedOnDataFlag>TRUE</PassedOnDataFlag>
                                                         </Condition>
                                                         <Replacement class="cUmraPsReplaceSimple">
                                                             <Base class="cUmraPsReplaceBase">
-                                                                <QuoteFormatMode>2</QuoteFormatMode>
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
                                                                 <VariableConversionMode>0</VariableConversionMode>
                                                             </Base>
-                                                            <ReplacementText>%ChildObjectTypes%</ReplacementText>
+                                                            <ReplacementText>%ChildObjectType%</ReplacementText>
                                                         </Replacement>
                                                     </ArrayElement>
                                                 </ObjectArray>
@@ -598,8 +1400,8 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>-InheritanceType %InheritanceType%</ContentsText>
-                                            <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
+                                            <ContentsText>$Ex10InheritanceType = %InheritanceType%</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
                                         </Contents>
@@ -614,7 +1416,7 @@
                                                         </Condition>
                                                         <Replacement class="cUmraPsReplaceSimple">
                                                             <Base class="cUmraPsReplaceBase">
-                                                                <QuoteFormatMode>0</QuoteFormatMode>
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
                                                                 <VariableConversionMode>0</VariableConversionMode>
                                                             </Base>
                                                             <ReplacementText>%InheritanceType%</ReplacementText>
@@ -627,8 +1429,8 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>-InheritedObjectType %InheritedObjectType%</ContentsText>
-                                            <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
+                                            <ContentsText>$Ex10InheritedObjectType = %InheritedObjectType%</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
                                         </Contents>
@@ -643,7 +1445,7 @@
                                                         </Condition>
                                                         <Replacement class="cUmraPsReplaceSimple">
                                                             <Base class="cUmraPsReplaceBase">
-                                                                <QuoteFormatMode>0</QuoteFormatMode>
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
                                                                 <VariableConversionMode>0</VariableConversionMode>
                                                             </Base>
                                                             <ReplacementText>%InheritedObjectType%</ReplacementText>
@@ -656,8 +1458,8 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>-Properties %Properties%</ContentsText>
-                                            <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
+                                            <ContentsText>$Ex10Properties += %Properties%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
                                         </Contents>
@@ -670,12 +1472,13 @@
                                                             <Base class="cUmraPsConditionBase"/>
                                                             <PassedOnDataFlag>TRUE</PassedOnDataFlag>
                                                         </Condition>
-                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                        <Replacement class="cUmraPsReplaceMultivalue">
                                                             <Base class="cUmraPsReplaceBase">
-                                                                <QuoteFormatMode>2</QuoteFormatMode>
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
                                                                 <VariableConversionMode>0</VariableConversionMode>
                                                             </Base>
                                                             <ReplacementText>%Properties%</ReplacementText>
+                                                            <ColumnIndex>0</ColumnIndex>
                                                         </Replacement>
                                                     </ArrayElement>
                                                 </ObjectArray>
@@ -685,8 +1488,8 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>-Deny</ContentsText>
-                                            <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
+                                            <ContentsText>$Ex10Deny = $true;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
                                         </Contents>
@@ -711,8 +1514,8 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>-DomainController %Domaincontroller%</ContentsText>
-                                            <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
+                                            <ContentsText>$Ex10RemovePermission = $True;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
                                         </Contents>
@@ -720,22 +1523,67 @@
                                             <Base class="cUmraObArray">
                                                 <ObjectArray>
                                                     <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
-                                                        <ActionPropertyName>Domaincontroller</ActionPropertyName>
-                                                        <Condition class="cUmraPsConditionData">
+                                                        <ActionPropertyName>RemovePermission</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionBoolean">
                                                             <Base class="cUmraPsConditionBase"/>
-                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                            <PassedOnTrueFlag>TRUE</PassedOnTrueFlag>
                                                         </Condition>
-                                                        <Replacement class="cUmraPsReplaceSimple">
-                                                            <Base class="cUmraPsReplaceBase">
-                                                                <QuoteFormatMode>0</QuoteFormatMode>
-                                                                <VariableConversionMode>0</VariableConversionMode>
-                                                            </Base>
-                                                            <ReplacementText>%Domaincontroller%</ReplacementText>
+                                                        <Replacement class="cUmraPsReplaceBase">
+                                                            <QuoteFormatMode>0</QuoteFormatMode>
+                                                            <VariableConversionMode>0</VariableConversionMode>
                                                         </Replacement>
                                                     </ArrayElement>
                                                 </ObjectArray>
                                             </Base>
                                         </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10RemoveExistingPermissions = $true;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>RemoveExistingPermissions</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionBoolean">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnTrueFlag>TRUE</PassedOnTrueFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceBase">
+                                                            <QuoteFormatMode>0</QuoteFormatMode>
+                                                            <VariableConversionMode>0</VariableConversionMode>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseSimple">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText><![CDATA[Ryk-Update-Exchange2010ADPermission `
+        -domainController $Ex10DomainController `
+				-identity $Ex10Identity `
+				-user $Ex10User `
+				-owner  $Ex10Owner `
+				-accessRights $Ex10AccessRights `
+				-extendedRights $Ex10ExtendedRights `
+        -childObjectType $Ex10ChildObjectType `
+        -inheritanceType $Ex10InheritanceType `
+        -inheritedObjectType $Ex10InheritedObjectType `
+        -properties $Ex10Properties `
+        -deny $Ex10Deny `
+        -removePermission $Ex10RemovePermission `
+        -removeExistingPermissions $Ex10RemoveExistingPermissions;]]></ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
                                     </ArrayElement>
                                 </ObjectArray>
                             </Base>
@@ -746,19 +1594,181 @@
                             </Base>
                         </PropSeriesSet>
                         <UmraPsConfiguration class="cUmraPsConfiguration" Version="1">
-                            <PowershellSnapIns>
-                                <TextItem>Microsoft.Exchange.Management.PowerShell.Admin</TextItem>
-                            </PowershellSnapIns>
+                            <PowershellSnapIns/>
                             <ErrorPropagateFlag>TRUE</ErrorPropagateFlag>
-                            <RequiresSessionFlag>FALSE</RequiresSessionFlag>
+                            <RequiresSessionFlag>TRUE</RequiresSessionFlag>
                             <PowershellAgentLibraries/>
                         </UmraPsConfiguration>
                         <UmraPsSession class="cUmraPsSession">
-                            <VariablesCleanup/>
+                            <VariablesCleanup>
+                                <TextItem>Ex10DomainController</TextItem>
+                                <TextItem>Ex10Identity</TextItem>
+                                <TextItem><![CDATA[ Ex10User]]></TextItem>
+                                <TextItem>Ex10Owner</TextItem>
+                                <TextItem>Ex10AccessRights</TextItem>
+                                <TextItem><![CDATA[ Ex10ExtendedRights]]></TextItem>
+                                <TextItem><![CDATA[ Ex10ChildObjectType]]></TextItem>
+                                <TextItem>Ex10InheritanceType</TextItem>
+                                <TextItem><![CDATA[ Ex10InheritedObjectType]]></TextItem>
+                                <TextItem>Ex10Properties</TextItem>
+                                <TextItem>Ex10Deny</TextItem>
+                                <TextItem><![CDATA[ Ex10RemovePermission]]></TextItem>
+                                <TextItem><![CDATA[ Ex10RemoveExistingPermissions]]></TextItem>
+                            </VariablesCleanup>
                         </UmraPsSession>
                     </UmraPsActionScript>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemOperationPowerShell">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                        <Explanation>Closes the Exchange session inside the current Powershell session. Use the action Release Powershell Agent service session to subsequently release the Powershell session itself.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193000</Id>
+                                                <Name>Session ID</Name>
+                                                <Type>2</Type>
+                                                <Description>This parameter identifies the PowerShell Agent service session.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value class="cUmDataText">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <TextValue>%G_Ex2010PowerShellSession%</TextValue>
+                                                </Value>
+                                            </Base>
+                                            <TechName>SessionID</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>TRUE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%G_Ex2010PowerShellSession%</TextValue>
+                                            </DefaultValue>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
+                    <UmraPsActionScript class="cUmraPsActionScript">
+                        <Base class="cUmraDynAction" Version="2">
+                            <XmlFileName>umpsex10closeexchangesession.xml</XmlFileName>
+                            <UmraActionName>Close Exchange Session (Exchange 2010)</UmraActionName>
+                            <ActionImageIndex>77</ActionImageIndex>
+                            <RelativeActionTreePosition>21000</RelativeActionTreePosition>
+                            <ActionHelpId>57</ActionHelpId>
+                            <ActionLabels>
+                                <TextItem>Exchange</TextItem>
+                                <TextItem>Exchange 2010</TextItem>
+                                <TextItem>Exchange Server</TextItem>
+                            </ActionLabels>
+                            <SignatureInfo class="cUmraDynActionSignature">
+                                <UserName>Tools4ever</UserName>
+                                <Signature>jIJ9g6$Bim83r9Vp3cnV9Cs</Signature>
+                                <ContainsSignature>TRUE</ContainsSignature>
+                            </SignatureInfo>
+                            <DynamicActionClassVersion>2</DynamicActionClassVersion>
+                            <ObsoleteFlag>FALSE</ObsoleteFlag>
+                            <VersionNumber>3</VersionNumber>
+                        </Base>
+                        <Script class="cUmraPsScript">
+                            <Base class="cUmraObArray">
+                                <ObjectArray>
+                                    <ArrayElement class="cUmraPsScriptPhraseSimple">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText><![CDATA[$script:ErrorActionPreference = 'Stop';
+                Ryk-Close-Exchange2010Session;]]></ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                    </ArrayElement>
+                                </ObjectArray>
+                            </Base>
+                        </Script>
+                        <PropSeriesSet class="cUmraPsPropSeriesSet">
+                            <Base class="cUmraObArray">
+                                <ObjectArray/>
+                            </Base>
+                        </PropSeriesSet>
+                        <UmraPsConfiguration class="cUmraPsConfiguration" Version="1">
+                            <PowershellSnapIns/>
+                            <ErrorPropagateFlag>TRUE</ErrorPropagateFlag>
+                            <RequiresSessionFlag>TRUE</RequiresSessionFlag>
+                            <PowershellAgentLibraries>
+                                <TextItem>Psal.Ryk.Systems.Exchange2010</TextItem>
+                            </PowershellAgentLibraries>
+                        </UmraPsConfiguration>
+                        <UmraPsSession class="cUmraPsSession">
+                            <VariablesCleanup>
+                                <TextItem>Ex10Password</TextItem>
+                            </VariablesCleanup>
+                        </UmraPsSession>
+                    </UmraPsActionScript>
+                </ArrayElement>
+                <ArrayElement class="cActionItemOperationPowershellSessionRelease">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                        <Explanation>Release a session with the Powershell Agent service. The session should be previously setup with action 'Setup Powershell Agent service session'. The session is identified by property 'Session ID'.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>125000</Id>
+                                            <Name>Session ID</Name>
+                                            <Type>2</Type>
+                                            <Description>The identifier of the Powershell Agent service session. The value should correspond with property 'Session ID' of action 'Setup Powershell Agent service session', called previously.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%G_Ex2010PowerShellSession%</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -777,8 +1787,9 @@
                         <TextValue>Send-as permissie ingesteld</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -797,8 +1808,9 @@
                         <TextValue>add-permission-sendas</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -817,8 +1829,9 @@
                         <TextValue>%Status_operation%</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -837,8 +1850,9 @@
                         <TextValue>%UmraProjectName%</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -857,8 +1871,9 @@
                         <TextValue>%Object_dn%</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -877,6 +1892,7 @@
                         <TextValue>%Object_dn_add%</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
@@ -953,7 +1969,7 @@
         <EmbeddedNameGenerationFlag>FALSE</EmbeddedNameGenerationFlag>
         <LogVariablesFlag>FALSE</LogVariablesFlag>
         <DynActionDatabaseSyncId class="cUmraDynActionSetSyncId">
-            <Stamp>398</Stamp>
+            <Stamp>427</Stamp>
             <Id>zuZ9fXpxK0ko+U#bdYeo9Bs</Id>
         </DynActionDatabaseSyncId>
         <VariableInfoCollection class="cVariableInfoCollection">
@@ -1038,7 +2054,7 @@
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\910ab9f6-6d4d-4ff2-8f54-fa470f2dc69b.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\aef3679a-f311-43f1-ae6a-f235ec019a6c.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
@@ -1054,7 +2070,7 @@
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1667</BuildNumber>
+        <BuildNumber>1677</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>

@@ -40,7 +40,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
+                    <TableDefinition class="cUmraTableDefDatabaseQuery" Version="1">
                         <Base class="cUmraTableDef">
                             <VariableName>%Table_query_db%</VariableName>
                             <TestVariableArray class="cUmVariableArray">
@@ -84,6 +84,7 @@ and [hideFromDashboard] = 0]]></DatabaseQuery>
                             <TextItem>instanceTitle</TextItem>
                             <TextItem>dateCreated</TextItem>
                         </QueryResultColumnNames>
+                        <FlagEscapeSingleQuote>FALSE</FlagEscapeSingleQuote>
                     </TableDefinition>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGenericTable">
@@ -97,7 +98,7 @@ and [hideFromDashboard] = 0]]></DatabaseQuery>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDefinition class="cUmraTableDefDatabaseQuery">
+                    <TableDefinition class="cUmraTableDefDatabaseQuery" Version="1">
                         <Base class="cUmraTableDef">
                             <VariableName>%Table_query_db_delegation%</VariableName>
                             <TestVariableArray class="cUmVariableArray">
@@ -144,6 +145,7 @@ and [delegationEndDate] > getdate()]]></DatabaseQuery>
                             <TextItem>instanceTitle</TextItem>
                             <TextItem>dateCreated</TextItem>
                         </QueryResultColumnNames>
+                        <FlagEscapeSingleQuote>FALSE</FlagEscapeSingleQuote>
                     </TableDefinition>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
@@ -729,7 +731,7 @@ and [delegationEndDate] > getdate()]]></DatabaseQuery>
                     <Var1EmptyIfNoSplitFlag>FALSE</Var1EmptyIfNoSplitFlag>
                     <RightToLeftFlag>FALSE</RightToLeftFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable">
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -762,6 +764,7 @@ Tools4ever Self Service Portal<BR>
 </HTML>]]></TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemOperationSendMailEx">
                     <Base class="cActionItemOperation">
@@ -1064,7 +1067,7 @@ Tools4ever Self Service Portal<BR>
         <EmbeddedNameGenerationFlag>FALSE</EmbeddedNameGenerationFlag>
         <LogVariablesFlag>FALSE</LogVariablesFlag>
         <DynActionDatabaseSyncId class="cUmraDynActionSetSyncId">
-            <Stamp>398</Stamp>
+            <Stamp>427</Stamp>
             <Id>zuZ9fXpxK0ko+U#bdYeo9Bs</Id>
         </DynActionDatabaseSyncId>
         <VariableInfoCollection class="cVariableInfoCollection">
@@ -1161,7 +1164,7 @@ Tools4ever Self Service Portal<BR>
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1667</BuildNumber>
+        <BuildNumber>1677</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>

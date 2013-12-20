@@ -3497,6 +3497,34 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193003</Id>
+                                                <Name>Outlook Live: Windows Live ID</Name>
+                                                <Type>1</Type>
+                                                <Description>Optional value. This parameter applies to objects in the cloud-based service. It isn’t available for on-premises deployments.The WindowsLiveID parameter renames the Windows Live ID associated with the mailbox.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>WindowsLiveID</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193004</Id>
                                                 <Name>Outlook Live: Password</Name>
                                                 <Type>1</Type>
                                                 <Description>The password used by Windows Live ID. This password is not the Active Directory user password. The value specified here will not be shown in the log.</Description>
@@ -3529,7 +3557,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193004</Id>
+                                                <Id>193005</Id>
                                                 <Name>Accept messages only from</Name>
                                                 <Type>8</Type>
                                                 <Description>The mailbox users, mail users and mail contacts that can send e-mail messages to this mailbox. Any of the following input formats is supported: the distinguished name 'CN=jsmith,OU=sales,DC=tools4ever,DC=com', the domain\account name 'tools4ever.com\Jsmith', the username 'JohnSmith', the alias 'JSmith', the display name 'John Smith', the user principal name 'JSmith@tools4ever.com' or the GUID. Specify a text-list for this parameter.</Description>
@@ -3557,7 +3585,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193005</Id>
+                                                <Id>193006</Id>
                                                 <Name>Accept messages only from distribution list members</Name>
                                                 <Type>8</Type>
                                                 <Description>The distribution lists from which messages are accepted.. Messages from any member of these distribution lists are accepted. Specify a text-list for this parameter.</Description>
@@ -3585,7 +3613,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193006</Id>
+                                                <Id>193007</Id>
                                                 <Name>Accept messages only from senders or members</Name>
                                                 <Type>8</Type>
                                                 <Description>The identity of recipients from whom messages are accepted. Specify a text-list for this parameter.</Description>
@@ -3613,7 +3641,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193007</Id>
+                                                <Id>193008</Id>
                                                 <Name>AddressBookPolicy (sp2)</Name>
                                                 <Type>1</Type>
                                                 <Description>Optional value.The AddressBookPolicy parameter specifies the address book policy that applies to this mailbox.</Description>
@@ -3641,7 +3669,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193008</Id>
+                                                <Id>193009</Id>
                                                 <Name>Alias</Name>
                                                 <Type>1</Type>
                                                 <Description>The Alias parameter specifies the alias (mail nickname) of the user. The alias can be a combination of characters separated by a period with no intervening spaces. Do not use special characters in the alias.</Description>
@@ -3669,7 +3697,147 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193009</Id>
+                                                <Id>193010</Id>
+                                                <Name>Archive Database</Name>
+                                                <Type>1</Type>
+                                                <Description><![CDATA[Optional value.The ArchiveDatabase parameter specifies the Exchange database that contains the archive associated with this mailbox. You can use the following values:	GUID of the database or the Database name.]]></Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>ArchiveDatabase</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193011</Id>
+                                                <Name>Archive domain</Name>
+                                                <Type>1</Type>
+                                                <Description>Optional value.The ArchiveDomain parameter specifies the cloud-based services domain on which the archive associated with this mailbox exists. For example, if the SMTP e-mail address of the user is tony@contoso.com, the SMTP domain could be archive.contoso.com.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>ArchiveDomain</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193012</Id>
+                                                <Name>Archive Name</Name>
+                                                <Type>8</Type>
+                                                <Description>Optional value. The ArchiveName parameter specifies the name of the archive mailbox. This is the name displayed to users in Microsoft Office Outlook Web App. The default name is Online Archive - [Mailbox User's Display Name]. NOTE: This parameter is defined as a multivalue parameter in Powershell, so use a UMRA Textlist variable for input.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>ArchiveName</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193013</Id>
+                                                <Name>Archive quota</Name>
+                                                <Type>1</Type>
+                                                <Description>Optional value.The ArchiveQuota parameter specifies the archive mailbox size at which messages will no longer be accepted. When you enter a value, qualify the value with one of the following units: B (bytes), KB (kilobytes), MB (megabytes), GB (gigabytes), TB (terabytes). Unqualified values are treated as bytes. The value must be greater than the value of the ArchiveWarningQuota parameter. The valid input range for either parameter is from 1 through 9223372036854775807 bytes.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>ArchiveQuota</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193014</Id>
+                                                <Name>Archive  warning quota</Name>
+                                                <Type>1</Type>
+                                                <Description>Optional value.The ArchiveWarningQuota parameter specifies the archive mailbox size at which a warning message is sent to the user. When you enter a value, qualify the value with one of the following units:B (bytes), KB (kilobytes), MB (megabytes), GB (gigabytes), TB (terabytes). Unqualified values are treated as bytes. The value must be less than the value of the ArchiveQuota parameter. The valid input range for either parameter is from 1 through 9223372036854775807 bytes.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>ArchiveWarningQuota</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193015</Id>
                                                 <Name>Arbitration</Name>
                                                 <Type>3</Type>
                                                 <Description>Set to 'Yes' to make the mailbox an arbitration mailbox. Arbitration mailboxes are used for managing approval workflow. For example, an arbitration mailbox is used for handling moderated recipients. When set to 'No' the current state will not change. The arbitration state cannot be removed. When not specified 'No' is assumed.</Description>
@@ -3697,7 +3865,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193010</Id>
+                                                <Id>193016</Id>
                                                 <Name>Arbitration Mailbox</Name>
                                                 <Type>1</Type>
                                                 <Description>The mailbox that is used to manage the moderation process.</Description>
@@ -3725,7 +3893,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193011</Id>
+                                                <Id>193017</Id>
                                                 <Name>Anti spam bypass enabled</Name>
                                                 <Type>3</Type>
                                                 <Description>Set to 'Yes' to skip anti-spam processing on this mailbox, or to 'No' otherwise. If not specified this property will not be changed.</Description>
@@ -3753,7 +3921,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193012</Id>
+                                                <Id>193018</Id>
                                                 <Name>Custom attribute 1</Name>
                                                 <Type>1</Type>
                                                 <Description>The value for the mailbox attribute CustomAttribute1.</Description>
@@ -3781,7 +3949,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193013</Id>
+                                                <Id>193019</Id>
                                                 <Name>Custom attribute 2</Name>
                                                 <Type>1</Type>
                                                 <Description>The value for the mailbox attribute CustomAttribute2.</Description>
@@ -3809,7 +3977,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193014</Id>
+                                                <Id>193020</Id>
                                                 <Name>Custom attribute 3</Name>
                                                 <Type>1</Type>
                                                 <Description>The value for the mailbox attribute CustomAttribute3.</Description>
@@ -3837,7 +4005,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193015</Id>
+                                                <Id>193021</Id>
                                                 <Name>Custom attribute 4</Name>
                                                 <Type>1</Type>
                                                 <Description>The value for the mailbox attribute CustomAttribute4.</Description>
@@ -3865,7 +4033,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193016</Id>
+                                                <Id>193022</Id>
                                                 <Name>Custom attribute 5</Name>
                                                 <Type>1</Type>
                                                 <Description>The value for the mailbox attribute CustomAttribute5.</Description>
@@ -3893,7 +4061,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193017</Id>
+                                                <Id>193023</Id>
                                                 <Name>Custom attribute 6</Name>
                                                 <Type>1</Type>
                                                 <Description>The value for the mailbox attribute CustomAttribute6.</Description>
@@ -3921,7 +4089,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193018</Id>
+                                                <Id>193024</Id>
                                                 <Name>Custom attribute 7</Name>
                                                 <Type>1</Type>
                                                 <Description>The value for the mailbox attribute CustomAttribute7.</Description>
@@ -3949,7 +4117,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193019</Id>
+                                                <Id>193025</Id>
                                                 <Name>Custom attribute 8</Name>
                                                 <Type>1</Type>
                                                 <Description>The value for the mailbox attribute CustomAttribute8.</Description>
@@ -3977,7 +4145,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193020</Id>
+                                                <Id>193026</Id>
                                                 <Name>Custom attribute 9</Name>
                                                 <Type>1</Type>
                                                 <Description>The value for the mailbox attribute CustomAttribute9.</Description>
@@ -4005,7 +4173,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193021</Id>
+                                                <Id>193027</Id>
                                                 <Name>Custom attribute 10</Name>
                                                 <Type>1</Type>
                                                 <Description>The value for the mailbox attribute CustomAttribute10.</Description>
@@ -4033,7 +4201,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193022</Id>
+                                                <Id>193028</Id>
                                                 <Name>Custom attribute 11</Name>
                                                 <Type>1</Type>
                                                 <Description>The value for the mailbox attribute CustomAttribute11.</Description>
@@ -4061,7 +4229,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193023</Id>
+                                                <Id>193029</Id>
                                                 <Name>Custom attribute 12</Name>
                                                 <Type>1</Type>
                                                 <Description>The value for the mailbox attribute CustomAttribute12.</Description>
@@ -4089,7 +4257,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193024</Id>
+                                                <Id>193030</Id>
                                                 <Name>Custom attribute 13</Name>
                                                 <Type>1</Type>
                                                 <Description>The value for the mailbox attribute CustomAttribute13.</Description>
@@ -4117,7 +4285,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193025</Id>
+                                                <Id>193031</Id>
                                                 <Name>Custom attribute 14</Name>
                                                 <Type>1</Type>
                                                 <Description>The value for the mailbox attribute CustomAttribute14.</Description>
@@ -4145,7 +4313,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193026</Id>
+                                                <Id>193032</Id>
                                                 <Name>Custom attribute 15</Name>
                                                 <Type>1</Type>
                                                 <Description>The value for the mailbox attribute CustomAttribute15.</Description>
@@ -4173,7 +4341,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193027</Id>
+                                                <Id>193033</Id>
                                                 <Name>Deliver to mailbox and forward</Name>
                                                 <Type>3</Type>
                                                 <Description>Set to 'Yes' to deliver messages to both this mailbox and the forwarding address, Set to 'No' to deliver the messages only at the forwarding address. If not specified this property will not be changed.</Description>
@@ -4201,7 +4369,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193028</Id>
+                                                <Id>193034</Id>
                                                 <Name>Display name</Name>
                                                 <Type>1</Type>
                                                 <Description>The display name for the user account associated with this mailbox. The display name is used by Microsoft Outlook.</Description>
@@ -4229,7 +4397,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193029</Id>
+                                                <Id>193035</Id>
                                                 <Name>E-Mail addresses</Name>
                                                 <Type>8</Type>
                                                 <Description>The the proxy addresses of the mailbox. It includes the primary Simple Mail Transfer Protocol (SMTP) address as one of the proxy addresses. Specify a text-list value for this parameter.</Description>
@@ -4257,7 +4425,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193030</Id>
+                                                <Id>193036</Id>
                                                 <Name>Emailaddress policy enabled</Name>
                                                 <Type>3</Type>
                                                 <Description>Set tot 'Yes' to enable the e-mail address policy for this mailbox. Set to 'No' to disable the policy. If not specified this property will not be changed.</Description>
@@ -4290,7 +4458,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193031</Id>
+                                                <Id>193037</Id>
                                                 <Name>External Out of Office options</Name>
                                                 <Type>1</Type>
                                                 <Description>The option for sending an Out of Office message to external senders. Use one of the following values: 'External' or 'InternalOnly'.</Description>
@@ -4318,7 +4486,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193032</Id>
+                                                <Id>193038</Id>
                                                 <Name>Forwarding address</Name>
                                                 <Type>1</Type>
                                                 <Description>The forwarding address. For example 'domain.com/Sales/JSmith'. If 'Deliver to mailbox and forward' is set to 'Yes', messages that are sent to this mailbox will be forwarded to the address specified.</Description>
@@ -4346,7 +4514,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193033</Id>
+                                                <Id>193039</Id>
                                                 <Name>Hidden from addresslists enabled</Name>
                                                 <Type>3</Type>
                                                 <Description>Set to 'Yes' to hide this mailbox from other address lists, or to 'No' to unhide this mailbox. If not specified this property will not be changed.</Description>
@@ -4374,7 +4542,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193034</Id>
+                                                <Id>193040</Id>
                                                 <Name>Issue warning quota</Name>
                                                 <Type>1</Type>
                                                 <Description>The mailbox size at which a warning message is sent to the user. Qualify the value with one of the following: 'B' (bytes), 'KB' (kilobytes), 'MB' (megabytes), 'GB' (gigabytes) or 'unlimited'. If this attribute is set on a mailbox, it overrides the default value that is set for this attribute on the mailbox database.</Description>
@@ -4402,7 +4570,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193035</Id>
+                                                <Id>193041</Id>
                                                 <Name>MailboxPlan (Outlook Live)</Name>
                                                 <Type>1</Type>
                                                 <Description>Optional value. This parameter is available only with the Outlook Live service. The MailboxPlan parameter specifies a mailbox plan for the mailbox.</Description>
@@ -4430,7 +4598,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193036</Id>
+                                                <Id>193042</Id>
                                                 <Name>Mail Tip</Name>
                                                 <Type>1</Type>
                                                 <Description>The message that is displayed to senders when they start drafting an e-mail message to this recipient. This message must be less than or equal to 250 characters.</Description>
@@ -4458,7 +4626,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193037</Id>
+                                                <Id>193043</Id>
                                                 <Name>Mail Tip Translations</Name>
                                                 <Type>8</Type>
                                                 <Description>The translations for the 'Mail tip' parameter. Each entry in the list must provide the locale, followed by a colon and the specific mail tip in that language. Each mail tip message must be less than or equal to 250 characters. Specify a text-list value for this parameter.</Description>
@@ -4486,7 +4654,91 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193038</Id>
+                                                <Id>193044</Id>
+                                                <Name>ManagedFolderMailboxPolicy</Name>
+                                                <Type>1</Type>
+                                                <Description>The ManagedFolderMailboxPolicy parameter specifies a managed folder mailbox policy that controls MRM for the mailbox.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>ManagedFolderMailboxPolicy</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193045</Id>
+                                                <Name>Discontinue ManagedFolderMailboxPolicy</Name>
+                                                <Type>3</Type>
+                                                <Description>If set to 'Yes', Exchange removes the managed folder mailbox policy from the mailbox but any managed folders in the mailbox remain.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>DiscontinueManagedFolderMailboxPolicy</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193046</Id>
+                                                <Name>Remove ManagedFolder and Policy</Name>
+                                                <Type>3</Type>
+                                                <Description>Specify 'Yes' to remove all MRM 1.0 policies and attributes from a mailbox. If you use this parameter, MRM 1.0 policies and MRM 1.0 properties from any managed folders that were created as part of any MRM 1.0 policies are removed. Managed folders that are empty are also removed from the mailbox, and managed folders that contain items are converted to standard folders.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>RemoveManagedFolderAndPolicy</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193047</Id>
                                                 <Name>Maximum blocked senders</Name>
                                                 <Type>2</Type>
                                                 <Description>The maximum number of senders that can be included in the blocked senders list. Blocked senders are senders that are considered junk senders by the mailbox user and are used in junk e-mail rules. This parameter is only validated when the junk e-mail rules are updated using Outlook Web Access or Web services.</Description>
@@ -4514,7 +4766,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193039</Id>
+                                                <Id>193048</Id>
                                                 <Name>Maximum receive size</Name>
                                                 <Type>1</Type>
                                                 <Description>The maximum size of messages that this mailbox can receive. Qualify the value with one of the following: 'B' (bytes), 'KB' (kilobytes), 'MB' (megabytes), 'GB' (gigabytes) or 'unlimited'.</Description>
@@ -4542,7 +4794,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193040</Id>
+                                                <Id>193049</Id>
                                                 <Name>Maximum safe senders</Name>
                                                 <Type>2</Type>
                                                 <Description>The maximum number of senders that can be included in the safe senders list. Safe senders are senders that are trusted by the mailbox user and are used in junk e-mail rules. This parameter is only validated when the junk e-mail rules are updated using Outlook Web Access or Web services.</Description>
@@ -4570,7 +4822,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193041</Id>
+                                                <Id>193050</Id>
                                                 <Name>Maximum send size</Name>
                                                 <Type>1</Type>
                                                 <Description>The maximum size of messages that this mailbox can send. Qualify the value with one of the following: 'B' (bytes), 'KB' (kilobytes), 'MB' (megabytes), 'GB' (gigabytes) or 'unlimited'.</Description>
@@ -4598,7 +4850,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193042</Id>
+                                                <Id>193051</Id>
                                                 <Name>Moderated By</Name>
                                                 <Type>8</Type>
                                                 <Description>The users who are responsible for moderating the messages sent to this mailbox. This parameter is required if the 'Moderation Enabled' parameter is set to 'Yes'. Specify a text-list value for this parameter.</Description>
@@ -4626,7 +4878,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193043</Id>
+                                                <Id>193052</Id>
                                                 <Name>Moderation enabled</Name>
                                                 <Type>3</Type>
                                                 <Description>Set to 'Yes' to enable moderation or set to 'No' otherwise. If not specified this property will not be changed.</Description>
@@ -4654,7 +4906,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193044</Id>
+                                                <Id>193053</Id>
                                                 <Name>Name</Name>
                                                 <Type>1</Type>
                                                 <Description>The name attribute for this mailbox. The name attribute is used for the common name (CN) in Active Directory.</Description>
@@ -4682,7 +4934,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193045</Id>
+                                                <Id>193054</Id>
                                                 <Name>Office</Name>
                                                 <Type>1</Type>
                                                 <Description>The Microsoft Office attribute for this mailbox.</Description>
@@ -4710,7 +4962,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193046</Id>
+                                                <Id>193055</Id>
                                                 <Name>Primary SMTP address</Name>
                                                 <Type>1</Type>
                                                 <Description>The address that external users will see when they receive a message from this mailbox. When this parameter is used the 'Email addresses' parameter cannot be specified because 'Email addresses' includes the primary SMTP address.</Description>
@@ -4738,7 +4990,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193047</Id>
+                                                <Id>193056</Id>
                                                 <Name>Prohibit send quota</Name>
                                                 <Type>1</Type>
                                                 <Description>The mailbox size at which the user associated with this mailbox can no longer send messages. Qualify the value with one of the following: 'B' (bytes), 'KB' (kilobytes), 'MB' (megabytes), 'GB' (gigabytes) or 'unlimited'. If this attribute is set on a mailbox, it overrides the default value that is set for this attribute on the mailbox database.</Description>
@@ -4766,7 +5018,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193048</Id>
+                                                <Id>193057</Id>
                                                 <Name>Prohibit send receive quota</Name>
                                                 <Type>1</Type>
                                                 <Description>The mailbox size at which the user associated with this mailbox can no longer send or receive messages. Qualify the value with one of the following: 'B' (bytes), 'KB' (kilobytes), 'MB' (megabytes), 'GB' (gigabytes) or 'unlimited'. If this attribute is set on a mailbox, it overrides the default value that is set for this attribute on the mailbox database.</Description>
@@ -4794,7 +5046,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193049</Id>
+                                                <Id>193058</Id>
                                                 <Name>Recipient limits</Name>
                                                 <Type>1</Type>
                                                 <Description>The maximum number of recipients per message to which this mailbox can send. Specify either an integer or 'unlimited'. If this attribute is set on a mailbox, it overrides the default value that is set for this attribute on the hub transport server.</Description>
@@ -4822,7 +5074,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193050</Id>
+                                                <Id>193059</Id>
                                                 <Name>Reject messages from</Name>
                                                 <Type>8</Type>
                                                 <Description>The recipients from whom messages will be rejected. Use for example 'domain.com/Sales/JSmith'. Specify a text-list value for this parameter.</Description>
@@ -4850,7 +5102,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193051</Id>
+                                                <Id>193060</Id>
                                                 <Name>Reject messages from distribution list members</Name>
                                                 <Type>8</Type>
                                                 <Description>The distribution lists from which message are rejected. Messages from any member of these distribution lists are rejected. Specify a text-list value for this parameter.</Description>
@@ -4878,7 +5130,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193052</Id>
+                                                <Id>193061</Id>
                                                 <Name>Reject messages from senders or members</Name>
                                                 <Type>8</Type>
                                                 <Description>The identity of recipients from whom messages are rejected. Specify a text-list value for this parameter.</Description>
@@ -4906,7 +5158,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193053</Id>
+                                                <Id>193062</Id>
                                                 <Name>Remove picture</Name>
                                                 <Type>3</Type>
                                                 <Description>Specify 'Yes' to remove the picture that a user has added to a mailbox, or 'No' to leave the picture untouched.  If not specified 'No' is assumed.</Description>
@@ -4934,7 +5186,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193054</Id>
+                                                <Id>193063</Id>
                                                 <Name>Remove spoken name</Name>
                                                 <Type>3</Type>
                                                 <Description>Specify 'Yes' to remove the spoken name that a user has added to a mailbox, or 'No' to leave the spoken name untouched. If not specified 'No' is assumed.</Description>
@@ -4962,7 +5214,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193055</Id>
+                                                <Id>193064</Id>
                                                 <Name>Require sender authentication enabled</Name>
                                                 <Type>1</Type>
                                                 <Description>Set to 'Yes' to require senders to be authenticated. Set to 'No' to disable this requirement. If not specified this property will not be changed.</Description>
@@ -4990,7 +5242,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193056</Id>
+                                                <Id>193065</Id>
                                                 <Name>Reset password on next logon</Name>
                                                 <Type>3</Type>
                                                 <Description>Set to 'Yes' to force the user to change the password at the next logon. Set to 'No' to let the user keep its current password. If not specified this property will not be changed.</Description>
@@ -5018,7 +5270,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193057</Id>
+                                                <Id>193066</Id>
                                                 <Name>Retain deleted items for</Name>
                                                 <Type>1</Type>
                                                 <Description>The length of time to keep deleted items. To specify a value, enter it as a time span 'dd.hh:mm:ss'. Where 'd' = days, 'h' = hours, 'm' = minutes and 's' = seconds. For example, to specify a 15-hour interval, enter '15:00:00'.</Description>
@@ -5046,7 +5298,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193058</Id>
+                                                <Id>193067</Id>
                                                 <Name>Retain deleted items until backup</Name>
                                                 <Type>3</Type>
                                                 <Description>Set to 'Yes' to retain deleted items until the next backup. Set to 'No' otherwise. If not specified this property will not be changed.</Description>
@@ -5074,7 +5326,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193059</Id>
+                                                <Id>193068</Id>
                                                 <Name>Retention comment</Name>
                                                 <Type>1</Type>
                                                 <Description>The comment that is displayed in Outlook regarding the user's retention hold status. This comment can only be set if the 'Retention Hold Enabled' parameter is set to 'Yes'. This comment should be localized to the user's preferred language.</Description>
@@ -5102,7 +5354,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193060</Id>
+                                                <Id>193069</Id>
                                                 <Name>Retention hold enabled</Name>
                                                 <Type>3</Type>
                                                 <Description>Set to 'Yes' to enable the retention hold for MRM. To set the start date for retention hold, use the 'Start date for retention hold' parameter, set to 'No' to disable. If not specified this property will not be changed.</Description>
@@ -5130,7 +5382,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193061</Id>
+                                                <Id>193070</Id>
                                                 <Name>Retention policy</Name>
                                                 <Type>1</Type>
                                                 <Description>The name of a retention policy that must be applied to this mailbox. Retention policies consist of tags that are applied to mailbox folders and mail items to determine the period of time that the items should be retained.</Description>
@@ -5158,7 +5410,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193062</Id>
+                                                <Id>193071</Id>
                                                 <Name>Retention URL</Name>
                                                 <Type>1</Type>
                                                 <Description>The URL to an external Web page with additional details about the organization's messaging retention policies. This URL can be used to expose details regarding retention policies in general, which is usually a customized legal or IT Web site for the company.</Description>
@@ -5186,7 +5438,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193063</Id>
+                                                <Id>193072</Id>
                                                 <Name>Role Assignment policy</Name>
                                                 <Type>1</Type>
                                                 <Description>The RoleAssignmentPolicy parameter specifies the management role assignment policy to assign to the mailbox.</Description>
@@ -5214,7 +5466,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193064</Id>
+                                                <Id>193073</Id>
                                                 <Name>Rules quota</Name>
                                                 <Type>1</Type>
                                                 <Description>The size limit for the rules for this mailbox. Qualify the value with one of the following 'B' (bytes), 'KB' (kilobytes), 'MB' (megabytes), 'GB' (gigabytes), 'TB' (terabytes). Unqualified values are treated as bytes. The default value for this parameter is 64 KB. The quota for mailbox rules applies only to enabled rules. There is no restriction on the number of disabled rules a mailbox can have. However, the total size of rules that are enabled or active cannot exceed the value specified for this parameter.</Description>
@@ -5242,7 +5494,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193065</Id>
+                                                <Id>193074</Id>
                                                 <Name>SamAccountName</Name>
                                                 <Type>1</Type>
                                                 <Description>The user name for earlier operating systems such as 'Windows NT 4.0', 'Windows 98', 'Windows 95' and 'LAN Manager'. The parameter is used to support clients and servers running older versions of the operating system. This attribute must be less than 20 characters in length.</Description>
@@ -5270,7 +5522,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193066</Id>
+                                                <Id>193075</Id>
                                                 <Name>Simple display name</Name>
                                                 <Type>1</Type>
                                                 <Description>The simple display name is used on objects where the name of the object may be displayed in an environment that does not support Unicode characters. The only supported characters for this parameter are ASCII characters 26 through 126, inclusively. These characters are the ones that are typically found on most U.S. English keyboards.</Description>
@@ -5298,7 +5550,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193067</Id>
+                                                <Id>193076</Id>
                                                 <Name>SCL Delete Enabled</Name>
                                                 <Type>1</Type>
                                                 <Description>Set to 'Yes' to delete messages that meet the spam confidence level (SCL) threshold specified by the 'SCL Delete threshold' parameter, or to 'No' to keep them. If not specified this property will not be changed.</Description>
@@ -5326,7 +5578,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193068</Id>
+                                                <Id>193077</Id>
                                                 <Name>SCL Delete Threshold</Name>
                                                 <Type>2</Type>
                                                 <Description>The SCL at which a message is deleted, if the 'SCL Delete Enabled' parameter is set to 'Yes'. The value must be between 0 and 9 inclusive. If not specified this property will not be changed.</Description>
@@ -5354,7 +5606,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193069</Id>
+                                                <Id>193078</Id>
                                                 <Name>SCL Junk Enabled</Name>
                                                 <Type>3</Type>
                                                 <Description>Set to 'Yes' to move messages that meet the SCL threshold specified by the 'SCL Junk Threshold' parameter are to the Junk E-mail folder, or to 'No' otherwise. If not specified this property will not be changed.</Description>
@@ -5382,7 +5634,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193070</Id>
+                                                <Id>193079</Id>
                                                 <Name>SCL Junk Threshold</Name>
                                                 <Type>2</Type>
                                                 <Description>The SCL Junk threshold. Messages with an SCL greater than the specified value, are moved to the Junk E-mail folder, if the 'SCL Junk Enabled' parameter is set to 'Yes'. The value must be between 0 and 9 inclusive. If not specified this property will not be changed.</Description>
@@ -5410,7 +5662,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193071</Id>
+                                                <Id>193080</Id>
                                                 <Name>SCL Quarantine Enabled</Name>
                                                 <Type>1</Type>
                                                 <Description>Set to 'Yes' to quarantine messages that meet the SCL threshold specified by the 'SCL Quarantine Threshold' parameter, or to 'No' otherwise. If a message is quarantined, it's sent to the quarantine mailbox where the messaging administrator can review it. If not specified this property will not be changed.</Description>
@@ -5438,7 +5690,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193072</Id>
+                                                <Id>193081</Id>
                                                 <Name>SCL Quarantine Threshold</Name>
                                                 <Type>2</Type>
                                                 <Description>The SCL at which a message is quarantined, if the 'SCL Quarantine Enabled' parameter is set to 'Yes'. The value must be between 0 and 9 inclusive. If not specified this property will not be changed.</Description>
@@ -5466,7 +5718,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193073</Id>
+                                                <Id>193082</Id>
                                                 <Name>SCL Reject Enabled</Name>
                                                 <Type>3</Type>
                                                 <Description>Set to 'Yes' to reject messages that meet the SCL threshold specified by the 'SCL Reject Threshold' parameter are rejected. Set to 'No' otherwise. If a message is rejected, it's deleted and a rejection response is sent to the sender. If not specified this property will not be changed.</Description>
@@ -5494,7 +5746,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193074</Id>
+                                                <Id>193083</Id>
                                                 <Name>SCL Reject Threshold</Name>
                                                 <Type>2</Type>
                                                 <Description>The SCL at which a message is rejected, if the 'SCL Reject Enabled' parameter is set to 'Yes'. Specify a value between 0 and 9 inclusive. If not specified this property will not be changed.</Description>
@@ -5522,7 +5774,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193075</Id>
+                                                <Id>193084</Id>
                                                 <Name>Start date for retention hold</Name>
                                                 <Type>4</Type>
                                                 <Description>The start date for retention hold for MRM. To use this parameter, the 'Retention hold enabled' parameter must be set to 'Yes'.  If not specified or when set to 'Never' this property will not be changed.</Description>
@@ -5550,7 +5802,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193076</Id>
+                                                <Id>193085</Id>
                                                 <Name>Use database quota defaults</Name>
                                                 <Type>3</Type>
                                                 <Description>Set to 'Yes' to use the quota attributes specified for the mailbox database where this mailbox resides, or set to 'No' to disable this functionality. The quota attributes are: 'ProhibitSendQuota', 'ProhibitSendReceiveQuota', 'IssueWarningQuota' and 'RulesQuota'. If not specified this property will not be changed.</Description>
@@ -5578,7 +5830,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193077</Id>
+                                                <Id>193086</Id>
                                                 <Name>Use database retention defaults</Name>
                                                 <Type>3</Type>
                                                 <Description>Set to 'Yes' to specify that this mailbox uses the 'MailboxRetention' attribute specified for the mailbox database where this mailbox resides, or set to 'No' the use the values specified with this mailbox instead of the database defaults. If not specified this property will not be changed.</Description>
@@ -5606,7 +5858,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193078</Id>
+                                                <Id>193087</Id>
                                                 <Name>User principal name</Name>
                                                 <Type>1</Type>
                                                 <Description>The user principal name ('UPN') for this mailbox. This is the logon name for the user. The UPN consists of a user name and a suffix. Typically, the suffix is the domain name where the user account resides.</Description>
@@ -5634,7 +5886,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193079</Id>
+                                                <Id>193088</Id>
                                                 <Name>Windows e-mail address</Name>
                                                 <Type>1</Type>
                                                 <Description>The windows e-mail address for this mailbox. This address is not used by Exchange.</Description>
@@ -5679,12 +5931,12 @@
                             </ActionLabels>
                             <SignatureInfo class="cUmraDynActionSignature">
                                 <UserName>Tools4ever</UserName>
-                                <Signature>FAoQ@c8//kaEvt+3U#M1jCs</Signature>
+                                <Signature>I85WAY05NgRQHwwKkXozFDs</Signature>
                                 <ContainsSignature>TRUE</ContainsSignature>
                             </SignatureInfo>
                             <DynamicActionClassVersion>1</DynamicActionClassVersion>
                             <ObsoleteFlag>FALSE</ObsoleteFlag>
-                            <VersionNumber>149</VersionNumber>
+                            <VersionNumber>156</VersionNumber>
                         </Base>
                         <Script class="cUmraPsScript">
                             <Base class="cUmraObArray">
@@ -5704,6 +5956,11 @@
                 [bool]$Ex10Arbitration                                         = $false;
                 [string]$Ex10ArbitrationMailbox                                = '';
                 [System.Nullable[bool]]$Ex10AntispamBypassEnabled              = $null;
+                [string]$Ex10ArchiveDatabase                                   = '';
+                [string]$Ex10ArchiveDomain                                     = '';
+                [string[]]$Ex10ArchiveName                                     = @();
+                [string]$Ex10ArchiveQuota                                      = '';
+                [string]$Ex10ArchiveWarningQuota                               = '';
                 [string]$Ex10CustomAttribute1                                  = '';
                 [string]$Ex10CustomAttribute2                                  = '';
                 [string]$Ex10CustomAttribute3                                  = '';
@@ -5731,6 +5988,9 @@
                 [string]$Ex10MailboxPlan                                       = '';
                 [string]$Ex10MailTip                                           = '';
                 [string[]]$Ex10MailTipTranslations                             = @();
+                [string]$Ex10ManagedFolderMailboxPolicy                        = '';
+                [bool] $Ex10DiscontinueManagedFolderMailboxPolicy              =$false;
+                [bool] $Ex10RemoveManagedFolderAndPolicy                       =$false; 
                 [System.Nullable[int]]$Ex10MaxBlockedSenders                   = $null;
                 [string]$Ex10MaxReceiveSize                                    = '';
                 [System.Nullable[int]]$Ex10MaxSafeSenders                      = $null;
@@ -5772,7 +6032,8 @@
                 [System.Nullable[bool]]$Ex10UseDatabaseQuotaDefaults           = $null;
                 [System.Nullable[bool]]$Ex10UseDatabaseRetentionDefaults       = $null;
                 [string]$Ex10UserPrincipalName                                 = '';
-                [string]$Ex10WindowsEmailAddress                               = '';]]></ContentsText>
+                [string]$Ex10WindowsEmailAddress                               = '';
+                [string]$Ex10WindowsLiveID                                     = '';]]></ContentsText>
                                             <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
@@ -6236,6 +6497,152 @@
                                                                 <VariableConversionMode>0</VariableConversionMode>
                                                             </Base>
                                                             <ReplacementText>%AntispamBypassEnabled%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10ArchiveDatabase = %ArchiveDatabase%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>ArchiveDatabase</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%ArchiveDatabase%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10ArchiveDomain = %ArchiveDomain%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>ArchiveDomain</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%ArchiveDomain%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10ArchiveName += , %ArchiveName%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>ArchiveName</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceMultivalue">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%ArchiveName%</ReplacementText>
+                                                            <ColumnIndex>0</ColumnIndex>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10ArchiveQuota = %ArchiveQuota%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>ArchiveQuota</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%ArchiveQuota%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10ArchiveWarningQuota = %ArchiveWarningQuota%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>ArchiveWarningQuota</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%ArchiveWarningQuota%</ReplacementText>
                                                         </Replacement>
                                                     </ArrayElement>
                                                 </ObjectArray>
@@ -6963,6 +7370,93 @@
                                                             </Base>
                                                             <ReplacementText>%MailTipTranslation%</ReplacementText>
                                                             <ColumnIndex>0</ColumnIndex>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10ManagedFolderMailboxPolicy=%ManagedFolderMailboxPolicy%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>ManagedFolderMailboxPolicy</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%ManagedFolderMailboxPolicy%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10DiscontinueManagedFolderMailboxPolicy = %DiscontinueManagedFolderMailboxPolicy%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>DiscontinueManagedFolderMailboxPolicy</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceBoolean">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>0</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%DiscontinueManagedFolderMailboxPolicy%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10RemoveManagedFolderAndPolicy = %RemoveManagedFolderAndPolicy%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>RemoveManagedFolderAndPolicy</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceBoolean">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>0</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%RemoveManagedFolderAndPolicy%</ReplacementText>
                                                         </Replacement>
                                                     </ArrayElement>
                                                 </ObjectArray>
@@ -8096,6 +8590,35 @@
                                             </Base>
                                         </Dependencies>
                                     </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10WindowsLiveID = %WindowsLiveID%</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>WindowsLiveID</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%WindowsLiveID%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
                                     <ArrayElement class="cUmraPsScriptPhraseSimple">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
@@ -8111,6 +8634,11 @@
 					-Arbitration $Ex10Arbitration `
 					-ArbitrationMailbox $Ex10ArbitrationMailbox `
 					-AntispamBypassEnabled $Ex10AntispamBypassEnabled `
+					-ArchiveDatabase $Ex10ArchiveDatabase `
+					-ArchiveDomain $Ex10ArchiveDomain `
+					-ArchiveName $Ex10Archivename `
+					-ArchiveQuota $Ex10ArchiveQuota `
+					-ArchiveWarningQuota $Ex10ArchiveWarningQuota `
 					-CustomAttribute1 $Ex10CustomAttribute1 `
 					-CustomAttribute2 $Ex10CustomAttribute2 `
 					-CustomAttribute3 $Ex10CustomAttribute3 `
@@ -8137,6 +8665,9 @@
 					-MailboxPlan $Ex10MailboxPlan `
 					-MailTip $Ex10MailTip `
 					-MailTipTranslations $Ex10MailTipTranslations `
+					-ManagedFolderMailboxPolicy $Ex10managedFolderMailboxPolicy `
+					-DiscontinueManagedFolderMailboxPolicy $Ex10DiscontinueManagedFolderMailboxPolicy `
+					-RemoveManagedFolderAndPolicy $Ex10RemoveManagedFolderAndPolicy `
 					-MaxBlockedSenders $Ex10MaxBlockedSenders `
 					-MaxReceiveSize $Ex10MaxReceiveSize `
 					-MaxSafeSenders $Ex10MaxSafeSenders `
@@ -8178,7 +8709,8 @@
 					-UseDatabaseQuotaDefaults $Ex10UseDatabaseQuotaDefaults `
 					-UseDatabaseRetentionDefaults $Ex10UseDatabaseRetentionDefaults `
 					-UserPrincipalName $Ex10UserPrincipalName `
-					-WindowsEmailAddress $Ex10WindowsEmailAddress;]]></ContentsText>
+					-WindowsEmailAddress $Ex10WindowsEmailAddress `
+					-WindowsLiveID $Ex10WindowsLiveID;]]></ContentsText>
                                             <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
@@ -8213,6 +8745,12 @@
                                 <TextItem><![CDATA[ Ex10Arbitration]]></TextItem>
                                 <TextItem><![CDATA[ Ex10ArbitrationMailbox]]></TextItem>
                                 <TextItem><![CDATA[ Ex10AntispamBypassEnabled]]></TextItem>
+                                <TextItem><![CDATA[
+			Ex10ArchiveDomain]]></TextItem>
+                                <TextItem><![CDATA[ Ex10ArchiveDatabase]]></TextItem>
+                                <TextItem><![CDATA[ Ex10ArchiveName]]></TextItem>
+                                <TextItem><![CDATA[ Ex10ArchiveQuota]]></TextItem>
+                                <TextItem><![CDATA[ Ex10ArchiveWarningQuota]]></TextItem>
                                 <TextItem><![CDATA[ 
 			Ex10CustomAttribute1]]></TextItem>
                                 <TextItem><![CDATA[ Ex10CustomAttribute2]]></TextItem>
@@ -8245,6 +8783,10 @@
                                 <TextItem><![CDATA[ Ex10MailTip]]></TextItem>
                                 <TextItem><![CDATA[ Ex10MailTipTranslations]]></TextItem>
                                 <TextItem><![CDATA[ 
+			Ex10managedFolderMailboxPolicy]]></TextItem>
+                                <TextItem><![CDATA[ Ex10DiscontinueManagedFolderMailboxPolicy]]></TextItem>
+                                <TextItem><![CDATA[ Ex10RemoveManagedFolderAndPolicy]]></TextItem>
+                                <TextItem><![CDATA[
 			Ex10MaxBlockedSenders]]></TextItem>
                                 <TextItem><![CDATA[ Ex10MaxReceiveSize]]></TextItem>
                                 <TextItem><![CDATA[ Ex10MaxSafeSenders]]></TextItem>
@@ -8295,7 +8837,7 @@
                                 <TextItem><![CDATA[ Ex10UserPrincipalName]]></TextItem>
                                 <TextItem><![CDATA[ 
 			Ex10WindowsEmailAddress]]></TextItem>
-                                <TextItem>Ex10MailboxPlan</TextItem>
+                                <TextItem>Ex10WindowsLiveID</TextItem>
                             </VariablesCleanup>
                         </UmraPsSession>
                     </UmraPsActionScript>
@@ -8574,7 +9116,7 @@
         <EmbeddedNameGenerationFlag>FALSE</EmbeddedNameGenerationFlag>
         <LogVariablesFlag>FALSE</LogVariablesFlag>
         <DynActionDatabaseSyncId class="cUmraDynActionSetSyncId">
-            <Stamp>398</Stamp>
+            <Stamp>427</Stamp>
             <Id>zuZ9fXpxK0ko+U#bdYeo9Bs</Id>
         </DynActionDatabaseSyncId>
         <VariableInfoCollection class="cVariableInfoCollection">
@@ -8675,7 +9217,7 @@
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1667</BuildNumber>
+        <BuildNumber>1677</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>
