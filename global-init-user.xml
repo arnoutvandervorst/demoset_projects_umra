@@ -100,7 +100,7 @@
                     <TableDataVariable>%Table_users_search_roots%</TableDataVariable>
                     <ValueTextArgument1>%RowIndex%</ValueTextArgument1>
                     <ValueTextArgument2>0</ValueTextArgument2>
-                    <ValueTextArgument3>OU=Accounts,OU=Organisation,%Domain_dc%</ValueTextArgument3>
+                    <ValueTextArgument3>LDAP://%DomainController%/OU=Accounts,OU=Organisation,%Domain_dc%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
@@ -144,7 +144,7 @@
                     <TableDataVariable>%Table_users_search_roots%</TableDataVariable>
                     <ValueTextArgument1>%RowIndex%</ValueTextArgument1>
                     <ValueTextArgument2>0</ValueTextArgument2>
-                    <ValueTextArgument3>OU=website_users,%Domain_dc%</ValueTextArgument3>
+                    <ValueTextArgument3>LDAP://%DomainController%/OU=website_users,%Domain_dc%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
@@ -273,6 +273,27 @@
                             <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
                         <TextValue>(proxyAddresses=*)</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Table_users_filter_ldap_wildcard%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>(|(sAMAccountName=*%input_wildcard%*)(displayName=*%input_wildcard%*))</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                     <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
@@ -966,7 +987,7 @@
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1677</BuildNumber>
+        <BuildNumber>1679</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>

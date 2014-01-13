@@ -168,6 +168,37 @@
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
                     <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
+                <ArrayElement class="cActionItemScriptConditionalVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <InputVariable>%Boolean_must_change%</InputVariable>
+                    <OutputVariable>%Boolean_must_change%</OutputVariable>
+                    <InputOutputValues class="cNameValueCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cNameValue">
+                                    <Name>0</Name>
+                                    <Value>No</Value>
+                                </ArrayElement>
+                                <ArrayElement class="cNameValue">
+                                    <Name>1</Name>
+                                    <Value>Yes</Value>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </InputOutputValues>
+                    <DefaultOutputValue>No</DefaultOutputValue>
+                    <CaseSensitiveCompareFlag>FALSE</CaseSensitiveCompareFlag>
+                    <UseDefaultValueIfNotFoundFlag>TRUE</UseDefaultValueIfNotFoundFlag>
+                </ArrayElement>
                 <ArrayElement class="cActionItemOperationUserEditLogon">
                     <Base class="cActionItemOperation">
                         <Base class="cActionItem">
@@ -254,11 +285,11 @@
                                             <Description>The password is expired. Use this property to force the user to change the password at the next logon. Note that the user can logon using the current password.</Description>
                                             <ExportMode>1</ExportMode>
                                             <ExportVariable></ExportVariable>
-                                            <Value class="cUmDataBool">
+                                            <Value class="cUmDataText">
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <BoolValue>TRUE</BoolValue>
+                                                <TextValue>%Boolean_must_change%</TextValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -991,7 +1022,7 @@
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1667</BuildNumber>
+        <BuildNumber>1677</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>
