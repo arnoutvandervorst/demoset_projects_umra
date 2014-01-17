@@ -1733,7 +1733,7 @@
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -1744,49 +1744,9 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%cn_sql%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>%cn%</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%cn_sql%</VariableName>
-                    <TestName></TestName>
-                    <Functions class="cUgFunctionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>'</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>''</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                    </Functions>
-                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                    <ScriptActionType>4</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText>%SearchResults%</ParameterText>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGenericTable">
                     <Base class="cActionItemScript">
@@ -1817,9 +1777,9 @@
 INNER JOIN JobVariables jv ON j.id = jv.id_job
 WHERE j.closed = 0
 AND variable_name = 'cn'
-AND variable_value = '%cn_sql%']]></DatabaseQuery>
+AND variable_value = '%cn%']]></DatabaseQuery>
                         <QueryResultColumnNames/>
-                        <FlagEscapeSingleQuote>FALSE</FlagEscapeSingleQuote>
+                        <FlagEscapeSingleQuote>TRUE</FlagEscapeSingleQuote>
                     </TableDefinition>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
@@ -1881,6 +1841,21 @@ AND variable_value = '%cn_sql%']]></DatabaseQuery>
                     <LabelThen>start</LabelThen>
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>4</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText>%Table_query_db%</ParameterText>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGoTo">
                     <Base class="cActionItemScript">
@@ -2045,7 +2020,7 @@ AND variable_value = '%cn_sql%']]></DatabaseQuery>
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1667</BuildNumber>
+        <BuildNumber>1679</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>
