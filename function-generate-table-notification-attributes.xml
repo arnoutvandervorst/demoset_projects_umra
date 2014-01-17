@@ -89,7 +89,7 @@
                     </Base>
                     <TableDataOperation>1</TableDataOperation>
                     <TableDataVariable>%Table_notification_attributes%</TableDataVariable>
-                    <ValueTextArgument1>9</ValueTextArgument1>
+                    <ValueTextArgument1>10</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
@@ -178,7 +178,7 @@
                     <TableDataOperation>15</TableDataOperation>
                     <TableDataVariable>%Table_notification_attributes%</TableDataVariable>
                     <ValueTextArgument1>3</ValueTextArgument1>
-                    <ValueTextArgument2>%RES_table_column_mail_to%</ValueTextArgument2>
+                    <ValueTextArgument2>%RES_table_column_active%</ValueTextArgument2>
                     <ValueTextArgument3>%Object_dn%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -200,7 +200,7 @@
                     <TableDataOperation>15</TableDataOperation>
                     <TableDataVariable>%Table_notification_attributes%</TableDataVariable>
                     <ValueTextArgument1>4</ValueTextArgument1>
-                    <ValueTextArgument2>%RES_table_column_mail_cc%</ValueTextArgument2>
+                    <ValueTextArgument2>%RES_table_column_mail_to%</ValueTextArgument2>
                     <ValueTextArgument3>%Object_dn%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -222,7 +222,7 @@
                     <TableDataOperation>15</TableDataOperation>
                     <TableDataVariable>%Table_notification_attributes%</TableDataVariable>
                     <ValueTextArgument1>5</ValueTextArgument1>
-                    <ValueTextArgument2>%RES_table_column_mail_bcc%</ValueTextArgument2>
+                    <ValueTextArgument2>%RES_table_column_mail_cc%</ValueTextArgument2>
                     <ValueTextArgument3>%Object_dn%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -244,7 +244,7 @@
                     <TableDataOperation>15</TableDataOperation>
                     <TableDataVariable>%Table_notification_attributes%</TableDataVariable>
                     <ValueTextArgument1>6</ValueTextArgument1>
-                    <ValueTextArgument2>%RES_table_column_mail_from%</ValueTextArgument2>
+                    <ValueTextArgument2>%RES_table_column_mail_bcc%</ValueTextArgument2>
                     <ValueTextArgument3>%Object_dn%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -266,7 +266,7 @@
                     <TableDataOperation>15</TableDataOperation>
                     <TableDataVariable>%Table_notification_attributes%</TableDataVariable>
                     <ValueTextArgument1>7</ValueTextArgument1>
-                    <ValueTextArgument2>%RES_table_column_mail_subject%</ValueTextArgument2>
+                    <ValueTextArgument2>%RES_table_column_mail_from%</ValueTextArgument2>
                     <ValueTextArgument3>%Object_dn%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -288,6 +288,28 @@
                     <TableDataOperation>15</TableDataOperation>
                     <TableDataVariable>%Table_notification_attributes%</TableDataVariable>
                     <ValueTextArgument1>8</ValueTextArgument1>
+                    <ValueTextArgument2>%RES_table_column_mail_subject%</ValueTextArgument2>
+                    <ValueTextArgument3>%Object_dn%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_notification_attributes%</TableDataVariable>
+                    <ValueTextArgument1>9</ValueTextArgument1>
                     <ValueTextArgument2>%RES_table_column_mail_body%</ValueTextArgument2>
                     <ValueTextArgument3>%Object_dn%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
@@ -490,6 +512,59 @@
                     <TableDataVariable>%Table_notification_attributes%</TableDataVariable>
                     <ValueTextArgument1>0</ValueTextArgument1>
                     <ValueTextArgument2>3</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_is_active%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptConditionalVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <InputVariable>%MSG_is_active%</InputVariable>
+                    <OutputVariable>%MSG_is_active_checkbox%</OutputVariable>
+                    <InputOutputValues class="cNameValueCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cNameValue">
+                                    <Name>Yes</Name>
+                                    <Value>1</Value>
+                                </ArrayElement>
+                                <ArrayElement class="cNameValue">
+                                    <Name>No</Name>
+                                    <Value>0</Value>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                    </InputOutputValues>
+                    <DefaultOutputValue></DefaultOutputValue>
+                    <CaseSensitiveCompareFlag>FALSE</CaseSensitiveCompareFlag>
+                    <UseDefaultValueIfNotFoundFlag>FALSE</UseDefaultValueIfNotFoundFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_notification_attributes%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>4</ValueTextArgument2>
                     <ValueTextArgument3>%MSG_mail_to%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -511,7 +586,7 @@
                     <TableDataOperation>4</TableDataOperation>
                     <TableDataVariable>%Table_notification_attributes%</TableDataVariable>
                     <ValueTextArgument1>0</ValueTextArgument1>
-                    <ValueTextArgument2>4</ValueTextArgument2>
+                    <ValueTextArgument2>5</ValueTextArgument2>
                     <ValueTextArgument3>%MSG_mail_cc%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -533,7 +608,7 @@
                     <TableDataOperation>4</TableDataOperation>
                     <TableDataVariable>%Table_notification_attributes%</TableDataVariable>
                     <ValueTextArgument1>0</ValueTextArgument1>
-                    <ValueTextArgument2>5</ValueTextArgument2>
+                    <ValueTextArgument2>6</ValueTextArgument2>
                     <ValueTextArgument3>%MSG_mail_bcc%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -555,7 +630,7 @@
                     <TableDataOperation>4</TableDataOperation>
                     <TableDataVariable>%Table_notification_attributes%</TableDataVariable>
                     <ValueTextArgument1>0</ValueTextArgument1>
-                    <ValueTextArgument2>6</ValueTextArgument2>
+                    <ValueTextArgument2>7</ValueTextArgument2>
                     <ValueTextArgument3>%MSG_mail_from%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -577,7 +652,7 @@
                     <TableDataOperation>4</TableDataOperation>
                     <TableDataVariable>%Table_notification_attributes%</TableDataVariable>
                     <ValueTextArgument1>0</ValueTextArgument1>
-                    <ValueTextArgument2>7</ValueTextArgument2>
+                    <ValueTextArgument2>8</ValueTextArgument2>
                     <ValueTextArgument3>%MSG_mail_subject%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -599,7 +674,7 @@
                     <TableDataOperation>4</TableDataOperation>
                     <TableDataVariable>%Table_notification_attributes%</TableDataVariable>
                     <ValueTextArgument1>0</ValueTextArgument1>
-                    <ValueTextArgument2>8</ValueTextArgument2>
+                    <ValueTextArgument2>9</ValueTextArgument2>
                     <ValueTextArgument3>%MSG_mail_body%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
