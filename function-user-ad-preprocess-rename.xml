@@ -241,9 +241,9 @@
                             <Label></Label>
                             <ErrorControl>1</ErrorControl>
                             <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>TRUE</ErrorVariableFlag>
-                            <ErrorVariableName>%Status_operation%</ErrorVariableName>
-                            <ErrorVariableContents>%RES_status_operation_generic%</ErrorVariableContents>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                         <Explanation>Searches the Active Directory for one or more objects. For each object found, the object distinguished name is returned. For the search, you need to specify the environment (LDAP, GC, domain, ou, etc.) and the LDAP search string.</Explanation>
                         <PropertyArray class="cUmraPsPropertyArray">
@@ -385,6 +385,42 @@
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>4</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText>%SearchResults%</ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%mailNickname%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%sAMAccountName%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
                             <Label>generate-cn</Label>
                             <ErrorControl>0</ErrorControl>
                             <ErrorControlLabel></ErrorControlLabel>
@@ -486,9 +522,9 @@
                             <Label></Label>
                             <ErrorControl>1</ErrorControl>
                             <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>TRUE</ErrorVariableFlag>
-                            <ErrorVariableName>%Status_operation%</ErrorVariableName>
-                            <ErrorVariableContents>%RES_status_operation_generic%</ErrorVariableContents>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                         <Explanation>Searches the Active Directory for one or more objects. For each object found, the object distinguished name is returned. For the search, you need to specify the environment (LDAP, GC, domain, ou, etc.) and the LDAP search string.</Explanation>
                         <PropertyArray class="cUmraPsPropertyArray">
@@ -626,6 +662,21 @@
                     <LabelThen>generate-cn</LabelThen>
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>4</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText>%SearchResults%</ParameterText>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
@@ -1591,6 +1642,72 @@
                     <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
                     <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
                     <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>mailNickname</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%mailNickname%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>2</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>3</TableDataOperation>
+                    <TableDataVariable>%Table_user_attributes_set%</TableDataVariable>
+                    <ValueTextArgument1>%Rowindex_new%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
                     <ValueTextArgument3>userPrincipalName</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -2228,7 +2345,7 @@
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1667</BuildNumber>
+        <BuildNumber>1679</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>
