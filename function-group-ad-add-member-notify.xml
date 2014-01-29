@@ -18,7 +18,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%MSG_id%</InputVariableName>
+                                    <InputVariableName>%Object_dn%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>100</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -27,7 +27,54 @@
                                     <InvertResultFlag>FALSE</InvertResultFlag>
                                 </ArrayElement>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%MSG_id%</InputVariableName>
+                                    <InputVariableName>%Object_dn%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>208</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>1</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Object_dn_add%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>100</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue/>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%Object_dn_add%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>208</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -61,7 +108,74 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>function-generate-table-notification-attributes</ProjectName>
+                    <ProjectName>global-init-notification</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init-db</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGenericTable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDefinition class="cUmraTableDefDatabaseQuery" Version="1">
+                        <Base class="cUmraTableDef">
+                            <VariableName>%Table_query_db%</VariableName>
+                            <TestVariableArray class="cUmVariableArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray/>
+                                </Base>
+                            </TestVariableArray>
+                        </Base>
+                        <UmraOleDb class="cUmraOleDbGeneral">
+                            <Base class="cUmraOleDb"/>
+                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
+                            <OleDbProviderType>55466104</OleDbProviderType>
+                        </UmraOleDb>
+                        <DatabaseQuery><![CDATA[EXEC spNotification_get_type
+'%UmraProjectName%',
+1]]></DatabaseQuery>
+                        <QueryResultColumnNames/>
+                        <FlagEscapeSingleQuote>TRUE</FlagEscapeSingleQuote>
+                    </TableDefinition>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>5</TableDataOperation>
+                    <TableDataVariable>%Table_query_db%</TableDataVariable>
+                    <ValueTextArgument1>%Count_rows_table_query_db%</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptIfThenElse">
                     <Base class="cActionItemScript">
@@ -78,7 +192,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Count_errors%</InputVariableName>
+                                    <InputVariableName>%Count_rows_table_query_db%</InputVariableName>
                                     <InputVariableType>2</InputVariableType>
                                     <OperatorIndex>300</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -89,66 +203,6 @@
                                         <NumericValue>0</NumericValue>
                                     </OperatorArgumentValue>
                                     <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>TRUE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>end</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>function-notification-db-preprocess-send</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%MSG_mail_to%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>100</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue/>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%MSG_mail_to%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>208</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>1</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
                                     <InvertResultFlag>FALSE</InvertResultFlag>
                                 </ArrayElement>
                             </ObjectArray>
@@ -161,7 +215,7 @@
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -172,178 +226,21 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%MSG_mail_from%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>100</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue/>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%MSG_mail_from%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>208</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>1</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>end</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%MSG_mail_server%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>100</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue/>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%MSG_mail_server%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>208</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>1</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>end</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%MSG_mail_subject%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>100</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue/>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%MSG_mail_subject%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>208</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>1</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>end</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%MSG_mail_body%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>203</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataText">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <TextValue>&lt;/html&gt;</TextValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>html</LabelThen>
-                    <LabelElse>plain</LabelElse>
-                    <UseElseFlag>TRUE</UseElseFlag>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_db%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_id%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
-                            <Label>html</Label>
+                            <Label></Label>
                             <ErrorControl>0</ErrorControl>
                             <ErrorControlLabel></ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
@@ -351,12 +248,12 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ScriptActionType>2</ScriptActionType>
+                    <ScriptActionType>4</ScriptActionType>
                     <ParameterNumeric>0</ParameterNumeric>
-                    <ParameterText></ParameterText>
+                    <ParameterText>%Table_query_db%</ParameterText>
                 </ArrayElement>
-                <ArrayElement class="cActionItemOperationSendMailEx">
-                    <Base class="cActionItemOperation">
+                <ArrayElement class="cActionItemScriptGenericTable">
+                    <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
                             <ErrorControl>1</ErrorControl>
@@ -365,143 +262,95 @@
                             <ErrorVariableName></ErrorVariableName>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
-                        <Explanation>Send an HTML e-mail message with attachments (optional) to the specified E-mail address. All parameters can contain variables.</Explanation>
-                        <PropertyArray class="cUmraPsPropertyArray">
-                            <Base class="cUmPropertyArray">
+                    </Base>
+                    <TableDefinition class="cUmraTableDefLdapQuery">
+                        <Base class="cUmraTableDef">
+                            <VariableName>%Table_query_ad%</VariableName>
+                            <TestVariableArray class="cUmVariableArray">
                                 <Base class="cUmraObArray">
-                                    <ObjectArray>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>184000</Id>
-                                            <Name>SMTP server</Name>
-                                            <Type>1</Type>
-                                            <Description>The DNS name or IP address of the SMTP server to be used by UMRA to send the e-mail (example: mail.company.com). Optionally, the SMTP port can be specified (mail.company.com:25). By default, port number 25 is used.</Description>
-                                            <ExportMode>1</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value class="cUmDataText">
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                                <TextValue>%MSG_mail_server%</TextValue>
-                                            </Value>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>184001</Id>
-                                            <Name>To</Name>
-                                            <Type>1</Type>
-                                            <Description>The recipient of the e-mail message. To specify multiple recipients, use a semi-colon (;) to separate the recipients (example: john@domain.com; william@company.com).</Description>
-                                            <ExportMode>1</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value class="cUmDataText">
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                                <TextValue>%MSG_mail_to%</TextValue>
-                                            </Value>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>184002</Id>
-                                            <Name>Cc</Name>
-                                            <Type>1</Type>
-                                            <Description>The recipients that should receive a copy of the e-mail message. To specify multiple recipients, use a semi-colon (;) to separate the copied recipients (example: john@domain.com; william@company.com).</Description>
-                                            <ExportMode>1</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value class="cUmDataText">
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                                <TextValue>%MSG_mail_cc%</TextValue>
-                                            </Value>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>184003</Id>
-                                            <Name>Bcc</Name>
-                                            <Type>1</Type>
-                                            <Description>The recipients that should receive a blind copy of the e-mail message. To specify multiple recipients, use a semi-colon (;) to separate the copied recipients (example: john@domain.com; william@company.com).</Description>
-                                            <ExportMode>1</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value class="cUmDataText">
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                                <TextValue>%MSG_mail_bcc%</TextValue>
-                                            </Value>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>184004</Id>
-                                            <Name>From</Name>
-                                            <Type>1</Type>
-                                            <Description>The name of the sender of the e-mail message (example: john@company.com).</Description>
-                                            <ExportMode>1</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value class="cUmDataText">
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                                <TextValue>%MSG_mail_from%</TextValue>
-                                            </Value>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>184005</Id>
-                                            <Name>Subject</Name>
-                                            <Type>1</Type>
-                                            <Description>The subject of the e-mail message (example: User creation report).</Description>
-                                            <ExportMode>1</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value class="cUmDataText">
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                                <TextValue>%MSG_mail_subject%</TextValue>
-                                            </Value>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>184006</Id>
-                                            <Name>HTML file</Name>
-                                            <Type>1</Type>
-                                            <Description>The name of the file that contains the HTML contents of the e-mail message. Specify either this property or property 'HTML text'. The HTML contents of the file can contain UMRA variables. If the HTML contents contains links to files, the files should be contained in the same directory as the file or in the directory specified by property 'HTML link directory'. (example: D:\UMRA\EmailTemplates\UserCreationReport.html).</Description>
-                                            <ExportMode>1</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value/>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>184007</Id>
-                                            <Name>HTML text</Name>
-                                            <Type>1</Type>
-                                            <Description>The HTML contents of the e-mail message. Specify either this property or property 'HTML file'. The HTML contents can contain UMRA variables. If the HTML contents contains links to files, these files should be contained in the directory specified with property 'HTML link directory' (example: &lt;HTML&gt; ... &lt;/HTML&gt;).</Description>
-                                            <ExportMode>1</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value class="cUmDataText">
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                                <TextValue>%MSG_mail_body%</TextValue>
-                                            </Value>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>184008</Id>
-                                            <Name>HTML link directory</Name>
-                                            <Type>1</Type>
-                                            <Description>The directory that contains the files referred to in the HTML contents, specified with property 'HTML text' or 'HTML file' (example: D:\UMRA\EmailTemplates\images).</Description>
-                                            <ExportMode>1</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value/>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmProperty">
-                                            <Id>184009</Id>
-                                            <Name>Attachments</Name>
-                                            <Type>1</Type>
-                                            <Description>The name of one or more files to be attached to the e-mail message. To specify multiple attachments, use the semi-colon (;) as a separator character (example: D:\UMRA\Data\UserLog.txt).</Description>
-                                            <ExportMode>1</ExportMode>
-                                            <ExportVariable></ExportVariable>
-                                            <Value/>
-                                        </ArrayElement>
-                                    </ObjectArray>
+                                    <ObjectArray/>
                                 </Base>
+                            </TestVariableArray>
+                        </Base>
+                        <UmraLdapQueryBindingType>0</UmraLdapQueryBindingType>
+                        <BindingString>LDAP://%DomainController%/%Object_dn%</BindingString>
+                        <LdapQueryFilter>(cn=*)</LdapQueryFilter>
+                        <Attributes class="cUmraTableLdapAttributes">
+                            <Base class="cUmraObArray">
+                                <ObjectArray>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>sAMAccountName</LdapName>
+                                        <DisplayName>sAMAccountName</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>cn</LdapName>
+                                        <DisplayName>cn</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>description</LdapName>
+                                        <DisplayName>description</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>info</LdapName>
+                                        <DisplayName>info</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>mail</LdapName>
+                                        <DisplayName>mail</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>managedBy</LdapName>
+                                        <DisplayName>managedBy</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                </ObjectArray>
                             </Base>
-                        </PropertyArray>
-                    </Base>
+                        </Attributes>
+                        <LdapSearchOptions class="cUmraTableLdapSearchOptions">
+                            <FlagTimeTotal>FALSE</FlagTimeTotal>
+                            <FlagTimePage>FALSE</FlagTimePage>
+                            <FlagSizeTotal>FALSE</FlagSizeTotal>
+                            <FlagSizePage>TRUE</FlagSizePage>
+                            <FlagCacheResults>TRUE</FlagCacheResults>
+                            <TimeTotalSec>120</TimeTotalSec>
+                            <TimePageSec>120</TimePageSec>
+                            <SizeTotal>1000</SizeTotal>
+                            <SizePage>500</SizePage>
+                            <ScopeOption>2</ScopeOption>
+                            <ReferralChaseOption>0</ReferralChaseOption>
+                        </LdapSearchOptions>
+                    </TableDefinition>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -512,17 +361,18 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Log_description%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>HTML notification verzonden: %MSG_mail_to% (%MSG_mail_subject%)</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_sAMAccountName_group%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -533,17 +383,18 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Log_type_operation%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>notify-mail-html</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_cn_group%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -554,17 +405,18 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Log_status_operation%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>%Status_operation%</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>2</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_description_group%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -575,17 +427,18 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Log_status_script%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>%UmraProjectName%</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>3</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_info_group%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -596,17 +449,18 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Log_object_managed_primary%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue></TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>4</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_mail_group%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -617,46 +471,204 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Log_object_managed_secondary%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue></TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>function-log-db-record-add</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptGoTo">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <GoToLabel>end</GoToLabel>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>5</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_managedBy_group%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
-                            <Label>plain</Label>
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>4</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText>%Table_query_ad%</ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%MSG_managedBy_group%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>100</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue/>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%MSG_managedBy_group%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>208</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>1</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>skip-managedby</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGenericTable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDefinition class="cUmraTableDefLdapQuery">
+                        <Base class="cUmraTableDef">
+                            <VariableName>%Table_query_ad%</VariableName>
+                            <TestVariableArray class="cUmVariableArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray/>
+                                </Base>
+                            </TestVariableArray>
+                        </Base>
+                        <UmraLdapQueryBindingType>2</UmraLdapQueryBindingType>
+                        <BindingString>%Binding_ldap%/%MSG_managedBy_group%</BindingString>
+                        <LdapQueryFilter>(cn=*)</LdapQueryFilter>
+                        <Attributes class="cUmraTableLdapAttributes">
+                            <Base class="cUmraObArray">
+                                <ObjectArray>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>displayName</LdapName>
+                                        <DisplayName>displayName</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>mail</LdapName>
+                                        <DisplayName>mail</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                </ObjectArray>
+                            </Base>
+                        </Attributes>
+                        <LdapSearchOptions class="cUmraTableLdapSearchOptions">
+                            <FlagTimeTotal>FALSE</FlagTimeTotal>
+                            <FlagTimePage>FALSE</FlagTimePage>
+                            <FlagSizeTotal>FALSE</FlagSizeTotal>
+                            <FlagSizePage>TRUE</FlagSizePage>
+                            <FlagCacheResults>TRUE</FlagCacheResults>
+                            <TimeTotalSec>120</TimeTotalSec>
+                            <TimePageSec>120</TimePageSec>
+                            <SizeTotal>1000</SizeTotal>
+                            <SizePage>500</SizePage>
+                            <ScopeOption>2</ScopeOption>
+                            <ReferralChaseOption>0</ReferralChaseOption>
+                        </LdapSearchOptions>
+                    </TableDefinition>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_displayName_group_managedBy%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_mail_group_managedBy%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>4</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText>%Table_query_ad%</ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>skip-managedby</Label>
                             <ErrorControl>0</ErrorControl>
                             <ErrorControlLabel></ErrorControlLabel>
                             <ErrorVariableFlag>FALSE</ErrorVariableFlag>
@@ -668,7 +680,7 @@
                     <ParameterNumeric>0</ParameterNumeric>
                     <ParameterText></ParameterText>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSendMail">
+                <ArrayElement class="cActionItemScriptGenericTable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -679,19 +691,148 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <DestinationAddress>%MSG_mail_to%</DestinationAddress>
-                    <CcDestinationAddress>%MSG_mail_cc%</CcDestinationAddress>
-                    <FromAddress>%MSG_mail_from%</FromAddress>
-                    <MailSubject>%MSG_mail_subject%</MailSubject>
-                    <MailMessage>%MSG_mail_body%</MailMessage>
-                    <XSender></XSender>
-                    <MailServer>%MSG_mail_server%</MailServer>
-                    <UserName></UserName>
-                    <Password></Password>
-                    <MailServerPort>25</MailServerPort>
-                    <AuthenticationMethod>0</AuthenticationMethod>
+                    <TableDefinition class="cUmraTableDefLdapQuery">
+                        <Base class="cUmraTableDef">
+                            <VariableName>%Table_query_ad%</VariableName>
+                            <TestVariableArray class="cUmVariableArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray/>
+                                </Base>
+                            </TestVariableArray>
+                        </Base>
+                        <UmraLdapQueryBindingType>2</UmraLdapQueryBindingType>
+                        <BindingString>LDAP://%DomainController%/%Object_dn_add%</BindingString>
+                        <LdapQueryFilter>(cn=*)</LdapQueryFilter>
+                        <Attributes class="cUmraTableLdapAttributes">
+                            <Base class="cUmraObArray">
+                                <ObjectArray>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>sAMAccountName</LdapName>
+                                        <DisplayName>sAMAccountName</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>cn</LdapName>
+                                        <DisplayName>cn</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>description</LdapName>
+                                        <DisplayName>description</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>initials</LdapName>
+                                        <DisplayName>initials</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>givenName</LdapName>
+                                        <DisplayName>givenName</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>sn</LdapName>
+                                        <DisplayName>sn</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>displayName</LdapName>
+                                        <DisplayName>displayName</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>physicalDeliveryOfficeName</LdapName>
+                                        <DisplayName>physicalDeliveryOfficeName</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>title</LdapName>
+                                        <DisplayName>title</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>department</LdapName>
+                                        <DisplayName>department</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>company</LdapName>
+                                        <DisplayName>company</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>telephoneNumber</LdapName>
+                                        <DisplayName>telephoneNumber</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                </ObjectArray>
+                            </Base>
+                        </Attributes>
+                        <LdapSearchOptions class="cUmraTableLdapSearchOptions">
+                            <FlagTimeTotal>FALSE</FlagTimeTotal>
+                            <FlagTimePage>FALSE</FlagTimePage>
+                            <FlagSizeTotal>FALSE</FlagSizeTotal>
+                            <FlagSizePage>TRUE</FlagSizePage>
+                            <FlagCacheResults>TRUE</FlagCacheResults>
+                            <TimeTotalSec>120</TimeTotalSec>
+                            <TimePageSec>120</TimePageSec>
+                            <SizeTotal>1000</SizeTotal>
+                            <SizePage>500</SizePage>
+                            <ScopeOption>2</ScopeOption>
+                            <ReferralChaseOption>0</ReferralChaseOption>
+                        </LdapSearchOptions>
+                    </TableDefinition>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -702,17 +843,18 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Log_description%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>Text notification verzonden: %MSG_mail_to% (%MSG_mail_subject%)</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_sAMAccountName_user%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -723,17 +865,18 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Log_type_operation%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>notify-mail-plain</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_cn_user%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -744,17 +887,18 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Log_status_operation%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>%Status_operation%</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>2</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_description_user%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -765,17 +909,18 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Log_status_script%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>%UmraProjectName%</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>3</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_initials_user%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -786,17 +931,18 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Log_object_managed_primary%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue></TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>4</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_givenName_user%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -807,15 +953,163 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%Log_object_managed_secondary%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>5</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_sn_user%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
                         </Base>
-                        <TextValue></TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>6</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_displayName_user%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>7</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_physicalDeliveryOfficeName_user%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>8</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_title_user%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>9</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_department_user%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>10</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_company_user%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>11</ValueTextArgument2>
+                    <ValueTextArgument3>%MSG_telephoneNumber_user%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>4</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText>%Table_query_ad%</ParameterText>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
@@ -828,7 +1122,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>function-log-db-record-add</ProjectName>
+                    <ProjectName>function-notification-db-send</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGoTo">
                     <Base class="cActionItemScript">
@@ -977,16 +1271,16 @@
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\4f37f553-cf98-4623-97dc-8d3fa23fab8b.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\7e85c399-e1e6-48d6-b41b-cc3712e73312.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
         <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-notification-db-send</ProjectName>
-        <DisplayName>function-tag-db-save</DisplayName>
-        <UUID>TV/NPh5zjY0@c34Pi+zq#Cs</UUID>
+        <ProjectName>function-group-ad-add-member-notify</ProjectName>
+        <DisplayName>function-group-ad-set-table-member</DisplayName>
+        <UUID>ZOch+Ze4WjEtbw8NSc+MSAs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
