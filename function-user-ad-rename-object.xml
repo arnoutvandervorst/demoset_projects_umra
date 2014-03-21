@@ -495,161 +495,6 @@
                         <FlagEscapeSingleQuote>TRUE</FlagEscapeSingleQuote>
                     </SqlUpdate>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Object_dn_renamed_sql%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>%Object_dn%</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%AD_cn%</VariableName>
-                    <TestName></TestName>
-                    <Functions class="cUgFunctionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>,</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>\,</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                    </Functions>
-                    <HideFromLogFlag>FALSE</HideFromLogFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%cn%</VariableName>
-                    <TestName></TestName>
-                    <Functions class="cUgFunctionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>,</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>\,</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                    </Functions>
-                    <HideFromLogFlag>FALSE</HideFromLogFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%Object_dn_renamed_sql%</VariableName>
-                    <TestName></TestName>
-                    <Functions class="cUgFunctionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>%AD_cn%</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%cn%</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                    </Functions>
-                    <HideFromLogFlag>FALSE</HideFromLogFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptDatabaseCommand">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <SqlUpdate class="cUmraDbUpdate" Version="2">
-                        <OleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
-                            <OleDbProviderType>8</OleDbProviderType>
-                        </OleDb>
-                        <SqlCommands>
-                            <TextItem><![CDATA[EXEC spSnapshot_objectattribute_update
-'%Object_dn_sql%',
-'distinguishedName',
-'%Object_dn_renamed_sql%']]></TextItem>
-                        </SqlCommands>
-                        <TestVariables class="cUmVariableArray">
-                            <Base class="cUmraObArray">
-                                <ObjectArray/>
-                            </Base>
-                        </TestVariables>
-                        <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
-                        <FlagEscapeSingleQuote>TRUE</FlagEscapeSingleQuote>
-                    </SqlUpdate>
-                </ArrayElement>
                 <ArrayElement class="cActionItemOperationAdSearchObject">
                     <Base class="cActionItemOperation">
                         <Base class="cActionItem">
@@ -750,7 +595,7 @@
                                             <Type>8</Type>
                                             <Description>The distinguished names of the matching objects. This property is an 'output only' property and is generated by the application automatically. By default, the value for this property is stored in variable %SearchResults%.</Description>
                                             <ExportMode>4097</ExportMode>
-                                            <ExportVariable>%Object_dn%</ExportVariable>
+                                            <ExportVariable>%Object_dn_renamed%</ExportVariable>
                                             <Value/>
                                         </ArrayElement>
                                     </ObjectArray>
@@ -758,6 +603,38 @@
                             </Base>
                         </PropertyArray>
                     </Base>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptDatabaseCommand">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <SqlUpdate class="cUmraDbUpdate" Version="2">
+                        <OleDb class="cUmraOleDbGeneral">
+                            <Base class="cUmraOleDb"/>
+                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
+                            <OleDbProviderType>8</OleDbProviderType>
+                        </OleDb>
+                        <SqlCommands>
+                            <TextItem><![CDATA[EXEC spSnapshot_objectattribute_update
+'%Object_dn%',
+'distinguishedName',
+'%Object_dn_renamed%']]></TextItem>
+                        </SqlCommands>
+                        <TestVariables class="cUmVariableArray">
+                            <Base class="cUmraObArray">
+                                <ObjectArray/>
+                            </Base>
+                        </TestVariables>
+                        <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
+                        <FlagEscapeSingleQuote>TRUE</FlagEscapeSingleQuote>
+                    </SqlUpdate>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
@@ -771,6 +648,27 @@
                         </Base>
                     </Base>
                     <ProjectName>function-cache-ad-refresh-domain</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Object_dn%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%Object_dn_renamed%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptIfThenElse">
                     <Base class="cActionItemScript">
@@ -1112,7 +1010,7 @@
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1679</BuildNumber>
+        <BuildNumber>1683</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>

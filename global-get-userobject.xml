@@ -300,6 +300,129 @@
                         </PropertyArray>
                     </Base>
                 </ArrayElement>
+                <ArrayElement class="cActionItemOperationAdGetProperty">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                        <Explanation>Get the value of an attribute of an Active Directory object, for instance a user account. The attribute is specified by the LDAP display name of the attribute. For the most common properties, the LDAP name can be selected from a list.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>150000</Id>
+                                            <Name>User Object</Name>
+                                            <Type>7</Type>
+                                            <Description>A data structure representing a user account. If you want to obtain the property of a user account object, you can use this property to specify the Active Directory object for this action. Use the action 'Get user (AD)' to find the user account in Active Directory and setup the variable that contains the 'User Object'.</Description>
+                                            <ExportMode>0</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%UserObject%</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>150001</Id>
+                                            <Name>Active Directory Object</Name>
+                                            <Type>7</Type>
+                                            <Description>A data structure representing a Active Directory object for which an attribute must obtained. This property can only be used as a input variable. Earlier in the script, another script action must have generated the value for this variable.</Description>
+                                            <ExportMode>0</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>150010</Id>
+                                            <Name>LDAP attribute display name</Name>
+                                            <Type>1</Type>
+                                            <Description>The LDAP name of the attribute. The name identifies the attribute of the Active Directory object. For a number of well-known attributes, the LDAP name can be selected from a list but you can specify any other valid name.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>sAMAccountName</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>150011</Id>
+                                            <Name>Multi-value flag</Name>
+                                            <Type>3</Type>
+                                            <Description>Save multi-values as multi-values for the attribute. If set to 'Yes' and the attribute is multi-valued, the values are stored as multi-values (text list or table). If set to 'No' and the attribute is multi-valued, the values are converted into a single value. Default value: 'No'.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>150012</Id>
+                                            <Name>Convert to text flag</Name>
+                                            <Type>3</Type>
+                                            <Description>Convert the value(s) of the attribute to text. Default value: 'Yes'. If set, depending on property 'Multi-value flag', the result is either a single text or text list. If not set ('No'), the results is stored as one of the UMRA supported data types.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>TRUE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>150020</Id>
+                                            <Name>Error if no attribute found</Name>
+                                            <Type>3</Type>
+                                            <Description>Generate an error for this script action if the specified attribute is not found.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>150021</Id>
+                                            <Name>Error if empty</Name>
+                                            <Type>3</Type>
+                                            <Description>Generate an error for this script action if the attribute is found but attribute value is empty.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>150030</Id>
+                                            <Name>Attribute value</Name>
+                                            <Type>8</Type>
+                                            <Description>The value found for the attribute. This property is an 'output only' property and is generated by the application automatically. By default, the value for this property is stored in variable %AttributeValue%.</Description>
+                                            <ExportMode>4097</ExportMode>
+                                            <ExportVariable>%AD_sAMAccountName%</ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -484,7 +607,7 @@
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1681</BuildNumber>
+        <BuildNumber>1683</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>
