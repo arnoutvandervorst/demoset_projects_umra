@@ -3,6 +3,220 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init-topdesk</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%TOPdesk_type%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>Standaard wijziging</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%TOPdesk_status%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>Status</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptConvertTextToDate">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableIn>%input_date%</VariableIn>
+                    <VariableOut>%input_date_converted%</VariableOut>
+                    <Format>day-month-year</Format>
+                    <Day>1</Day>
+                    <Month>1</Month>
+                    <Year>2005</Year>
+                    <Hour>12</Hour>
+                    <Minute>0</Minute>
+                    <Second>0</Second>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSplitVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <InputVariableName>%input_date_converted%</InputVariableName>
+                    <Separators><![CDATA[ ]]></Separators>
+                    <OutputVariableName1>%dummy%</OutputVariableName1>
+                    <OutputVariableName2>%input_date_date%</OutputVariableName2>
+                    <Var1EmptyIfNoSplitFlag>FALSE</Var1EmptyIfNoSplitFlag>
+                    <RightToLeftFlag>FALSE</RightToLeftFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSplitVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <InputVariableName>%input_date_date%</InputVariableName>
+                    <Separators>/</Separators>
+                    <OutputVariableName1>%input_date_month%</OutputVariableName1>
+                    <OutputVariableName2>%input_date_day_year%</OutputVariableName2>
+                    <Var1EmptyIfNoSplitFlag>FALSE</Var1EmptyIfNoSplitFlag>
+                    <RightToLeftFlag>FALSE</RightToLeftFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSplitVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <InputVariableName>%input_date_day_year%</InputVariableName>
+                    <Separators>/</Separators>
+                    <OutputVariableName1>%input_date_day%</OutputVariableName1>
+                    <OutputVariableName2>%input_date_year%</OutputVariableName2>
+                    <Var1EmptyIfNoSplitFlag>FALSE</Var1EmptyIfNoSplitFlag>
+                    <RightToLeftFlag>FALSE</RightToLeftFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%TOPdesk_plannedauthdate%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%input_date_year%-%input_date_month%-%input_date_day% 00:00:00.000</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%TOPdesk_changetype%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>1</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%TOPdesk_description%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>Aanvraag voor %TOPdesk_categorie%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%TOPdesk_briefdescription%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue>%TOPdesk_categorie%</TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -107,417 +321,6 @@
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
                     <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%TOPdesk_action%</VariableName>
-                    <TestName>&amp;=</TestName>
-                    <Functions class="cUgFunctionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>%</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%25</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value><![CDATA[ ]]></Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%20</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>!</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%21</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>"</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%22</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>#</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%23</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>'</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%27</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>(</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%28</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>)</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%29</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>*</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%2A</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>+</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%2B</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>,</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%2C</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>-</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%2D</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>.</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%2E</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>/</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%2F</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>:</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%3A</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>;</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%3B</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>&lt;</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%3C</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>&gt;</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%3E</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>?</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%3F</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>@</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%40</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>[</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%5B</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>\</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%5C</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>]</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%5D</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>^</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%5E</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>€</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%80</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>£</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%A3</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>$</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%24</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>ö</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%c3%b6</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>=</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%3D</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>&amp;</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%26</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                    </Functions>
-                    <HideFromLogFlag>FALSE</HideFromLogFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
                     <Base class="cActionItemScript">
@@ -2985,417 +2788,6 @@
                     </Functions>
                     <HideFromLogFlag>FALSE</HideFromLogFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%TOPdesk_objectid%</VariableName>
-                    <TestName>&amp;=</TestName>
-                    <Functions class="cUgFunctionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>%</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%25</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value><![CDATA[ ]]></Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%20</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>!</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%21</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>"</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%22</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>#</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%23</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>'</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%27</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>(</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%28</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>)</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%29</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>*</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%2A</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>+</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%2B</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>,</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%2C</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>-</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%2D</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>.</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%2E</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>/</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%2F</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>:</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%3A</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>;</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%3B</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>&lt;</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%3C</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>&gt;</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%3E</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>?</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%3F</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>@</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%40</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>[</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%5B</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>\</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%5C</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>]</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%5D</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>^</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%5E</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>€</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%80</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>£</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%A3</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>$</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%24</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>ö</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%c3%b6</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>=</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%3D</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>&amp;</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>%26</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                    </Functions>
-                    <HideFromLogFlag>FALSE</HideFromLogFlag>
-                </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -3502,16 +2894,16 @@
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\2d2c06f3-0652-4f1d-925a-849354112e56.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\00e51840-ec98-4cdf-9c6a-3bdbf6ed710f.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
         <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-topdesk-newchange-preprocess-input-object</ProjectName>
-        <DisplayName>function-topdesk-newchange-preprocess-input-object</DisplayName>
-        <UUID>zbA#tI@Bd8kkaR4kUFh#WBs</UUID>
+        <ProjectName>function-topdesk-newchange-preprocess-input-form</ProjectName>
+        <DisplayName>function-topdesk-newchange-preprocess-input-category</DisplayName>
+        <UUID>AhR5AgJ7fzEnqtz223ecPAs</UUID>
         <ProjectComment><![CDATA[Default function to create AD user accounts. The best-practice is to use this function in combination with the preprocessor and generate-names projects. The preprocessor creates all tables referenced in this function. The tables are only used when they contain data, so you don't have to remove unused elements from this function.
 
 When finished, the function updates the UMRA-DB (snapshot + cache). This is required for some functionality, for instance the tag system, which requires the user's SID to be available in the UMRA-DB.]]></ProjectComment>

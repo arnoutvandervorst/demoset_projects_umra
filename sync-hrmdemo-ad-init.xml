@@ -27,6 +27,19 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
+                    <ProjectName>global-init-notification</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
                     <ProjectName>global-init-ad</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
@@ -234,6 +247,24 @@
                                             </Base>
                                         </DataConversionCollection>
                                     </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>displayName</LdapName>
+                                        <DisplayName>displayName</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraTableLdapAttribute">
+                                        <LdapName>mail</LdapName>
+                                        <DisplayName>mail</DisplayName>
+                                        <DataConversionCollection class="cUmDataConversionCollection">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray/>
+                                            </Base>
+                                        </DataConversionCollection>
+                                    </ArrayElement>
                                 </ObjectArray>
                             </Base>
                         </Attributes>
@@ -328,6 +359,50 @@
                     <ValueTextArgument1>0</ValueTextArgument1>
                     <ValueTextArgument2>0</ValueTextArgument2>
                     <ValueTextArgument3>%AD_distinguishedName_manager%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%AD_displayName_manager%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%Table_query_ad%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>2</ValueTextArgument2>
+                    <ValueTextArgument3>%AD_mail_manager%</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>

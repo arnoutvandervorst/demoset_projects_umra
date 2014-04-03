@@ -3,7 +3,7 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -14,17 +14,9 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%keywords%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>%tag_organizational_default_keywords%</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                    <ProjectName>global-init-db</ProjectName>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -35,17 +27,9 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%description%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>%tag_organizational_default_name%</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                    <ProjectName>global-init-topdesk</ProjectName>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -56,17 +40,18 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%category%</VariableName>
-                    <Data class="cUmDataText">
-                        <Base class="cUmData" Version="1">
-                            <HiddenFlag>FALSE</HiddenFlag>
-                        </Base>
-                        <TextValue>%tag_organizational_default_category%</TextValue>
-                    </Data>
-                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                    <TableDataOperation>1</TableDataOperation>
+                    <TableDataVariable>%Table_topdesk_change_category%</TableDataVariable>
+                    <ValueTextArgument1>2</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -77,96 +62,76 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <VariableName>%description%</VariableName>
-                    <TestName></TestName>
-                    <Functions class="cUgFunctionCollection">
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_topdesk_change_category%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2>UNID</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>15</TableDataOperation>
+                    <TableDataVariable>%Table_topdesk_change_category%</TableDataVariable>
+                    <ValueTextArgument1>1</ValueTextArgument1>
+                    <ValueTextArgument2>Categorie</ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
                         <Base class="cUmraObArray">
                             <ObjectArray>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>'</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>''</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%TOPdesk_enabled%</InputVariableName>
+                                    <InputVariableType>3</InputVariableType>
+                                    <OperatorIndex>500</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataBool">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <BoolValue>TRUE</BoolValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>TRUE</InvertResultFlag>
                                 </ArrayElement>
                             </ObjectArray>
                         </Base>
-                    </Functions>
-                    <HideFromLogFlag>FALSE</HideFromLogFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%keywords%</VariableName>
-                    <TestName></TestName>
-                    <Functions class="cUgFunctionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>'</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>''</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                    </Functions>
-                    <HideFromLogFlag>FALSE</HideFromLogFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptFormatVariable" Version="1">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <VariableName>%category%</VariableName>
-                    <TestName></TestName>
-                    <Functions class="cUgFunctionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cUgFunctionDoubleArgument">
-                                    <Argument1Value>'</Argument1Value>
-                                    <Argument1Name>Source substring</Argument1Name>
-                                    <Argument1Type>0</Argument1Type>
-                                    <Argument2Value>''</Argument2Value>
-                                    <Argument2Name>Target substring</Argument2Name>
-                                    <Argument2Type>0</Argument2Type>
-                                    <Base class="cUgFunction">
-                                        <FunctionIdentifier>30080</FunctionIdentifier>
-                                        <FunctionName>Replace: substring</FunctionName>
-                                        <FunctionDescription>Replace all occurences of the specified source substring by the specified target substring.</FunctionDescription>
-                                    </Base>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                    </Functions>
-                    <HideFromLogFlag>FALSE</HideFromLogFlag>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGenericTable">
                     <Base class="cActionItemScript">
@@ -190,12 +155,27 @@
                         </Base>
                         <UmraOleDb class="cUmraOleDbGeneral">
                             <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
-                            <OleDbProviderType>55466104</OleDbProviderType>
+                            <ConnectionString>%Conn_string_db_topdesk%</ConnectionString>
+                            <OleDbProviderType>0</OleDbProviderType>
                         </UmraOleDb>
-                        <DatabaseQuery>EXEC spTags_get NULL, '%keywords%'</DatabaseQuery>
-                        <QueryResultColumnNames/>
-                        <FlagEscapeSingleQuote>FALSE</FlagEscapeSingleQuote>
+                        <DatabaseQuery><![CDATA[SELECT DISTINCT
+CONVERT(varchar(36),c.unid),
+c.naam as 'categorie'
+FROM classificatie c
+INNER JOIN classificatie c_child ON c_child.parentid = c.unid
+ORDER BY c.naam]]></DatabaseQuery>
+                        <QueryResultColumnNames>
+                            <TextItem>pers_nr</TextItem>
+                            <TextItem>e_vrlt</TextItem>
+                            <TextItem>e_roepnaam</TextItem>
+                            <TextItem>vrvg_samen</TextItem>
+                            <TextItem>naam_samen</TextItem>
+                            <TextItem>oe_kort_nm</TextItem>
+                            <TextItem>oe_vol_nm</TextItem>
+                            <TextItem>indnst_dt</TextItem>
+                            <TextItem>uitdnst_dt</TextItem>
+                        </QueryResultColumnNames>
+                        <FlagEscapeSingleQuote>TRUE</FlagEscapeSingleQuote>
                     </TableDefinition>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
@@ -209,90 +189,8 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>5</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>%count_rows_tag_find%</ValueTextArgument1>
-                    <ValueTextArgument2>0</ValueTextArgument2>
-                    <ValueTextArgument3>%current_tag_id%</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%count_rows_tag_find%</InputVariableName>
-                                    <InputVariableType>2</InputVariableType>
-                                    <OperatorIndex>301</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>1</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>TRUE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>skip-default-tag</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <TableDataOperation>4</TableDataOperation>
-                    <TableDataVariable>%Table_query_db%</TableDataVariable>
-                    <ValueTextArgument1>0</ValueTextArgument1>
-                    <ValueTextArgument2>0</ValueTextArgument2>
-                    <ValueTextArgument3>%current_tag_id%</ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
                     <TableDataOperation>9</TableDataOperation>
-                    <TableDataVariable>%Table_tags_add%</TableDataVariable>
+                    <TableDataVariable>%Table_topdesk_objects%</TableDataVariable>
                     <ValueTextArgument1>%Table_query_db%</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
@@ -301,21 +199,6 @@
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptVarious">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label>skip-default-tag</Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ScriptActionType>2</ScriptActionType>
-                    <ParameterNumeric>0</ParameterNumeric>
-                    <ParameterText></ParameterText>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGoTo">
                     <Base class="cActionItemScript">
@@ -447,23 +330,23 @@
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\c78a2233-050f-4fb9-a113-7600ccf7960e.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\c09e2377-ca8f-4706-aa7d-497e92665afe.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
         <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>sync-beaufort-ad-record-preprocess-tags-default</ProjectName>
-        <DisplayName>sync-beaufort-ad-record-preprocess-tags-default</DisplayName>
-        <UUID>zIiiH/QB5+UoTYHAMfv@OAs</UUID>
+        <ProjectName>function-generate-table-topdesk-change-category</ProjectName>
+        <DisplayName>function-generate-table-topdesk-change-category</DisplayName>
+        <UUID>3NinA/oyGckq9@kfSamW+Ds</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1676</BuildNumber>
+        <BuildNumber>1683</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>

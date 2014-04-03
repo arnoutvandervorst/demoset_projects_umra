@@ -293,6 +293,212 @@
                     </Base>
                     <ProjectName>function-wfm-instance-create-data</ProjectName>
                 </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%mail_body%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[<!DOCTYPE html>
+<html lang="nl"> 
+<head> 
+<title></title> 
+<link rel="stylesheet" href="%Mail_manager_css%" type="text/css" media="screen"/>
+</head> 
+<body>  	
+<div id="sitewrapper" class="container12">
+<header class="sitewide">
+<a id="logo"></a>
+</header>
+<section id="content" class="content2 container12">
+<article id="main" class="col9">
+<h2 class="pagetitle">Beste %AD_displayName_manager%,</h2><br>
+<p>Een nieuwe medewerker is vanaf vandaag actief binnen uw afdeling. Het account voor deze medewerker is aangemaakt met de standaard rechten die u voor de combinatie van afdeling en functie hebt vastgesteld. U kunt desgewenst het account nog verder verrijken met autorisaties.</p>
+<table>
+<thead>
+<tr>
+<th>Attribuut</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inlognaam</td>
+<td>%sAMAccountName%</td>
+</tr>
+<tr>
+<td>Weergavenaam</td>
+<td>%displayname%</td>
+</tr>
+<tr>
+<td>Afdeling</td>
+<td>%HR_oe_vol_nm%</td>
+</tr>
+<tr>
+<td>Functie</td>
+<td>%HR_func_oms%</td>
+</tr>
+</tbody>
+</table>
+<p>Klik op onderstaande link om autorisaties toe te voegen:<br>
+<a href="http://localhost">Autorisatie dashboard</a></p>
+<p>Met vriendelijke groet,<br>
+Dienst ICT</p>	
+</article>
+</section>
+</div>
+</body>
+</html>]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemOperationSendMailEx">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                        <Explanation>Send an HTML e-mail message with attachments (optional) to the specified E-mail address. All parameters can contain variables.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>184000</Id>
+                                            <Name>SMTP server</Name>
+                                            <Type>1</Type>
+                                            <Description>The DNS name or IP address of the SMTP server to be used by UMRA to send the e-mail (example: mail.company.com). Optionally, the SMTP port can be specified (mail.company.com:25). By default, port number 25 is used.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%MSG_mail_server%</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>184001</Id>
+                                            <Name>To</Name>
+                                            <Type>1</Type>
+                                            <Description>The recipient of the e-mail message. To specify multiple recipients, use a semi-colon (;) to separate the recipients (example: john@domain.com; william@company.com).</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%AD_mail_manager%</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>184002</Id>
+                                            <Name>Cc</Name>
+                                            <Type>1</Type>
+                                            <Description>The recipients that should receive a copy of the e-mail message. To specify multiple recipients, use a semi-colon (;) to separate the copied recipients (example: john@domain.com; william@company.com).</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>184003</Id>
+                                            <Name>Bcc</Name>
+                                            <Type>1</Type>
+                                            <Description>The recipients that should receive a blind copy of the e-mail message. To specify multiple recipients, use a semi-colon (;) to separate the copied recipients (example: john@domain.com; william@company.com).</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>184004</Id>
+                                            <Name>From</Name>
+                                            <Type>1</Type>
+                                            <Description>The name of the sender of the e-mail message (example: john@company.com).</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%MSG_mail_from_default%</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>184005</Id>
+                                            <Name>Subject</Name>
+                                            <Type>1</Type>
+                                            <Description>The subject of the e-mail message (example: User creation report).</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>Autorisaties instellen voor nieuwe medewerker (%displayName%)</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>184006</Id>
+                                            <Name>HTML file</Name>
+                                            <Type>1</Type>
+                                            <Description>The name of the file that contains the HTML contents of the e-mail message. Specify either this property or property 'HTML text'. The HTML contents of the file can contain UMRA variables. If the HTML contents contains links to files, the files should be contained in the same directory as the file or in the directory specified by property 'HTML link directory'. (example: D:\UMRA\EmailTemplates\UserCreationReport.html).</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>184007</Id>
+                                            <Name>HTML text</Name>
+                                            <Type>1</Type>
+                                            <Description>The HTML contents of the e-mail message. Specify either this property or property 'HTML file'. The HTML contents can contain UMRA variables. If the HTML contents contains links to files, these files should be contained in the directory specified with property 'HTML link directory' (example: &lt;HTML&gt; ... &lt;/HTML&gt;).</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%mail_body%</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>184008</Id>
+                                            <Name>HTML link directory</Name>
+                                            <Type>1</Type>
+                                            <Description>The directory that contains the files referred to in the HTML contents, specified with property 'HTML text' or 'HTML file' (example: D:\UMRA\EmailTemplates\images).</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>184009</Id>
+                                            <Name>Attachments</Name>
+                                            <Type>1</Type>
+                                            <Description>The name of one or more files to be attached to the e-mail message. To specify multiple attachments, use the semi-colon (;) as a separator character (example: D:\UMRA\Data\UserLog.txt).</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptManageNumericVariable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">

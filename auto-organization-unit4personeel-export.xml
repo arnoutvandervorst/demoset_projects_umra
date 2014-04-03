@@ -14,7 +14,33 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init-topdesk</ProjectName>
+                    <ProjectName>global-init</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init-sap</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init-db</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptIfThenElse">
                     <Base class="cActionItemScript">
@@ -31,15 +57,15 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%TOPdesk_enabled%</InputVariableName>
-                                    <InputVariableType>3</InputVariableType>
-                                    <OperatorIndex>500</OperatorIndex>
+                                    <InputVariableName>%Count_errors%</InputVariableName>
+                                    <InputVariableType>2</InputVariableType>
+                                    <OperatorIndex>300</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataBool">
+                                    <OperatorArgumentValue class="cUmDataNumeric">
                                         <Base class="cUmData" Version="1">
                                             <HiddenFlag>FALSE</HiddenFlag>
                                         </Base>
-                                        <BoolValue>TRUE</BoolValue>
+                                        <NumericValue>0</NumericValue>
                                     </OperatorArgumentValue>
                                     <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
                                     <InvertResultFlag>TRUE</InvertResultFlag>
@@ -54,7 +80,7 @@
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
+                <ArrayElement class="cActionItemScriptGenericTable">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -65,43 +91,92 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Object_dn%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>100</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue/>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Object_dn%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>208</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>1</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
+                    <TableDefinition class="cUmraTableDefDatabaseQuery" Version="1">
+                        <Base class="cUmraTableDef">
+                            <VariableName>%Table_query_db%</VariableName>
+                            <TestVariableArray class="cUmVariableArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray/>
+                                </Base>
+                            </TestVariableArray>
                         </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>end</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
+                        <UmraOleDb class="cUmraOleDbGeneral">
+                            <Base class="cUmraOleDb"/>
+                            <ConnectionString>%Conn_string_db_unit4personeel%</ConnectionString>
+                            <OleDbProviderType>54935752</OleDbProviderType>
+                        </UmraOleDb>
+                        <DatabaseQuery><![CDATA[SELECT
+wtyp."wtyp-cd-wtyp",
+wtyp."wtyp-cd-ext",
+wbas."wbas-ky",
+wtyp."wtyp-ky" ,
+wtyp."wtyp-nr-wtyp",
+wtyp."wtyp-cd-int",
+TO_CHAR(wroo."wroo-qt-uurw"),
+wroo."wroo-cd-part",
+wfun."ofun-kc",
+wfun."okso-kc",
+worg."obas-kc",
+worg."oorg-kc",
+worg."olok-kc",
+wwer."wwer-cd-emai",
+wwer."wwer-cd-teli",
+wbas."wbas-nm-voll",
+wbas."wbas-om-voor",
+wbas."wbas-nm-voor",
+wbas."wbas-nm-init",
+wbas."wbas-nm-acht",
+wbas."wbas-nm-tusa",
+wbas."wbas-cd-burg",
+wbas."wbas-lo-gesl",
+wbas."wbas-dw-geb",
+wbas."wbas-nm-gebl",
+wbas."wbas-nm-gebp",
+wpar."wpar-nm-wpar",
+wpar."wpar-nm-tusv",
+wpar."wpar-cd-naam",
+wtax."wtax-cd-sofi",
+wtyp."wtyp-cd-type",
+wtyp."wtyp-cd-stat",
+wdie."wdie-dw-begi",
+wdie."wdie-dw-eind",
+wrel."wtyp-ky-bwty"
+FROM pub.wtyp "wtyp"
+INNER JOIN pub.wbas "wbas" ON wbas."wbas-ky" = wtyp."wbas-ky"
+     AND wbas."wbas-cd-mut" = 'c'
+     AND wbas."wbas-dg-eint" = (SELECT MAX(wbas."wbas-dg-eint") FROM pub.wbas "wbas" WHERE wbas."wbas-ky" = wtyp."wbas-ky")
+LEFT JOIN pub.wpar "wpar" ON wpar."wbas-ky" = wtyp."wbas-ky"
+     AND wpar."wpar-cd-mut" = 'c'
+     AND wpar."wpar-dg-eint" = (SELECT MAX(wpar."wpar-dg-eint") FROM pub.wpar "wpar" WHERE wpar."wbas-ky" = wtyp."wbas-ky")    
+LEFT JOIN pub.wtax "wtax" ON wtax."wbas-ky" = wtyp."wbas-ky"
+     AND wtax."wtax-cd-mut" = 'c'
+     AND wtax."wtax-dg-eint" = (SELECT MAX(wtax."wtax-dg-eint") FROM pub.wtax "wtax" WHERE wtax."wbas-ky" = wtyp."wbas-ky")
+LEFT JOIN pub.wfun "wfun" ON wfun."wtyp-ky" = wtyp."wtyp-ky"
+     AND wfun."wfun-cd-mut" = 'c'
+     AND wfun."wfun-dg-eint" = (SELECT MAX(wfun."wfun-dg-eint") FROM pub.wfun "wfun" WHERE wfun."wtyp-ky" = wtyp."wtyp-ky")
+LEFT JOIN pub.worg "worg" ON worg."wtyp-ky" = wtyp."wtyp-ky"
+     AND worg."worg-cd-mut" = 'c'
+     AND worg."worg-dg-eint" = (SELECT MAX(worg."worg-dg-eint") FROM pub.worg "worg" WHERE worg."wtyp-ky" = wtyp."wtyp-ky")
+LEFT JOIN pub.wroo "wroo" ON wroo."wtyp-ky" = wtyp."wtyp-ky"
+     AND wroo."wroo-cd-mut" = 'c'
+     AND wroo."wroo-dg-eint" = (SELECT MAX(wroo."wroo-dg-eint") FROM pub.wroo "wroo" WHERE wroo."wtyp-ky" = wtyp."wtyp-ky")
+LEFT JOIN pub.wdie "wdie" ON wdie."wtyp-ky" = wtyp."wtyp-ky"
+     AND wdie."wdie-cd-mut" = 'c'
+     AND wdie."wdie-dg-eint" = (SELECT MAX(wdie."wdie-dg-eint") FROM pub.wdie "wdie" WHERE wdie."wtyp-ky" = wtyp."wtyp-ky")     
+LEFT JOIN pub.wwer "wwer" ON wwer."wtyp-ky" = wtyp."wtyp-ky"
+     AND wwer."wwer-cd-mut" = 'c'
+     AND wwer."wwer-dg-eint" = (SELECT MAX(wwer."wwer-dg-eint") FROM pub.wwer "wwer" WHERE wwer."wtyp-ky" = wtyp."wtyp-ky")     
+LEFT JOIN pub.wrel "wrel" ON wrel."wtyp-ky" = wtyp."wtyp-ky"
+     AND wrel."wrel-cd-mut" = 'c'
+     AND wrel."wrel-dg-eint" = (SELECT MAX(wrel."wrel-dg-eint") FROM pub.wrel "wrel" WHERE wrel."wtyp-ky" = wtyp."wtyp-ky")
+WHERE wtyp."wtyp-cd-mut" = 'c'
+AND wtyp."wtyp-dg-eint" = (SELECT MAX(ztyp."wtyp-dg-eint") FROM pub.wtyp "ztyp" WHERE ztyp."wtyp-ky" = wtyp."wtyp-ky")
+AND wtyp."wtyp-cd-ext" = '']]></DatabaseQuery>
+                        <QueryResultColumnNames/>
+                        <FlagEscapeSingleQuote>FALSE</FlagEscapeSingleQuote>
+                    </TableDefinition>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
+                <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -112,101 +187,16 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%TOPdesk_object_unid_add%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>100</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue/>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%TOPdesk_object_unid_add%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>208</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>1</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>end</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%TOPdesk_object_type_add%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>100</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue/>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%TOPdesk_object_type_add%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>208</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>1</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>end</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>function-user-ad-add-topdesk-object-%TOPdesk_object_type_add%</ProjectName>
+                    <TableDataOperation>80</TableDataOperation>
+                    <TableDataVariable>%Table_query_db%</TableDataVariable>
+                    <ValueTextArgument1>%UmraPath%\UMRA_Employees_Unit4personeel.csv</ValueTextArgument1>
+                    <ValueTextArgument2>&lt;TAB&gt;</ValueTextArgument2>
+                    <ValueTextArgument3>UNICODE</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGoTo">
                     <Base class="cActionItemScript">
@@ -355,16 +345,27 @@
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\10b6f000-6689-457f-b172-d1b36ed10986.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\53a20f8a-1c2b-492d-80f1-7dec62ed63e5.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
-        <Scheduler/>
+        <Scheduler class="cUmraSchedulerNever">
+            <Base class="cUmraScheduler">
+                <DayIncludeFlags>127</DayIncludeFlags>
+                <SchedulerFlags>0</SchedulerFlags>
+                <Exceptions class="cUmraSchedulerExceptions">
+                    <ExceptionMode>0</ExceptionMode>
+                    <Base class="cUmraObArray">
+                        <ObjectArray/>
+                    </Base>
+                </Exceptions>
+            </Base>
+        </Scheduler>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-user-ad-add-topdesk-object</ProjectName>
-        <DisplayName>function-user-ad-add-group</DisplayName>
-        <UUID>AAvtQkoZ/VU$yF9$uFdCGCs</UUID>
+        <ProjectName>auto-organization-unit4personeel-export</ProjectName>
+        <DisplayName>auto-organization-sap-export</DisplayName>
+        <UUID>K+goTtCHtkEgx3H7i1+Y@Ds</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
@@ -931,10 +932,6 @@
         <DataFileParam class="cDataFileParam">
             <Base class="cDataFileParseInfo">
                 <Separators>
-                    <TextItem>,</TextItem>
-                    <TextItem>,</TextItem>
-                    <TextItem>,</TextItem>
-                    <TextItem>,</TextItem>
                     <TextItem>,</TextItem>
                 </Separators>
                 <TextQualifier>"</TextQualifier>

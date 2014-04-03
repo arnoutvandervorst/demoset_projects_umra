@@ -18,7 +18,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%TOPdesk_p_action%</InputVariableName>
+                                    <InputVariableName>%TOPdesk_categorie%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>100</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -27,7 +27,7 @@
                                     <InvertResultFlag>FALSE</InvertResultFlag>
                                 </ArrayElement>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%TOPdesk_p_action%</InputVariableName>
+                                    <InputVariableName>%TOPdesk_categorie%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>208</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -65,7 +65,7 @@
                         <Base class="cUmraObArray">
                             <ObjectArray>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%TOPdesk_p_status%</InputVariableName>
+                                    <InputVariableName>%TOPdesk_subcategorie%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>100</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -74,7 +74,54 @@
                                     <InvertResultFlag>FALSE</InvertResultFlag>
                                 </ArrayElement>
                                 <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%TOPdesk_p_status%</InputVariableName>
+                                    <InputVariableName>%TOPdesk_subcategorie%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>208</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>1</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%TOPdesk_description%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>100</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue/>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%TOPdesk_description%</InputVariableName>
                                     <InputVariableType>1</InputVariableType>
                                     <OperatorIndex>208</OperatorIndex>
                                     <OperatorVariableName></OperatorVariableName>
@@ -164,12 +211,7 @@
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <TextValue><![CDATA[%TOPdesk_url_base%/%TOPdesk_p_card%?action=%TOPdesk_p_action%&status=%TOPdesk_p_status%&j_username=%TOPdesk_p_j_username%&j_password=%TOPdesk_p_j_password%&save=%TOPdesk_p_save%&validate=%TOPdesk_p_validate%&field0=description&value0=%TOPdesk_description%&field1=briefdescription&value1=%TOPdesk_briefdescription%&field2=changetype&value2=%TOPdesk_changetype%&field3=objectid&value3=%TOPdesk_objectid%&field4=action&value4=%TOPdesk_action%
-&replacefield0=persoonid&searchfield0=loginnaamnetwerk&searchvalue0=%TOPdesk_aanmelder%
-&replacefield1=categoryid&searchfield1=naam&searchvalue1=%TOPdesk_categorie%
-&replacefield2=subcategoryid&searchfield2=naam&searchvalue2=%TOPdesk_subcategorie%
-&replacefield3=typeid&searchfield3=naam&searchvalue3=%TOPdesk_type%
-&replacefield5=managerid&searchfield5=loginnaamnetwerk&searchvalue5=%TOPdesk_manager%&replacefield6=req_authoperatorid&searchfield6=loginnaamnetwerk&searchvalue6=%TOPdesk_behandelaar%&replacefield7=statusid&searchfield7=naam&searchvalue7=%TOPdesk_status%&field8=plannedauthdate&value8=%TOPdesk_plannedauthdate%]]></TextValue>
+                        <TextValue>%TOPdesk_url_base%/%TOPdesk_p_card%?action=%TOPdesk_p_action%&amp;status=%TOPdesk_p_status%&amp;j_username=%TOPdesk_p_j_username%&amp;j_password=%TOPdesk_p_j_password%&amp;save=%TOPdesk_p_save%&amp;validate=%TOPdesk_p_validate%&amp;field0=description&amp;value0=%TOPdesk_description%&amp;field1=briefdescription&amp;value1=%TOPdesk_briefdescription%&amp;field2=changetype&amp;value2=%TOPdesk_changetype%&amp;replacefield0=persoonid&amp;searchfield0=loginnaamnetwerk&amp;searchvalue0=%TOPdesk_aanmelder%&amp;replacefield1=categoryid&amp;searchfield1=naam&amp;searchvalue1=%TOPdesk_categorie%&amp;replacefield2=subcategoryid&amp;searchfield2=naam&amp;searchvalue2=%TOPdesk_subcategorie%&amp;replacefield3=typeid&amp;searchfield3=naam&amp;searchvalue3=%TOPdesk_type%&amp;replacefield4=managerid&amp;searchfield4=loginnaamnetwerk&amp;searchvalue4=%TOPdesk_manager%&amp;replacefield5=req_authoperatorid&amp;searchfield5=loginnaamnetwerk&amp;searchvalue5=%TOPdesk_behandelaar%&amp;replacefield6=statusid&amp;searchfield6=naam&amp;searchvalue6=%TOPdesk_status%&amp;field7=plannedauthdate&amp;value7=%TOPdesk_plannedauthdate%</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
                     <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
@@ -214,7 +256,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <BoolValue>FALSE</BoolValue>
+                                                <BoolValue>TRUE</BoolValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -245,8 +287,8 @@
                                             <Name>Output variable</Name>
                                             <Type>1</Type>
                                             <Description>Store the output of the command in the specified variable.</Description>
-                                            <ExportMode>8193</ExportMode>
-                                            <ExportVariable></ExportVariable>
+                                            <ExportMode>12289</ExportMode>
+                                            <ExportVariable>%cmd_output%</ExportVariable>
                                             <Value/>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -270,7 +312,12 @@
                                             <Description>Optional: When specified, the application reserves a buffer of the specified size in bytes to store the output data in a variable. By default (not specified), the maximum size is 10240 bytes. If the real output data size exceeds the limit, the data is not stored. Example value: 250000.</Description>
                                             <ExportMode>1</ExportMode>
                                             <ExportVariable></ExportVariable>
-                                            <Value/>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>250000</TextValue>
+                                            </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
                                             <Id>105008</Id>
@@ -286,6 +333,21 @@
                             </Base>
                         </PropertyArray>
                     </Base>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptLogVariables">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableNames>
+                        <TextItem>%cmd_output%</TextItem>
+                    </VariableNames>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
@@ -325,7 +387,42 @@
                 <ResetChildPermissionsFlags>FALSE</ResetChildPermissionsFlags>
                 <DaclDefaultedFlag>TRUE</DaclDefaultedFlag>
                 <Base class="cUmraObArray">
-                    <ObjectArray/>
+                    <ObjectArray>
+                        <ArrayElement class="cJvrSecAce">
+                            <Base class="cJvrSecAceBase">
+                                <AceType>0</AceType>
+                                <AceFlags>0</AceFlags>
+                                <Mask>48</Mask>
+                                <Account class="cJvrSecAccount">
+                                    <Mask>5</Mask>
+                                    <AccountName>NT Authority\Network Service</AccountName>
+                                    <AccountNameVariable></AccountNameVariable>
+                                    <AccountClassName></AccountClassName>
+                                    <AccountSid class="cJvrSecSid">
+                                        <InitializedFlag>TRUE</InitializedFlag>
+                                        <SID>BEAAAAAAAUAFAAAA</SID>
+                                    </AccountSid>
+                                </Account>
+                            </Base>
+                        </ArrayElement>
+                        <ArrayElement class="cJvrSecAce">
+                            <Base class="cJvrSecAceBase">
+                                <AceType>0</AceType>
+                                <AceFlags>0</AceFlags>
+                                <Mask>48</Mask>
+                                <Account class="cJvrSecAccount">
+                                    <Mask>5</Mask>
+                                    <AccountName>Administrators</AccountName>
+                                    <AccountNameVariable></AccountNameVariable>
+                                    <AccountClassName></AccountClassName>
+                                    <AccountSid class="cJvrSecSid">
+                                        <InitializedFlag>TRUE</InitializedFlag>
+                                        <SID>BIAAAAAAAUAIAAAAgIAAAAs</SID>
+                                    </AccountSid>
+                                </Account>
+                            </Base>
+                        </ArrayElement>
+                    </ObjectArray>
                 </Base>
             </DACL>
             <Group class="cJvrSecAccount">

@@ -3,7 +3,7 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
-                <ArrayElement class="cActionItemScriptExecuteProject">
+                <ArrayElement class="cActionItemScriptIfThenElse">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -14,22 +14,161 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init</ProjectName>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%photo_path%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>208</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>1</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%photo_path%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>100</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue/>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
+                <ArrayElement class="cActionItemOperationCommandLine">
+                    <Base class="cActionItemOperation">
                         <Base class="cActionItem">
                             <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>TRUE</ErrorVariableFlag>
+                            <ErrorVariableName>%status_operation%</ErrorVariableName>
+                            <ErrorVariableContents>Fout bij het verkleinen van de foto van gebruiker</ErrorVariableContents>
                         </Base>
+                        <Explanation>Execute a command line. The command line can contain any valid command (.exe, .bat, .com, etc.) with any number of command line arguments. Further, the command line can contain variables.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105000</Id>
+                                            <Name>Command Line</Name>
+                                            <Type>1</Type>
+                                            <Description>The command line that must be executed. The command line starts with the name of a file that can be executed (.exe, .bat, etc.) and a number of arguments.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>"C:\Program Files\ImageMagick-6.8.8-Q16\mogrify.exe" -resize 96x96 "%photo_path%"</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105002</Id>
+                                            <Name>Wait until terminated</Name>
+                                            <Type>3</Type>
+                                            <Description>Once the command is started, the application can either wait until the command has been terminated or continue immediately with the rest of the script.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>TRUE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105005</Id>
+                                            <Name>Time-out period</Name>
+                                            <Type>2</Type>
+                                            <Description>The period specifies the maximum number of seconds the command can take to complete. When the command is not completed within the time-out period, the command is terminated. If this property is specified, the property 'Wait until terminated' must also be specified. When this value is not specified, a default value of one hour is used.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>60</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105001</Id>
+                                            <Name>Show command window</Name>
+                                            <Type>3</Type>
+                                            <Description>The application can either hide or show a window that is created by the command.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105010</Id>
+                                            <Name>Output variable</Name>
+                                            <Type>1</Type>
+                                            <Description>Store the output of the command in the specified variable.</Description>
+                                            <ExportMode>12289</ExportMode>
+                                            <ExportVariable>%output%</ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105006</Id>
+                                            <Name>Remove carriage-return line-feed</Name>
+                                            <Type>3</Type>
+                                            <Description>If property 'Output variable' is specified, the value will often end with the characters carriage return - line feed. Specify 'Yes' to remove these characters from the end of hte command line output. Default value: 'No'.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105007</Id>
+                                            <Name>Output buffer size</Name>
+                                            <Type>2</Type>
+                                            <Description>Optional: When specified, the application reserves a buffer of the specified size in bytes to store the output data in a variable. By default (not specified), the maximum size is 10240 bytes. If the real output data size exceeds the limit, the data is not stored. Example value: 250000.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>105008</Id>
+                                            <Name>Do not show in log file</Name>
+                                            <Type>3</Type>
+                                            <Description>Set to 'Yes' if the command line should not be shown in the log file. Default setting (not specified): 'No'.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
                     </Base>
-                    <ProjectName>function-generate-table-ntfs2db-collections-managed</ProjectName>
                 </ArrayElement>
-                <ArrayElement class="cActionItemScriptTableData">
+                <ArrayElement class="cActionItemScriptLogVariables">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
                             <Label></Label>
@@ -40,16 +179,9 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <TableDataOperation>25</TableDataOperation>
-                    <TableDataVariable>%Table_ntfs2db_collections_managed%</TableDataVariable>
-                    <ValueTextArgument1>%Table_ntfs2db_collections_managed_repository%</ValueTextArgument1>
-                    <ValueTextArgument2></ValueTextArgument2>
-                    <ValueTextArgument3></ValueTextArgument3>
-                    <ValueTextArgument4></ValueTextArgument4>
-                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
-                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
-                    <ValueNumericArgument1>0</ValueNumericArgument1>
-                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                    <VariableNames>
+                        <TextItem>%output%</TextItem>
+                    </VariableNames>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">
@@ -62,9 +194,65 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ScriptActionType>4</ScriptActionType>
+                    <ScriptActionType>3</ScriptActionType>
+                    <ParameterNumeric>2000</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGoTo">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <GoToLabel>end</GoToLabel>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>error</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
                     <ParameterNumeric>0</ParameterNumeric>
-                    <ParameterText>%Table_ntfs2db_collections_managed%</ParameterText>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-error-handler</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>end</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
                 </ArrayElement>
             </ObjectArray>
         </Base>
@@ -97,29 +285,12 @@
                                 <Mask>48</Mask>
                                 <Account class="cJvrSecAccount">
                                     <Mask>5</Mask>
-                                    <AccountName>Administrators</AccountName>
+                                    <AccountName>everyone</AccountName>
                                     <AccountNameVariable></AccountNameVariable>
                                     <AccountClassName></AccountClassName>
                                     <AccountSid class="cJvrSecSid">
                                         <InitializedFlag>TRUE</InitializedFlag>
-                                        <SID>BIAAAAAAAUAIAAAAgIAAAAs</SID>
-                                    </AccountSid>
-                                </Account>
-                            </Base>
-                        </ArrayElement>
-                        <ArrayElement class="cJvrSecAce">
-                            <Base class="cJvrSecAceBase">
-                                <AceType>0</AceType>
-                                <AceFlags>0</AceFlags>
-                                <Mask>48</Mask>
-                                <Account class="cJvrSecAccount">
-                                    <Mask>5</Mask>
-                                    <AccountName>NT Authority\Network Service</AccountName>
-                                    <AccountNameVariable></AccountNameVariable>
-                                    <AccountClassName></AccountClassName>
-                                    <AccountSid class="cJvrSecSid">
-                                        <InitializedFlag>TRUE</InitializedFlag>
-                                        <SID>BEAAAAAAAUAFAAAA</SID>
+                                        <SID>BEAAAAAAAEAAAAAA</SID>
                                     </AccountSid>
                                 </Account>
                             </Base>
@@ -157,23 +328,23 @@
     <HelpInfoUrl></HelpInfoUrl>
     <ScriptTimeOutSec>900</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\8b1e8e8f-c29c-4513-9016-99c25f42967b.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\0bd4c85e-1b74-4fee-83c2-82e2acee4dda.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
         <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-generate-table-ntfs2db-collections-managed-repository</ProjectName>
-        <DisplayName>function-generate-table-users</DisplayName>
-        <UUID>P6oH#ypwTUEkWkpwfJk@7Bs</UUID>
+        <ProjectName>function-user-ad-resize-photo</ProjectName>
+        <DisplayName>function-user-ad-resize-photo</DisplayName>
+        <UUID>ehM1#Q3Gu/0gC#o4$6eTaDs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
-        <UpdatePreviewFlag>FALSE</UpdatePreviewFlag>
+        <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1677</BuildNumber>
+        <BuildNumber>1683</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>

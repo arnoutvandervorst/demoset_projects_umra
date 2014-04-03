@@ -2661,7 +2661,7 @@
                             <ErrorVariableName></ErrorVariableName>
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
-                        <Explanation>Edit the attributes of a mail enabled user by specifying the properties.</Explanation>
+                        <Explanation>Change the properties of an existing distribution group.</Explanation>
                         <PropertyArray class="cUmraPsPropertyArray">
                             <Base class="cUmPropertyArray">
                                 <Base class="cUmraObArray">
@@ -2742,7 +2742,7 @@
                                                 <Id>193002</Id>
                                                 <Name>Identity</Name>
                                                 <Type>1</Type>
-                                                <Description>The Identity parameter identifies the mail enabled user. Use for example the distinguished name 'CN=jsmith,OU=sales,DC=tools4ever,DC=com', the windows live id 'jsmith@tools4everlive.com', the domain\account name 'tools4ever.com\Jsmith', the alias 'JSmith', the user principal name ('Smith@tools4ever.com' or the GUID.</Description>
+                                                <Description>The identifier of the object to modify. Use for example the distinguished name 'CN=jsmith,OU=sales,DC=tools4ever,DC=com', the Windows Live Id 'jsmith@tools4everlive.com', the domain\account name 'tools4ever.com\Jsmith', the alias 'JSmith', the User principal name 'JSmith@tools4ever.com' or GUID.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value class="cUmDataText">
@@ -2778,39 +2778,6 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193003</Id>
-                                                <Name>Outlook Live: Password</Name>
-                                                <Type>1</Type>
-                                                <Description>The password used by Windows Live ID. This password is not the Active Directory user password. The value specified here will not be shown in the log.</Description>
-                                                <ExportMode>0</ExportMode>
-                                                <ExportVariable></ExportVariable>
-                                                <Value/>
-                                            </Base>
-                                            <TechName>Password</TechName>
-                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
-                                            <MandatoryFlag>FALSE</MandatoryFlag>
-                                            <MandatoryProps/>
-                                            <MandatoryAbsentProps/>
-                                            <DefaultValue class="cUmDataText">
-                                                <Base class="cUmData" Version="1">
-                                                    <HiddenFlag>FALSE</HiddenFlag>
-                                                </Base>
-                                                <TextValue>%Password%</TextValue>
-                                            </DefaultValue>
-                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
-                                                <Base class="cUmraPsObjectDataSpec">
-                                                    <Base class="cUmraObArray">
-                                                        <ObjectArray/>
-                                                    </Base>
-                                                    <Dimension>-1</Dimension>
-                                                </Base>
-                                                <PowershellVariableName></PowershellVariableName>
-                                                <DataSpecType>0</DataSpecType>
-                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
-                                            </PowershellReturnData>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmraPsActionProperty">
-                                            <Base class="cUmProperty">
-                                                <Id>193004</Id>
                                                 <Name>Accept messages only from</Name>
                                                 <Type>8</Type>
                                                 <Description>The mailbox users, mail users and mail contacts that can send e-mail messages to this mailbox. Any of the following input formats is supported: the distinguished name 'CN=jsmith,OU=sales,DC=tools4ever,DC=com', the domain\account name 'tools4ever.com\Jsmith', the username 'JohnSmith', the alias 'JSmith', the display name 'John Smith', the user principal name 'JSmith@tools4ever.com' or the GUID. Specify a text-list for this parameter.</Description>
@@ -2838,7 +2805,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193005</Id>
+                                                <Id>193004</Id>
                                                 <Name>Accept messages only from distribution list members</Name>
                                                 <Type>8</Type>
                                                 <Description>The distribution lists from which messages are accepted.. Messages from any member of these distribution lists are accepted. Specify a text-list for this parameter.</Description>
@@ -2866,7 +2833,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193006</Id>
+                                                <Id>193005</Id>
                                                 <Name>Accept messages only from senders or members</Name>
                                                 <Type>8</Type>
                                                 <Description>The identity of recipients from whom messages are accepted. Specify a text-list for this parameter.</Description>
@@ -2894,10 +2861,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193007</Id>
+                                                <Id>193006</Id>
                                                 <Name>Alias</Name>
                                                 <Type>1</Type>
-                                                <Description>The Alias parameter specifies the alias (mail nickname) of the user. The alias can be a combination of characters separated by a period with no intervening spaces. Do not use special characters in the alias.</Description>
+                                                <Description>Optional value. This parameter can be used to specify the alias of the distribution group. The Alias parameter is then used to generate the primary SMTP e-mail address of the object. The value of Alias can't contain spaces.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -2922,10 +2889,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193008</Id>
-                                                <Name>Arbitration Mailbox</Name>
+                                                <Id>193007</Id>
+                                                <Name>Arbitration mailbox</Name>
                                                 <Type>1</Type>
-                                                <Description>The mailbox that is used to manage the moderation process.</Description>
+                                                <Description>The mailbox that's used to manage the moderation process. This parameter is automatically set when blank and moderation is enabled.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -2950,10 +2917,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193009</Id>
+                                                <Id>193008</Id>
                                                 <Name>Custom attribute 1</Name>
                                                 <Type>1</Type>
-                                                <Description>The value for the mailbox attribute CustomAttribute1.</Description>
+                                                <Description>The value for the distribution group attribute CustomAttribute1.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -2978,10 +2945,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193010</Id>
+                                                <Id>193009</Id>
                                                 <Name>Custom attribute 2</Name>
                                                 <Type>1</Type>
-                                                <Description>The value for the mailbox attribute CustomAttribute2.</Description>
+                                                <Description>The value for the distribution group attribute CustomAttribute2.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3006,10 +2973,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193011</Id>
+                                                <Id>193010</Id>
                                                 <Name>Custom attribute 3</Name>
                                                 <Type>1</Type>
-                                                <Description>The value for the mailbox attribute CustomAttribute3.</Description>
+                                                <Description>The value for the distribution group attribute CustomAttribute3.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3034,10 +3001,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193012</Id>
+                                                <Id>193011</Id>
                                                 <Name>Custom attribute 4</Name>
                                                 <Type>1</Type>
-                                                <Description>The value for the mailbox attribute CustomAttribute4.</Description>
+                                                <Description>The value for the distribution group attribute CustomAttribute4.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3062,10 +3029,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193013</Id>
+                                                <Id>193012</Id>
                                                 <Name>Custom attribute 5</Name>
                                                 <Type>1</Type>
-                                                <Description>The value for the mailbox attribute CustomAttribute5.</Description>
+                                                <Description>The value for the distribution group attribute CustomAttribute5.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3090,10 +3057,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193014</Id>
+                                                <Id>193013</Id>
                                                 <Name>Custom attribute 6</Name>
                                                 <Type>1</Type>
-                                                <Description>The value for the mailbox attribute CustomAttribute6.</Description>
+                                                <Description>The value for the distribution group attribute CustomAttribute6.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3118,10 +3085,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193015</Id>
+                                                <Id>193014</Id>
                                                 <Name>Custom attribute 7</Name>
                                                 <Type>1</Type>
-                                                <Description>The value for the mailbox attribute CustomAttribute7.</Description>
+                                                <Description>The value for the distribution group attribute CustomAttribute7.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3146,10 +3113,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193016</Id>
+                                                <Id>193015</Id>
                                                 <Name>Custom attribute 8</Name>
                                                 <Type>1</Type>
-                                                <Description>The value for the mailbox attribute CustomAttribute8.</Description>
+                                                <Description>The value for the distribution group attribute CustomAttribute8.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3174,10 +3141,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193017</Id>
+                                                <Id>193016</Id>
                                                 <Name>Custom attribute 9</Name>
                                                 <Type>1</Type>
-                                                <Description>The value for the mailbox attribute CustomAttribute9.</Description>
+                                                <Description>The value for the distribution group attribute CustomAttribute9.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3202,10 +3169,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193018</Id>
+                                                <Id>193017</Id>
                                                 <Name>Custom attribute 10</Name>
                                                 <Type>1</Type>
-                                                <Description>The value for the mailbox attribute CustomAttribute10.</Description>
+                                                <Description>The value for the distribution group attribute CustomAttribute10.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3230,10 +3197,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193019</Id>
+                                                <Id>193018</Id>
                                                 <Name>Custom attribute 11</Name>
                                                 <Type>1</Type>
-                                                <Description>The value for the mailbox attribute CustomAttribute11.</Description>
+                                                <Description>The value for the distribution group attribute CustomAttribute11.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3258,10 +3225,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193020</Id>
+                                                <Id>193019</Id>
                                                 <Name>Custom attribute 12</Name>
                                                 <Type>1</Type>
-                                                <Description>The value for the mailbox attribute CustomAttribute12.</Description>
+                                                <Description>The value for the distribution group attribute CustomAttribute12.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3286,10 +3253,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193021</Id>
+                                                <Id>193020</Id>
                                                 <Name>Custom attribute 13</Name>
                                                 <Type>1</Type>
-                                                <Description>The value for the mailbox attribute CustomAttribute13.</Description>
+                                                <Description>The value for the distribution group attribute CustomAttribute13.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3314,10 +3281,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193022</Id>
+                                                <Id>193021</Id>
                                                 <Name>Custom attribute 14</Name>
                                                 <Type>1</Type>
-                                                <Description>The value for the mailbox attribute CustomAttribute14.</Description>
+                                                <Description>The value for the distribution group attribute CustomAttribute14.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3342,10 +3309,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193023</Id>
+                                                <Id>193022</Id>
                                                 <Name>Custom attribute 15</Name>
                                                 <Type>1</Type>
-                                                <Description>The value for the mailbox attribute CustomAttribute15.</Description>
+                                                <Description>The value for the distribution group attribute CustomAttribute15.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3370,10 +3337,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193024</Id>
+                                                <Id>193023</Id>
                                                 <Name>Display name</Name>
                                                 <Type>1</Type>
-                                                <Description>The display name for the user.</Description>
+                                                <Description>Optional value. The distribution group's name in the Exchange Management Console and in the Exchange global address list (GAL).</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3398,10 +3365,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193025</Id>
+                                                <Id>193024</Id>
                                                 <Name>E-Mail addresses</Name>
                                                 <Type>8</Type>
-                                                <Description>The e-mail alias of the mail user. All valid Exchange e-mail address types may be used. Exchange doesn't validate custom addresses for proper formatting. Ensure that the custom address specified, complies with the format requirements for that address type. Because X.400 addresses are considered custom addresses in Exchange, they are also not validated and the correct syntax must be provided when specifying a X.400 address. Specify a text-list value for this parameter.</Description>
+                                                <Description>Optional value. The e-mail alias of the distribution group. All valid Microsoft Exchange Server 2010 e-mail address types may be used. Specify a text-list value for this parameter.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3426,10 +3393,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193026</Id>
-                                                <Name>Emailaddress policy enabled</Name>
+                                                <Id>193025</Id>
+                                                <Name>EmailAddress policy enabled</Name>
                                                 <Type>3</Type>
-                                                <Description>Set tot 'Yes' to enable the e-mail address policy for this mailbox is. Set to 'No' to disable the policy. If not specified this property will not be changed.</Description>
+                                                <Description>Set tot 'Yes' to enable the e-mail address policy for this distribution group. Set to 'No' to disable the policy. If not specified this property will not be changed.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3454,15 +3421,43 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193027</Id>
-                                                <Name>External E-Mail address</Name>
+                                                <Id>193026</Id>
+                                                <Name>Expansion server</Name>
                                                 <Type>1</Type>
-                                                <Description>The e-mail addresses address outside of the organization. E-mail messages sent to the user are sent to this external address.</Description>
+                                                <Description>Optional value. The Exchange server, used to expand the distribution group. Enter the expansion server as a legacy Exchange DN value.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
                                             </Base>
-                                            <TechName>ExternalEmailAddress</TechName>
+                                            <TechName>ExpansionServer</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193027</Id>
+                                                <Name>External managed</Name>
+                                                <Type>3</Type>
+                                                <Description>Optional value. Set to 'Yes' to specify that this distribution group is managed by an external application, or set to 'No' otherwise. If not specified this property will not be changed.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>ExternalManaged</TechName>
                                             <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
                                             <MandatoryFlag>FALSE</MandatoryFlag>
                                             <MandatoryProps/>
@@ -3485,7 +3480,7 @@
                                                 <Id>193028</Id>
                                                 <Name>Grant send on behalf to</Name>
                                                 <Type>8</Type>
-                                                <Description>The the distinguished name (DN) of recipients that can send messages on behalf of this user. Specify a text-list value for this parameter.</Description>
+                                                <Description>The distinguished name 'DN' of recipients that can send messages on behalf of this distribution group. Specify a text-list value for this parameter.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3511,9 +3506,9 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193029</Id>
-                                                <Name>Hidden from addresslists enabled</Name>
+                                                <Name>Hidden from address lists enabled</Name>
                                                 <Type>3</Type>
-                                                <Description>Set to 'Yes' to hide this mailbox from other address lists, or to 'No' to unhide this mailbox. If not specified this property will not be changed.</Description>
+                                                <Description>Set to 'Yes' to hide this distribution group from any Exchange address lists, or to 'No' to unhide this distribution group. If not specified this property will not be changed.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value class="cUmDataBool">
@@ -3544,7 +3539,7 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193030</Id>
-                                                <Name>Mail Tip</Name>
+                                                <Name>Mail tip</Name>
                                                 <Type>1</Type>
                                                 <Description>The message that is displayed to senders when they start drafting an e-mail message to this recipient. This message must be less than or equal to 250 characters.</Description>
                                                 <ExportMode>0</ExportMode>
@@ -3572,7 +3567,7 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193031</Id>
-                                                <Name>Mail Tip Translations</Name>
+                                                <Name>Mail tip translations</Name>
                                                 <Type>8</Type>
                                                 <Description>The translations for the 'Mail tip' parameter. Each entry in the list must provide the locale, followed by a colon and the specific mail tip in that language. Each mail tip message must be less than or equal to 250 characters. Specify a text-list value for this parameter.</Description>
                                                 <ExportMode>0</ExportMode>
@@ -3600,9 +3595,65 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193032</Id>
+                                                <Name>Managed by</Name>
+                                                <Type>1</Type>
+                                                <Description>Optional value. The name of the mailbox user, mail-enabled group, or mail-enabled contact that appears in the Managed by tab of the Active Directory object. Any of the following values can be used: Distinguished name (DN), Windows Live ID, Canonical name, GUID, Name, Display name, Legacy Exchange DN and Primary SMTP e-mail address.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>ManagedBy</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193033</Id>
+                                                <Name>Managed by (Multiple)</Name>
+                                                <Type>1</Type>
+                                                <Description>Optional value. Use this instead of the "Managed by" property, if there are more than one manager items. Requires exchange2010 sp2 The names of the mailbox user, mail-enabled group, or mail-enabled contact that are managers of the group. Any of the following values can be used: Distinguished name (DN), Windows Live ID, Canonical name, GUID, Name, Display name, Legacy Exchange DN and Primary SMTP e-mail address. Specify a text-list value for this parameter.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>ManagedByMultiple</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193034</Id>
                                                 <Name>Maximum receive size</Name>
                                                 <Type>1</Type>
-                                                <Description>The maximum size of e-mail messages that can be received by the mail user, from 1 kilobyte (KB) to 2,097,151 KB. If not specified, the value will not be modified. Qualify the value with one of the following: 'B' (bytes), 'KB' (kilobytes), 'MB' (megabytes), 'GB' (gigabytes) or 'unlimited'.</Description>
+                                                <Description>The maximum allowed e-mail message size that can be sent to this distribution group. Qualify the value with one of the following: 'B' (bytes), 'KB' (kilobytes), 'MB' (megabytes), 'GB' (gigabytes) or 'unlimited'.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3627,10 +3678,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193033</Id>
+                                                <Id>193035</Id>
                                                 <Name>Maximum send size</Name>
                                                 <Type>1</Type>
-                                                <Description>The maximum size of e-mail messages that can be sent by the mail user, from 1 KB to 2,097,151 KB. If not specified, the value will not be modified. Qualify the value with one of the following: 'B' (bytes), 'KB' (kilobytes), 'MB' (megabytes), 'GB' (gigabytes) or 'unlimited'.</Description>
+                                                <Description>The 'Maximum send size' parameter can be used to specify the maximum allowed e-mail message size that can be sent from this distribution group. Qualify the value with one of the following: B (bytes), KB (kilobytes), MB (megabytes), GB (gigabytes) or "unlimited".</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3655,10 +3706,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193034</Id>
+                                                <Id>193036</Id>
                                                 <Name>Moderated By</Name>
                                                 <Type>8</Type>
-                                                <Description>The users who are responsible for moderating the messages sent to the user. This parameter is required if the 'Moderation Enabled' parameter is set to 'Yes'. Specify a text-list value for this parameter.</Description>
+                                                <Description>The users who are responsible for moderating the messages sent to this distribution group. This parameter is required if the 'Moderation Enabled' parameter is set to 'Yes'. Specify a text-list value for this parameter.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3683,10 +3734,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193035</Id>
+                                                <Id>193037</Id>
                                                 <Name>Moderation enabled</Name>
                                                 <Type>3</Type>
-                                                <Description>Set to 'Yes' to enable moderation for the user, or set to 'No' otherwise. If not specified this property will not be changed.</Description>
+                                                <Description>Set to 'Yes' to enable moderation or set to 'No' otherwise. If not specified this property will not be changed.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3711,10 +3762,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193036</Id>
+                                                <Id>193038</Id>
                                                 <Name>Name</Name>
                                                 <Type>1</Type>
-                                                <Description>The name of the user.</Description>
+                                                <Description>The name of the distribution group. This specifies the distribution group name in Active Directory Users and Computers and also in the Group Name field in the Exchange Management Console.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3739,10 +3790,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193037</Id>
+                                                <Id>193039</Id>
                                                 <Name>Primary SMTP address</Name>
                                                 <Type>1</Type>
-                                                <Description>The address that external users will see when they receive a message from this user. If this parameter is used, the 'Email addresses' parameter cannot be used because 'Email addresses' includes the primary SMTP address.</Description>
+                                                <Description>Optional value. The primary return SMTP e-mail address for the distribution group. This parameter has meaning only if the distribution group has multiple SMTP e-mail addresses.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3767,35 +3818,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193038</Id>
-                                                <Name>Recipient limits</Name>
-                                                <Type>1</Type>
-                                                <Description>The maximum number of recipients for messages from this user. Specify either an integer or 'unlimited'.</Description>
-                                                <ExportMode>0</ExportMode>
-                                                <ExportVariable></ExportVariable>
-                                                <Value/>
-                                            </Base>
-                                            <TechName>RecipientLimits</TechName>
-                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
-                                            <MandatoryFlag>FALSE</MandatoryFlag>
-                                            <MandatoryProps/>
-                                            <MandatoryAbsentProps/>
-                                            <DefaultValue/>
-                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
-                                                <Base class="cUmraPsObjectDataSpec">
-                                                    <Base class="cUmraObArray">
-                                                        <ObjectArray/>
-                                                    </Base>
-                                                    <Dimension>-1</Dimension>
-                                                </Base>
-                                                <PowershellVariableName></PowershellVariableName>
-                                                <DataSpecType>0</DataSpecType>
-                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
-                                            </PowershellReturnData>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmraPsActionProperty">
-                                            <Base class="cUmProperty">
-                                                <Id>193039</Id>
+                                                <Id>193040</Id>
                                                 <Name>Reject messages from</Name>
                                                 <Type>8</Type>
                                                 <Description>The recipients from whom messages will be rejected. Use for example 'domain.com/Sales/JSmith'. Specify a text-list value for this parameter.</Description>
@@ -3823,7 +3846,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193040</Id>
+                                                <Id>193041</Id>
                                                 <Name>Reject messages from distribution list members</Name>
                                                 <Type>8</Type>
                                                 <Description>The distribution lists from which message are rejected. Messages from any member of these distribution lists are rejected. Specify a text-list value for this parameter.</Description>
@@ -3851,7 +3874,7 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193041</Id>
+                                                <Id>193042</Id>
                                                 <Name>Reject messages from senders or members</Name>
                                                 <Type>8</Type>
                                                 <Description>The identity of recipients from whom messages are rejected. Specify a text-list value for this parameter.</Description>
@@ -3879,43 +3902,15 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193042</Id>
-                                                <Name>Remove picture</Name>
-                                                <Type>3</Type>
-                                                <Description>Specify 'Yes' to remove the picture that a user has added to a mailbox, or 'No' to leave the picture untouched.  If not specified 'No' is assumed.</Description>
-                                                <ExportMode>0</ExportMode>
-                                                <ExportVariable></ExportVariable>
-                                                <Value/>
-                                            </Base>
-                                            <TechName>RemovePicture</TechName>
-                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
-                                            <MandatoryFlag>FALSE</MandatoryFlag>
-                                            <MandatoryProps/>
-                                            <MandatoryAbsentProps/>
-                                            <DefaultValue/>
-                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
-                                                <Base class="cUmraPsObjectDataSpec">
-                                                    <Base class="cUmraObArray">
-                                                        <ObjectArray/>
-                                                    </Base>
-                                                    <Dimension>-1</Dimension>
-                                                </Base>
-                                                <PowershellVariableName></PowershellVariableName>
-                                                <DataSpecType>0</DataSpecType>
-                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
-                                            </PowershellReturnData>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmraPsActionProperty">
-                                            <Base class="cUmProperty">
                                                 <Id>193043</Id>
-                                                <Name>Remove spoken name</Name>
-                                                <Type>3</Type>
-                                                <Description>Specify 'Yes' to remove the spoken name that a user has added to a mailbox, or 'No' to leave the spoken name untouched. If not specified 'No' is assumed.</Description>
+                                                <Name>Reject messages from senders or members</Name>
+                                                <Type>1</Type>
+                                                <Description>The 'Reject messages from senders or members' parameter specifies the identity of recipients from whom messages are rejected.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
                                             </Base>
-                                            <TechName>RemoveSpokenName</TechName>
+                                            <TechName>RejectMessagesFromSendersOrMembers</TechName>
                                             <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
                                             <MandatoryFlag>FALSE</MandatoryFlag>
                                             <MandatoryProps/>
@@ -3936,9 +3931,65 @@
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
                                                 <Id>193044</Id>
+                                                <Name>Report to manager enabled</Name>
+                                                <Type>3</Type>
+                                                <Description>Set to 'Yes' to send delivery reports to the distribution group manager, or set to 'No' to disable this feature. If not specified this property will not be changed.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>ReportToManagerEnabled</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193045</Id>
+                                                <Name>Report to originator enabled</Name>
+                                                <Type>3</Type>
+                                                <Description>Set to 'Yes' to send delivery reports to the senders of e-mail messages that are sent to this distribution group, or set to 'No' to disable this feature. If not specified this property will not be changed.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>ReportToOriginatorEnabled</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193046</Id>
                                                 <Name>Require sender authentication enabled</Name>
-                                                <Type>1</Type>
-                                                <Description>Set to 'Yes' to require senders to be authenticated. Set to 'No' to disable this requirement. If not specified this property will not be changed.</Description>
+                                                <Type>3</Type>
+                                                <Description>Set to 'Yes' to accept messages only from authenticated senders, or set to 'No' to also accept message from not authenticated senders. If not specified this property will not be changed.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -3963,15 +4014,16 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193045</Id>
-                                                <Name>Reset password on next logon</Name>
+                                                <Id>193047</Id>
+                                                <Name>Room list</Name>
                                                 <Type>3</Type>
-                                                <Description>Set to 'Yes' to force the user to change the password at the next logon. Set to 'No' to let the user keep its current password. If not specified this property will not be changed.</Description>
+                                                <Description><![CDATA[Optional value. Set to 'Yes' to specify that all members of the distribution group are room resource mailboxes. So it is possible to create a distribution list for an office building in the organization and add all the rooms in that building to the distribution group.
+                When the 'External managed' parameter is set to 'Yes', this parameter cannot be set to 'Yes'. If not specified 'No' is assumed. When enabled, this property cannot be disabled.]]></Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
                                             </Base>
-                                            <TechName>ResetPasswordOnNextLogon</TechName>
+                                            <TechName>RoomList</TechName>
                                             <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
                                             <MandatoryFlag>FALSE</MandatoryFlag>
                                             <MandatoryProps/>
@@ -3991,10 +4043,10 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193046</Id>
-                                                <Name>SamAccountName</Name>
+                                                <Id>193048</Id>
+                                                <Name>SAM Account Name</Name>
                                                 <Type>1</Type>
-                                                <Description>The logon name to support clients and servers running older versions of the operating systems such as 'Windows NT 4.0', 'Windows 98', 'Windows 95' and 'LAN Manager'. This attribute must be less than 20 characters in length.</Description>
+                                                <Description>The name for clients of the object that are running older operating systems. The value is displayed in Active Directory and in the Exchange Management Console in the Group name (pre-Windows 2000) field.</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
@@ -4019,71 +4071,71 @@
                                         </ArrayElement>
                                         <ArrayElement class="cUmraPsActionProperty">
                                             <Base class="cUmProperty">
-                                                <Id>193047</Id>
+                                                <Id>193049</Id>
+                                                <Name>Send moderation notifications</Name>
+                                                <Type>1</Type>
+                                                <Description>Specify if status modifications are sent to users when they send a message to the moderated dynamic distribution group. Specify one of the following values: 'Always', 'Internal' and 'Never'.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>SendModerationNotifications</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193050</Id>
+                                                <Name>Send oof message to originator enabled</Name>
+                                                <Type>3</Type>
+                                                <Description>Set to 'Yes' to allows Out of Office messages to be delivered to the senders of e-mail messages that are sent to this distribution group, set to 'No' to block those messages. If not specified this property will not be changed.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>SendOofMessageToOriginatorEnabled</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193051</Id>
                                                 <Name>Simple display name</Name>
                                                 <Type>1</Type>
-                                                <Description>The simple display name is used on objects where the name of the object may be displayed in an environment that does not support Unicode characters. The only supported characters for this parameter are ASCII characters 26 through 126, inclusively. These characters are the ones that are typically found on most U.S. English keyboards.</Description>
+                                                <Description>Optional value. The name to display as an alternative description of the object when only a limited set of characters is permitted. This limited set of characters consists of the following characters: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\"()+,-./:?</Description>
                                                 <ExportMode>0</ExportMode>
                                                 <ExportVariable></ExportVariable>
                                                 <Value/>
                                             </Base>
                                             <TechName>SimpleDisplayName</TechName>
-                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
-                                            <MandatoryFlag>FALSE</MandatoryFlag>
-                                            <MandatoryProps/>
-                                            <MandatoryAbsentProps/>
-                                            <DefaultValue/>
-                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
-                                                <Base class="cUmraPsObjectDataSpec">
-                                                    <Base class="cUmraObArray">
-                                                        <ObjectArray/>
-                                                    </Base>
-                                                    <Dimension>-1</Dimension>
-                                                </Base>
-                                                <PowershellVariableName></PowershellVariableName>
-                                                <DataSpecType>0</DataSpecType>
-                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
-                                            </PowershellReturnData>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmraPsActionProperty">
-                                            <Base class="cUmProperty">
-                                                <Id>193048</Id>
-                                                <Name>User principal name</Name>
-                                                <Type>1</Type>
-                                                <Description>The user principal name ('UPN') for the mail user.</Description>
-                                                <ExportMode>0</ExportMode>
-                                                <ExportVariable></ExportVariable>
-                                                <Value/>
-                                            </Base>
-                                            <TechName>UserPrincipalName</TechName>
-                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
-                                            <MandatoryFlag>FALSE</MandatoryFlag>
-                                            <MandatoryProps/>
-                                            <MandatoryAbsentProps/>
-                                            <DefaultValue/>
-                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
-                                                <Base class="cUmraPsObjectDataSpec">
-                                                    <Base class="cUmraObArray">
-                                                        <ObjectArray/>
-                                                    </Base>
-                                                    <Dimension>-1</Dimension>
-                                                </Base>
-                                                <PowershellVariableName></PowershellVariableName>
-                                                <DataSpecType>0</DataSpecType>
-                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
-                                            </PowershellReturnData>
-                                        </ArrayElement>
-                                        <ArrayElement class="cUmraPsActionProperty">
-                                            <Base class="cUmProperty">
-                                                <Id>193049</Id>
-                                                <Name>Windows e-mail address</Name>
-                                                <Type>1</Type>
-                                                <Description>The windows e-mail address for this mail user. This address is not used by Exchange.</Description>
-                                                <ExportMode>0</ExportMode>
-                                                <ExportVariable></ExportVariable>
-                                                <Value/>
-                                            </Base>
-                                            <TechName>WindowsEmailAddress</TechName>
                                             <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
                                             <MandatoryFlag>FALSE</MandatoryFlag>
                                             <MandatoryProps/>
@@ -4108,24 +4160,24 @@
                     </Base>
                     <UmraPsActionScript class="cUmraPsActionScript">
                         <Base class="cUmraDynAction" Version="2">
-                            <XmlFileName>umpsex10editmailuser.xml</XmlFileName>
-                            <UmraActionName>Edit mail user (Exchange 2010)</UmraActionName>
-                            <ActionImageIndex>45</ActionImageIndex>
+                            <XmlFileName>umpsex10editdistributiongroup.xml</XmlFileName>
+                            <UmraActionName>Edit distribution group (Exchange 2010)</UmraActionName>
+                            <ActionImageIndex>6</ActionImageIndex>
                             <RelativeActionTreePosition>25000</RelativeActionTreePosition>
                             <ActionHelpId>57</ActionHelpId>
                             <ActionLabels>
                                 <TextItem>Exchange</TextItem>
                                 <TextItem>Exchange 2010</TextItem>
-                                <TextItem>Mail user</TextItem>
+                                <TextItem>Distribution group</TextItem>
                             </ActionLabels>
                             <SignatureInfo class="cUmraDynActionSignature">
                                 <UserName>Tools4ever</UserName>
-                                <Signature>gXcco5v3ghQzA/InX/EbEDs</Signature>
+                                <Signature>gvB@4x#qJ3vgP/SiP8JmiDs</Signature>
                                 <ContainsSignature>TRUE</ContainsSignature>
                             </SignatureInfo>
                             <DynamicActionClassVersion>2</DynamicActionClassVersion>
                             <ObsoleteFlag>FALSE</ObsoleteFlag>
-                            <VersionNumber>134</VersionNumber>
+                            <VersionNumber>140</VersionNumber>
                         </Base>
                         <Script class="cUmraPsScript">
                             <Base class="cUmraObArray">
@@ -4136,7 +4188,6 @@
                                             <ContentsText><![CDATA[$script:ErrorActionPreference                                  = 'Stop';
                 [string]$Ex10DomainController                                  = '';
                 [string]$Ex10Identity                                          = '';
-                [System.Security.SecureString]$Ex10Password                    = $null;
                 [string[]]$Ex10AcceptMessagesOnlyFrom                          = @();
                 [string[]]$Ex10AcceptMessagesOnlyFromDLMembers                 = @();
                 [string[]]$Ex10AcceptMessagesOnlyFromSendersOrMembers          = @();
@@ -4160,29 +4211,32 @@
                 [string]$Ex10DisplayName                                       = '';
                 [string[]]$Ex10EmailAddresses                                  = @();
                 [System.Nullable[bool]]$Ex10EmailAddressPolicyEnabled          = $null;
-                [string]$Ex10ExternalEmailAddress                              = '';
+                [string]$Ex10ExpansionServer                                   = '';
+                [System.Nullable[bool]]$Ex10ExternalManaged                    = $null;
                 [string[]]$Ex10GrantSendOnBehalfTo                             = @();
                 [System.Nullable[bool]]$Ex10HiddenFromAddressListsEnabled      = $null;
                 [string]$Ex10MailTip                                           = '';
                 [string[]]$Ex10MailTipTranslations                             = @();
+                [string]$Ex10ManagedBy                                         = '';
+                [string[]]$Ex10ManagedByMultiple                               = @();
                 [string]$Ex10MaxReceiveSize                                    = '';
                 [string]$Ex10MaxSendSize                                       = '';
                 [string[]]$Ex10ModeratedBy                                     = @();
                 [System.Nullable[bool]]$Ex10ModerationEnabled                  = $null;
                 [string]$Ex10Name                                              = '';
                 [string]$Ex10PrimarySmtpAddress                                = '';
-                [string]$Ex10RecipientLimits                                   = '';
                 [string[]]$Ex10RejectMessagesFrom                              = @();
                 [string[]]$Ex10RejectMessagesFromDLMembers                     = @();
                 [string[]]$Ex10RejectMessagesFromSendersOrMembers              = @();
-                [bool]$Ex10RemovePicture                                       = $false;
-                [bool]$Ex10RemoveSpokenName                                    = $false;
+                [System.Nullable[bool]]$Ex10ReportToManagerEnabled             = $null;
+                [System.Nullable[bool]]$Ex10ReportToOriginatorEnabled          = $null;
                 [System.Nullable[bool]]$Ex10RequireSenderAuthenticationEnabled = $null;
-                [System.Nullable[bool]]$Ex10ResetPasswordOnNextLogon           = $null;
+                [bool]$Ex10RoomList                                            = $false;
                 [string]$Ex10SamAccountName                                    = '';
+                [string]$Ex10SendModerationNotifications                       = '';
+                [System.Nullable[bool]]$Ex10SendOofMessageToOriginatorEnabled  = $null;
                 [string]$Ex10SimpleDisplayName                                 = '';
-                [string]$Ex10UserPrincipalName                                 = '';
-                [string]$Ex10WindowsEmailAddress                               = '';]]></ContentsText>
+                $NewDistGroup                                                  = $null;]]></ContentsText>
                                             <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
@@ -4394,64 +4448,6 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>$Ex10UserPrincipalName = %UserPrincipalName%;</ContentsText>
-                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
-                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
-                                            <EncryptedFlag>FALSE</EncryptedFlag>
-                                        </Contents>
-                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray>
-                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
-                                                        <ActionPropertyName>UserPrincipalName</ActionPropertyName>
-                                                        <Condition class="cUmraPsConditionData">
-                                                            <Base class="cUmraPsConditionBase"/>
-                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
-                                                        </Condition>
-                                                        <Replacement class="cUmraPsReplaceSimple">
-                                                            <Base class="cUmraPsReplaceBase">
-                                                                <QuoteFormatMode>1</QuoteFormatMode>
-                                                                <VariableConversionMode>0</VariableConversionMode>
-                                                            </Base>
-                                                            <ReplacementText>%UserPrincipalName%</ReplacementText>
-                                                        </Replacement>
-                                                    </ArrayElement>
-                                                </ObjectArray>
-                                            </Base>
-                                        </Dependencies>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
-                                        <Base class="cUmraPsScriptPhraseBase"/>
-                                        <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>$Ex10Password = ConvertTo-SecureString -string %Password% -AsPlainText -force</ContentsText>
-                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
-                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
-                                            <EncryptedFlag>TRUE</EncryptedFlag>
-                                        </Contents>
-                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray>
-                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
-                                                        <ActionPropertyName>Password</ActionPropertyName>
-                                                        <Condition class="cUmraPsConditionData">
-                                                            <Base class="cUmraPsConditionBase"/>
-                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
-                                                        </Condition>
-                                                        <Replacement class="cUmraPsReplaceSimple">
-                                                            <Base class="cUmraPsReplaceBase">
-                                                                <QuoteFormatMode>1</QuoteFormatMode>
-                                                                <VariableConversionMode>0</VariableConversionMode>
-                                                            </Base>
-                                                            <ReplacementText>%Password%</ReplacementText>
-                                                        </Replacement>
-                                                    </ArrayElement>
-                                                </ObjectArray>
-                                            </Base>
-                                        </Dependencies>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
-                                        <Base class="cUmraPsScriptPhraseBase"/>
-                                        <Contents class="cUmraPsScriptPhraseContents">
                                             <ContentsText>$Ex10AcceptMessagesOnlyFrom += , %AcceptMessagesOnlyFrom%;</ContentsText>
                                             <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
@@ -4482,7 +4478,7 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>$Ex10AcceptMessagesOnlyFromDLMembers += , %AcceptMessagesOnlyFromDLMembers%;</ContentsText>
+                                            <ContentsText>$Ex10AcceptMessagesOnlyFromDLMembers += , %AcceptMessagesOnlyFromDLMember%;</ContentsText>
                                             <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
@@ -4501,7 +4497,7 @@
                                                                 <QuoteFormatMode>1</QuoteFormatMode>
                                                                 <VariableConversionMode>0</VariableConversionMode>
                                                             </Base>
-                                                            <ReplacementText>%AcceptMessagesOnlyFromDLMembers%</ReplacementText>
+                                                            <ReplacementText>%AcceptMessagesOnlyFromDLMember%</ReplacementText>
                                                             <ColumnIndex>0</ColumnIndex>
                                                         </Replacement>
                                                     </ArrayElement>
@@ -4512,7 +4508,7 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>$Ex10AcceptMessagesOnlyFromSendersOrMembers += , %AcceptMessagesOnlyFromSendersOrMembers%;</ContentsText>
+                                            <ContentsText>$Ex10AcceptMessagesOnlyFromSendersOrMembers += , %AcceptMessagesOnlyFromSenderOrMember%;</ContentsText>
                                             <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
@@ -4531,7 +4527,7 @@
                                                                 <QuoteFormatMode>1</QuoteFormatMode>
                                                                 <VariableConversionMode>0</VariableConversionMode>
                                                             </Base>
-                                                            <ReplacementText>%AcceptMessagesOnlyFromSendersOrMembers%</ReplacementText>
+                                                            <ReplacementText>%AcceptMessagesOnlyFromSenderOrMember%</ReplacementText>
                                                             <ColumnIndex>0</ColumnIndex>
                                                         </Replacement>
                                                     </ArrayElement>
@@ -4542,8 +4538,8 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>$Ex10ArbitrationMailbox = %ArbitrationMailbox%;</ContentsText>
-                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <ContentsText>$Ex10ArbitrationMailbox = [string]%ArbitrationMailbox%</ContentsText>
+                                            <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
                                         </Contents>
@@ -5065,8 +5061,8 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>$Ex10ExternalEmailAddress = %ExternalEmailAddress%;</ContentsText>
-                                            <StartOnNewLineFlag>FALSE</StartOnNewLineFlag>
+                                            <ContentsText>$Ex10ExpansionServer = %ExpansionServer%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
                                         </Contents>
@@ -5074,7 +5070,7 @@
                                             <Base class="cUmraObArray">
                                                 <ObjectArray>
                                                     <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
-                                                        <ActionPropertyName>ExternalEmailAddress</ActionPropertyName>
+                                                        <ActionPropertyName>ExpansionServer</ActionPropertyName>
                                                         <Condition class="cUmraPsConditionData">
                                                             <Base class="cUmraPsConditionBase"/>
                                                             <PassedOnDataFlag>TRUE</PassedOnDataFlag>
@@ -5084,7 +5080,36 @@
                                                                 <QuoteFormatMode>1</QuoteFormatMode>
                                                                 <VariableConversionMode>0</VariableConversionMode>
                                                             </Base>
-                                                            <ReplacementText>%ExternalEmailAddress%</ReplacementText>
+                                                            <ReplacementText>%ExpansionServer%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10ExternalManaged = %Ex10ExternalManaged%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>ExternalManaged</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceBoolean">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>0</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%Ex10ExternalManaged%</ReplacementText>
                                                         </Replacement>
                                                     </ArrayElement>
                                                 </ObjectArray>
@@ -5124,7 +5149,7 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>$Ex10HiddenFromAddressListsEnabled = %HiddenFromAddressListsEnabled%;</ContentsText>
+                                            <ContentsText>$Ex10HiddenFromAddressListsEnabled = %Ex10HiddenFromAddressListsEnabled%;</ContentsText>
                                             <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
@@ -5143,7 +5168,7 @@
                                                                 <QuoteFormatMode>0</QuoteFormatMode>
                                                                 <VariableConversionMode>0</VariableConversionMode>
                                                             </Base>
-                                                            <ReplacementText>%HiddenFromAddressListsEnabled%</ReplacementText>
+                                                            <ReplacementText>%Ex10HiddenFromAddressListsEnabled%</ReplacementText>
                                                         </Replacement>
                                                     </ArrayElement>
                                                 </ObjectArray>
@@ -5202,6 +5227,65 @@
                                                                 <VariableConversionMode>0</VariableConversionMode>
                                                             </Base>
                                                             <ReplacementText>%MailTipTranslation%</ReplacementText>
+                                                            <ColumnIndex>0</ColumnIndex>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10ManagedBy = %Ex10ManagedBy%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>ManagedBy</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%Ex10ManagedBy%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10ManagedByMultiple += , %ManagedByMultiple%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>ManagedByMultiple</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceMultivalue">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%ManagedByMultiple%</ReplacementText>
                                                             <ColumnIndex>0</ColumnIndex>
                                                         </Replacement>
                                                     </ArrayElement>
@@ -5329,35 +5413,6 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>$Ex10RecipientLimits = %RecipientLimits%;</ContentsText>
-                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
-                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
-                                            <EncryptedFlag>FALSE</EncryptedFlag>
-                                        </Contents>
-                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray>
-                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
-                                                        <ActionPropertyName>RecipientLimits</ActionPropertyName>
-                                                        <Condition class="cUmraPsConditionData">
-                                                            <Base class="cUmraPsConditionBase"/>
-                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
-                                                        </Condition>
-                                                        <Replacement class="cUmraPsReplaceSimple">
-                                                            <Base class="cUmraPsReplaceBase">
-                                                                <QuoteFormatMode>1</QuoteFormatMode>
-                                                                <VariableConversionMode>0</VariableConversionMode>
-                                                            </Base>
-                                                            <ReplacementText>%RecipientLimits%</ReplacementText>
-                                                        </Replacement>
-                                                    </ArrayElement>
-                                                </ObjectArray>
-                                            </Base>
-                                        </Dependencies>
-                                    </ArrayElement>
-                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
-                                        <Base class="cUmraPsScriptPhraseBase"/>
-                                        <Contents class="cUmraPsScriptPhraseContents">
                                             <ContentsText>$Ex10RejectMessagesFrom += ,  %RejectMessagesFrom%;</ContentsText>
                                             <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
@@ -5448,7 +5503,7 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>$Ex10RemovePicture = $true;</ContentsText>
+                                            <ContentsText>$Ex10ReportToManagerEnabled = %ReportToManagerEnabled%;</ContentsText>
                                             <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
@@ -5457,14 +5512,17 @@
                                             <Base class="cUmraObArray">
                                                 <ObjectArray>
                                                     <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
-                                                        <ActionPropertyName>RemovePicture</ActionPropertyName>
-                                                        <Condition class="cUmraPsConditionBoolean">
+                                                        <ActionPropertyName>ReportToManagerEnabled</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
                                                             <Base class="cUmraPsConditionBase"/>
-                                                            <PassedOnTrueFlag>TRUE</PassedOnTrueFlag>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
                                                         </Condition>
-                                                        <Replacement class="cUmraPsReplaceBase">
-                                                            <QuoteFormatMode>0</QuoteFormatMode>
-                                                            <VariableConversionMode>0</VariableConversionMode>
+                                                        <Replacement class="cUmraPsReplaceBoolean">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>0</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%ReportToManagerEnabled%</ReplacementText>
                                                         </Replacement>
                                                     </ArrayElement>
                                                 </ObjectArray>
@@ -5474,7 +5532,7 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>$Ex10RemoveSpokenName = $true;</ContentsText>
+                                            <ContentsText>$Ex10ReportToOriginatorEnabled = %ReportToOriginatorEnabled%;</ContentsText>
                                             <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
@@ -5483,14 +5541,17 @@
                                             <Base class="cUmraObArray">
                                                 <ObjectArray>
                                                     <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
-                                                        <ActionPropertyName>RemoveSpokenName</ActionPropertyName>
-                                                        <Condition class="cUmraPsConditionBoolean">
+                                                        <ActionPropertyName>ReportToOriginatorEnabled</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
                                                             <Base class="cUmraPsConditionBase"/>
-                                                            <PassedOnTrueFlag>TRUE</PassedOnTrueFlag>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
                                                         </Condition>
-                                                        <Replacement class="cUmraPsReplaceBase">
-                                                            <QuoteFormatMode>0</QuoteFormatMode>
-                                                            <VariableConversionMode>0</VariableConversionMode>
+                                                        <Replacement class="cUmraPsReplaceBoolean">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>0</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%ReportToOriginatorEnabled%</ReplacementText>
                                                         </Replacement>
                                                     </ArrayElement>
                                                 </ObjectArray>
@@ -5529,7 +5590,7 @@
                                     <ArrayElement class="cUmraPsScriptPhraseProperty">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>$Ex10ResetPasswordOnNextLogon = %ResetPasswordOnNextLogon%;</ContentsText>
+                                            <ContentsText>$Ex10RoomList = $true;</ContentsText>
                                             <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
@@ -5538,7 +5599,62 @@
                                             <Base class="cUmraObArray">
                                                 <ObjectArray>
                                                     <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
-                                                        <ActionPropertyName>ResetPasswordOnNextLogon</ActionPropertyName>
+                                                        <ActionPropertyName>RoomList</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionBoolean">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnTrueFlag>TRUE</PassedOnTrueFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceBase">
+                                                            <QuoteFormatMode>0</QuoteFormatMode>
+                                                            <VariableConversionMode>0</VariableConversionMode>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10SendModerationNotifications = %SendModerationNotifications%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>SendModerationNotifications</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%SendModerationNotifications%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$Ex10SendOofMessageToOriginatorEnabled = %SendOofMessageToOriginatorEnabled%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>SendOofMessageToOriginatorEnabled</ActionPropertyName>
                                                         <Condition class="cUmraPsConditionData">
                                                             <Base class="cUmraPsConditionBase"/>
                                                             <PassedOnDataFlag>TRUE</PassedOnDataFlag>
@@ -5548,7 +5664,7 @@
                                                                 <QuoteFormatMode>0</QuoteFormatMode>
                                                                 <VariableConversionMode>0</VariableConversionMode>
                                                             </Base>
-                                                            <ReplacementText>%ResetPasswordOnNextLogon%</ReplacementText>
+                                                            <ReplacementText>%SendOofMessageToOriginatorEnabled%</ReplacementText>
                                                         </Replacement>
                                                     </ArrayElement>
                                                 </ObjectArray>
@@ -5584,42 +5700,12 @@
                                             </Base>
                                         </Dependencies>
                                     </ArrayElement>
-                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
-                                        <Base class="cUmraPsScriptPhraseBase"/>
-                                        <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText>$Ex10WindowsEmailAddress = %WindowsEmailAddress%;</ContentsText>
-                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
-                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
-                                            <EncryptedFlag>FALSE</EncryptedFlag>
-                                        </Contents>
-                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
-                                            <Base class="cUmraObArray">
-                                                <ObjectArray>
-                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
-                                                        <ActionPropertyName>WindowsEmailAddress</ActionPropertyName>
-                                                        <Condition class="cUmraPsConditionData">
-                                                            <Base class="cUmraPsConditionBase"/>
-                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
-                                                        </Condition>
-                                                        <Replacement class="cUmraPsReplaceSimple">
-                                                            <Base class="cUmraPsReplaceBase">
-                                                                <QuoteFormatMode>1</QuoteFormatMode>
-                                                                <VariableConversionMode>0</VariableConversionMode>
-                                                            </Base>
-                                                            <ReplacementText>%WindowsEmailAddress%</ReplacementText>
-                                                        </Replacement>
-                                                    </ArrayElement>
-                                                </ObjectArray>
-                                            </Base>
-                                        </Dependencies>
-                                    </ArrayElement>
                                     <ArrayElement class="cUmraPsScriptPhraseSimple">
                                         <Base class="cUmraPsScriptPhraseBase"/>
                                         <Contents class="cUmraPsScriptPhraseContents">
-                                            <ContentsText><![CDATA[Abr-Set-Exchange2010MailUser `
+                                            <ContentsText><![CDATA[$NewDistGroup = Abr-Set-Exchange2010DistributionGroup `
 					-DomainController $Ex10DomainController `
 					-Identity $Ex10Identity `
-					-Password $Ex10Password `
 					-AcceptMessagesOnlyFrom $Ex10AcceptMessagesOnlyFrom `
 					-AcceptMessagesOnlyFromDLMembers $Ex10AcceptMessagesOnlyFromDLMembers `
 					-AcceptMessagesOnlyFromSendersOrMembers $Ex10AcceptMessagesOnlyFromSendersOrMembers `
@@ -5643,29 +5729,31 @@
 					-DisplayName $Ex10DisplayName `
 					-EmailAddresses $Ex10EmailAddresses `
 					-EmailAddressPolicyEnabled $Ex10EmailAddressPolicyEnabled `
-					-ExternalEmailAddress $Ex10ExternalEmailAddress `
+				    -ExpansionServer $Ex10ExpansionServer `
+					-ExternalManaged $Ex10ExternalManaged `
 					-GrantSendOnBehalfTo $Ex10GrantSendOnBehalfTo `
-					-HiddenFromAddressListsEnabled $Ex10HiddenFromAddressListsEnabled `
+					-hiddenFromAddressListsEnabled $Ex10HiddenFromAddressListsEnabled `
 					-MailTip $Ex10MailTip `
 					-MailTipTranslations $Ex10MailTipTranslations `
+					-ManagedBySingle $Ex10ManagedBy `
+					-ManagedByMultiple $Ex10ManagedByMultiple `
 					-MaxReceiveSize $Ex10MaxReceiveSize `
 					-MaxSendSize $Ex10MaxSendSize `
 					-ModeratedBy $Ex10ModeratedBy `
 					-ModerationEnabled $Ex10ModerationEnabled `
 					-Name $Ex10Name `
 					-PrimarySmtpAddress $Ex10PrimarySmtpAddress `
-					-RecipientLimits $Ex10RecipientLimits `
 					-RejectMessagesFrom $Ex10RejectMessagesFrom `
 					-RejectMessagesFromDLMembers $Ex10RejectMessagesFromDLMembers `
 					-RejectMessagesFromSendersOrMembers $Ex10RejectMessagesFromSendersOrMembers `
-					-RemovePicture $Ex10RemovePicture `
-					-RemoveSpokenName $Ex10RemoveSpokenName `
+					-ReportToManagerEnabled $Ex10ReportToManagerEnabled `
+					-ReportToOriginatorEnabled $Ex10ReportToOriginatorEnabled `
 					-RequireSenderAuthenticationEnabled $Ex10RequireSenderAuthenticationEnabled `
-					-ResetPasswordOnNextLogon $Ex10ResetPasswordOnNextLogon `
+					-RoomList $Ex10RoomList `
 					-SamAccountName $Ex10SamAccountName `
-					-SimpleDisplayName $Ex10SimpleDisplayName `
-					-UserPrincipalName $Ex10UserPrincipalName `
-					-WindowsEmailAddress $Ex10WindowsEmailAddress;]]></ContentsText>
+					-SendModerationNotifications $Ex10SendModerationNotifications `
+					-SendOofMessageToOriginatorEnabled $Ex10SendOofMessageToOriginatorEnabled `
+					-SimpleDisplayName $Ex10SimpleDisplayName;]]></ContentsText>
                                             <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
                                             <StartWithBlankFlag>TRUE</StartWithBlankFlag>
                                             <EncryptedFlag>FALSE</EncryptedFlag>
@@ -5687,64 +5775,72 @@
                         </UmraPsConfiguration>
                         <UmraPsSession class="cUmraPsSession">
                             <VariablesCleanup>
-                                <TextItem>Ex10DomainController</TextItem>
-                                <TextItem><![CDATA[ Ex10Identity]]></TextItem>
-                                <TextItem><![CDATA[ Ex10Password]]></TextItem>
-                                <TextItem><![CDATA[ Ex10AcceptMessagesOnlyFrom]]></TextItem>
-                                <TextItem><![CDATA[ Ex10AcceptMessagesOnlyFromDLMembers]]></TextItem>
-                                <TextItem><![CDATA[ 
-			Ex10AcceptMessagesOnlyFromSendersOrMembers]]></TextItem>
-                                <TextItem><![CDATA[ Ex10Alias]]></TextItem>
+                                <TextItem>NewDistGroup</TextItem>
                                 <TextItem><![CDATA[ Ex10ArbitrationMailbox]]></TextItem>
-                                <TextItem><![CDATA[ Ex10CustomAttribute1]]></TextItem>
+                                <TextItem><![CDATA[ Ex10EmailAddressPolicyEnabled]]></TextItem>
+                                <TextItem><![CDATA[ Ex10HiddenFromAddressListsEnabled]]></TextItem>
                                 <TextItem><![CDATA[ 
-			Ex10CustomAttribute2]]></TextItem>
+			Ex10ReportToManagerEnabled]]></TextItem>
+                                <TextItem><![CDATA[ Ex10ReportToOriginatorEnabled]]></TextItem>
+                                <TextItem><![CDATA[ Ex10RequireSenderAuthenticationEnabled]]></TextItem>
+                                <TextItem><![CDATA[ 
+			Ex10SendOofMessageToOriginatorEnabled]]></TextItem>
+                                <TextItem><![CDATA[ Ex10RoomList]]></TextItem>
+                                <TextItem><![CDATA[ Ex10Identity]]></TextItem>
+                                <TextItem><![CDATA[ Ex10Alias]]></TextItem>
+                                <TextItem><![CDATA[ Ex10AcceptMessagesOnlyFrom]]></TextItem>
+                                <TextItem><![CDATA[ 
+			Ex10AcceptMessagesOnlyFromDLMembers]]></TextItem>
+                                <TextItem><![CDATA[ Ex10AcceptMessagesOnlyFromSendersOrMembers]]></TextItem>
+                                <TextItem><![CDATA[ Ex10ModerationEnabled]]></TextItem>
+                                <TextItem><![CDATA[ 
+			Ex10ReportToManagerEnabled]]></TextItem>
+                                <TextItem><![CDATA[ Ex10SendOofMessageToOriginatorEnabled]]></TextItem>
+                                <TextItem><![CDATA[ Ex10AcceptMessagesOnlyFromDLMembers]]></TextItem>
+                                <TextItem><![CDATA[ Ex10ModerationEnabled]]></TextItem>
+                                <TextItem><![CDATA[ 
+			Ex10DomainController]]></TextItem>
+                                <TextItem><![CDATA[ Ex10DisplayName]]></TextItem>
+                                <TextItem><![CDATA[ Ex10CustomAttribute1]]></TextItem>
+                                <TextItem><![CDATA[ Ex10CustomAttribute2]]></TextItem>
                                 <TextItem><![CDATA[ Ex10CustomAttribute3]]></TextItem>
                                 <TextItem><![CDATA[ Ex10CustomAttribute4]]></TextItem>
-                                <TextItem><![CDATA[ Ex10CustomAttribute5]]></TextItem>
-                                <TextItem><![CDATA[ Ex10CustomAttribute6]]></TextItem>
                                 <TextItem><![CDATA[ 
-			Ex10CustomAttribute7]]></TextItem>
+			Ex10CustomAttribute5]]></TextItem>
+                                <TextItem><![CDATA[ Ex10CustomAttribute6]]></TextItem>
+                                <TextItem><![CDATA[ Ex10CustomAttribute7]]></TextItem>
                                 <TextItem><![CDATA[ Ex10CustomAttribute8]]></TextItem>
                                 <TextItem><![CDATA[ Ex10CustomAttribute9]]></TextItem>
-                                <TextItem><![CDATA[ Ex10CustomAttribute10]]></TextItem>
-                                <TextItem><![CDATA[ Ex10CustomAttribute11]]></TextItem>
                                 <TextItem><![CDATA[ 
-			Ex10CustomAttribute12]]></TextItem>
+			Ex10CustomAttribute10]]></TextItem>
+                                <TextItem><![CDATA[ Ex10CustomAttribute11]]></TextItem>
+                                <TextItem><![CDATA[ Ex10CustomAttribute12]]></TextItem>
                                 <TextItem><![CDATA[ Ex10CustomAttribute13]]></TextItem>
                                 <TextItem><![CDATA[ Ex10CustomAttribute14]]></TextItem>
-                                <TextItem><![CDATA[ Ex10CustomAttribute15]]></TextItem>
-                                <TextItem><![CDATA[ Ex10DisplayName]]></TextItem>
-                                <TextItem><![CDATA[ Ex10EmailAddresses]]></TextItem>
                                 <TextItem><![CDATA[ 
-			Ex10EmailAddressPolicyEnabled]]></TextItem>
-                                <TextItem><![CDATA[ Ex10ExternalEmailAddress]]></TextItem>
+			Ex10CustomAttribute15]]></TextItem>
+                                <TextItem><![CDATA[ Ex10EmailAddresses]]></TextItem>
+                                <TextItem><![CDATA[ Ex10ExpansionServer]]></TextItem>
+                                <TextItem><![CDATA[ Ex10ExternalManaged]]></TextItem>
                                 <TextItem><![CDATA[ Ex10GrantSendOnBehalfTo]]></TextItem>
-                                <TextItem><![CDATA[ Ex10HiddenFromAddressListsEnabled]]></TextItem>
-                                <TextItem><![CDATA[
-			Ex10MailTip]]></TextItem>
-                                <TextItem><![CDATA[ Ex10MailTipTranslations]]></TextItem>
+                                <TextItem><![CDATA[ Ex10MailTip]]></TextItem>
+                                <TextItem><![CDATA[ 
+			Ex10MailTipTranslations]]></TextItem>
+                                <TextItem><![CDATA[ Ex10ManagedBy]]></TextItem>
+                                <TextItem><![CDATA[ Ex10ManagedByMultiple]]></TextItem>
                                 <TextItem><![CDATA[ Ex10MaxReceiveSize]]></TextItem>
                                 <TextItem><![CDATA[ Ex10MaxSendSize]]></TextItem>
                                 <TextItem><![CDATA[ Ex10ModeratedBy]]></TextItem>
-                                <TextItem><![CDATA[ Ex10ModerationEnabled]]></TextItem>
                                 <TextItem><![CDATA[ Ex10Name]]></TextItem>
-                                <TextItem><![CDATA[ 
-			Ex10PrimarySmtpAddress]]></TextItem>
-                                <TextItem><![CDATA[  Ex10RecipientLimits]]></TextItem>
-                                <TextItem><![CDATA[ Ex10RejectMessagesFrom]]></TextItem>
+                                <TextItem><![CDATA[ Ex10PrimarySmtpAddress]]></TextItem>
+                                <TextItem><![CDATA[
+			Ex10RejectMessagesFrom]]></TextItem>
                                 <TextItem><![CDATA[ Ex10RejectMessagesFromDLMembers]]></TextItem>
-                                <TextItem><![CDATA[ 
-			Ex10RejectMessagesFromSendersOrMembers]]></TextItem>
-                                <TextItem><![CDATA[ Ex10RemovePicture]]></TextItem>
-                                <TextItem><![CDATA[ Ex10RemoveSpokenName]]></TextItem>
-                                <TextItem><![CDATA[ Ex10RequireSenderAuthenticationEnabled]]></TextItem>
-                                <TextItem><![CDATA[ 
-			Ex10ResetPasswordOnNextLogon]]></TextItem>
+                                <TextItem><![CDATA[ Ex10RejectMessagesFromSendersOrMembers]]></TextItem>
                                 <TextItem><![CDATA[ Ex10SamAccountName]]></TextItem>
+                                <TextItem><![CDATA[ 
+			Ex10SendModerationNotifications]]></TextItem>
                                 <TextItem><![CDATA[ Ex10SimpleDisplayName]]></TextItem>
-                                <TextItem><![CDATA[ Ex10UserPrincipalName]]></TextItem>
-                                <TextItem><![CDATA[ Ex10WindowsEmailAddress]]></TextItem>
                             </VariablesCleanup>
                         </UmraPsSession>
                     </UmraPsActionScript>
@@ -6229,7 +6325,7 @@
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1673</BuildNumber>
+        <BuildNumber>1683</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>

@@ -209,7 +209,7 @@
                                                 <Base class="cUmData" Version="1">
                                                     <HiddenFlag>FALSE</HiddenFlag>
                                                 </Base>
-                                                <BoolValue>FALSE</BoolValue>
+                                                <BoolValue>TRUE</BoolValue>
                                             </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -240,8 +240,8 @@
                                             <Name>Output variable</Name>
                                             <Type>1</Type>
                                             <Description>Store the output of the command in the specified variable.</Description>
-                                            <ExportMode>8193</ExportMode>
-                                            <ExportVariable></ExportVariable>
+                                            <ExportMode>12289</ExportMode>
+                                            <ExportVariable>%cmd_output%</ExportVariable>
                                             <Value/>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
@@ -265,7 +265,12 @@
                                             <Description>Optional: When specified, the application reserves a buffer of the specified size in bytes to store the output data in a variable. By default (not specified), the maximum size is 10240 bytes. If the real output data size exceeds the limit, the data is not stored. Example value: 250000.</Description>
                                             <ExportMode>1</ExportMode>
                                             <ExportVariable></ExportVariable>
-                                            <Value/>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>250000</TextValue>
+                                            </Value>
                                         </ArrayElement>
                                         <ArrayElement class="cUmProperty">
                                             <Id>105008</Id>
@@ -281,6 +286,21 @@
                             </Base>
                         </PropertyArray>
                     </Base>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptLogVariables">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableNames>
+                        <TextItem>%cmd_output%</TextItem>
+                    </VariableNames>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
                     <Base class="cActionItemScript">

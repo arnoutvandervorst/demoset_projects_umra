@@ -64,18 +64,21 @@
                             <ConnectionString>%Conn_string_db_wfm%</ConnectionString>
                             <OleDbProviderType>52058968</OleDbProviderType>
                         </UmraOleDb>
-                        <DatabaseQuery><![CDATA[SELECT DISTINCT
-workflowinstances.[ID],
-[assignedTo],
-[dateAssigned],
-workflows.name,
-[instanceTitle],
-[dateCreated]
-FROM [workflowInstances]
-INNER JOIN [workflows] ON workflows.ID = workflowinstances.workflowID
-INNER JOIN [workflowInstanceHistory] ON workflowInstanceHistory.workflowInstanceID = workflowinstances.ID
-where [closed] = 0
-and [hideFromDashboard] = 0]]></DatabaseQuery>
+                        <DatabaseQuery><![CDATA[SELECT
+w_i.id,
+w_i.assignedTo,
+w_i.dateAssigned,
+t_w.value,
+w_i.instanceTitle,
+w_i.dateCreated
+FROM workflowInstances w_i
+INNER JOIN workflows w ON w.ID = w_i.workflowID
+INNER JOIN translationObjects t_o_w ON t_o_w.id = w.nameTranslationObjectID
+INNER JOIN translations t_w ON t_w.translationObjectID = t_o_w.id
+INNER JOIN workflowInstanceHistory w_i_h ON w_i_h.workflowInstanceID = w_i.ID
+WHERE w_i.closed = 0
+AND w_i.hideFromDashboard = 0
+AND t_w.languageID = (SELECT id FROM languages WHERE isDefault = 1)]]></DatabaseQuery>
                         <QueryResultColumnNames>
                             <TextItem>ID</TextItem>
                             <TextItem>assignedTo</TextItem>
@@ -122,21 +125,24 @@ and [hideFromDashboard] = 0]]></DatabaseQuery>
                             <ConnectionString>%Conn_string_db_wfm%</ConnectionString>
                             <OleDbProviderType>52058968</OleDbProviderType>
                         </UmraOleDb>
-                        <DatabaseQuery><![CDATA[SELECT DISTINCT
-workflowinstances.[ID],
-[delegatedTo],
-[dateAssigned],
-workflows.name,
-[instanceTitle],
-[dateCreated]
-FROM [workflowInstances]
-INNER JOIN [workflows] ON workflows.ID = workflowinstances.workflowID
-INNER JOIN [workflowInstanceHistory] ON workflowInstanceHistory.workflowInstanceID = workflowinstances.ID
-INNER JOIN [workflowDelegation] ON workflowDelegation.delegatedBy = workflowInstances.assignedTo
-where [closed] = 0
-and [hideFromDashboard] = 0
-and [sendEmail] = 1
-and [delegationEndDate] > getdate()]]></DatabaseQuery>
+                        <DatabaseQuery><![CDATA[SELECT
+w_i.id,
+w_i.assignedTo,
+w_i.dateAssigned,
+t_w.value,
+w_i.instanceTitle,
+w_i.dateCreated
+FROM workflowInstances w_i
+INNER JOIN workflows w ON w.ID = w_i.workflowID
+INNER JOIN translationObjects t_o_w ON t_o_w.id = w.nameTranslationObjectID
+INNER JOIN translations t_w ON t_w.translationObjectID = t_o_w.id
+INNER JOIN workflowInstanceHistory w_i_h ON w_i_h.workflowInstanceID = w_i.ID
+INNER JOIN workflowDelegation w_d ON w_d.delegatedBy = w_i.assignedTo
+WHERE w_i.closed = 0
+AND w_i.hideFromDashboard = 0
+AND w_d.sendEmail = 1
+AND t_w.languageID = (SELECT id FROM languages WHERE isDefault = 1)
+AND w_d.delegationEndDate > GETDATE()]]></DatabaseQuery>
                         <QueryResultColumnNames>
                             <TextItem>ID</TextItem>
                             <TextItem>delegatedTo</TextItem>
@@ -1184,10 +1190,10 @@ Tools4ever Self Service Portal<BR>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
-        <Scheduler class="cUmraSchedulerDaily">
+        <Scheduler class="cUmraSchedulerNever">
             <Base class="cUmraScheduler">
-                <DayIncludeFlags>62</DayIncludeFlags>
-                <SchedulerFlags>1</SchedulerFlags>
+                <DayIncludeFlags>127</DayIncludeFlags>
+                <SchedulerFlags>0</SchedulerFlags>
                 <Exceptions class="cUmraSchedulerExceptions">
                     <ExceptionMode>0</ExceptionMode>
                     <Base class="cUmraObArray">
@@ -1195,8 +1201,6 @@ Tools4ever Self Service Portal<BR>
                     </Base>
                 </Exceptions>
             </Base>
-            <Hour>8</Hour>
-            <Minute>0</Minute>
         </Scheduler>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
@@ -1209,7 +1213,7 @@ Tools4ever Self Service Portal<BR>
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1679</BuildNumber>
+        <BuildNumber>1683</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>
