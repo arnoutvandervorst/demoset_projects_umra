@@ -14,7 +14,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init-db</ProjectName>
+                    <ProjectName>global-init-resources</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptExecuteProject">
                     <Base class="cActionItemScript">
@@ -27,7 +27,7 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init-topdesk</ProjectName>
+                    <ProjectName>global-init-db</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
@@ -41,7 +41,7 @@
                         </Base>
                     </Base>
                     <TableDataOperation>1</TableDataOperation>
-                    <TableDataVariable>%Table_user_topdesk_objects%</TableDataVariable>
+                    <TableDataVariable>%Table_wfm_workflow_security%</TableDataVariable>
                     <ValueTextArgument1>4</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
@@ -63,9 +63,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_user_topdesk_objects%</TableDataVariable>
+                    <TableDataVariable>%Table_wfm_workflow_security%</TableDataVariable>
                     <ValueTextArgument1>0</ValueTextArgument1>
-                    <ValueTextArgument2>[hidden]UNID</ValueTextArgument2>
+                    <ValueTextArgument2>[hidden]%RES_table_column_id%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -85,9 +85,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_user_topdesk_objects%</TableDataVariable>
+                    <TableDataVariable>%Table_wfm_workflow_security%</TableDataVariable>
                     <ValueTextArgument1>1</ValueTextArgument1>
-                    <ValueTextArgument2>Merk</ValueTextArgument2>
+                    <ValueTextArgument2>%RES_table_column_name%</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -107,9 +107,9 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_user_topdesk_objects%</TableDataVariable>
+                    <TableDataVariable>%Table_wfm_workflow_security%</TableDataVariable>
                     <ValueTextArgument1>2</ValueTextArgument1>
-                    <ValueTextArgument2>Type</ValueTextArgument2>
+                    <ValueTextArgument2>AD permissions</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
@@ -129,113 +129,15 @@
                         </Base>
                     </Base>
                     <TableDataOperation>15</TableDataOperation>
-                    <TableDataVariable>%Table_user_topdesk_objects%</TableDataVariable>
+                    <TableDataVariable>%Table_wfm_workflow_security%</TableDataVariable>
                     <ValueTextArgument1>3</ValueTextArgument1>
-                    <ValueTextArgument2>Serienummer</ValueTextArgument2>
+                    <ValueTextArgument2>AD admins</ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%TOPdesk_enabled%</InputVariableName>
-                                    <InputVariableType>3</InputVariableType>
-                                    <OperatorIndex>500</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataBool">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <BoolValue>TRUE</BoolValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>TRUE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>end</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptIfThenElse">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ConditionCollection class="cVariableConditionCollection">
-                        <Base class="cUmraObArray">
-                            <ObjectArray>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Object_dn%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>208</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue class="cUmDataNumeric">
-                                        <Base class="cUmData" Version="1">
-                                            <HiddenFlag>FALSE</HiddenFlag>
-                                        </Base>
-                                        <NumericValue>1</NumericValue>
-                                    </OperatorArgumentValue>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                                <ArrayElement class="cVariableCondition">
-                                    <InputVariableName>%Object_dn%</InputVariableName>
-                                    <InputVariableType>1</InputVariableType>
-                                    <OperatorIndex>100</OperatorIndex>
-                                    <OperatorVariableName></OperatorVariableName>
-                                    <OperatorArgumentValue/>
-                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
-                                    <InvertResultFlag>FALSE</InvertResultFlag>
-                                </ArrayElement>
-                            </ObjectArray>
-                        </Base>
-                        <InvertResultFlag>FALSE</InvertResultFlag>
-                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
-                        <Comment></Comment>
-                    </ConditionCollection>
-                    <LabelThen>end</LabelThen>
-                    <LabelElse></LabelElse>
-                    <UseElseFlag>FALSE</UseElseFlag>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>global-get-userobject</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGenericTable">
                     <Base class="cActionItemScript">
@@ -259,30 +161,21 @@
                         </Base>
                         <UmraOleDb class="cUmraOleDbGeneral">
                             <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_topdesk%</ConnectionString>
-                            <OleDbProviderType>0</OleDbProviderType>
+                            <ConnectionString>%Conn_string_db_wfm%</ConnectionString>
+                            <OleDbProviderType>55466104</OleDbProviderType>
                         </UmraOleDb>
-                        <DatabaseQuery><![CDATA[SELECT DISTINCT 
-CONVERT(varchar(36),o.unid) as ID,
-o.ref_merk as Merk,
-o.ref_type as Type,
-o.ref_serienummer as Serienummer
-FROM obj_persoon_link l
-INNER JOIN persoon p ON p.unid = l.persoonid 
-INNER JOIN object o ON o.unid = l.objectid
-WHERE p.loginnaamnetwerk = '%AD_sAMAccountName%']]></DatabaseQuery>
-                        <QueryResultColumnNames>
-                            <TextItem>pers_nr</TextItem>
-                            <TextItem>e_vrlt</TextItem>
-                            <TextItem>e_roepnaam</TextItem>
-                            <TextItem>vrvg_samen</TextItem>
-                            <TextItem>naam_samen</TextItem>
-                            <TextItem>oe_kort_nm</TextItem>
-                            <TextItem>oe_vol_nm</TextItem>
-                            <TextItem>indnst_dt</TextItem>
-                            <TextItem>uitdnst_dt</TextItem>
-                        </QueryResultColumnNames>
-                        <FlagEscapeSingleQuote>TRUE</FlagEscapeSingleQuote>
+                        <DatabaseQuery><![CDATA[SELECT
+w.ID,
+t_w.value,
+w.adGroupName,
+w.adGroupNameAdmins
+FROM workflows w
+INNER JOIN translationObjects t_o_w ON t_o_w.id = w.nameTranslationObjectID
+INNER JOIN translations t_w ON t_w.translationObjectID = t_o_w.id
+WHERE t_w.languageID = (SELECT id FROM languages WHERE isDefault = 1)
+ORDER BY t_w.value]]></DatabaseQuery>
+                        <QueryResultColumnNames/>
+                        <FlagEscapeSingleQuote>FALSE</FlagEscapeSingleQuote>
                     </TableDefinition>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
@@ -297,7 +190,7 @@ WHERE p.loginnaamnetwerk = '%AD_sAMAccountName%']]></DatabaseQuery>
                         </Base>
                     </Base>
                     <TableDataOperation>9</TableDataOperation>
-                    <TableDataVariable>%Table_user_topdesk_objects%</TableDataVariable>
+                    <TableDataVariable>%Table_wfm_workflow_security%</TableDataVariable>
                     <ValueTextArgument1>%Table_query_db%</ValueTextArgument1>
                     <ValueTextArgument2></ValueTextArgument2>
                     <ValueTextArgument3></ValueTextArgument3>
@@ -306,6 +199,21 @@ WHERE p.loginnaamnetwerk = '%AD_sAMAccountName%']]></DatabaseQuery>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
                     <ValueNumericArgument1>0</ValueNumericArgument1>
                     <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>4</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText>%Table_query_db%</ParameterText>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptGoTo">
                     <Base class="cActionItemScript">
@@ -394,12 +302,29 @@ WHERE p.loginnaamnetwerk = '%AD_sAMAccountName%']]></DatabaseQuery>
                                 <Mask>48</Mask>
                                 <Account class="cJvrSecAccount">
                                     <Mask>5</Mask>
-                                    <AccountName>everyone</AccountName>
+                                    <AccountName>Administrators</AccountName>
                                     <AccountNameVariable></AccountNameVariable>
                                     <AccountClassName></AccountClassName>
                                     <AccountSid class="cJvrSecSid">
                                         <InitializedFlag>TRUE</InitializedFlag>
-                                        <SID>BEAAAAAAAEAAAAAA</SID>
+                                        <SID>BIAAAAAAAUAIAAAAgIAAAAs</SID>
+                                    </AccountSid>
+                                </Account>
+                            </Base>
+                        </ArrayElement>
+                        <ArrayElement class="cJvrSecAce">
+                            <Base class="cJvrSecAceBase">
+                                <AceType>0</AceType>
+                                <AceFlags>0</AceFlags>
+                                <Mask>48</Mask>
+                                <Account class="cJvrSecAccount">
+                                    <Mask>5</Mask>
+                                    <AccountName>NT Authority\Network Service</AccountName>
+                                    <AccountNameVariable></AccountNameVariable>
+                                    <AccountClassName></AccountClassName>
+                                    <AccountSid class="cJvrSecSid">
+                                        <InitializedFlag>TRUE</InitializedFlag>
+                                        <SID>BEAAAAAAAUAFAAAA</SID>
                                     </AccountSid>
                                 </Account>
                             </Base>
@@ -435,18 +360,18 @@ WHERE p.loginnaamnetwerk = '%AD_sAMAccountName%']]></DatabaseQuery>
         </Base>
     </AccessSettings>
     <HelpInfoUrl></HelpInfoUrl>
-    <ScriptTimeOutSec>900</ScriptTimeOutSec>
+    <ScriptTimeOutSec>1492536</ScriptTimeOutSec>
     <LocalProjectFlag>FALSE</LocalProjectFlag>
-    <LocalProjectFileName>C:\Program Files\UmraService\Projects\fe74d6f1-e043-4f2f-8d58-7e544b0a5c65.usp</LocalProjectFileName>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\090d3640-856b-4fb6-8fdc-85c27482fe69.usp</LocalProjectFileName>
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
         <Scheduler/>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
-        <ProjectName>function-generate-table-user-topdesk-objects</ProjectName>
-        <DisplayName>function-generate-table-user-topdesk-objects</DisplayName>
-        <UUID>xbNd+PE4v8UjY5HV#pAX@Bs</UUID>
+        <ProjectName>function-generate-table-wfm-workflow-security</ProjectName>
+        <DisplayName>function-generate-table-user-memberof</DisplayName>
+        <UUID>AZTDJ$Wh2+0jcXow0Jo/pBs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
         <ShowInProjectsBarFlag>FALSE</ShowInProjectsBarFlag>
@@ -1013,6 +938,12 @@ WHERE p.loginnaamnetwerk = '%AD_sAMAccountName%']]></DatabaseQuery>
         <DataFileParam class="cDataFileParam">
             <Base class="cDataFileParseInfo">
                 <Separators>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
+                    <TextItem>,</TextItem>
                     <TextItem>,</TextItem>
                 </Separators>
                 <TextQualifier>"</TextQualifier>
