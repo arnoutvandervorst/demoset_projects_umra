@@ -3,19 +3,6 @@
     <Script class="cActionItemCollection">
         <Base class="cUmraObArray">
             <ObjectArray>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <ProjectName>global-init-resources</ProjectName>
-                </ArrayElement>
                 <ArrayElement class="cActionItemScriptIfThenElse">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -53,6 +40,19 @@
                     <LabelThen>end</LabelThen>
                     <LabelElse></LabelElse>
                     <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init-resources</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
@@ -96,6 +96,53 @@
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
                     <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%UmraFormSubmitAccount%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>100</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue/>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%UmraFormSubmitAccount%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>208</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>1</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>skip-umraformsubmitaccount</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
                 <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
                         <Base class="cActionItem">
@@ -115,7 +162,69 @@
                         <TextValue>%UmraFormSubmitAccount%</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>TRUE</SetOnlyIfNotExistFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>skip-umraformsubmitaccount</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%WFM_instanceAssignedTo%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>100</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue/>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%WFM_instanceAssignedTo%</InputVariableName>
+                                    <InputVariableType>1</InputVariableType>
+                                    <OperatorIndex>208</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>1</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>skip-wfmassignedto</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
@@ -136,7 +245,22 @@
                         <TextValue>%WFM_instanceAssignedTo%</TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>TRUE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>TRUE</SetOnlyIfNotExistFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>skip-wfmassignedto</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
