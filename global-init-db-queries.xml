@@ -78,23 +78,24 @@
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <TextValue><![CDATA[select CONVERT(varchar, dpib010.pers_nr) as 'pers_nr', 
-dpib010.naam_samen + ', ' + dpib010.e_roepnaam as 'vol_nm',
-e_vrlt, 
-dpib010.e_roepnaam, 
-dpib010.vrvg_samen, 
-dpib010.naam_samen, 
-func_kd,
-func_oms,
-oe_kort_nm, 
-oe_vol_nm, 
-indnst_dt, 
-uitdnst_dt
-From dpib010
-inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
-inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
-left join dpic351 on dpic351.func_kd = dpic300.primfunc_kd
-order by dpib010.pers_nr]]></TextValue>
+                        <TextValue><![CDATA[SELECT
+CONVERT(VARCHAR, p.pers_nr) as 'pers_nr', 
+REPLACE(p.naam_samen + ', ' + p.e_roepnaam + ' ' + ISNULL(p.vrvg_samen,''),'  ','') as 'vol_nm',
+p.e_vrlt, 
+p.e_roepnaam, 
+p.vrvg_samen, 
+p.naam_samen, 
+f.func_kd,
+f.func_oms,
+a.OE_KORT_NM, 
+a.OE_VOL_NM, 
+c.indnst_dt, 
+c.uitdnst_dt
+FROM dpib010 p
+INNER JOIN dpic300 c ON c.pers_nr = p.pers_nr
+INNER JOIN dpib023 a ON a.pers_nr = p.pers_nr
+INNER JOIN dpic351 f on f.func_kd = c.primfunc_kd
+ORDER BY p.pers_nr]]></TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                     <SetOnlyIfNotExistFlag>TRUE</SetOnlyIfNotExistFlag>
@@ -115,22 +116,24 @@ order by dpib010.pers_nr]]></TextValue>
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <TextValue><![CDATA[SELECT convert(varchar, tpersoon.pers_nr) as 'pers_nr', 
-tpersoon.e_roepnaam + ' ' + tpersoon.naam_samen as 'vol_nm',
-tpersoon.e_vrlt, 
-tpersoon.e_roepnaam, 
-tpersoon.vrvg_samen, 
-tpersoon.naam_samen, 
-tfunctie.func_oms, 
-tafdeling.oe_vol_nm, 
-tcontract.indnst_dt, 
-tcontract.uitdnst_dt
-FROM dpib010 tpersoon
-INNER JOIN dpic300 tcontract ON tcontract.pers_nr = tpersoon.pers_nr
-INNER JOIN dpib023 tafdeling ON tafdeling.pers_nr = tpersoon.pers_nr
-INNER JOIN dpic351 tfunctie ON tfunctie.func_kd = tcontract.primfunc_kd
-WHERE tcontract.uitdnst_dt > getdate()
-ORDER BY tcontract.indnst_dt]]></TextValue>
+                        <TextValue><![CDATA[SELECT
+CONVERT(VARCHAR, p.pers_nr) as 'pers_nr', 
+REPLACE(p.naam_samen + ', ' + p.e_roepnaam + ' ' + ISNULL(p.vrvg_samen,''),'  ','') as 'vol_nm',
+p.e_vrlt, 
+p.e_roepnaam, 
+p.vrvg_samen, 
+p.naam_samen, 
+f.func_oms,
+a.OE_VOL_NM, 
+c.indnst_dt, 
+c.uitdnst_dt
+FROM dpib010 p
+INNER JOIN dpic300 c ON c.pers_nr = p.pers_nr
+INNER JOIN dpib023 a ON a.pers_nr = p.pers_nr
+INNER JOIN dpic351 f on f.func_kd = c.primfunc_kd
+WHERE c.uitdnst_dt > GETDATE()
+ORDER BY c.indnst_dt
+]]></TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                     <SetOnlyIfNotExistFlag>TRUE</SetOnlyIfNotExistFlag>
@@ -151,22 +154,23 @@ ORDER BY tcontract.indnst_dt]]></TextValue>
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <TextValue><![CDATA[SELECT convert(varchar, tpersoon.pers_nr) as 'pers_nr', 
-tpersoon.e_roepnaam + ' ' + tpersoon.naam_samen as 'vol_nm',
-tpersoon.e_vrlt, 
-tpersoon.e_roepnaam, 
-tpersoon.vrvg_samen, 
-tpersoon.naam_samen, 
-tfunctie.func_oms, 
-tafdeling.oe_vol_nm, 
-tcontract.indnst_dt, 
-tcontract.uitdnst_dt
-FROM dpib010 tpersoon
-INNER JOIN dpic300 tcontract ON tcontract.pers_nr = tpersoon.pers_nr
-INNER JOIN dpib023 tafdeling ON tafdeling.pers_nr = tpersoon.pers_nr
-INNER JOIN dpic351 tfunctie ON tfunctie.func_kd = tcontract.primfunc_kd
-WHERE tcontract.uitdnst_dt < getdate()
-ORDER BY tcontract.indnst_dt]]></TextValue>
+                        <TextValue><![CDATA[SELECT
+CONVERT(VARCHAR, p.pers_nr) as 'pers_nr', 
+REPLACE(p.naam_samen + ', ' + p.e_roepnaam + ' ' + ISNULL(p.vrvg_samen,''),'  ','') as 'vol_nm',
+p.e_vrlt, 
+p.e_roepnaam, 
+p.vrvg_samen, 
+p.naam_samen, 
+f.func_oms,
+a.OE_VOL_NM, 
+c.indnst_dt, 
+c.uitdnst_dt
+FROM dpib010 p
+INNER JOIN dpic300 c ON c.pers_nr = p.pers_nr
+INNER JOIN dpib023 a ON a.pers_nr = p.pers_nr
+INNER JOIN dpic351 f on f.func_kd = c.primfunc_kd
+WHERE c.uitdnst_dt < GETDATE()
+ORDER BY p.pers_nr]]></TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                     <SetOnlyIfNotExistFlag>TRUE</SetOnlyIfNotExistFlag>
@@ -187,21 +191,21 @@ ORDER BY tcontract.indnst_dt]]></TextValue>
                         <Base class="cUmData" Version="1">
                             <HiddenFlag>FALSE</HiddenFlag>
                         </Base>
-                        <TextValue><![CDATA[select CONVERT(varchar, dpib010.pers_nr) as 'pers_nr', 
-e_vrlt, 
-dpib010.e_roepnaam, 
-dpib010.vrvg_samen, 
-dpib010.naam_samen, 
+                        <TextValue><![CDATA[SELECT 
+CONVERT(VARCHAR, p.pers_nr) as 'pers_nr', 
+p.e_vrlt, 
+p.e_roepnaam, 
+p.vrvg_samen, 
+p.naam_samen, 
 func_oms,
 oe_vol_nm, 
 indnst_dt, 
 uitdnst_dt
-From dpib010
-inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
-inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
-inner join dpic351 on dpic300.primfunc_kd = dpic351.func_kd
-where dpib010.pers_nr = %employeeID%
-order by dpib010.pers_nr]]></TextValue>
+FROM dpib010 p
+INNER JOIN dpic300 c ON c.pers_nr = p.pers_nr
+INNER JOIN dpib023 a ON a.pers_nr = p.pers_nr
+INNER JOIN dpic351 f ON c.primfunc_kd = f.func_kd
+WHERE p.pers_nr = %employeeID%]]></TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
                     <SetOnlyIfNotExistFlag>TRUE</SetOnlyIfNotExistFlag>
@@ -349,7 +353,7 @@ order by dpib010.pers_nr]]></TextValue>
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1677</BuildNumber>
+        <BuildNumber>1683</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>
