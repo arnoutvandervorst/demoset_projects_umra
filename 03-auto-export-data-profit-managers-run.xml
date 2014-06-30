@@ -1,0 +1,2362 @@
+<UmraProject class="cUmFormProject">
+    <InitialProject></InitialProject>
+    <Script class="cActionItemCollection">
+        <Base class="cUmraObArray">
+            <ObjectArray>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init-profit</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-init-db</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>function-profit-setup-connection</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemOperationFsGetFileInfo">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>TRUE</ErrorVariableFlag>
+                            <ErrorVariableName>%status_operation%</ErrorVariableName>
+                            <ErrorVariableContents>Error controleren of AFAS CSV %AfasStaffContractCSV%</ErrorVariableContents>
+                        </Base>
+                        <Explanation>Get information from a file or directory. The information includes the existence of the file or directory, type information (file or directory), attributes, creation, access times and size.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152000</Id>
+                                            <Name>Target file/directory</Name>
+                                            <Type>1</Type>
+                                            <Description>The name of target file or directory. Can be specified using the full UNC path (recommended) or local path (local to the UMRA Service or Console application). Example: \\SERVER_A\Share_b\Directory_1\File.ext, \\SERVER_A\Share_b\Directory_1\Dir2, G:\UserData\John.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%profit_connector_cache_path%\%profit_connector_name_ou_manager_csv%</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152005</Id>
+                                            <Name>File/dir exists flag</Name>
+                                            <Type>3</Type>
+                                            <Description>Output only property. When specified, the output variable value is set to 'Yes' if the file or directory exists.</Description>
+                                            <ExportMode>12289</ExportMode>
+                                            <ExportVariable>%fileexists%</ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152006</Id>
+                                            <Name>Is directory flag</Name>
+                                            <Type>3</Type>
+                                            <Description>Output only property. When specified, the output variable value is set to 'Yes' if the target path identifies a directory.</Description>
+                                            <ExportMode>8193</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152010</Id>
+                                            <Name>Attributes</Name>
+                                            <Type>2</Type>
+                                            <Description>Output only property. When specified, the output variable value is set equal to the attribute mask of the file or directory.</Description>
+                                            <ExportMode>8193</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152011</Id>
+                                            <Name>Creation time</Name>
+                                            <Type>4</Type>
+                                            <Description>Output only property. When specified, the output variable value is set to the creation time of the file or directory.</Description>
+                                            <ExportMode>8193</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152012</Id>
+                                            <Name>Last access time</Name>
+                                            <Type>4</Type>
+                                            <Description>Output only property. When specified, the output variable value is set to the last access time of the file or directory.</Description>
+                                            <ExportMode>8193</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152013</Id>
+                                            <Name>Last write time</Name>
+                                            <Type>4</Type>
+                                            <Description>Output only property. When specified, the output variable value is set to the last write time of the file or directory.</Description>
+                                            <ExportMode>8193</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152014</Id>
+                                            <Name>Size</Name>
+                                            <Type>13</Type>
+                                            <Description>Output only property. When specified, the output variable value is set to size of the file in bytes (meaningless value for directories: 0).</Description>
+                                            <ExportMode>8193</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>152020</Id>
+                                            <Name>Error if not found</Name>
+                                            <Type>3</Type>
+                                            <Description>Set to 'Yes' if this action should produce an error in case the file or directory does not exist. Default value: 'No'.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value/>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%fileexists%</InputVariableName>
+                                    <InputVariableType>3</InputVariableType>
+                                    <OperatorIndex>500</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataBool">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <BoolValue>FALSE</BoolValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>skip-delete</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemOperationFsDeleteFiles">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                        <Explanation>Delete the specified file or files. The file name specification can contain wildcards (*, or ?).</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>160000</Id>
+                                            <Name>File path</Name>
+                                            <Type>1</Type>
+                                            <Description>The full path of the file(s). The path should start with a logical drive (example G:\) or share name \\COMPUTER\Share. The path name may contain the wildcard characters * and ?. Examples: G:\Data\*.txt, \\PC\Share\UserData\John\Project?.*.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%profit_connector_cache_path%\%profit_connector_name_ou_manager_csv%</TextValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>160001</Id>
+                                            <Name>Include subdirectories (recursive)</Name>
+                                            <Type>3</Type>
+                                            <Description>Specify 'Yes' searh for the specified file(s) recursively.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>160010</Id>
+                                            <Name>Use backup and restore privileges</Name>
+                                            <Type>3</Type>
+                                            <Description>A flag indicating that backup and restore privileges must be used to delete the files. This property is required in case the logged on user has no access rights to the directories and files that must be deleted. The logged on user must have the corresponding access rights configured on the target computer to use these privileges successfully. See the online help for more information.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmProperty">
+                                            <Id>160011</Id>
+                                            <Name>Ignore error</Name>
+                                            <Type>3</Type>
+                                            <Description>A flag indicating that errors must be ignored. An error is for instance generated when the target file does not exist or cannot be deleted.</Description>
+                                            <ExportMode>1</ExportMode>
+                                            <ExportVariable></ExportVariable>
+                                            <Value class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </Value>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>skip-delete</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemOperationPowerShell">
+                    <Base class="cActionItemOperation">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>TRUE</ErrorVariableFlag>
+                            <ErrorVariableName>%status_operation%</ErrorVariableName>
+                            <ErrorVariableContents>Error bij ophalen van AFAS Data (Get Employee Contracts)</ErrorVariableContents>
+                        </Base>
+                        <Explanation>Export the data of an AFAS Online to a csv file on the computer running the Tools4ever PowerShell Agent.</Explanation>
+                        <PropertyArray class="cUmraPsPropertyArray">
+                            <Base class="cUmPropertyArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193000</Id>
+                                                <Name>AFAS Connection</Name>
+                                                <Type>2</Type>
+                                                <Description>This parameter identifies the PowerShell Agent service session.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value class="cUmDataText">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <TextValue>%G_ProfitPowerShellSession%</TextValue>
+                                                </Value>
+                                            </Base>
+                                            <TechName>SessionID</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>TRUE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue class="cUmDataText">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <TextValue>%G_AfasPowerShellSession%</TextValue>
+                                            </DefaultValue>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193001</Id>
+                                                <Name>Connector name</Name>
+                                                <Type>1</Type>
+                                                <Description>The name of the connector from which the data should be exported.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value class="cUmDataText">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <TextValue>%profit_connector_name_ou_manager%</TextValue>
+                                                </Value>
+                                            </Base>
+                                            <TechName>AfasConnectorName</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>TRUE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193002</Id>
+                                                <Name>Filter XML</Name>
+                                                <Type>1</Type>
+                                                <Description>The xml text which should be used to filter the data.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value/>
+                                            </Base>
+                                            <TechName>AfasFilterXml</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193003</Id>
+                                                <Name>Include meta data</Name>
+                                                <Type>3</Type>
+                                                <Description>Set to 'Yes' to include meta data in the export or to 'No' otherwise. If not specified 'No' is assumed.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value class="cUmDataBool">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <BoolValue>FALSE</BoolValue>
+                                                </Value>
+                                            </Base>
+                                            <TechName>AfasIncludeMetaData</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </DefaultValue>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193004</Id>
+                                                <Name>Export as XML</Name>
+                                                <Type>3</Type>
+                                                <Description>Set to 'Yes' to export as XML or to 'No' to export as CSV. If not specified 'No' is assumed.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value class="cUmDataBool">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <BoolValue>FALSE</BoolValue>
+                                                </Value>
+                                            </Base>
+                                            <TechName>AfasExportXml</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue class="cUmDataBool">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <BoolValue>FALSE</BoolValue>
+                                            </DefaultValue>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193005</Id>
+                                                <Name>Output options</Name>
+                                                <Type>2</Type>
+                                                <Description>Specify the output options value. For csv the following values can be used: 1, 3* = semicolon, 2, 4* = tab. *1, 2: dates and numbers in regional format. *3, 4: dates and numbers in standard format. For XML 2 is only filled values, 3 means including empty fields. If nothing is specified 3 is assumed.</Description>
+                                                <ExportMode>0</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value class="cUmDataText">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <TextValue>3</TextValue>
+                                                </Value>
+                                            </Base>
+                                            <TechName>AfasOutputOptions</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue class="cUmDataNumeric">
+                                                <Base class="cUmData" Version="1">
+                                                    <HiddenFlag>FALSE</HiddenFlag>
+                                                </Base>
+                                                <NumericValue>3</NumericValue>
+                                            </DefaultValue>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName></PowershellVariableName>
+                                                <DataSpecType>0</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                        <ArrayElement class="cUmraPsActionProperty">
+                                            <Base class="cUmProperty">
+                                                <Id>193006</Id>
+                                                <Name>File name</Name>
+                                                <Type>1</Type>
+                                                <Description>The name and path of the file to export the data to. This file is written by the Tools4ever Powershell agent. Specify a path, the Tools4ever Powershell Agent has access to. If the file has to be imported later on the script with the Umra Service or Console, make sure those components have also access to the file. If not specified a local filename is generated and given as output.</Description>
+                                                <ExportMode>1</ExportMode>
+                                                <ExportVariable></ExportVariable>
+                                                <Value class="cUmDataText">
+                                                    <Base class="cUmData" Version="1">
+                                                        <HiddenFlag>FALSE</HiddenFlag>
+                                                    </Base>
+                                                    <TextValue>%profit_connector_cache_path%\%profit_connector_name_ou_manager_csv%</TextValue>
+                                                </Value>
+                                            </Base>
+                                            <TechName>AfasFileName</TechName>
+                                            <EncryptedTextVariableFlag>FALSE</EncryptedTextVariableFlag>
+                                            <MandatoryFlag>FALSE</MandatoryFlag>
+                                            <MandatoryProps/>
+                                            <MandatoryAbsentProps/>
+                                            <DefaultValue/>
+                                            <PowershellReturnData class="cUmraPsObjectDataSpecVar" Version="1">
+                                                <Base class="cUmraPsObjectDataSpec">
+                                                    <Base class="cUmraObArray">
+                                                        <ObjectArray/>
+                                                    </Base>
+                                                    <Dimension>-1</Dimension>
+                                                </Base>
+                                                <PowershellVariableName>AfasFileName</PowershellVariableName>
+                                                <DataSpecType>1</DataSpecType>
+                                                <ErrorIfNotExist>FALSE</ErrorIfNotExist>
+                                            </PowershellReturnData>
+                                        </ArrayElement>
+                                    </ObjectArray>
+                                </Base>
+                            </Base>
+                        </PropertyArray>
+                    </Base>
+                    <UmraPsActionScript class="cUmraPsActionScript">
+                        <Base class="cUmraDynAction" Version="2">
+                            <XmlFileName>umrapsafasexportdata.xml</XmlFileName>
+                            <UmraActionName>AFAS Export data</UmraActionName>
+                            <ActionImageIndex>7</ActionImageIndex>
+                            <RelativeActionTreePosition>1110</RelativeActionTreePosition>
+                            <ActionHelpId>58</ActionHelpId>
+                            <ActionLabels>
+                                <TextItem>AFAS</TextItem>
+                            </ActionLabels>
+                            <SignatureInfo class="cUmraDynActionSignature">
+                                <UserName>Tools4ever</UserName>
+                                <Signature>znGaPK#fHq#SNxR$0Jj6QCs</Signature>
+                                <ContainsSignature>TRUE</ContainsSignature>
+                            </SignatureInfo>
+                            <DynamicActionClassVersion>2</DynamicActionClassVersion>
+                            <ObsoleteFlag>FALSE</ObsoleteFlag>
+                            <VersionNumber>5400</VersionNumber>
+                        </Base>
+                        <Script class="cUmraPsScript">
+                            <Base class="cUmraObArray">
+                                <ObjectArray>
+                                    <ArrayElement class="cUmraPsScriptPhraseSimple">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText><![CDATA[$script:ErrorActionPreference = 'Stop';
+                [string]$AfasConnectorName    = '';
+                [string]$AfasFilterXml        = '';
+                [bool]$AfasIncludeMetaData    = $false;
+                [bool]$AfasExportXml          = $false;
+                [int]$AfasOutputOptions       = 3;
+                [string]$AfasFileName         = '';]]></ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$AfasConnectorName = %AfasConnectorName%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>AfasConnectorName</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%AfasConnectorName%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$AfasFilterXml = %AfasFilterXml%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>AfasFilterXml</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%AfasFilterXml%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$AfasIncludeMetaData = $true;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>AfasIncludeMetaData</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionBoolean">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnTrueFlag>TRUE</PassedOnTrueFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceBase">
+                                                            <QuoteFormatMode>0</QuoteFormatMode>
+                                                            <VariableConversionMode>0</VariableConversionMode>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$AfasExportXml = $true;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>AfasExportXml</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionBoolean">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnTrueFlag>TRUE</PassedOnTrueFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceBase">
+                                                            <QuoteFormatMode>0</QuoteFormatMode>
+                                                            <VariableConversionMode>0</VariableConversionMode>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$AfasOutputOptions = [int]::Parse(%AfasOutputOptions%);</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>AfasOutputOptions</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%AfasOutputOptions%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseProperty">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText>$AfasFileName = %AfasFileName%;</ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                        <Dependencies class="cUmraPsScriptPhraseActionPropDependencies">
+                                            <Base class="cUmraObArray">
+                                                <ObjectArray>
+                                                    <ArrayElement class="cUmraPsScriptPhraseActionPropDependence">
+                                                        <ActionPropertyName>AfasFileName</ActionPropertyName>
+                                                        <Condition class="cUmraPsConditionData">
+                                                            <Base class="cUmraPsConditionBase"/>
+                                                            <PassedOnDataFlag>TRUE</PassedOnDataFlag>
+                                                        </Condition>
+                                                        <Replacement class="cUmraPsReplaceSimple">
+                                                            <Base class="cUmraPsReplaceBase">
+                                                                <QuoteFormatMode>1</QuoteFormatMode>
+                                                                <VariableConversionMode>0</VariableConversionMode>
+                                                            </Base>
+                                                            <ReplacementText>%AfasFileName%</ReplacementText>
+                                                        </Replacement>
+                                                    </ArrayElement>
+                                                </ObjectArray>
+                                            </Base>
+                                        </Dependencies>
+                                    </ArrayElement>
+                                    <ArrayElement class="cUmraPsScriptPhraseSimple">
+                                        <Base class="cUmraPsScriptPhraseBase"/>
+                                        <Contents class="cUmraPsScriptPhraseContents">
+                                            <ContentsText><![CDATA[$AfasFileName = Abr-Export-AfasData `
+					-connectorName $AfasConnectorName `
+					-outputAsCsv $(-not $AfasExportXml) `
+					-filter $AfasFilterXml `
+					-includeMetaData $AfasIncludeMetaData `
+					-outputOptions $AfasOutputOptions `
+					-fileName $AfasFileName;]]></ContentsText>
+                                            <StartOnNewLineFlag>TRUE</StartOnNewLineFlag>
+                                            <StartWithBlankFlag>TRUE</StartWithBlankFlag>
+                                            <EncryptedFlag>FALSE</EncryptedFlag>
+                                        </Contents>
+                                    </ArrayElement>
+                                </ObjectArray>
+                            </Base>
+                        </Script>
+                        <PropSeriesSet class="cUmraPsPropSeriesSet">
+                            <Base class="cUmraObArray">
+                                <ObjectArray/>
+                            </Base>
+                        </PropSeriesSet>
+                        <UmraPsConfiguration class="cUmraPsConfiguration" Version="1">
+                            <PowershellSnapIns/>
+                            <ErrorPropagateFlag>TRUE</ErrorPropagateFlag>
+                            <RequiresSessionFlag>TRUE</RequiresSessionFlag>
+                            <PowershellAgentLibraries/>
+                        </UmraPsConfiguration>
+                        <UmraPsSession class="cUmraPsSession">
+                            <VariablesCleanup>
+                                <TextItem>AfasConnectorName</TextItem>
+                                <TextItem><![CDATA[ AfasFilterXml]]></TextItem>
+                                <TextItem><![CDATA[ AfasExportXml]]></TextItem>
+                                <TextItem><![CDATA[ AfasIncludeMetaData]]></TextItem>
+                                <TextItem><![CDATA[ AfasOutputOptions]]></TextItem>
+                                <TextItem><![CDATA[ AfasFileName]]></TextItem>
+                            </VariablesCleanup>
+                        </UmraPsSession>
+                    </UmraPsActionScript>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGenericTable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDefinition class="cUmraTableDefFile">
+                        <Base class="cUmraTableDef">
+                            <VariableName>%table_profit_managers%</VariableName>
+                            <TestVariableArray class="cUmVariableArray">
+                                <Base class="cUmraObArray">
+                                    <ObjectArray/>
+                                </Base>
+                            </TestVariableArray>
+                        </Base>
+                        <DataFileParam class="cDataFileParam">
+                            <Base class="cDataFileParseInfo">
+                                <Separators>
+                                    <TextItem>;</TextItem>
+                                </Separators>
+                                <TextQualifier>"</TextQualifier>
+                                <DelimitedFlag>TRUE</DelimitedFlag>
+                                <FixedWidthPositions/>
+                                <FirstRowFieldNamesFlag>TRUE</FirstRowFieldNamesFlag>
+                                <FieldCanContainMultipleLinesFlag>FALSE</FieldCanContainMultipleLinesFlag>
+                            </Base>
+                            <FileName>%profit_connector_cache_path%\%profit_connector_name_ou_manager_csv%</FileName>
+                            <FileHeaderColumnNames/>
+                            <AddRowNumberFlag>FALSE</AddRowNumberFlag>
+                        </DataFileParam>
+                    </TableDefinition>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>16</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>3</ValueTextArgument2>
+                    <ValueTextArgument3>%current_pers_nr%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>5</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>3</ValueTextArgument2>
+                    <ValueTextArgument3>%current_pers_nr%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%row_index%</InputVariableName>
+                                    <InputVariableType>2</InputVariableType>
+                                    <OperatorIndex>301</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>1</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>TRUE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptDatabaseCommand">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>TRUE</ErrorVariableFlag>
+                            <ErrorVariableName>%operation_status%</ErrorVariableName>
+                            <ErrorVariableContents>Fout bij leeg halen van de UMRA DB tabel Medewerker Contracten</ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <SqlUpdate class="cUmraDbUpdate" Version="2">
+                        <OleDb class="cUmraOleDbGeneral">
+                            <Base class="cUmraOleDb"/>
+                            <ConnectionString>%conn_string_db_umra%</ConnectionString>
+                            <OleDbProviderType>73949552</OleDbProviderType>
+                        </OleDb>
+                        <SqlCommands>
+                            <TextItem>TRUNCATE TABLE _profit_managers</TextItem>
+                        </SqlCommands>
+                        <TestVariables class="cUmVariableArray">
+                            <Base class="cUmraObArray">
+                                <ObjectArray/>
+                            </Base>
+                        </TestVariables>
+                        <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
+                        <FlagEscapeSingleQuote>FALSE</FlagEscapeSingleQuote>
+                    </SqlUpdate>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptManageNumericVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <NumericDataOperation>2</NumericDataOperation>
+                    <NumericDataVariable>%row_index%</NumericDataVariable>
+                    <ValueTextArgument1></ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>start-loop</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>0</ValueTextArgument2>
+                    <ValueTextArgument3>%current_oe_code%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>1</ValueTextArgument2>
+                    <ValueTextArgument3>%current_oe_manager_pers_nr%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>2</ValueTextArgument2>
+                    <ValueTextArgument3>%current_oe_manager_backup_pers_nr%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>3</ValueTextArgument2>
+                    <ValueTextArgument3>%current_oe_bovenliggend%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>4</ValueTextArgument2>
+                    <ValueTextArgument3>%current_oe_laag%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>5</ValueTextArgument2>
+                    <ValueTextArgument3>%current_oe_laag0%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>6</ValueTextArgument2>
+                    <ValueTextArgument3>%current_oe_laag1%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>7</ValueTextArgument2>
+                    <ValueTextArgument3>%current_oe_laag2%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>8</ValueTextArgument2>
+                    <ValueTextArgument3>%current_oe_laag3%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>9</ValueTextArgument2>
+                    <ValueTextArgument3>%current_oe_laag4%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>10</ValueTextArgument2>
+                    <ValueTextArgument3>%current_oe_laag5%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>11</ValueTextArgument2>
+                    <ValueTextArgument3>%current_oe_laag6%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>12</ValueTextArgument2>
+                    <ValueTextArgument3>%current_oe_laag7%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>13</ValueTextArgument2>
+                    <ValueTextArgument3>%current_oe_laag8%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>14</ValueTextArgument2>
+                    <ValueTextArgument3>%current_oe_laag9%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>15</ValueTextArgument2>
+                    <ValueTextArgument3>%current_rooster_uren_pw%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>16</ValueTextArgument2>
+                    <ValueTextArgument3>%current_formatie_percentage%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>4</TableDataOperation>
+                    <TableDataVariable>%table_profit_managers%</TableDataVariable>
+                    <ValueTextArgument1>%row_index%</ValueTextArgument1>
+                    <ValueTextArgument2>17</ValueTextArgument2>
+                    <ValueTextArgument3>%current_code_niu%</ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptDatabaseCommand">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>1</ErrorControl>
+                            <ErrorControlLabel>error</ErrorControlLabel>
+                            <ErrorVariableFlag>TRUE</ErrorVariableFlag>
+                            <ErrorVariableName>%status_operation%</ErrorVariableName>
+                            <ErrorVariableContents>Fout bij invoeren record in UMRA DB: Medewerker contract</ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <SqlUpdate class="cUmraDbUpdate" Version="2">
+                        <OleDb class="cUmraOleDbGeneral">
+                            <Base class="cUmraOleDb"/>
+                            <ConnectionString>%conn_string_db_umra%</ConnectionString>
+                            <OleDbProviderType>73949552</OleDbProviderType>
+                        </OleDb>
+                        <SqlCommands>
+                            <TextItem><![CDATA[INSERT INTO _profit_managers
+(      [oe_code]
+      ,[oe_manager_pers_nr]
+      ,[oe_manager_backup_pers_nr]
+      ,[oe_bovenliggend]
+      ,[oe_laag]
+      ,[oe_laag0]
+      ,[oe_laag1]
+      ,[oe_laag2]
+      ,[oe_laag3]
+      ,[oe_laag4]
+      ,[oe_laag5]
+      ,[oe_laag6]
+      ,[oe_laag7]
+      ,[oe_laag8]
+      ,[oe_laag9]
+      ,[rooster_uren_pw]
+      ,[formatie_percentage]
+) 
+
+VALUES 
+
+( '%current_oe_code%'
+      ,'%current_oe_manager_pers_nr%'
+      ,'%current_oe_manager_backup_pers_nr%'
+      ,'%current_oe_bovenliggend%'
+      ,'%current_oe_laag%'
+      ,'%current_oe_laag0%'
+      ,'%current_oe_laag1%'
+      ,'%current_oe_laag2%'
+      ,'%current_oe_laag3%'
+      ,'%current_oe_laag4%'
+      ,'%current_oe_laag5%'
+      ,'%current_oe_laag6%'
+      ,'%current_oe_laag7%'
+      ,'%current_oe_laag8%'
+      ,'%current_oe_laag9%'
+      ,'%current_rooster_uren_pw%'
+      ,'%current_formatie_percentage%'
+)]]></TextItem>
+                        </SqlCommands>
+                        <TestVariables class="cUmVariableArray">
+                            <Base class="cUmraObArray">
+                                <ObjectArray/>
+                            </Base>
+                        </TestVariables>
+                        <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
+                        <FlagEscapeSingleQuote>FALSE</FlagEscapeSingleQuote>
+                    </SqlUpdate>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGoTo">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <GoToLabel>skip-record</GoToLabel>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>skip-record</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptIfThenElse">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ConditionCollection class="cVariableConditionCollection">
+                        <Base class="cUmraObArray">
+                            <ObjectArray>
+                                <ArrayElement class="cVariableCondition">
+                                    <InputVariableName>%row_index%</InputVariableName>
+                                    <InputVariableType>2</InputVariableType>
+                                    <OperatorIndex>303</OperatorIndex>
+                                    <OperatorVariableName></OperatorVariableName>
+                                    <OperatorArgumentValue class="cUmDataNumeric">
+                                        <Base class="cUmData" Version="1">
+                                            <HiddenFlag>FALSE</HiddenFlag>
+                                        </Base>
+                                        <NumericValue>0</NumericValue>
+                                    </OperatorArgumentValue>
+                                    <UseOperatorVariableNameFlag>FALSE</UseOperatorVariableNameFlag>
+                                    <InvertResultFlag>FALSE</InvertResultFlag>
+                                </ArrayElement>
+                            </ObjectArray>
+                        </Base>
+                        <InvertResultFlag>FALSE</InvertResultFlag>
+                        <AndVersusOrFlag>FALSE</AndVersusOrFlag>
+                        <Comment></Comment>
+                    </ConditionCollection>
+                    <LabelThen>end-loop</LabelThen>
+                    <LabelElse></LabelElse>
+                    <UseElseFlag>FALSE</UseElseFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptManageNumericVariable">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <NumericDataOperation>2</NumericDataOperation>
+                    <NumericDataVariable>%row_index%</NumericDataVariable>
+                    <ValueTextArgument1></ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGoTo">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <GoToLabel>start-loop</GoToLabel>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>end-loop</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptGoTo">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <GoToLabel>end</GoToLabel>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>error</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>global-error-handler</ProjectName>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptVarious">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>end</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ScriptActionType>2</ScriptActionType>
+                    <ParameterNumeric>0</ParameterNumeric>
+                    <ParameterText></ParameterText>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptExecuteProject">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <ProjectName>function-profit-release-connection</ProjectName>
+                </ArrayElement>
+            </ObjectArray>
+        </Base>
+        <ScriptInfo></ScriptInfo>
+        <EmbeddedNameGenerationFlag>FALSE</EmbeddedNameGenerationFlag>
+        <LogVariablesFlag>FALSE</LogVariablesFlag>
+        <DynActionDatabaseSyncId class="cUmraDynActionSetSyncId">
+            <Stamp>429</Stamp>
+            <Id>zuZ9fXpxK0ko+U#bdYeo9Bs</Id>
+        </DynActionDatabaseSyncId>
+        <VariableInfoCollection class="cVariableInfoCollection">
+            <Base class="cUmraObArray">
+                <ObjectArray/>
+            </Base>
+        </VariableInfoCollection>
+    </Script>
+    <AccessSettings class="cFormAccess">
+        <Base class="cJvrSec">
+            <Mask>6</Mask>
+            <DACL class="cJvrSecAcl">
+                <ProtectedFlag>FALSE</ProtectedFlag>
+                <ResetChildPermissionsFlags>TRUE</ResetChildPermissionsFlags>
+                <DaclDefaultedFlag>TRUE</DaclDefaultedFlag>
+                <Base class="cUmraObArray">
+                    <ObjectArray>
+                        <ArrayElement class="cJvrSecAce">
+                            <Base class="cJvrSecAceBase">
+                                <AceType>0</AceType>
+                                <AceFlags>0</AceFlags>
+                                <Mask>48</Mask>
+                                <Account class="cJvrSecAccount">
+                                    <Mask>5</Mask>
+                                    <AccountName>everyone</AccountName>
+                                    <AccountNameVariable></AccountNameVariable>
+                                    <AccountClassName></AccountClassName>
+                                    <AccountSid class="cJvrSecSid">
+                                        <InitializedFlag>TRUE</InitializedFlag>
+                                        <SID>BEAAAAAAAEAAAAAA</SID>
+                                    </AccountSid>
+                                </Account>
+                            </Base>
+                        </ArrayElement>
+                    </ObjectArray>
+                </Base>
+            </DACL>
+            <Group class="cJvrSecAccount">
+                <Mask>4</Mask>
+                <AccountName></AccountName>
+                <AccountNameVariable></AccountNameVariable>
+                <AccountClassName></AccountClassName>
+                <AccountSid class="cJvrSecSid">
+                    <InitializedFlag>TRUE</InitializedFlag>
+                    <SID>BIAAAAAAAUAIAAAAgIAAAAs</SID>
+                </AccountSid>
+            </Group>
+            <Owner class="cJvrSecAccount">
+                <Mask>4</Mask>
+                <AccountName></AccountName>
+                <AccountNameVariable></AccountNameVariable>
+                <AccountClassName></AccountClassName>
+                <AccountSid class="cJvrSecSid">
+                    <InitializedFlag>TRUE</InitializedFlag>
+                    <SID>BIAAAAAAAUAIAAAAgIAAAAs</SID>
+                </AccountSid>
+            </Owner>
+            <SecurityDescriptorControlBitsOfInterest>0</SecurityDescriptorControlBitsOfInterest>
+            <SecurityDescriptorControlBitsToSetwner>0</SecurityDescriptorControlBitsToSetwner>
+            <Base class="cUmData" Version="1">
+                <HiddenFlag>FALSE</HiddenFlag>
+            </Base>
+        </Base>
+    </AccessSettings>
+    <HelpInfoUrl></HelpInfoUrl>
+    <ScriptTimeOutSec>900</ScriptTimeOutSec>
+    <LocalProjectFlag>FALSE</LocalProjectFlag>
+    <LocalProjectFileName>C:\Program Files\UmraService\Projects\84a3b05a-e77d-472c-8350-b4a8389eee99.usp</LocalProjectFileName>
+    <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
+    <Scheduler class="cUmraWndSchedulerSpec">
+        <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
+        <Scheduler class="cUmraSchedulerNever">
+            <Base class="cUmraScheduler">
+                <DayIncludeFlags>127</DayIncludeFlags>
+                <SchedulerFlags>0</SchedulerFlags>
+                <Exceptions class="cUmraSchedulerExceptions">
+                    <ExceptionMode>0</ExceptionMode>
+                    <Base class="cUmraObArray">
+                        <ObjectArray/>
+                    </Base>
+                </Exceptions>
+            </Base>
+        </Scheduler>
+    </Scheduler>
+    <Base class="cUmFormNoScriptProject">
+        <ProjectName>03-auto-export-data-profit-managers-run</ProjectName>
+        <DisplayName>03-auto-export-data-profit-managers-run</DisplayName>
+        <UUID>aB7oE235$c0gQR#q44p7ZCs</UUID>
+        <ProjectComment></ProjectComment>
+        <ProjectLabels/>
+        <ShowInProjectsBarFlag>TRUE</ShowInProjectsBarFlag>
+        <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
+        <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
+        <PopupMessagesShown>2</PopupMessagesShown>
+        <BuildNumber>1683</BuildNumber>
+        <Form class="cForm">
+            <Base class="cUmraObArray">
+                <ObjectArray/>
+            </Base>
+            <ScreenDrawParam class="cFormScreenDrawParam">
+                <LeftMargin>10</LeftMargin>
+                <RightMargin>10</RightMargin>
+                <TopMargin>10</TopMargin>
+                <VerticalSpacing>0</VerticalSpacing>
+                <BackgroundColor>16777215</BackgroundColor>
+            </ScreenDrawParam>
+            <GlobalFontPoolFlag>TRUE</GlobalFontPoolFlag>
+            <PrivateFontPool class="cFormFontPool">
+                <Base class="cUmraObArray">
+                    <ObjectArray>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>0</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-13</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-22</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-16</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>0</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-11</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>0</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-19</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-44</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>0</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-44</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-44</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>0</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-44</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>700</Weight>
+                            <Italic>1</Italic>
+                            <Underline>0</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                        <ArrayElement class="cFormFont">
+                            <Height>-44</Height>
+                            <Width>0</Width>
+                            <Escapement>0</Escapement>
+                            <Orientation>0</Orientation>
+                            <Weight>400</Weight>
+                            <Italic>1</Italic>
+                            <Underline>1</Underline>
+                            <StrikeOut>0</StrikeOut>
+                            <CharSet>0</CharSet>
+                            <OutPrecision>0</OutPrecision>
+                            <ClipPrecision>0</ClipPrecision>
+                            <Quality>0</Quality>
+                            <Pitch>0</Pitch>
+                            <FontName>MS Shell Dlg</FontName>
+                        </ArrayElement>
+                    </ObjectArray>
+                </Base>
+            </PrivateFontPool>
+        </Form>
+    </Base>
+    <TableDataSpec class="cUmraWndTableDataSpec">
+        <UmraTableDefinition/>
+        <Base class="cUmraTableSpec">
+            <ColumnsDefinition class="cUmraTableColumnsDef">
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </ColumnsDefinition>
+            <ColumnsSpecification class="cUmraTableColumnsSpec">
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </ColumnsSpecification>
+            <EmbeddedDataFlag>FALSE</EmbeddedDataFlag>
+            <Base class="cUmraTableData">
+                <ColumnCount>0</ColumnCount>
+                <ColumnNames/>
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </Base>
+        </Base>
+    </TableDataSpec>
+    <FileDataSpec class="cUmraWndFileDataSpec">
+        <DataFileParam class="cDataFileParam">
+            <Base class="cDataFileParseInfo">
+                <Separators>
+                    <TextItem>,</TextItem>
+                </Separators>
+                <TextQualifier>"</TextQualifier>
+                <DelimitedFlag>TRUE</DelimitedFlag>
+                <FixedWidthPositions/>
+                <FirstRowFieldNamesFlag>FALSE</FirstRowFieldNamesFlag>
+                <FieldCanContainMultipleLinesFlag>FALSE</FieldCanContainMultipleLinesFlag>
+            </Base>
+            <FileName></FileName>
+            <FileHeaderColumnNames/>
+            <AddRowNumberFlag>TRUE</AddRowNumberFlag>
+        </DataFileParam>
+        <Base class="cUmraTableSpec">
+            <ColumnsDefinition class="cUmraTableColumnsDef">
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </ColumnsDefinition>
+            <ColumnsSpecification class="cUmraTableColumnsSpec">
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </ColumnsSpecification>
+            <EmbeddedDataFlag>FALSE</EmbeddedDataFlag>
+            <Base class="cUmraTableData">
+                <ColumnCount>0</ColumnCount>
+                <ColumnNames/>
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </Base>
+        </Base>
+    </FileDataSpec>
+    <NetworkDataSpec class="cUmraWndNetworkDataSpec">
+        <CallSet class="cTdCallSet">
+            <Base class="cUmraObArray">
+                <ObjectArray/>
+            </Base>
+        </CallSet>
+        <Base class="cUmraTableSpec">
+            <ColumnsDefinition class="cUmraTableColumnsDef">
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </ColumnsDefinition>
+            <ColumnsSpecification class="cUmraTableColumnsSpec">
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </ColumnsSpecification>
+            <EmbeddedDataFlag>FALSE</EmbeddedDataFlag>
+            <Base class="cUmraTableData">
+                <ColumnCount>0</ColumnCount>
+                <ColumnNames/>
+                <Base class="cUmraObArray">
+                    <ObjectArray/>
+                </Base>
+            </Base>
+        </Base>
+    </NetworkDataSpec>
+</UmraProject>

@@ -221,14 +221,10 @@
                             <OleDbProviderType>8</OleDbProviderType>
                         </OleDb>
                         <SqlCommands>
-                            <TextItem><![CDATA[BULK INSERT Cache_table_ad
-FROM '%Cache_csv_unc_path%\table_groups_cache.csv'
-WITH
-(
-FIELDTERMINATOR ='\t',
-ROWTERMINATOR = '\n',
-DATAFILETYPE = 'widechar'
-)]]></TextItem>
+                            <TextItem><![CDATA[EXEC spCache_ad_objects_add
+'%Cache_csv_unc_path%\table_groups_cache.csv',
+'%Domain_dc%',
+'group']]></TextItem>
                         </SqlCommands>
                         <TestVariables class="cUmVariableArray">
                             <Base class="cUmraObArray">
@@ -236,38 +232,7 @@ DATAFILETYPE = 'widechar'
                             </Base>
                         </TestVariables>
                         <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
-                        <FlagEscapeSingleQuote>FALSE</FlagEscapeSingleQuote>
-                    </SqlUpdate>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptDatabaseCommand">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>1</ErrorControl>
-                            <ErrorControlLabel>error</ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
-                    <SqlUpdate class="cUmraDbUpdate" Version="2">
-                        <OleDb class="cUmraOleDbGeneral">
-                            <Base class="cUmraOleDb"/>
-                            <ConnectionString>%Conn_string_db_umra%</ConnectionString>
-                            <OleDbProviderType>8</OleDbProviderType>
-                        </OleDb>
-                        <SqlCommands>
-                            <TextItem><![CDATA[UPDATE Cache_table_ad
-SET source = '%Domain_dc%', type = 'group'
-WHERE source IS NULL OR source = '']]></TextItem>
-                        </SqlCommands>
-                        <TestVariables class="cUmVariableArray">
-                            <Base class="cUmraObArray">
-                                <ObjectArray/>
-                            </Base>
-                        </TestVariables>
-                        <DoNotShowInLogFlag>FALSE</DoNotShowInLogFlag>
-                        <FlagEscapeSingleQuote>FALSE</FlagEscapeSingleQuote>
+                        <FlagEscapeSingleQuote>TRUE</FlagEscapeSingleQuote>
                     </SqlUpdate>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptVarious">
@@ -448,7 +413,7 @@ WHERE source IS NULL OR source = '']]></TextItem>
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1679</BuildNumber>
+        <BuildNumber>1683</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>

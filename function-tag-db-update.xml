@@ -88,15 +88,20 @@
                             <ConnectionString>%Conn_string_db_umra%</ConnectionString>
                             <OleDbProviderType>55466104</OleDbProviderType>
                         </UmraOleDb>
-                        <DatabaseQuery><![CDATA[EXEC spTag_save
+                        <DatabaseQuery><![CDATA[EXEC spTag_update
+%TAG_id%,
 '%description%',
 '%keywords%',
 '%category%',
+'%activity%',
+'%task%',
 %duration_hour%,
 %delay_hour%,
 %is_active%,
 %direct_provision%,
-%TAG_id%]]></DatabaseQuery>
+%validation_required%,
+%block_pending_validation%,
+%validation_interval_days%]]></DatabaseQuery>
                         <QueryResultColumnNames/>
                         <FlagEscapeSingleQuote>TRUE</FlagEscapeSingleQuote>
                     </TableDefinition>

@@ -41,23 +41,7 @@
                             <ConnectionString>%Conn_string_db_hrm%</ConnectionString>
                             <OleDbProviderType>74336136</OleDbProviderType>
                         </UmraOleDb>
-                        <DatabaseQuery><![CDATA[select CONVERT(varchar, dpib010.pers_nr) as 'pers_nr', 
-dpib010.naam_samen + ', ' + dpib010.e_roepnaam as 'vol_nm',
-e_vrlt, 
-dpib010.e_roepnaam, 
-dpib010.vrvg_samen, 
-dpib010.naam_samen, 
-func_kd,
-func_oms,
-oe_kort_nm, 
-oe_vol_nm, 
-indnst_dt, 
-uitdnst_dt
-From dpib010
-inner join dpic300 on dpic300.pers_nr = dpib010.pers_nr
-inner join dpib023 on dpib023.pers_nr = dpib010.pers_nr
-left join dpic351 on dpic351.func_kd = dpic300.primfunc_kd
-order by dpib010.pers_nr]]></DatabaseQuery>
+                        <DatabaseQuery>%Query_hrm_employees_all%</DatabaseQuery>
                         <QueryResultColumnNames/>
                         <FlagEscapeSingleQuote>FALSE</FlagEscapeSingleQuote>
                     </TableDefinition>

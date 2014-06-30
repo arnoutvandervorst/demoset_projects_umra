@@ -73,6 +73,1011 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
+                    <VariableName>%Query_iProtect_persons%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT p.[personid]
+      ,p.[salarynumber]
+      ,p.[firstname]
+      ,p.[prefix]
+      ,p.[name]
+      ,d.[name] as department
+      ,p.[freetext1] as title
+  FROM [UMRA].[dbo].[_iProtect_persons] p
+LEFT JOIN [UMRA].[dbo].[_iProtect_departments] d ON d.department_id = p.departmentid]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_iProtect_person%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT [personid]
+      ,[salarynumber]
+      ,[firstname]
+      ,[prefix]
+      ,[name]
+      ,[departmentid]
+      ,[freetext1]
+  FROM [UMRA].[dbo].[_iProtect_persons]
+WHERE salarynumber = '%pers_nr%']]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>1</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_iProtect_person_and_accesskey_for_dashboard%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT p.[personid] AS 'PersonID'
+	,p.[salarynumber] AS 'Administratienummer'
+	,p.[firstname] AS 'Voornaam'
+	,p.[prefix] AS 'Tussenvoegsel'
+	,p.[name] AS 'Naam'
+	,ak.accesskeyid AS 'Pas accessKeyID'
+	,ak.rcn AS 'Pas RCN'
+	,CASE ak.valid 
+		WHEN 1 THEN 'Bruikbaar' 
+		WHEN 0 THEN 'Niet bruikbaar'
+		ELSE 'Onbekend' 
+	 END AS 'Geldigheid'
+  FROM [UMRA].[dbo].[_iProtect_persons] p
+  LEFT JOIN _iProtect_accessKeys ak ON ak.personid = p.personid
+WHERE p.salarynumber = '%AD_employeeNumber%']]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label>2</Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_iProtect_person_with_readers_for_dashboard%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT p.[personid] AS 'PersonID'
+	,p.[salarynumber] AS 'Administratienummer'
+	,p.[firstname] AS 'Voornaam'
+	,p.[prefix] AS 'Tussenvoegsel'
+	,p.[name] AS 'Naam'
+	,ak.accesskeyid AS 'Pas accessKeyID'
+	,ak.rcn AS 'Pas RCN'
+	,CASE ak.valid 
+		WHEN 1 THEN 'Bruikbaar' 
+		WHEN 0 THEN 'Niet bruikbaar'
+		ELSE 'Onbekend' 
+	 END AS 'Geldigheid'
+	 ,r.keygroupname AS 'Keygroup'
+	 ,r.readername AS 'Reader'
+
+  FROM [UMRA].[dbo].[_iProtect_persons] p
+  LEFT JOIN _iProtect_accessKeys ak ON ak.personid = p.personid
+  LEFT JOIN _iProtect_accesskeys_linked_to_keygroups akkg ON akkg.accesskeyid = ak.accesskeyid
+  LEFT JOIN _iProtect_readers_and_readergroups r ON r.keygroupid = akkg.keygroupid 
+WHERE p.salarynumber = '%AD_employeeNumber%']]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_iProtect_accesskeys%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT [rcn]
+      ,[personid]
+      ,[cardclassid]
+      ,[valid]
+      ,[unlimited]
+      ,[startdate]
+      ,[enddate]
+      ,[expirationdate]
+      ,[keyuseid]
+      ,[blockclass]
+      ,[lasttranstime]
+      ,[areanr]
+      ,[areanrtime]
+      ,[parkareanr]
+      ,[parkareanrtime]
+      ,[accesskeyid]
+  FROM [UMRA].[dbo].[_iProtect_accessKeys]]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_iProtect_accesskey_of_person%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT [rcn]
+      ,[personid]
+      ,[cardclassid]
+      ,[valid]
+      ,[unlimited]
+      ,[startdate]
+      ,[enddate]
+      ,[expirationdate]
+      ,[keyuseid]
+      ,[blockclass]
+      ,[lasttranstime]
+      ,[areanr]
+      ,[areanrtime]
+      ,[parkareanr]
+      ,[parkareanrtime]
+      ,[accesskeyid]
+  FROM [UMRA].[dbo].[_iProtect_accessKeys]
+WHERE personid = '%iProtect_person_id%']]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_iProtect_keygroups_of_person%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT p.personid
+,p.salarynumber
+,ak.accesskeyid
+,ak.rcn
+,akkg.keykeygroupid
+,kg.keygroupid
+,kg.name
+  FROM _iProtect_persons p
+  LEFT JOIN _iProtect_accessKeys ak ON ak.personid = p.personid
+  LEFT JOIN _iProtect_accesskeys_linked_to_keygroups akkg ON akkg.accesskeyid = ak.accesskeyid
+  LEFT JOIN _iProtect_keygroups kg ON kg.keygroupid = akkg.keygroupid
+  WHERE p.salarynumber = '%pers_nr%'
+  AND ak.valid = 1]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_iProtect_keygroups%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT [keygroupid]
+      ,[name]
+  FROM [UMRA].[dbo].[_iProtect_keygroups]]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_employees_all_for_ultimo%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT employee.[pers_nr]
+      ,employee.[straat]
+      ,employee.[huisnummer]
+      ,employee.[huisnummer_tv]
+      ,employee.[postcode]
+      ,employee.[woonplaats]
+  FROM [UMRA].[dbo].[_profit_employees] employee
+  LEFT JOIN _profit_employee_placements_time placements_time ON placements_time.pers_nr = employee.pers_nr
+  
+  WHERE placements_time.formatie_percentage IS NOT NULL 
+  AND placements_time.formatie_percentage != 0
+  AND placements_time.einddatum >= getdate()
+  AND placements_time.einddatum_contract >= getdate()
+  AND placements_time.begindatum <= getdate()
+  AND placements_time.begindatum_contract <= getdate()
+
+  ORDER BY employee.pers_nr ASC
+  ,placements_time.einddatum_contract DESC
+  ,placements_time.einddatum DESC
+  ,placements_time.rooster_uren_pw DESC
+  ,placements_time.formatie_percentage DESC]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_employees_all_for_TOPdesk%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT employee.[pers_nr]
+      ,employee.[roepnaam]
+      ,employee.[voorletters]
+	  ,employee.[voornaam]
+      ,employee.[e_vrvg]
+      ,employee.[e_naam]
+      ,employee.[p_vrvg]
+      ,employee.[p_naam]
+      ,employee.[gbrk_nm]
+      ,employee.[geslacht]
+	  ,employee.[tel_werk]
+      ,placements_time.[functie_oms]
+      ,placements_time.[kostenplaats_code]
+	  ,Emanager.[pers_nr] as mngr_pers_nr
+	  ,employee.[pers_nr]
+  
+  FROM _profit_employees employee
+  LEFT JOIN _profit_employee_placements_time placements_time ON placements_time.pers_nr = employee.pers_nr
+  LEFT JOIN _profit_managers managers ON managers.oe_code = placements_time.oe_code
+  LEFT JOIN _profit_employees Emanager ON Emanager.pers_nr = managers.oe_manager_pers_nr
+  
+  WHERE placements_time.formatie_percentage IS NOT NULL 
+  AND placements_time.formatie_percentage != 0
+ 
+
+  AND placements_time.einddatum >= getdate()
+  AND placements_time.einddatum_contract >= getdate()
+ 
+ 
+  ORDER BY employee.pers_nr ASC
+  ,placements_time.einddatum_contract DESC
+  ,placements_time.einddatum DESC
+  ,placements_time.rooster_uren_pw DESC
+  ,placements_time.formatie_percentage DESC]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_employees_all_lite%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT employee.[pers_nr]
+FROM _profit_employees employee]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_employees_all%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT employee.[pers_nr]
+      ,employee.[roepnaam]
+      ,employee.[voorletters]
+	  ,employee.[voornaam]
+      ,employee.[e_vrvg]
+      ,employee.[e_naam]
+      ,employee.[p_vrvg]
+      ,employee.[p_naam]
+      ,employee.[gbrk_nm]
+      ,employee.[geslacht]
+	  ,employee.[leeftijd]
+	  ,employee.[geboortedatum]
+
+      ,placements_time.[einddatum_contract]
+  
+  FROM _profit_employees employee
+  LEFT JOIN _profit_employee_placements_time placements_time ON placements_time.pers_nr = employee.pers_nr
+  
+  WHERE placements_time.formatie_percentage IS NOT NULL 
+  AND placements_time.formatie_percentage != 0
+ 
+ORDER BY placements_time.pers_nr ASC
+,placements_time.einddatum_contract DESC
+,placements_time.einddatum DESC
+,placements_time.rooster_uren_pw DESC
+,placements_time.formatie_percentage DESC]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_employee_all_placements_incl_uitdienst%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT DISTINCT placements_time.[pers_nr]
+,placements_time.[werkgever_code]
+,placements_time.[werkgever_oms]
+,placements_time.[kostenplaats_code]
+,placements_time.[kostenplaats_oms]
+,placements_time.[oe_code]
+,placements_time.[oe_oms]
+,placements_time.[functie_code]
+,placements_time.[functie_oms]
+,placements_time.[functie_oms_tag]
+,placements_time.[begindatum]
+,placements_time.[begindatum_nl]
+,placements_time.[begindatum_contract]
+,placements_time.[begindatum_contract_nl]
+,placements_time.[einddatum_contract]
+,placements_time.[einddatum_contract_nl]
+,placements_time.[einddatum]
+,placements_time.[einddatum_nl]
+,placements_time.[begindatum_functie]
+,placements_time.[begindatum_functie_nl]
+,placements_time.[einddatum_functie]
+,placements_time.[einddatum_functie_nl]
+,placements_time.[begindatum_rooster]
+,placements_time.[begindatum_rooster_nl]
+,placements_time.[einddatum_rooster]
+,placements_time.[einddatum_rooster_nl]
+,placements_time.[rooster_uren_pw]
+,placements_time.[formatie_percentage]
+
+FROM _profit_employee_placements_time placements_time
+INNER JOIN _profit_employees e ON placements_time.pers_nr = e.pers_nr
+
+WHERE placements_time.formatie_percentage IS NOT NULL 
+AND placements_time.formatie_percentage != 0
+
+AND placements_time.pers_nr = '%pers_nr%'
+
+ORDER BY placements_time.pers_nr ASC
+,placements_time.einddatum_contract DESC
+,placements_time.einddatum DESC
+,placements_time.rooster_uren_pw DESC
+,placements_time.formatie_percentage DESC
+]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_employee_all_placements%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT DISTINCT placements_time.[pers_nr]
+,placements_time.[werkgever_code]
+,placements_time.[werkgever_oms]
+,placements_time.[kostenplaats_code]
+,placements_time.[kostenplaats_oms]
+,placements_time.[oe_code]
+,placements_time.[oe_oms]
+,placements_time.[functie_code]
+,placements_time.[functie_oms]
+,placements_time.[functie_oms_tag]
+,placements_time.[begindatum]
+,placements_time.[begindatum_nl]
+,placements_time.[begindatum_contract]
+,placements_time.[begindatum_contract_nl]
+,placements_time.[einddatum_contract]
+,placements_time.[einddatum_contract_nl]
+,placements_time.[einddatum]
+,placements_time.[einddatum_nl]
+,placements_time.[begindatum_functie]
+,placements_time.[begindatum_functie_nl]
+,placements_time.[einddatum_functie]
+,placements_time.[einddatum_functie_nl]
+,placements_time.[begindatum_rooster]
+,placements_time.[begindatum_rooster_nl]
+,placements_time.[einddatum_rooster]
+,placements_time.[einddatum_rooster_nl]
+,placements_time.[rooster_uren_pw]
+,placements_time.[formatie_percentage]
+
+FROM _profit_employee_placements_time placements_time
+INNER JOIN _profit_employees e ON placements_time.pers_nr = e.pers_nr
+
+WHERE placements_time.formatie_percentage IS NOT NULL 
+AND placements_time.formatie_percentage != 0
+AND placements_time.begindatum <= getdate()
+AND placements_time.begindatum_contract <= getdate()
+AND placements_time.begindatum_functie <= getdate()
+AND placements_time.begindatum_rooster <= getdate()
+
+AND placements_time.einddatum >= getdate()
+AND placements_time.einddatum_contract >= getdate()
+AND placements_time.einddatum_functie >= getdate()
+AND placements_time.einddatum_rooster >= getdate()
+
+AND placements_time.pers_nr = '%pers_nr%'
+
+ORDER BY placements_time.pers_nr ASC
+,placements_time.einddatum_contract DESC
+,placements_time.einddatum DESC
+,placements_time.rooster_uren_pw DESC
+,placements_time.formatie_percentage DESC
+]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_employee_all_placements_future%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT DISTINCT placements_time.[pers_nr]
+,placements_time.[werkgever_code]
+,placements_time.[werkgever_oms]
+,placements_time.[kostenplaats_code]
+,placements_time.[kostenplaats_oms]
+,placements_time.[oe_code]
+,placements_time.[oe_oms]
+,placements_time.[functie_code]
+,placements_time.[functie_oms]
+,placements_time.[functie_oms_tag]
+,placements_time.[begindatum]
+,placements_time.[begindatum_nl]
+,placements_time.[begindatum_contract]
+,placements_time.[begindatum_contract_nl]
+,placements_time.[einddatum_contract]
+,placements_time.[einddatum_contract_nl]
+,placements_time.[einddatum]
+,placements_time.[einddatum_nl]
+,placements_time.[begindatum_functie]
+,placements_time.[begindatum_functie_nl]
+,placements_time.[einddatum_functie]
+,placements_time.[einddatum_functie_nl]
+,placements_time.[begindatum_rooster]
+,placements_time.[begindatum_rooster_nl]
+,placements_time.[einddatum_rooster]
+,placements_time.[einddatum_rooster_nl]
+,placements_time.[rooster_uren_pw]
+,placements_time.[formatie_percentage]
+
+FROM _profit_employee_placements_time placements_time
+INNER JOIN _profit_employees e ON placements_time.pers_nr = e.pers_nr
+
+WHERE placements_time.formatie_percentage IS NOT NULL 
+AND placements_time.formatie_percentage != 0
+AND ( placements_time.begindatum > getdate() 
+	OR placements_time.begindatum_contract > getdate()
+	OR placements_time.begindatum_functie > getdate()
+	)
+
+AND placements_time.pers_nr = '%pers_nr%'
+
+ORDER BY placements_time.pers_nr ASC
+,placements_time.einddatum_contract DESC
+,placements_time.einddatum DESC
+,placements_time.rooster_uren_pw DESC
+,placements_time.formatie_percentage DESC
+]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_employees_all_placements%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT DISTINCT placements_time.[pers_nr]
+,placements_time.[werkgever_code]
+,placements_time.[werkgever_oms]
+,placements_time.[kostenplaats_code]
+,placements_time.[kostenplaats_oms]
+,placements_time.[oe_code]
+,placements_time.[oe_oms]
+,placements_time.[functie_code]
+,placements_time.[functie_oms]
+,placements_time.[functie_oms_tag]
+,placements_time.[begindatum]
+,placements_time.[begindatum_nl]
+,placements_time.[begindatum_contract]
+,placements_time.[begindatum_contract_nl]
+,placements_time.[einddatum_contract]
+,placements_time.[einddatum_contract_nl]
+,placements_time.[einddatum]
+,placements_time.[einddatum_nl]
+,placements_time.[begindatum_functie]
+,placements_time.[begindatum_functie_nl]
+,placements_time.[einddatum_functie]
+,placements_time.[einddatum_functie_nl]
+,placements_time.[begindatum_rooster]
+,placements_time.[begindatum_rooster_nl]
+,placements_time.[einddatum_rooster]
+,placements_time.[einddatum_rooster_nl]
+,placements_time.[rooster_uren_pw]
+,placements_time.[formatie_percentage]
+
+FROM _profit_employee_placements_time placements_time
+INNER JOIN _profit_employees e ON placements_time.pers_nr = e.pers_nr
+
+WHERE placements_time.formatie_percentage IS NOT NULL 
+AND placements_time.formatie_percentage != 0
+AND placements_time.begindatum <= getdate()
+AND placements_time.begindatum_contract <= getdate()
+AND placements_time.begindatum_functie <= getdate()
+AND placements_time.begindatum_rooster <= getdate()
+
+AND placements_time.einddatum >= getdate()
+AND placements_time.einddatum_contract >= getdate()
+AND placements_time.einddatum_functie >= getdate()
+AND placements_time.einddatum_rooster >= getdate()
+
+ORDER BY placements_time.pers_nr ASC
+,placements_time.einddatum_contract DESC
+,placements_time.einddatum DESC
+,placements_time.rooster_uren_pw DESC
+,placements_time.formatie_percentage DESC
+]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_employees_all_placements_future%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT DISTINCT placements_time.[pers_nr]
+,placements_time.[werkgever_code]
+,placements_time.[werkgever_oms]
+,placements_time.[kostenplaats_code]
+,placements_time.[kostenplaats_oms]
+,placements_time.[oe_code]
+,placements_time.[oe_oms]
+,placements_time.[functie_code]
+,placements_time.[functie_oms]
+,placements_time.[functie_oms_tag]
+,placements_time.[begindatum]
+,placements_time.[begindatum_nl]
+,placements_time.[begindatum_contract]
+,placements_time.[begindatum_contract_nl]
+,placements_time.[einddatum_contract]
+,placements_time.[einddatum_contract_nl]
+,placements_time.[einddatum]
+,placements_time.[einddatum_nl]
+,placements_time.[begindatum_functie]
+,placements_time.[begindatum_functie_nl]
+,placements_time.[einddatum_functie]
+,placements_time.[einddatum_functie_nl]
+,placements_time.[begindatum_rooster]
+,placements_time.[begindatum_rooster_nl]
+,placements_time.[einddatum_rooster]
+,placements_time.[einddatum_rooster_nl]
+,placements_time.[rooster_uren_pw]
+,placements_time.[formatie_percentage]
+
+FROM _profit_employee_placements_time placements_time
+INNER JOIN _profit_employees e ON placements_time.pers_nr = e.pers_nr
+
+WHERE placements_time.formatie_percentage IS NOT NULL 
+AND placements_time.formatie_percentage != 0
+AND ( placements_time.begindatum > getdate() 
+	OR placements_time.begindatum_contract > getdate()
+	OR placements_time.begindatum_functie > getdate()
+	)
+
+ORDER BY placements_time.pers_nr ASC
+,placements_time.einddatum_contract DESC
+,placements_time.einddatum DESC
+,placements_time.rooster_uren_pw DESC
+,placements_time.formatie_percentage DESC
+]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_kostenplaats_manager%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT [oe_code]
+      ,[oe_manager_pers_nr]
+  FROM [UMRA].[dbo].[_profit_managers]]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_kstnpltsn_all%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT DISTINCT kostenplaats_code
+	,kostenplaats_oms
+FROM _profit_employee_placements_time]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_allowed_costcentres_rbac_all%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT DISTINCT kostenplaats_oms
+,kostenplaats_code
+FROM _temp_allowed_roles_modification_kostenplaatsen]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_oe_all%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT DISTINCT [oe_code]      
+,[oe_oms]      
+,[oe_code] as kol1      
+,[oe_code] as kol2      
+,'%tag_keywords_prefix_afd%' + [oe_code] AS keywords
+,[oe_oms] AS description
+FROM _profit_employee_placements_time  ORDER BY keywords ASC]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_oe_function_all%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT DISTINCT [oe_code]      
+,[oe_oms]      
+,functie_code      
+,[functie_oms]      
+,'%tag_keywords_prefix_afd%' + [oe_code] + ';%tag_keywords_prefix_func%' + functie_code AS keywords      
+,[oe_oms] + ' - ' + [functie_oms] AS description  
+
+FROM _profit_employee_placements_time  ORDER BY keywords ASC]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_hrm_function_all%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT DISTINCT [functie_code]      
+,[functie_oms]      
+,[functie_code] as kol1      
+,[functie_code] as kol2      
+,'%tag_keywords_prefix_func%' + [functie_code] AS keywords
+,[functie_oms] AS description
+FROM _profit_employee_placements_time  ORDER BY keywords ASC]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_ultimo_employee_telephonenumber%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT [Code]
+      ,[Telefoonnr]
+  FROM [ASZUltimo_prod].[dba].[_applview_PhoneBook]
+  WHERE [Code] = '%pers_nr%']]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_ultimo_employee_dienstattributen%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT  t1.pnr AS 'Personeelsnummer'
+,t1.winaccount AS 'sAMACcountName'
+,t1.[attribuutsoort] AS 'Soort'
+,t1.[nummer] AS 'Nummer'
+,t1.[datumuitgifte] AS 'Datum Uitgifte'
+,CONVERT(varchar,t1.[datumuitgifte],105) AS 'Datum Uitgifte NL'
+,t1.[datumretour] AS 'Datum Retour'
+,CONVERT(varchar,t1.[datumretour],105) AS 'Datum Retour NL'
+,t1.[datumverlies] AS 'Datum Verlies'
+,CONVERT(varchar,t1.[datumverlies],105) AS 'Datum Verlies NL'
+,CASE t1.[2=actief/8=vermist] 
+       WHEN 2 THEN 'Actief'
+       WHEN 8 THEN 'Vermist' 
+       ELSE 'Onbekend'
+END AS 'status'
+FROM ULTIMOLOGIN.UMRA_DA t1
+WHERE t1.pnr ='%pers_nr%'
+ORDER BY pnr ASC, t1.[datumuitgifte] ASC, t1.[attribuutsoort] ASC
+]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <VariableName>%Query_samaccountname_history%</VariableName>
+                    <Data class="cUmDataText">
+                        <Base class="cUmData" Version="1">
+                            <HiddenFlag>FALSE</HiddenFlag>
+                        </Base>
+                        <TextValue><![CDATA[SELECT
+     [pers_nr]
+     ,[samaccountname]
+     ,[van]
+     ,[tot]
+FROM
+     [UMRA].[dbo].[_samaccountname_history]]]></TextValue>
+                    </Data>
+                    <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptSetVariable" Version="1">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
                     <VariableName>%Query_hrm_employees_all%</VariableName>
                     <Data class="cUmDataText">
                         <Base class="cUmData" Version="1">
@@ -98,7 +1103,7 @@ INNER JOIN dpic351 f on f.func_kd = c.primfunc_kd
 ORDER BY p.pers_nr]]></TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>TRUE</SetOnlyIfNotExistFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
@@ -136,7 +1141,7 @@ ORDER BY c.indnst_dt
 ]]></TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>TRUE</SetOnlyIfNotExistFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
@@ -173,7 +1178,7 @@ WHERE c.uitdnst_dt < GETDATE()
 ORDER BY p.pers_nr]]></TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>TRUE</SetOnlyIfNotExistFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">
@@ -208,7 +1213,7 @@ INNER JOIN dpic351 f ON c.primfunc_kd = f.func_kd
 WHERE p.pers_nr = %employeeID%]]></TextValue>
                     </Data>
                     <ResolveImmediatelyFlag>FALSE</ResolveImmediatelyFlag>
-                    <SetOnlyIfNotExistFlag>TRUE</SetOnlyIfNotExistFlag>
+                    <SetOnlyIfNotExistFlag>FALSE</SetOnlyIfNotExistFlag>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptSetVariable" Version="1">
                     <Base class="cActionItemScript">

@@ -518,8 +518,8 @@ NULL,
                     <TableVariableName>%Table_query_db%</TableVariableName>
                     <ProjectName>function-tag-db-disable-object</ProjectName>
                     <ColumnVariablesMap>
-                        <TextItem>%TAG_id%</TextItem>
                         <TextItem>%TAG_id_object%</TextItem>
+                        <TextItem>%TAG_id%</TextItem>
                     </ColumnVariablesMap>
                     <ReturnVariableNames>
                         <TextItem>%Status_operation%</TextItem>
@@ -1029,10 +1029,10 @@ NULL,
     <DisableScriptActionRamLogging>TRUE</DisableScriptActionRamLogging>
     <Scheduler class="cUmraWndSchedulerSpec">
         <InputDataSpecificationParameter>0</InputDataSpecificationParameter>
-        <Scheduler class="cUmraSchedulerDaily">
+        <Scheduler class="cUmraSchedulerNever">
             <Base class="cUmraScheduler">
                 <DayIncludeFlags>127</DayIncludeFlags>
-                <SchedulerFlags>1</SchedulerFlags>
+                <SchedulerFlags>0</SchedulerFlags>
                 <Exceptions class="cUmraSchedulerExceptions">
                     <ExceptionMode>0</ExceptionMode>
                     <Base class="cUmraObArray">
@@ -1040,13 +1040,11 @@ NULL,
                     </Base>
                 </Exceptions>
             </Base>
-            <Hour>20</Hour>
-            <Minute>0</Minute>
         </Scheduler>
     </Scheduler>
     <Base class="cUmFormNoScriptProject">
         <ProjectName>auto-tags-db-process</ProjectName>
-        <DisplayName>auto-snapshots-ad-create</DisplayName>
+        <DisplayName>auto-tags-db-process</DisplayName>
         <UUID>YEIpKVPJfGEu4p#uhK#@OAs</UUID>
         <ProjectComment></ProjectComment>
         <ProjectLabels/>
@@ -1054,7 +1052,7 @@ NULL,
         <UpdatePreviewFlag>TRUE</UpdatePreviewFlag>
         <UpdatePreviewOnActivate>TRUE</UpdatePreviewOnActivate>
         <PopupMessagesShown>2</PopupMessagesShown>
-        <BuildNumber>1679</BuildNumber>
+        <BuildNumber>1683</BuildNumber>
         <Form class="cForm">
             <Base class="cUmraObArray">
                 <ObjectArray/>

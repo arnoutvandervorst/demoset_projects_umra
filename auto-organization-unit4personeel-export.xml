@@ -27,19 +27,6 @@
                             <ErrorVariableContents></ErrorVariableContents>
                         </Base>
                     </Base>
-                    <ProjectName>global-init-sap</ProjectName>
-                </ArrayElement>
-                <ArrayElement class="cActionItemScriptExecuteProject">
-                    <Base class="cActionItemScript">
-                        <Base class="cActionItem">
-                            <Label></Label>
-                            <ErrorControl>0</ErrorControl>
-                            <ErrorControlLabel></ErrorControlLabel>
-                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
-                            <ErrorVariableName></ErrorVariableName>
-                            <ErrorVariableContents></ErrorVariableContents>
-                        </Base>
-                    </Base>
                     <ProjectName>global-init-db</ProjectName>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptIfThenElse">
@@ -107,15 +94,20 @@
                         </UmraOleDb>
                         <DatabaseQuery><![CDATA[SELECT
 wtyp."wtyp-cd-wtyp",
+wtyp."wtyp-lo-indi",
 wtyp."wtyp-cd-ext",
 wbas."wbas-ky",
-wtyp."wtyp-ky" ,
+wbas."wbas-lo-indi",
+wtyp."wtyp-ky",
 wtyp."wtyp-nr-wtyp",
 wtyp."wtyp-cd-int",
 TO_CHAR(wroo."wroo-qt-uurw"),
 wroo."wroo-cd-part",
 wfun."ofun-kc",
+ofun."ofun-om-ofun",
+ofun."ofun-lo-besc",
 wfun."okso-kc",
+okos."okos-nm-okos",
 worg."obas-kc",
 worg."oorg-kc",
 worg."olok-kc",
@@ -138,43 +130,89 @@ wpar."wpar-cd-naam",
 wtax."wtax-cd-sofi",
 wtyp."wtyp-cd-type",
 wtyp."wtyp-cd-stat",
+wrel."wtyp-ky-bwty",
 wdie."wdie-dw-begi",
-wdie."wdie-dw-eind",
-wrel."wtyp-ky-bwty"
+wdie."wdie-dw-eind"
 FROM pub.wtyp "wtyp"
 INNER JOIN pub.wbas "wbas" ON wbas."wbas-ky" = wtyp."wbas-ky"
-     AND wbas."wbas-cd-mut" = 'c'
-     AND wbas."wbas-dg-eint" = (SELECT MAX(wbas."wbas-dg-eint") FROM pub.wbas "wbas" WHERE wbas."wbas-ky" = wtyp."wbas-ky")
-LEFT JOIN pub.wpar "wpar" ON wpar."wbas-ky" = wtyp."wbas-ky"
-     AND wpar."wpar-cd-mut" = 'c'
-     AND wpar."wpar-dg-eint" = (SELECT MAX(wpar."wpar-dg-eint") FROM pub.wpar "wpar" WHERE wpar."wbas-ky" = wtyp."wbas-ky")    
-LEFT JOIN pub.wtax "wtax" ON wtax."wbas-ky" = wtyp."wbas-ky"
-     AND wtax."wtax-cd-mut" = 'c'
-     AND wtax."wtax-dg-eint" = (SELECT MAX(wtax."wtax-dg-eint") FROM pub.wtax "wtax" WHERE wtax."wbas-ky" = wtyp."wbas-ky")
-LEFT JOIN pub.wfun "wfun" ON wfun."wtyp-ky" = wtyp."wtyp-ky"
-     AND wfun."wfun-cd-mut" = 'c'
-     AND wfun."wfun-dg-eint" = (SELECT MAX(wfun."wfun-dg-eint") FROM pub.wfun "wfun" WHERE wfun."wtyp-ky" = wtyp."wtyp-ky")
-LEFT JOIN pub.worg "worg" ON worg."wtyp-ky" = wtyp."wtyp-ky"
-     AND worg."worg-cd-mut" = 'c'
-     AND worg."worg-dg-eint" = (SELECT MAX(worg."worg-dg-eint") FROM pub.worg "worg" WHERE worg."wtyp-ky" = wtyp."wtyp-ky")
-LEFT JOIN pub.wroo "wroo" ON wroo."wtyp-ky" = wtyp."wtyp-ky"
-     AND wroo."wroo-cd-mut" = 'c'
-     AND wroo."wroo-dg-eint" = (SELECT MAX(wroo."wroo-dg-eint") FROM pub.wroo "wroo" WHERE wroo."wtyp-ky" = wtyp."wtyp-ky")
+	AND wbas."wbas-cd-mut" = 'c'
+	AND wbas."wbas-dg-begi" <= SYSDATE + 14
+	AND wbas."wbas-dg-eint" >= SYSDATE
 LEFT JOIN pub.wdie "wdie" ON wdie."wtyp-ky" = wtyp."wtyp-ky"
-     AND wdie."wdie-cd-mut" = 'c'
-     AND wdie."wdie-dg-eint" = (SELECT MAX(wdie."wdie-dg-eint") FROM pub.wdie "wdie" WHERE wdie."wtyp-ky" = wtyp."wtyp-ky")     
+	AND wdie."wdie-cd-mut" = 'c'
+LEFT JOIN pub.wpar "wpar" ON wpar."wbas-ky" = wtyp."wbas-ky" 
+	AND wpar."wpar-cd-mut" = 'c'
+	AND wpar."wpar-dg-begi" <= SYSDATE + 14
+	AND wpar."wpar-dg-eint" >= SYSDATE
+LEFT JOIN pub.wtax "wtax" ON wtax."wbas-ky" = wtyp."wbas-ky"
+	AND wtax."wtax-cd-mut" = 'c'
+	AND wtax."wtax-dg-begi" <= SYSDATE + 14
+	AND wtax."wtax-dg-eint" >= SYSDATE
+LEFT JOIN pub.wfun "wfun" ON wfun."wtyp-ky" = wtyp."wtyp-ky"
+	AND wfun."wfun-cd-mut" = 'c'
+	AND wfun."wfun-dg-begi" <= SYSDATE + 14
+	AND wfun."wfun-dg-eint" >= SYSDATE
+LEFT JOIN pub.wkos "wkos" ON wkos."wtyp-ky" = wtyp."wtyp-ky"
+	AND wkos."wkos-cd-mut" = 'c'
+	AND wkos."wkos-dg-begi" <= SYSDATE + 14
+	AND wkos."wkos-dg-eint" >= SYSDATE	
+LEFT JOIN pub.worg "worg" ON worg."wtyp-ky" = wtyp."wtyp-ky"
+	AND worg."worg-cd-mut" = 'c'
+	AND worg."worg-dg-begi" <= SYSDATE + 14
+	AND worg."worg-dg-eint" >= SYSDATE
+LEFT JOIN pub.wroo "wroo" ON wroo."wtyp-ky" = wtyp."wtyp-ky"
+	AND wroo."wroo-cd-mut" = 'c'
+	AND wroo."wroo-dg-begi" <= SYSDATE + 14
+	AND wroo."wroo-dg-eint" >= SYSDATE
 LEFT JOIN pub.wwer "wwer" ON wwer."wtyp-ky" = wtyp."wtyp-ky"
-     AND wwer."wwer-cd-mut" = 'c'
-     AND wwer."wwer-dg-eint" = (SELECT MAX(wwer."wwer-dg-eint") FROM pub.wwer "wwer" WHERE wwer."wtyp-ky" = wtyp."wtyp-ky")     
+	AND wwer."wwer-cd-mut" = 'c'
+	AND wwer."wwer-dg-begi" <= SYSDATE + 14
+	AND wwer."wwer-dg-eint" >= SYSDATE
 LEFT JOIN pub.wrel "wrel" ON wrel."wtyp-ky" = wtyp."wtyp-ky"
-     AND wrel."wrel-cd-mut" = 'c'
-     AND wrel."wrel-dg-eint" = (SELECT MAX(wrel."wrel-dg-eint") FROM pub.wrel "wrel" WHERE wrel."wtyp-ky" = wtyp."wtyp-ky")
+	AND wrel."wrel-cd-mut" = 'c'
+	AND wrel."wrel-dg-begi" <= SYSDATE + 14
+	AND wrel."wrel-dg-eint" >= SYSDATE
+LEFT JOIN pub.ofun "ofun" ON ofun."ofun-kc" = wfun."ofun-kc"
+	AND ofun."ofun-cd-mut" = 'c'
+	AND ofun."ofun-dg-begi" <= SYSDATE + 14
+	AND ofun."ofun-dg-eint" >= SYSDATE
+LEFT JOIN pub.okos "okos" ON okos."okos-kc" = wkos."okos-kc"
+	AND okos."okos-cd-mut" = 'c'
+	AND okos."okos-dg-begi" <= SYSDATE + 14
+	AND okos."okos-dg-eint" >= SYSDATE
 WHERE wtyp."wtyp-cd-mut" = 'c'
-AND wtyp."wtyp-dg-eint" = (SELECT MAX(ztyp."wtyp-dg-eint") FROM pub.wtyp "ztyp" WHERE ztyp."wtyp-ky" = wtyp."wtyp-ky")
-AND wtyp."wtyp-cd-ext" = '']]></DatabaseQuery>
+AND wtyp."wtyp-dg-begi" <= SYSDATE + 14
+AND wtyp."wtyp-dg-eint" >= SYSDATE
+AND wtyp."wtyp-cd-ext" = ''
+ORDER BY 
+wtyp."wtyp-ky",
+wdie."wdie-dw-begi" DESC,
+wdie."wdie-dw-eind" DESC]]></DatabaseQuery>
                         <QueryResultColumnNames/>
                         <FlagEscapeSingleQuote>FALSE</FlagEscapeSingleQuote>
                     </TableDefinition>
+                </ArrayElement>
+                <ArrayElement class="cActionItemScriptTableData">
+                    <Base class="cActionItemScript">
+                        <Base class="cActionItem">
+                            <Label></Label>
+                            <ErrorControl>0</ErrorControl>
+                            <ErrorControlLabel></ErrorControlLabel>
+                            <ErrorVariableFlag>FALSE</ErrorVariableFlag>
+                            <ErrorVariableName></ErrorVariableName>
+                            <ErrorVariableContents></ErrorVariableContents>
+                        </Base>
+                    </Base>
+                    <TableDataOperation>6</TableDataOperation>
+                    <TableDataVariable>%Table_query_db%</TableDataVariable>
+                    <ValueTextArgument1>0</ValueTextArgument1>
+                    <ValueTextArgument2></ValueTextArgument2>
+                    <ValueTextArgument3></ValueTextArgument3>
+                    <ValueTextArgument4></ValueTextArgument4>
+                    <ValueBoolArgument1>FALSE</ValueBoolArgument1>
+                    <ValueBoolArgument2>FALSE</ValueBoolArgument2>
+                    <ValueNumericArgument1>0</ValueNumericArgument1>
+                    <ValueNumericArgument2>0</ValueNumericArgument2>
                 </ArrayElement>
                 <ArrayElement class="cActionItemScriptTableData">
                     <Base class="cActionItemScript">
@@ -191,7 +229,7 @@ AND wtyp."wtyp-cd-ext" = '']]></DatabaseQuery>
                     <TableDataVariable>%Table_query_db%</TableDataVariable>
                     <ValueTextArgument1>%UmraPath%\UMRA_Employees_Unit4personeel.csv</ValueTextArgument1>
                     <ValueTextArgument2>&lt;TAB&gt;</ValueTextArgument2>
-                    <ValueTextArgument3>UNICODE</ValueTextArgument3>
+                    <ValueTextArgument3>UNICODE,HEADER</ValueTextArgument3>
                     <ValueTextArgument4></ValueTextArgument4>
                     <ValueBoolArgument1>FALSE</ValueBoolArgument1>
                     <ValueBoolArgument2>FALSE</ValueBoolArgument2>
